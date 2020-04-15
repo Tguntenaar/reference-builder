@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Button, StyleSheet} from 'react-native';
+import { Text, View, Button, StyleSheet } from 'react-native';
 
 function DetailedRatingScreen({ navigation }) {
   return (
@@ -21,6 +21,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
 
 export default DetailedRatingScreen

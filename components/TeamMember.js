@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, Image } from 'react-native';
 
-// {navigation, grade, name, description}
 export default function TeamMember({name, jobTitle}) {
   const handlePress = () => { 
     alert('Requested!');
@@ -9,9 +8,7 @@ export default function TeamMember({name, jobTitle}) {
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-        <View style={styles.circle}>
-          <Text style={styles.grade}>{name}</Text>
-        </View>
+       <Image style={styles.image} source={require('../assets/thomas-guntenaar.jpeg')}/>
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
@@ -36,6 +33,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     flexDirection: 'row',
     marginBottom:20,
+  },
+  image: {
+    width: 88,
+    height: 88,
+    borderRadius: 44,
   },
   textBox: {
     flexDirection: 'column',

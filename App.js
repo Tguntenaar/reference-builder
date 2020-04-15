@@ -1,14 +1,10 @@
-// import React from 'react';
+/** First import gesture handler */
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import { StyleSheet, SafeAreaView} from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
-import TopTabNavigator from './navigation/TopTabNavigator.js';
-
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import ParentNavigation from './navigation/ParentNavigation.js';
-
-const Tab = createMaterialTopTabNavigator();
 
 export default function App() {
   return (

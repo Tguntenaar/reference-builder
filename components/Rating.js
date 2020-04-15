@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, Button } from 'react-native';
 
-// {navigation, grade, name, description}
 export default function Rating({grade, name, description, navigation }) {
   const onPressSeeDetails = () => { 
     navigation.navigate('RatingsDetailsScreen') 
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
 
   },
   title: {
-    width: 83,
+    width: 130,
     height: 20,
     // fontFamily: "CooperHewitt",
     fontSize: 20,

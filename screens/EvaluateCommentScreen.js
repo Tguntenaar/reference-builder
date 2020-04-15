@@ -1,14 +1,15 @@
 import React from 'react'
-import { Text, View, Button, StyleSheet} from 'react-native';
+import { Text, View, Button, StyleSheet } from 'react-native';
+
+import NextButton from '../components/NextButton';
+
 
 function EvaluateCommentScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Open up EvaluateCommentScreen.js to start working on your app!</Text>
-      <Button
-        title="Go back to tabs"
-        onPress={() => navigation.navigate('Tabs')}
-      />
+      
+      <NextButton title={"Next"} onPress={() => navigation.navigate('Tabs')} />
     </View>
   )
 }
