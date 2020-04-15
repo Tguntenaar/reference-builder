@@ -1,14 +1,12 @@
 import React from 'react'
-import { Text, View, Button, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import NextButton from '../components/NextButton';
 
 function DetailedRatingScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Open up RatingsDetailsScreen.js to start working on your app!</Text>
-      <Button
-        title="Go to Ratings"
-        onPress={() => navigation.navigate('Tabs')}
-      />
+      <NextButton title={"Next"} onPress={() => navigation.navigate('Tabs')} />
     </View>
   )
 }

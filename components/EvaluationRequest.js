@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Button, Image } from 'react-native';
+import { Text, StyleSheet, View, Image } from 'react-native';
+import NextButton from './NextButton';
 
 export default function EvaluationRequest({name, jobTitle, navigation}) {
-  const onPressSeeDetails = () => { 
-    navigation.navigate('EvaluateScreen') 
-  };
+ 
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
@@ -13,13 +12,7 @@ export default function EvaluationRequest({name, jobTitle, navigation}) {
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.description}>{jobTitle}</Text>
-        <Button
-          onPress={onPressSeeDetails}
-          title="Evaluate"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-          style={styles.seeDetails}
-        />
+        <NextButton title={"Evaluate"} onPress={() => navigation.navigate('EvaluateScreen')} />
       </View>
     </View>
   );
