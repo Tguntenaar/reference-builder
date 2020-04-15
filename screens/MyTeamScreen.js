@@ -1,11 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import TeamMember from '../components/TeamMember';
 
 
-function MyTeamScreen() {
+function MyTeamScreen({ navigation }) {
   return (
     <View style={styles.container}>
         <Text>Open up App.js to start working on your app!</Text>
+        <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('RatingsDetailsScreen')}
+      />
+      <TeamMember name="Thomas Guntenaar" jobTitle="Developer"/>
+      <TeamMember name="Thomas Guntenaar" jobTitle="Developer"/>
+      <TeamMember name="Thomas Guntenaar" jobTitle="Developer"/>
       </View>
   )
 }

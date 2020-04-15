@@ -1,14 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import React from 'react'
+import { Text, View, Button, StyleSheet} from 'react-native';
 
-
-function RatingsDetailsScreen({ navigation }) {
+function DetailedRatingScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Open up RatingsDetailsScreen.js to start working on your app!</Text>
       <Button
         title="Go to Ratings"
-        onPress={() => navigation.navigate('DetailedRatingScreen')}
+        onPress={() => navigation.navigate('Tabs')}
       />
     </View>
   )
@@ -24,4 +23,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default RatingsDetailsScreen
+export default DetailedRatingScreen

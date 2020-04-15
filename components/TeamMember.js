@@ -2,23 +2,23 @@ import * as React from 'react';
 import { Text, StyleSheet, View, Button } from 'react-native';
 
 // {navigation, grade, name, description}
-export default function Rating({grade, name, description, navigation }) {
-  const onPressSeeDetails = () => { 
-    navigation.navigate('RatingsDetailsScreen') 
+export default function TeamMember({name, jobTitle}) {
+  const handlePress = () => { 
+    alert('Requested!');
   };
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
         <View style={styles.circle}>
-          <Text style={styles.grade}>{grade}</Text>
+          <Text style={styles.grade}>{name}</Text>
         </View>
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.description}>{jobTitle}</Text>
         <Button
-          onPress={onPressSeeDetails}
-          title="See details"
+          onPress={handlePress}
+          title="Request evaluation"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
           style={styles.seeDetails}

@@ -7,15 +7,17 @@ const Stack = createStackNavigator();
 
 //new
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import MyTeamScreen from '../screens/MyTeamScreen.js';
+import EvaluationsScreen from '../screens/EvaluationsScreen.js';
 const Tab = createMaterialTopTabNavigator();
 
-function RatingsNavigation() {
+function EvaluationNavigation() {
   return (
-    <Stack.Navigator initialRouteName="RatingsScreen">
-      <Stack.Screen name="RatingsScreen" component={RatingsScreen} navigation={Stack} />
+    <Stack.Navigator initialRouteName="EvaluationsScreen">
+      <Stack.Screen name="EvaluationsScreen" component={EvaluationsScreen} navigation={Stack} />
       <Stack.Screen name="RatingsDetailsScreen" component={RatingsDetailsScreen} navigation={Stack} />
     </Stack.Navigator>
   )
 }
 
-export default RatingsNavigation
+export default EvaluationNavigation

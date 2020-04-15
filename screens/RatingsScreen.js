@@ -11,10 +11,13 @@ function RatingsScreen({ navigation }) {
         title="Go to Details"
         onPress={() => navigation.navigate('RatingsDetailsScreen')}
       />
+      <Rating name="Creativity" grade="8.1" description="description" navigation={navigation}/>
+      <Rating name="Creativity" grade="8.1" description="description" navigation={navigation}/>
+      <Rating name="Creativity" grade="8.1" description="description" navigation={navigation}/>
+      
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
