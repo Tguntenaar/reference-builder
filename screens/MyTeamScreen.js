@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import TeamMember from '../components/TeamMember';
 
 
-function MyTeamScreen({ navigation }) {
+function MyTeamScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
       <TeamMember name="Thomas Guntenaar" jobTitle="Developer"/>
       <TeamMember name="Thomas Guntenaar" jobTitle="Developer"/>
       <TeamMember name="Thomas Guntenaar" jobTitle="Developer"/>
-      </View>
+    </ScrollView>
   )
 }
 
@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  scroll: {
     alignItems: 'center',
     justifyContent: 'center',
+    flexGrow: 1,
   },
+  
 });
 
 export default MyTeamScreen

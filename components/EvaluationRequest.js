@@ -7,7 +7,7 @@ export default function EvaluationRequest({name, jobTitle, navigation}) {
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-        <Image style={styles.image} source={require('../assets/boris-guntenaar.jpeg')}/>
+        <Image style={styles.image} source={require('../assets/images/boris-guntenaar.jpeg')}/>
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>

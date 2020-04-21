@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Button, Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 // Navigation
-import TabNavigator from './TabNavigation.js';
+import TabNavigation from './TabNavigation.js';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
@@ -14,6 +14,7 @@ import EvaluateScreen from '../screens/EvaluateScreen.js';
 import EvaluateCommentScreen from '../screens/EvaluateCommentScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
 
+import Circle from '../components/Circle'
 
 function ParentNavigation() {
   
@@ -26,15 +27,16 @@ function ParentNavigation() {
             height: 0,
         },
       }} >
-      <Stack.Screen name="Tabs" component={TabNavigator} 
+      <Stack.Screen name="Tabs" component={TabNavigation} 
       options={({navigation, route}) => ({
         headerTitle: () => (
           <View style={styles.container}>
+            {/*<Circle style={styles.circle}/>*/}
             <Text style={styles.jobTitle}>Founder</Text>
             <Text style={styles.name}>Esther Rookhuijzen</Text>
+            {/*<Circle />*/}
           </View>
         ),
-        title:'Tongbang Jun-Seo',
         headerStyle: {
           backgroundColor: '#0009EE',
           shadowColor:'transparent',
@@ -45,7 +47,7 @@ function ParentNavigation() {
           fontWeight: 'bold',
         },
         headerLeft: () => (
-          <Image source={require('../assets/esther-rookhuijzen.jpeg')} style={styles.image} />
+          <Image source={require('../assets/images/esther-rookhuijzen.jpeg')} style={styles.image} />
         ),
         headerRight: () => (
           <Feather name={"settings"} color={"#fff"} 
@@ -53,34 +55,52 @@ function ParentNavigation() {
           style={styles.settingsIcon}/>
         ),
       })} />
-      <Stack.Screen name="RatingsDetailsScreen" component={RatingsDetailsScreen}/>
-      <Stack.Screen name="DetailedRatingScreen" component={DetailedRatingScreen} />
-      <Stack.Screen name="EvaluateScreen" component={EvaluateScreen} />
-      <Stack.Screen name="EvaluateCommentScreen" component={EvaluateCommentScreen} />
+      <Stack.Screen name="RatingsDetailsScreen" component={RatingsDetailsScreen} options={{
+        headerShown: false,
+      }}/>
+      <Stack.Screen name="DetailedRatingScreen" component={DetailedRatingScreen} options={{
+        headerShown: false,
+      }}/>
+      <Stack.Screen name="EvaluateScreen" component={EvaluateScreen} options={{
+        headerShown: false,
+      }}/>
+      <Stack.Screen name="EvaluateCommentScreen" component={EvaluateCommentScreen} options={{
+        headerShown: false,
+      }}/>
       <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
     </Stack.Navigator>
   )
 }
 
+const imageSize = 100;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 154,
     justifyContent: 'center',
+    // zIndex: -10,
   },
   jobTitle: {
-    color:'#fff',
+    marginTop:20,
     fontSize: 20,
+    color:'#fff',
+    fontFamily: "CooperHewitt-BookItalic",
+    width: 250,
+  },
+  circle: {
+    // zIndex: 0,
   },
   name: {
     fontSize: 36,
     fontWeight: "800",
     color:'#fff',
+    fontFamily: "CooperHewitt-Heavy",
+    width: 250,
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: imageSize,
+    height: imageSize,
+    borderRadius: imageSize/2,
     marginLeft: 20,
   },
   settingsIcon: {

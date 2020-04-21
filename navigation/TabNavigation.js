@@ -15,6 +15,11 @@ function TopTabNavigator() {
       inactiveTintColor: '#fff',
       activeBackgroundColor: '#fff',
       inactiveBackgroundColor: '#fff',
+      activeTabStyle: {
+        fontWeight: 900,
+        fontSize: 30,
+        backgroundColor: 'red',
+      },
       style: {
         backgroundColor:"#0009EE",
         borderBottomRightRadius: 20,

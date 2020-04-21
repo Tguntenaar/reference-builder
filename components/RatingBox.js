@@ -46,8 +46,7 @@ const styles = StyleSheet.create({
   },
   title: {
     width: 130,
-    height: 20,
-    // fontFamily: "CooperHewitt",
+    fontFamily: "CooperHewitt-Heavy",
     fontSize: 20,
     fontWeight: "900",
     fontStyle: "normal",
@@ -56,8 +55,7 @@ const styles = StyleSheet.create({
   },
   description: {
     width: 193,
-    height: 36,
-    // fontFamily: "SourceSansPro",
+    fontFamily: "SourceSansPro-Regular",
     fontSize: 14,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -65,15 +63,9 @@ const styles = StyleSheet.create({
     color: "#767676"
   },
   seeDetails: {
-    width: 60,
-    height: 12,
-    // fontFamily: "CooperHewitt",
+    fontFamily: "CooperHewitt-Medium",
     fontSize: 12,
-    fontWeight: "500",
-    fontStyle: "normal",
-    letterSpacing: 0,
     color: "#0a13ff",
-    width: 205,
   },
   circleBox: {
     alignItems: 'center',
@@ -90,14 +82,9 @@ const styles = StyleSheet.create({
     borderRadius: 44,
   },
   grade: {
-    width: 36,
-    height: 24,
-    // fontFamily: "CooperHewitt",
+    fontFamily: "CooperHewitt-Heavy",
     fontSize: 24,
-    fontWeight: "900",
-    fontStyle: "normal",
-    letterSpacing: 0,
     textAlign: "center",
-    color: "#ffffff"
+    color: "#fff"
   },
 });

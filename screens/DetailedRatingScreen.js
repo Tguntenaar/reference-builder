@@ -1,10 +1,15 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import NextButton from '../components/NextButton';
+import BackButton from '../components/BackButton';
+import Circle from '../components/Circle';
 
 function DetailedRatingScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" />
+      <Circle color={'rgba(239,244,253,0.5)'}/>
+      <BackButton style={styles.back} onPress={() => navigation.navigate('RatingsDetailsScreen')}/>
       <Text>Open up RatingsDetailsScreen.js to start working on your app!</Text>
       <NextButton title={"Next"} onPress={() => navigation.navigate('Tabs')} />
     </View>

@@ -8,7 +8,7 @@ export default function TeamMember({name, jobTitle}) {
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-       <Image style={styles.image} source={require('../assets/thomas-guntenaar.jpeg')}/>
+       <Image style={styles.image} source={require('../assets/images/thomas-guntenaar.jpeg')}/>
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
