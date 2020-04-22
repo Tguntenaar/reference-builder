@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
 import NextButton from './NextButton';
 
 export default function EvaluationRequest({name, jobTitle, navigation}) {
- 
+  const due = '21-08-2019';
+  const status = undefined || 'Awaiting your response';
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
@@ -12,22 +13,28 @@ export default function EvaluationRequest({name, jobTitle, navigation}) {
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.description}>{jobTitle}</Text>
-        <NextButton title={"Evaluate"} onPress={() => navigation.navigate('EvaluateScreen')} />
+        <Text style={styles.status}>{status}</Text>
+        <Text style={styles.due}>Due date: {due}</Text>
+        <NextButton size={40} textSize={15} title={"Evaluate"} onPress={() => navigation.navigate('EvaluateScreen')} />
       </View>
     </View>
   );
 }
-
+const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   Box: {
-    width: 335,
-    height: 130,
+    width: width-40,
+    height: 171,
     backgroundColor: "rgb(239, 244, 253)",
     borderRadius: 5,
     flexDirection: 'row',
-    marginBottom:20,
+    marginBottom: 20,
   },
-
+  circleBox: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 130,
+  },
   image: {
     width: 88,
     height: 88,
@@ -36,65 +43,27 @@ const styles = StyleSheet.create({
   textBox: {
     flexDirection: 'column',
     alignItems: 'flex-start',
-    justifyContent: 'space-evenly',
-    height:130,
+    justifyContent: 'center',
     width: 205, 
-
   },
   title: {
-    width: 83,
+    fontFamily: "CooperHewitt-Heavy",
     height: 20,
-    // fontFamily: "CooperHewitt",
     fontSize: 20,
-    fontWeight: "900",
-    fontStyle: "normal",
-    letterSpacing: 0,
+    padding:1,
     color: "#2c2c2c"
   },
   description: {
-    width: 193,
-    height: 36,
-    // fontFamily: "SourceSansPro",
+    fontFamily: "SourceSansPro-Regular",
     fontSize: 14,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    color: "#767676"
+    color: "rgb(44,44,44)",
   },
-  seeDetails: {
-    width: 60,
-    height: 12,
-    // fontFamily: "CooperHewitt",
-    fontSize: 12,
-    fontWeight: "500",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    color: "#0a13ff",
-    width: 205,
+  status:{
+    fontFamily: "SourceSansPro-It",
+    color: "rgb(44,44,44)",
   },
-  circleBox: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 130,
-    width: 130,
-  },
-  circle: {
-    width: 88,
-    height: 88,
-    backgroundColor: "#ff100a",
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 44,
-  },
-  grade: {
-    width: 36,
-    height: 24,
-    // fontFamily: "CooperHewitt",
-    fontSize: 24,
-    fontWeight: "900",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    textAlign: "center",
-    color: "#ffffff"
+  due:{
+    fontFamily: "SourceSansPro-Regular",
+    color: 'rgb(255,16,10)'
   },
 });

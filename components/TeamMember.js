@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Button, Image } from 'react-native';
+import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
+import NextButton from './NextButton';
 
-export default function TeamMember({name, jobTitle}) {
+
+export default function TeamMember({ name, jobTitle, navigation, onPress }) {
   const handlePress = () => { 
-    alert('Requested!');
+    onPress(true);
+    // navigation.navigate('ModalScreen');
   };
   return (
     <View style={styles.Box}>
@@ -13,26 +16,21 @@ export default function TeamMember({name, jobTitle}) {
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.description}>{jobTitle}</Text>
-        <Button
-          onPress={handlePress}
-          title="Request evaluation"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-          style={styles.seeDetails}
-        />
+        <NextButton size={45} textSize={15} title={"Request evaluation"} onPress={handlePress} />
       </View>
     </View>
   );
 }
+const width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   Box: {
-    width: 335,
-    height: 130,
+    width: width-40,
+    height: 0.4*(width-40),
     backgroundColor: "rgb(239, 244, 253)",
-    borderRadius: 5,
+    borderRadius: 7,
     flexDirection: 'row',
-    marginBottom:20,
+    marginBottom: 20,
   },
   image: {
     width: 88,
@@ -42,65 +40,31 @@ const styles = StyleSheet.create({
   textBox: {
     flexDirection: 'column',
     alignItems: 'flex-start',
-    justifyContent: 'space-evenly',
-    height:130,
-    width: 205, 
-
+    justifyContent: 'center',
   },
   title: {
-    width: 83,
-    height: 20,
-    // fontFamily: "CooperHewitt",
+    fontFamily: "CooperHewitt-Heavy",
     fontSize: 20,
-    fontWeight: "900",
+    height: 20,
+    padding:1,
     fontStyle: "normal",
-    letterSpacing: 0,
     color: "#2c2c2c"
   },
   description: {
-    width: 193,
-    height: 36,
-    // fontFamily: "SourceSansPro",
+    fontFamily: "SourceSansPro-Regular",
     fontSize: 14,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    color: "#767676"
-  },
-  seeDetails: {
-    width: 60,
-    height: 12,
-    // fontFamily: "CooperHewitt",
-    fontSize: 12,
-    fontWeight: "500",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    color: "#0a13ff",
-    width: 205,
+    color: "rgb(44,44,44)"
   },
   circleBox: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 130,
     width: 130,
   },
   circle: {
     width: 88,
     height: 88,
-    backgroundColor: "#ff100a",
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     borderRadius: 44,
-  },
-  grade: {
-    width: 36,
-    height: 24,
-    // fontFamily: "CooperHewitt",
-    fontSize: 24,
-    fontWeight: "900",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    textAlign: "center",
-    color: "#ffffff"
   },
 });

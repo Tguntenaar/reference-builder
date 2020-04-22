@@ -7,9 +7,9 @@ function RatingsScreen({ navigation }) {
     <Fragment>
       <StatusBar barStyle="light-content" />
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
-        <Rating name="Creativity" grade="8.1" description="description" navigation={navigation}/>
-        <Rating name="Creativity" grade="8.1" description="description" navigation={navigation}/>
-        <Rating name="Creativity" grade="8.1" description="description" navigation={navigation}/>
+        <Rating name="Creativity" grade="8.1" gradeColor="rgb(10,185,255)" description="description" navigation={navigation}/>
+        <Rating name="Creativity" grade="5.1" description="description" navigation={navigation}/>
+        <Rating name="Creativity" grade="6.3" gradeColor="rgb(255,171,10)" description="description" navigation={navigation}/>
       </ScrollView>
     </Fragment>
 
@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
   scroll: {
     alignItems: 'center',
     justifyContent: 'center',
-    flexGrow: 1,
+    marginTop:50,
+    // flexGrow: 1,
   }
 });
 

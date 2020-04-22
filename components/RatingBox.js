@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, Dimensions } from 'react-native';
 
-export default function Rating({grade, name, description, navigation }) {
+export default function Rating({grade, name, description, navigation, gradeColor}) {
   const onPressSeeDetails = () => { 
     navigation.navigate('RatingsDetailsScreen') 
   };
+  // TODO: color based on grade
+  gradeColor = gradeColor || "#ff100a";
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-        <View style={styles.circle}>
+        <View style={[styles.circle, {backgroundColor: gradeColor}]}>
           <Text style={styles.grade}>{grade}</Text>
         </View>
       </View>
@@ -27,9 +29,10 @@ export default function Rating({grade, name, description, navigation }) {
   );
 }
 
+const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   Box: {
-    width: 335,
+    width: width-40,
     height: 130,
     backgroundColor: "rgb(239, 244, 253)",
     borderRadius: 5,
@@ -42,15 +45,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     height:130,
     width: 205, 
-
   },
   title: {
-    width: 130,
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 20,
-    fontWeight: "900",
-    fontStyle: "normal",
-    letterSpacing: 0,
+    height: 20,
+    paddingTop: 2,
     color: "#2c2c2c"
   },
   description: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   seeDetails: {
     fontFamily: "CooperHewitt-Medium",
-    fontSize: 12,
+    fontSize: 10,
     color: "#0a13ff",
   },
   circleBox: {
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   circle: {
     width: 88,
     height: 88,
-    backgroundColor: "#ff100a",
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 44,
@@ -84,6 +83,8 @@ const styles = StyleSheet.create({
   grade: {
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 24,
+    height: 24,
+    paddingTop:2,
     textAlign: "center",
     color: "#fff"
   },

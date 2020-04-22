@@ -49,10 +49,11 @@ function RatingsDetailsScreen({ navigation, grade }) {
           <View style={styles.chart}>
             <Chart/>
           </View>
-          <Text style={styles.date}>October 2019</Text>
         </View>
         <View style={styles.bottom}>
         <ScrollView>
+        <Text style={styles.date}>October 2019</Text>
+
           <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
           <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
           <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
@@ -60,7 +61,10 @@ function RatingsDetailsScreen({ navigation, grade }) {
         </ScrollView>
         </View>
       </View>
-      <SafeAreaView style={styles.safe2}/>
+      {/** 
+      
+        <SafeAreaView style={styles.safe2}/>
+      */}
     </Fragment>
   )
 }
@@ -74,6 +78,7 @@ const bigRingSize = mediumRingSize + 10;
 const styles = StyleSheet.create({
   safe: {
     flex: 0,
+    paddingTop: 0,
     backgroundColor: 'rgb(10,185,255)',
   },
   safe2: {
@@ -91,23 +96,21 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   top: {
-    flex: 0.3,
+    flex: 0.25,
     backgroundColor: 'rgb(10,19,255)',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     width: width,
   },
   header:{
-    flex:.9,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    flex:1,
+    // borderBottomLeftRadius: 20,
+    // borderBottomRightRadius: 20,
   },
   middle: {
-    flex: 0.3,
+    flex: 0.25,
     top: -40,
-    // width: width,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+   
   },
   chart:{
     // alignItems: 'center',

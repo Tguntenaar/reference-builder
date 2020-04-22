@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   scroll: {
     alignItems: 'center',
     justifyContent: 'center',
-    flexGrow: 1,
+    marginTop: 50,
+    // flexGrow: 1,
   }
 });
 

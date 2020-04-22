@@ -13,6 +13,7 @@ import DetailedRatingScreen from '../screens/DetailedRatingScreen.js'
 import EvaluateScreen from '../screens/EvaluateScreen.js';
 import EvaluateCommentScreen from '../screens/EvaluateCommentScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
+import ModalScreen from '../screens/ModalScreen.js';
 
 import Circle from '../components/Circle'
 
@@ -68,6 +69,7 @@ function ParentNavigation() {
         headerShown: false,
       }}/>
       <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
+      <Stack.Screen name="ModalScreen" component={ModalScreen} />
     </Stack.Navigator>
   )
 }
