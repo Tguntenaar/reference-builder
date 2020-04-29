@@ -32,7 +32,7 @@ function ParentNavigation() {
       options={({navigation, route}) => ({
         headerTitle: () => (
           <View style={styles.container}>
-            {/*<Circle style={styles.circle}/>*/}
+            {/*TODO:<Circle style={styles.circle}/>*/}
             <Text style={styles.jobTitle}>Founder</Text>
             <Text style={styles.name}>Esther Rookhuijzen</Text>
             {/*<Circle />*/}

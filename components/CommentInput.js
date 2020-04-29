@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { TextInput, StyleSheet, Dimensions, KeyboardAvoidingView, View} from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler';
 
 export default class CommentInput extends Component {
     constructor(props) {
