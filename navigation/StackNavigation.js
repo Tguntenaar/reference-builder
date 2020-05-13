@@ -17,7 +17,7 @@ import ModalScreen from '../screens/ModalScreen.js';
 
 import Circle from '../components/Circle'
 
-function ParentNavigation() {
+function ParentNavigation({ratings, evaluationsRequests, teamMembers}) {
   
   return (
     <Stack.Navigator initialRouteName="Tabs" 
@@ -28,7 +28,11 @@ function ParentNavigation() {
             height: 0,
         },
       }} >
-      <Stack.Screen name="Tabs" component={TabNavigation} 
+      <Stack.Screen name="Tabs" 
+      component={TabNavigation} 
+      ratings={ratings}
+      evaluationsRequests={evaluationsRequests}
+      teamMembers={teamMembers}
       options={({navigation, route}) => ({
         headerTitle: () => (
           <View style={styles.container}>
@@ -68,7 +72,7 @@ function ParentNavigation() {
       <Stack.Screen name="EvaluateCommentScreen" component={EvaluateCommentScreen} options={{
         headerShown: false,
       }}/>
-      <Stack.Screen name="SettingsScreen" component={SettingsScreen} />
+      <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{title: "Settings"}}/>
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
     </Stack.Navigator>
   )

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { StyleSheet, Text, View, Button, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
 import BackButton from '../components/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
@@ -9,8 +9,11 @@ import RatingDetails from '../components/RatingDetails';
 import Chart from '../components/Chart';
 
 // <SafeAreaView style={styles.safe}/>
-function RatingsDetailsScreen({ navigation, grade }) {
+function RatingsDetailsScreen({ navigation, grade, title, description }) {
   grade = grade || 8.1;
+  title = title || "Creativity"
+  description = description || "new ideas, out of the box"
+  // <SafeAreaView style={styles.safe}/>
   return (
     <Fragment>
       <SafeAreaView style={styles.safe}/>
@@ -37,8 +40,8 @@ function RatingsDetailsScreen({ navigation, grade }) {
                   </LinearGradient>
                 </View>
                 <View style={styles.middleNavigationInner}>
-                  <Text style={styles.skill} >Creativity</Text>
-                  <Text style={styles.skillDescription}>new ideas, out of the box</Text>
+                  <Text style={styles.skill}>{title}</Text>
+                  <Text style={styles.skillDescription}>{description}</Text>
                 </View>
               </View>
               <Circle/>
@@ -108,11 +111,17 @@ const styles = StyleSheet.create({
     // borderBottomRightRadius: 20,
   },
   middle: {
+    width: width,
     flex: 0.25,
     top: -40,
-   
+    alignSelf: 'center'
+    // alignItems: 'center',
+    // alignContent: 'center',
+    // justifyContent: 'center'
   },
   chart:{
+    alignSelf: 'center'
+
     // alignItems: 'center',
     // justifyContent: 'center',
     // width: width,
@@ -127,7 +136,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
   },
   bottom: {
-    flex: 0.4,
+    flex: 0.45,
   },
   bigRing: {
     backgroundColor: '#fff',
@@ -164,10 +173,14 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 24,
     fontFamily: 'CooperHewitt-Heavy',
+    height: 24,
+    padding: 2,
   },
   skillDescription:{
     color: "#fff",
     fontSize: 16,
+    height: 16,
+    padding: 2,
     fontFamily: 'SourceSansPro-It',
 
   },

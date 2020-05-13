@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Button, Dimensions } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Dimensions } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 
 export default function Rating({grade, name, description, navigation, gradeColor}) {
   const onPressSeeDetails = () => { 
@@ -17,13 +18,16 @@ export default function Rating({grade, name, description, navigation, gradeColor
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.description}>{description}</Text>
-        <Button
-          onPress={onPressSeeDetails}
-          title="See details"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-          style={styles.seeDetails}
-        />
+        <TouchableOpacity 
+        onPress={onPressSeeDetails}
+        accessibilityLabel="see rating details"
+        style={{flexDirection: "row", width: 100,}}>
+          <Text style={styles.viewDetails}>See details</Text>
+          <Feather 
+          name={"chevron-right"} 
+          color={"rgb(10,19,255)"}
+          style={styles.settingsIcon}/>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -45,6 +49,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     height:130,
     width: 205, 
+  },
+  viewDetails: {
+    color: 'rgb(10, 19, 255)',
+    marginRight: 3,
   },
   title: {
     fontFamily: "CooperHewitt-Heavy",

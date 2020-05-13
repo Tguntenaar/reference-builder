@@ -7,6 +7,8 @@ import NextButton from '../components/NextButton';
 function MyTeamScreen({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
   const subText = 'Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor.';
+  const [teamMembers, setMembers] = useState([{ name:"TeamScree", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }])
+
   return (
     <Fragment>
       <Modal
@@ -31,9 +33,9 @@ function MyTeamScreen({ navigation }) {
           </View>
       </Modal>
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
-        <TeamMember name="Thomas Guntenaar" jobTitle="Developer" navigation={navigation} onPress={setModalVisible}/>
-        <TeamMember name="Thomas Guntenaar" jobTitle="Developer" navigation={navigation} onPress={setModalVisible}/>
-        <TeamMember name="Thomas Guntenaar" jobTitle="Developer" navigation={navigation} onPress={setModalVisible}/>
+        {
+          teamMembers.map((item, index) => (<TeamMember name={item.name} key={index} jobTitle={item.jobTitle} picture={item.picture} navigation={navigation} onPress={setModalVisible}/>))
+        }
       </ScrollView>
     </Fragment>
   )

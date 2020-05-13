@@ -3,12 +3,15 @@ import { StyleSheet, ScrollView} from 'react-native';
 import EvaluationRequest from '../components/EvaluationRequest';
 
 
-function EvaluationsScreen({ navigation }) {
+function EvaluationsScreen({ navigation, evaluationRequests }) {
+  evaluationRequests = evaluationRequests || [{name:"Boris Guntenaar", jobTitle:'Founder'},{name:'Thomas', jobTitle:'developer'}]
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll} >
-      <EvaluationRequest name="Thomas Guntenaar" jobTitle="Developer" navigation={navigation}/>
-      <EvaluationRequest name="Thomas Guntenaar" jobTitle="Developer" navigation={navigation}/>
-      <EvaluationRequest name="Thomas Guntenaar" jobTitle="Developer" navigation={navigation}/>
+      {
+        evaluationRequests.map(function(item, index) {
+          return (<EvaluationRequest key={index} name={`${item.name}`} jobTitle={item.jobTitle} navigation={navigation}/>)
+        })
+      }
     </ScrollView>
   )
 }

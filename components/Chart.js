@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StyleSheet, Dimensions } from 'react-native'
 import { LineChart } from 'expo-chart-kit'
+import LineChart2 from './LineChart.js'
 
-export default class Chart extends Component {
-  render() {
+function Chart() {
     return (
-      <LineChart
+      <LineChart2
         data={{
-          labels: ['2017', '', '', '', '', '2018'],
+          labels: ['1.10.2017', '', '', '', '', '1.10.2018'],
           datasets: [{
             data: [
               Math.random() * 10,
@@ -19,22 +19,32 @@ export default class Chart extends Component {
             ]
           }]
         }}
-        width={Dimensions.get('window').width - 50} // from react-native
+        width={Dimensions.get('window').width -50} // from react-native
         height={200}
         chartConfig={{
-          backgroundColor: '#e26a00',
+          legend: ['Your average'],
+          strokeWidth: 5,
+          backgroundColor: '#fff',
           backgroundGradientFrom: '#fff',
-          backgroundGradientTo: 'black', // TODO: for visiblity purpose
+          backgroundGradientTo: '#fff', // TODO: for visiblity purpose
           decimalPlaces: 1, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(10, 19, 255, ${opacity})`,
+          color: (opacity = 0) => `rgb(10, 19, 255)`,
           style: {
+            color: '#fff',
           }
         }}
-       
         bezier
         style={{
           // marginVertiscal: 8,
+          // alignSelf: 'center',
           borderRadius: 16,
+          width: Dimensions.get('window').width-40,
+          shadowOffset: {
+            width: 0,
+            height: 0
+          },
+          shadowOpacity: 0.20,
+          shadowRadius: 15,
         }}
         // yAxis:{
           //   drawGridLines: false,
@@ -42,7 +52,8 @@ export default class Chart extends Component {
           // },
       />
     )
-  }
 }
 
 const styles = StyleSheet.create({})
+
+export default Chart

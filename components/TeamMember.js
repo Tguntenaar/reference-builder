@@ -3,10 +3,9 @@ import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
 import NextButton from './NextButton';
 
 
-export default function TeamMember({ name, jobTitle, navigation, onPress }) {
+export default function TeamMember({ name, jobTitle, onPress }) {
   const handlePress = () => { 
     onPress(true);
-    // navigation.navigate('ModalScreen');
   };
   return (
     <View style={styles.Box}>
@@ -21,12 +20,13 @@ export default function TeamMember({ name, jobTitle, navigation, onPress }) {
     </View>
   );
 }
+
 const width = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
   Box: {
     width: width-40,
-    height: 0.4*(width-40),
+    height: 0.4 * (width - 40),
     backgroundColor: "rgb(239, 244, 253)",
     borderRadius: 7,
     flexDirection: 'row',
@@ -63,8 +63,6 @@ const styles = StyleSheet.create({
   circle: {
     width: 88,
     height: 88,
-    // alignItems: 'center',
-    // justifyContent: 'center',
     borderRadius: 44,
   },
 });

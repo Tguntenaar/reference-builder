@@ -1,39 +1,38 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Button } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-const RatingDetails = ({onViewDetails, }) => {
+// <SafeAreaView style={styles.safe}>
+const RatingDetails = ({ onViewDetails }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.left}>
-        <Image style={styles.image} source={require('../assets/images/boris-guntenaar.jpeg')}/>
-      </View>
-      <View style={styles.right}>
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.name}>Boris Guntenaar</Text>
-            <Text style={styles.jobTitle}>Owner</Text>
-          </View>
-          <LinearGradient
-            colors={['rgb(10,185,255)', 'rgb(10,19,255)']}
-            style={styles.gradeBox}
-            start={{ x: 1, y: 1 }}
-            end={{ x: 0, y: 0.5 }}>
-            <Text style={styles.grade}>9.5</Text>
-          </LinearGradient>
+    
+      <View style={styles.container}>
+        <View style={styles.left}>
+          <Image style={styles.image} source={require('../assets/images/boris-guntenaar.jpeg')}/>
         </View>
-        
-        <Text style={styles.description}>This is my comment on this skill. You did a great job.</Text>
-        <Button
-            onPress={onViewDetails}
-            title="view details"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-            style={styles.viewDetails}
-          />
+        <View style={styles.right}>
+          <View style={styles.header}>
+            <View>
+              <Text style={styles.name}>Boris Guntenaar</Text>
+              <Text style={styles.jobTitle}>Owner</Text>
+            </View>
+            <LinearGradient
+              colors={['rgb(10,185,255)', 'rgb(10,19,255)']}
+              style={styles.gradeBox}
+              start={{ x: 1, y: 1 }}
+              end={{ x: 0, y: 0.5 }}>
+              <Text style={styles.grade}>9.5</Text>
+            </LinearGradient>
+          </View>
+          
+          <Text style={styles.description}>This is my comment on this skill. You did a great job.</Text>
+          <TouchableOpacity onPress={onViewDetails} accessibilityLabel="Learn more about this rating">
+          <Text style={styles.viewDetails}>View Details</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
   )
 }
 
@@ -69,10 +68,13 @@ const styles = StyleSheet.create({
   name:{
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 20,
+    height: 20,
+    padding: 2,
   },
   jobTitle:{
     fontFamily: 'CooperHewitt-BookItalic',
-
+    height: 16,
+    padding: 2,
   },
   gradeBox:{
     width: 51,
@@ -92,8 +94,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   viewDetails:{
+    paddingTop:20,
+    color: "rgb(10, 19, 255)", 
     fontFamily: 'CooperHewitt-Book',
-    marginTop:20,
   },
 
 })
