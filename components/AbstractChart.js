@@ -109,22 +109,22 @@ class AbstractChart extends Component {
     const {
       yAxisLabel = "",
       yAxisSuffix = "",
-      yLabelsOffset = 12
+      yLabelsOffset = 22 // EDIT 12
     } = this.props;
-
+    
     return [...Array(count === 1 ? 1 : count + 1).keys()].map((i, _) => {
       let yLabel = i * count;
 
       if (count === 1) {
         yLabel = `${yAxisLabel}${formatYLabel(
-          data[0].toFixed(decimalPlaces)
+          data[0].toFixed() //toFixed(decimalPlaces)
         )}${yAxisSuffix}`;
       } else {
         const label = this.props.fromZero
-          ? (this.calcScaler(data) / count) * i + Math.min(...data, 0)
+          ? (this.calcScaler(data) / count) * i + Math.min(...data, 0) // edit
           : (this.calcScaler(data) / count) * i + Math.min(...data);
         yLabel = `${yAxisLabel}${formatYLabel(
-          label.toFixed(decimalPlaces)
+          label.toFixed() //toFixed(decimalPlaces)
         )}${yAxisSuffix}`;
       }
 

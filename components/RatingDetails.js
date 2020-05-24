@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 
 // <SafeAreaView style={styles.safe}>
-const RatingDetails = ({ onViewDetails }) => {
+const RatingDetails = ({ onViewDetails, item }) => {
   return (
     
       <View style={styles.container}>
@@ -15,19 +15,19 @@ const RatingDetails = ({ onViewDetails }) => {
         <View style={styles.right}>
           <View style={styles.header}>
             <View>
-              <Text style={styles.name}>Boris Guntenaar</Text>
-              <Text style={styles.jobTitle}>Owner</Text>
+              <Text style={styles.name}>{item.evaluator.name}</Text>
+              <Text style={styles.jobTitle}>{item.evaluator.jobTitle}</Text>
             </View>
             <LinearGradient
               colors={['rgb(10,185,255)', 'rgb(10,19,255)']}
               style={styles.gradeBox}
               start={{ x: 1, y: 1 }}
               end={{ x: 0, y: 0.5 }}>
-              <Text style={styles.grade}>9.5</Text>
+              <Text style={styles.grade}>{item.rating.grade}</Text>
             </LinearGradient>
           </View>
           
-          <Text style={styles.description}>This is my comment on this skill. You did a great job.</Text>
+          <Text style={styles.description}>{item.rating.comment}</Text>
           <TouchableOpacity onPress={onViewDetails} accessibilityLabel="Learn more about this rating">
           <Text style={styles.viewDetails}>View Details</Text>
           </TouchableOpacity>

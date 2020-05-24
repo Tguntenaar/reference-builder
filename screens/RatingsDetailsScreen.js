@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Dimensions, Platform } from 'react-native';
 import BackButton from '../components/BackButton';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
@@ -7,12 +7,19 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Circle from '../components/Circle';
 import RatingDetails from '../components/RatingDetails';
 import Chart from '../components/Chart';
+import { isIphoneX } from '../constants/Utils'
 
 // <SafeAreaView style={styles.safe}/>
-function RatingsDetailsScreen({ navigation, grade, title, description }) {
-  grade = grade || 8.1;
-  title = title || "Creativity"
-  description = description || "new ideas, out of the box"
+function RatingsDetailsScreen({ navigation, route }) {
+  const grade = route.params.rating.grade || 8.1;
+  const title = route.params.rating.skillName || "Error"
+  const description = route.params.rating.description || "new ideas, out of the box"
+  // TODO: useEffect -> get individual ratings
+  const ratings = [
+    { evaluator: {name: "Boris Guntenaar", jobTitle: "Accountant"}, rating: {grade:"9.5", comment:"This is my comment on this skill. You did a great job."}},
+    { evaluator: {name: "Thomas Guntenaar", jobTitle: "Developer"}, rating: {grade:"8.5", comment:"This is my comment on this skill. You did a great job."}},
+    { evaluator: {name: "Olivier Guntenaar", jobTitle: "Developer"}, rating: {grade:"7.5", comment:"This is my comment on this skill. You did a great job."}},
+  ]
   // <SafeAreaView style={styles.safe}/>
   return (
     <Fragment>
@@ -22,12 +29,17 @@ function RatingsDetailsScreen({ navigation, grade, title, description }) {
           <LinearGradient
               colors={['rgb(10,185,255)', 'rgb(10,19,255)']}
               style={styles.header} >
-
+              <Circle/>
               <View style={styles.topNavigation}>
-                <BackButton color={{backgroundColor:'#fff', iconColor:'rgb(44,44,44)'}} size={25} onPress={() => navigation.navigate('Tabs')}/>
-                <Feather name={"settings"} color={"#fff"} 
-                onPress={() => { navigation.navigate("SettingsScreen") }}
-                style={styles.settingsIcon}/>
+                <BackButton 
+                  color={{backgroundColor:'#fff', iconColor:'rgb(44,44,44)'}} 
+                  size={25} 
+                  onPress={() => navigation.navigate('Tabs')}/>
+                <Feather 
+                  name={"settings"} 
+                  color={"#fff"}
+                  onPress={() => { navigation.navigate("SettingsScreen") }}
+                  style={styles.settingsIcon} />
               </View>
               <View style={styles.middleNavigation}>
                 <View style={styles.bigRing}>
@@ -40,11 +52,10 @@ function RatingsDetailsScreen({ navigation, grade, title, description }) {
                   </LinearGradient>
                 </View>
                 <View style={styles.middleNavigationInner}>
-                  <Text style={styles.skill}>{title}</Text>
-                  <Text style={styles.skillDescription}>{description}</Text>
+                  <Text style={styles.skill}>{ title }</Text>
+                  <Text style={styles.skillDescription}>{ description }</Text>
                 </View>
               </View>
-              <Circle/>
           </LinearGradient>
         </View>
 
@@ -54,82 +65,91 @@ function RatingsDetailsScreen({ navigation, grade, title, description }) {
           </View>
         </View>
         <View style={styles.bottom}>
-        <ScrollView>
-        <Text style={styles.date}>October 2019</Text>
-
-          <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
-          <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
-          <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
-          <RatingDetails onViewDetails={() => navigation.navigate('DetailedRatingScreen')}/>
-        </ScrollView>
+          <ScrollView contentContainerStyle={styles.scroll}>
+          <Text style={styles.date}>October 2019</Text>
+            {
+              ratings.map(function(item, index) {
+                return (<RatingDetails key={index} item={item} 
+                  onViewDetails={() => navigation.navigate('DetailedRatingScreen', {
+                    evaluator: {
+                      name: "Boris Guntenaar",
+                      jobTitle: "Owner FlexInHouse",
+                    },
+                    skill: "Creativity",
+                    description: "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate.",
+                    subSkills: [
+                      {
+                        name: "Out of the Box",
+                        description: "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate.",
+                        grade: 3,
+                      },
+                      {
+                        name: "Visual Skills",
+                        description: "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate.",
+                        grade: 8,
+                      },
+                      {
+                        name: "Ideas",
+                        description: "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate.",
+                        grade: 6,
+                      },
+                    ],
+                  })}/>)
+              })
+            }
+            
+          </ScrollView>
         </View>
       </View>
-      {/** 
-      
-        <SafeAreaView style={styles.safe2}/>
-      */}
+      <SafeAreaView style={styles.safe2}/>
     </Fragment>
   )
 }
 // <SafeAreaView style={styles.safe2}/>
 
-const width = Dimensions.get('window').width;
+
+const window = Dimensions.get('window')
+const height = window.height;
+const width = window.width;
 const circleSize = 70;
-const mediumRingSize = circleSize + 10;
-const bigRingSize = mediumRingSize + 10;
+const mediumRingSize = circleSize + 12;
+const bigRingSize = circleSize + 20;
 
 const styles = StyleSheet.create({
   safe: {
     flex: 0,
-    paddingTop: 0,
+    paddingTop: isIphoneX() ? 0 : 20,
     backgroundColor: 'rgb(10,185,255)',
   },
   safe2: {
     flex: 0,
     backgroundColor: '#fff',
+    paddingTop:0,
   },
   container: {
     flex: 1,
     backgroundColor: '#fff',
     width: width,
   },
-  scroll: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexGrow: 1,
-  },
   top: {
     flex: 0.25,
     backgroundColor: 'rgb(10,19,255)',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    width: width,
   },
   header:{
     flex:1,
-    // borderBottomLeftRadius: 20,
-    // borderBottomRightRadius: 20,
   },
   middle: {
     width: width,
     flex: 0.25,
-    top: -40,
+    top: -0.04 * height,
     alignSelf: 'center'
-    // alignItems: 'center',
-    // alignContent: 'center',
-    // justifyContent: 'center'
+
   },
   chart:{
     alignSelf: 'center'
-
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // width: width,
-    // position: 'absolute',
-    // top: 150,
   },
   date: {
-    alignContent: 'flex-start',
+    alignSelf: 'flex-start',
     justifyContent: 'space-between',
     fontFamily:'SourceSansPro-Regular',
     color:'rgb(10,19,255)',
@@ -137,6 +157,11 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 0.45,
+  },
+  scroll: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexGrow: 1,
   },
   bigRing: {
     backgroundColor: '#fff',
@@ -172,17 +197,15 @@ const styles = StyleSheet.create({
   skill:{
     color: "#fff",
     fontSize: 24,
-    fontFamily: 'CooperHewitt-Heavy',
     height: 24,
+    fontFamily: 'CooperHewitt-Heavy',
     padding: 2,
   },
   skillDescription:{
     color: "#fff",
     fontSize: 16,
-    height: 16,
     padding: 2,
     fontFamily: 'SourceSansPro-It',
-
   },
   topNavigation: {
     flexDirection: "row",
@@ -193,7 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     marginLeft: 21,
-    // paddingTop: 21,
+    paddingTop: 10,
   },
   middleNavigationInner: {
     marginLeft: 20,

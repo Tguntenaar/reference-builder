@@ -2,31 +2,37 @@ import * as React from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, Dimensions } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-export default function Rating({grade, name, description, navigation, gradeColor}) {
-  const onPressSeeDetails = () => { 
-    navigation.navigate('RatingsDetailsScreen') 
-  };
-  // TODO: color based on grade
-  gradeColor = gradeColor || "#ff100a";
+export default function Rating({ rating, onSeeDetails }) {
+  const translateGradeToColor = (grade) => {
+    grade = parseInt(grade)
+    if (grade < 5.5) {
+      return "#ff100a"
+    } else if (grade < 7) {
+      return "rgb(255,171,10)"
+    } else {
+      return "rgb(10,185,255)"
+    }
+  }
+  const gradeColor = translateGradeToColor(rating.grade)
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
         <View style={[styles.circle, {backgroundColor: gradeColor}]}>
-          <Text style={styles.grade}>{grade}</Text>
+          <Text style={styles.grade}>{rating.grade}</Text>
         </View>
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{name}</Text>
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.title}>{rating.skillName}</Text>
+        <Text style={styles.description}>{rating.description}</Text>
         <TouchableOpacity 
-        onPress={onPressSeeDetails}
+        onPress={onSeeDetails}
         accessibilityLabel="see rating details"
         style={{flexDirection: "row", width: 100,}}>
-          <Text style={styles.viewDetails}>See details</Text>
+          <Text style={styles.seeDetails}>See details</Text>
           <Feather 
           name={"chevron-right"} 
           color={"rgb(10,19,255)"}
-          style={styles.settingsIcon}/>
+          style={styles.seeDetailsIcon}/>
         </TouchableOpacity>
       </View>
     </View>
@@ -47,7 +53,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'space-evenly',
-    height:130,
+    // height:130,
     width: 205, 
   },
   viewDetails: {
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 20,
     height: 20,
-    paddingTop: 2,
+    padding: 2,
     color: "#2c2c2c"
   },
   description: {
@@ -72,8 +78,14 @@ const styles = StyleSheet.create({
   },
   seeDetails: {
     fontFamily: "CooperHewitt-Medium",
-    fontSize: 10,
+    fontSize: 14,
     color: "#0a13ff",
+    padding: 2,
+  },
+  seeDetailsIcon: {
+    fontSize: 12,
+    color: "#0a13ff",
+    padding: 2,
   },
   circleBox: {
     alignItems: 'center',

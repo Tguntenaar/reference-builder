@@ -8,7 +8,9 @@ import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 import Circle from '../components/Circle';
 
-function DetailedRatingScreen({ navigation }) {
+
+function DetailedRatingScreen({ navigation, route }) {
+  const evaluator = route.params.evaluator
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -17,43 +19,32 @@ function DetailedRatingScreen({ navigation }) {
           <Circle color={'rgba(239,244,253,0.5)'}/>
           <BackButton onPress={() => navigation.navigate('RatingsDetailsScreen')}/>
           <View style={styles.header}>
-            <Image style={styles.image} source={require('../assets/images/boris-guntenaar.jpeg')}/>
-            <Text style={styles.name}>Boris Guntenaar</Text>
-            <Text style={styles.jobTitle}>Owner FlexInHouse</Text>
-            <Text style={styles.skill}>Creativity</Text>
-            <Text style={styles.skillDescription}>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate.</Text>
+            <Image 
+              style={styles.image} 
+              source={require('../assets/images/thomas-guntenaar.jpeg')}/>
+            <Text style={styles.name}>{evaluator.name}</Text>
+            <Text style={styles.jobTitle}>{evaluator.jobTitle}</Text>
+            <Text style={styles.skill}>{route.params.skill}</Text>
+            <Text style={styles.skillDescription}>{route.params.description}</Text>
           </View>
         </View>
         <View style={styles.middle}>
           {/* TODO: maybe in component? */}
           <ScrollView style={styles.scroll}>
-            <View style={styles.box}>
-              <View style={styles.left}>
-                <Text style={styles.skillPart}>Out of the Box</Text>
-                <Text style={styles.description}>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. </Text>
-              </View>
-              <View style={styles.right}>
-                <Text style={styles.grade}>3</Text>
-              </View>
-            </View>
-            <View style={styles.box}>
-              <View style={styles.left}>
-                <Text style={styles.skillPart}>Visual Skills</Text>
-                <Text style={styles.description}>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. </Text>
-              </View>
-              <View style={styles.right}>
-                <Text style={styles.grade}>8</Text>
-              </View>
-            </View>
-            <View style={styles.box}>
-              <View style={styles.left}>
-                <Text style={styles.skillPart}>Ideas</Text>
-                <Text style={styles.description}>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. </Text>
-              </View>
-              <View style={styles.right}>
-                <Text style={styles.grade}>6</Text>
-              </View>
-            </View>
+            {
+              route.params.subSkills.map((item, index) => {
+                return (
+                  <View key={index} style={styles.box}>
+                    <View style={styles.left}>
+                      <Text style={styles.skillPart}>{item.name}</Text>
+                      <Text style={styles.description}>{item.description}</Text>
+                    </View>
+                    <View style={styles.right}>
+                      <Text style={styles.grade}>{item.grade}</Text>
+                    </View>
+                  </View>)
+              })
+            }
           </ScrollView>
         </View>
         <View style={styles.bottom}>

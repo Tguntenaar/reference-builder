@@ -4,34 +4,31 @@ import { Text, StyleSheet, View, Slider, Dimensions } from 'react-native'
 export default class EvaluationSlider extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 60,
-    };
+    this.change = this.onChange.bind(this)
   }
 
-  change(value) {
-    this.setState(() => {
-      return {
-        value: parseFloat(value),
-      };
-    });
+  onChange(value) {
+    this.props.onSliderChange(this.props.item.id, value)
   }
 
   render() {
-    const { value } = this.state;
+    const grade = this.props.item.grade;
     return (
       <View>
-        <Text style={styles.skill}>{this.props.skill}</Text>
-      
-        <Text style={styles.grade}>{String((value/10).toFixed(1))}</Text>
+        <Text style={styles.skill}>{this.props.item.skill}</Text>
+        <Text style={styles.grade}>{String((grade/10).toFixed(1))}</Text>
+
         <Slider 
           maximumValue={100}
           minimumValue={10}
+          // step={1} buggy
           // thumbTintColor="grey"
           // minimumTrackTintColor="black"
-          value={value}
+          maximumTrackTintColor="rgb(230,230,230)"
+          // trackStyle={{height:50}}
+          value={grade}
           style={styles.slider}
-          onValueChange={this.change.bind(this)}
+          onValueChange={this.change}
         />
       </View>
     )
@@ -45,10 +42,14 @@ const styles = StyleSheet.create({
     width: width * 0.8,
   },
   skill:{
-    fontSize: 25,
+    fontSize: 20,
+    fontFamily: "CooperHewitt-Medium",
+    padding: 2,
   },
   grade: {
-    fontSize: 40,
+    fontSize: 20,
     alignSelf:'center',
+    fontFamily: "CooperHewitt-Heavy",
+    padding:2,
   },
 })

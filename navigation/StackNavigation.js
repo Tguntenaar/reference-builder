@@ -15,25 +15,30 @@ import EvaluateCommentScreen from '../screens/EvaluateCommentScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
 import ModalScreen from '../screens/ModalScreen.js';
 
-import Circle from '../components/Circle'
-
-function ParentNavigation({ratings, evaluationsRequests, teamMembers}) {
-  
-  return (
-    <Stack.Navigator initialRouteName="Tabs" 
-      style={{
+function ParentNavigation({ratings, evaluationRequests, teamMembers}) {
+  // console.log("StackNavigation")
+  // console.log({ratings, evaluationRequests, teamMembers});
+  /**
+   * style={{
         shadowColor:'transparent',
         shadowRadius: 0,
         shadowOffset: {
             height: 0,
         },
-      }} >
+      }}
+   */
+  /** TODO: TabNavigationScreen 
+   * headerShown true
+  */
+  return (
+    <Stack.Navigator initialRouteName="Tabs">
       <Stack.Screen name="Tabs" 
       component={TabNavigation} 
       ratings={ratings}
-      evaluationsRequests={evaluationsRequests}
+      evaluationRequests={evaluationRequests}
       teamMembers={teamMembers}
       options={({navigation, route}) => ({
+        // headerShown: false,
         headerTitle: () => (
           <View style={styles.container}>
             {/*TODO:<Circle style={styles.circle}/>*/}
@@ -84,7 +89,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 154,
     justifyContent: 'center',
-    // zIndex: -10,
   },
   jobTitle: {
     marginTop:20,

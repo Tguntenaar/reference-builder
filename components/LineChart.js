@@ -16,8 +16,7 @@ import {
   G,
   Text
 } from "react-native-svg";
-// import AbstractChart from "./abstract-chart";
-// import { LegendItem } from "./legend-item";
+import { LegendItem } from "./LegendItem";
 import AbstractChart from "./AbstractChart";
 
 let AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -531,11 +530,11 @@ class LineChart extends AbstractChart {
      */
     return (
       <View style={style}>
+
         <Svg
           height={height + paddingBottom + legendOffset}
           width={width - margin * 2 - marginRight}
         >
-       
           <Rect
             width="100%"
             height={height + legendOffset}
@@ -573,7 +572,7 @@ class LineChart extends AbstractChart {
                 ? this.renderHorizontalLabels({
                     ...config,
                     count: 2, // EDIT count
-                    data: [0,5,10],
+                    data: [0, 5, 10], // EDIT data
                     paddingTop,
                     paddingRight,
                     formatYLabel,
@@ -598,6 +597,18 @@ class LineChart extends AbstractChart {
                 : null}
             </G>
             <G>
+              <Text
+                rotation={horizontalLabelRotation}
+                origin={`${200}, ${16}`}
+                key={Math.random()}
+                x={200}
+                textAnchor="end"
+                y={16}
+                {...this.getPropsForLabels()}
+              >
+                {/*"Your average"*/}
+                {/** EDIT TODO: deze hele text was er niet */}
+              </Text>
               {withVerticalLabels
                 ? this.renderVerticalLabels({
                     ...config,

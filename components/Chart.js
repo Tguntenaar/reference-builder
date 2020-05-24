@@ -1,11 +1,12 @@
 import React from 'react'
 import { StyleSheet, Dimensions } from 'react-native'
-import { LineChart } from 'expo-chart-kit'
-import LineChart2 from './LineChart.js'
+// import { LineChart } from 'expo-chart-kit'
+import LineChart from './LineChart.js'
+// legend: ["Rainy Days", "Sunny Days", "Snowy Days"],
 
 function Chart() {
     return (
-      <LineChart2
+      <LineChart
         data={{
           labels: ['1.10.2017', '', '', '', '', '1.10.2018'],
           datasets: [{
@@ -22,7 +23,6 @@ function Chart() {
         width={Dimensions.get('window').width -50} // from react-native
         height={200}
         chartConfig={{
-          legend: ['Your average'],
           strokeWidth: 5,
           backgroundColor: '#fff',
           backgroundGradientFrom: '#fff',
@@ -37,6 +37,7 @@ function Chart() {
         style={{
           // marginVertiscal: 8,
           // alignSelf: 'center',
+          // paddingTop: 50,
           borderRadius: 16,
           width: Dimensions.get('window').width-40,
           shadowOffset: {

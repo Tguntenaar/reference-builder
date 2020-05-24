@@ -36,6 +36,7 @@ function App(props) {
         await Font.loadAsync({
           'CooperHewitt-BookItalic': require('./assets/fonts/CooperHewitt-BookItalic.otf'),
           'CooperHewitt-Book': require('./assets/fonts/CooperHewitt-Book.otf'),
+          'CooperHewitt-Bold': require('./assets/fonts/CooperHewitt-Bold.otf'),
           'CooperHewitt-Heavy': require('./assets/fonts/CooperHewitt-Heavy.otf'),
           'CooperHewitt-Light': require('./assets/fonts/CooperHewitt-Light.otf'),
           'CooperHewitt-Medium': require('./assets/fonts/CooperHewitt-Medium.otf'),
@@ -68,8 +69,6 @@ function App(props) {
         //   setTeamMembers(allUsers)
         // }
 
-
-
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);
@@ -89,7 +88,7 @@ function App(props) {
     return (
       <SafeAreaProvider>
           <NavigationContainer>
-            <StackNavigation ratings={ratings} evaluationsRequests={evaluationRequests} teamMembers={teamMembers}/>
+            <StackNavigation ratings={ratings} evaluationRequests={evaluationRequests} teamMembers={teamMembers}/>
           </NavigationContainer>
       </SafeAreaProvider>
     );

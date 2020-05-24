@@ -4,11 +4,13 @@ import TeamMember from '../components/TeamMember';
 import NextButton from '../components/NextButton';
 
 
-function MyTeamScreen({ navigation }) {
+function MyTeamScreen({ navigation, teamMembers }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const subText = 'Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor.';
-  const [teamMembers, setMembers] = useState([{ name:"TeamScree", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }])
-
+  const subText = 'Donec facilisis tortor ut augue lacinia, at viverra est semper.\
+  Sed sapien metus, scelerisque nec pharetra id, tempor.';
+  // TODO:
+  // const [teamMembers, setMembers] = useState([{ name:"TeamScreem", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }])
+  teamMembers = teamMembers || [{ name:"TeamScreen", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }];
   return (
     <Fragment>
       <Modal
@@ -23,8 +25,7 @@ function MyTeamScreen({ navigation }) {
               <Image style={styles.image} source={require('../assets/images/group2.png')}/>
 
               <Text style={styles.text}>Invitation sent!</Text>
-              <Text style={styles.subText}>{subText}
-              </Text>
+              <Text style={styles.subText}>{subText}</Text>
               
               <NextButton title="Ok" onPress={() => {
                 setModalVisible(!modalVisible);
@@ -53,11 +54,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 50,
-    // flexGrow: 1,
   },
   modalContainer: {
-    marginTop: 40, 
-    backgroundColor:'rgba(51,51,51,0.8)',
+    backgroundColor: 'rgba(51,51,51,0.8)',
     color: '#fff',
     textDecorationColor: '#fff',
     height: height,
