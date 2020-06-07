@@ -1,6 +1,97 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getTeam = `query GetTeam($id: ID!) {
+  getTeam(id: $id) {
+    id
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        name
+        adminId
+        company
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    company
+    members {
+      items {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const listTeams = `query ListTeams(
+  $filter: ModelTeamFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTeams(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
+        nextToken
+      }
+      skills {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+`;
 export const getUser = `query GetUser($id: ID!) {
   getUser(id: $id) {
     id
@@ -26,11 +117,10 @@ export const getUser = `query GetUser($id: ID!) {
       }
       company
       members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
+        nextToken
+      }
+      skills {
+        nextToken
       }
     }
     requests {
@@ -48,26 +138,42 @@ export const getUser = `query GetUser($id: ID!) {
         id
         userId
         authorId
-        skillName
-        description
-        grade
         comment
         createdAt
-        owner
       }
       nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
     }
     evaluations {
       items {
         id
         userId
         authorId
-        skillName
-        description
-        grade
         comment
         createdAt
-        owner
       }
       nextToken
     }
@@ -103,101 +209,15 @@ export const listUsers = `query ListUsers(
       ratings {
         nextToken
       }
-      evaluations {
-        nextToken
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getTeam = `query GetTeam($id: ID!) {
-  getTeam(id: $id) {
-    id
-    name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      averageRatings {
         id
-        name
-        adminId
-        company
-      }
-      requests {
-        nextToken
-      }
-      ratings {
-        nextToken
-      }
-      evaluations {
-        nextToken
-      }
-    }
-    company
-    members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        name
-        adminId
-        company
-      }
-      requests {
-        nextToken
-      }
-      ratings {
-        nextToken
-      }
-      evaluations {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const listTeams = `query ListTeams(
-  $filter: ModelTeamFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listTeams(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      adminId
-      admin {
-        id
+        userId
+        authorId
+        comment
         createdAt
-        name
-        jobTitle
-        teamId
       }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
+      evaluations {
+        nextToken
       }
     }
     nextToken
@@ -231,6 +251,13 @@ export const getRating = `query GetRating($id: ID!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -259,16 +286,28 @@ export const getRating = `query GetRating($id: ID!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
   }
 }
 `;
@@ -296,12 +335,104 @@ export const listRatings = `query ListRatings(
         jobTitle
         teamId
       }
-      skillName
-      description
-      grade
+      evaluations {
+        nextToken
+      }
       comment
       createdAt
-      owner
+    }
+    nextToken
+  }
+}
+`;
+export const getEvaluation = `query GetEvaluation($id: ID!) {
+  getEvaluation(id: $id) {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const listEvaluations = `query ListEvaluations(
+  $filter: ModelEvaluationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEvaluations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      ratingId
+      rating {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      skillId
+      skill {
+        id
+        teamId
+        name
+        description
+      }
+      grade
+    }
+    nextToken
+  }
+}
+`;
+export const getSkill = `query GetSkill($id: ID!) {
+  getSkill(id: $id) {
+    id
+    teamId
+    name
+    description
+  }
+}
+`;
+export const listSkills = `query ListSkills(
+  $filter: ModelSkillFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSkills(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      teamId
+      name
+      description
     }
     nextToken
   }
@@ -334,6 +465,13 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
       }
       ratings {
         nextToken
+      }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
       }
       evaluations {
         nextToken

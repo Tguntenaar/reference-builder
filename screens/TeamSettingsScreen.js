@@ -4,74 +4,31 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import NextButton from '../components/NextButton';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
+import TeamMember from '../components/TeamMember';
+
 
 function SettingsScreen({ navigation }) {
-  const [username, setUsername] = useState("Thomas Gunt")
-  const [jobTitle, setJobTitle] = useState("dev")
-  const [photo, setAvatar] = useState(null)
-  const handlePhotoUpload = () => {
-      const options = {
-        noData: true,
-      };
-
-      ImagePicker.launchImageLibraryAsync(options, response => {
-        console.log({response});
-        if (response.cancelled) {
-          return
-        } 
-
-        if (response.uri) {
-          setAvatar({ photo: response })
-        }
-      }).then(response => {
-        console.log('response');
-        console.log(response);
-        if (response.cancelled) {
-          return
-        } 
-
-        if (response.uri) {
-          setAvatar({ photo: response })
-        }
-      })
-      .catch((err)=>{
-        console.log(err);
-      });
-  };
+  const [username, setUsername] = useState("thomas@guntenaar.org")
+  const teamMembers = [{ name:"Boris", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }];
 
   return (
     <ScrollView style={styles.safe}>
       <StatusBar barStyle="dark-content"/>
       <View style={styles.container}>
         <View style={styles.top}>
-          
-        <Image 
-          style={ styles.image } 
-          source={ photo && { uri: photo.uri } || require('../assets/images/thomas-guntenaar.jpeg') }
-        />
-        
-          <TouchableOpacity
-          onPress={ handlePhotoUpload }
-          >
-          <Text style={styles.edit}>Edit</Text>
-          </TouchableOpacity>
+        {
+          teamMembers.map((item, index) => <TeamMember name={item.name} key={index} jobTitle={item.jobTitle} picture={item.picture} onPress={()=>console.log("click")} />)
+        }
         </View>
         <View style={styles.middle}>
+          <Text> Invite Team Member</Text>
           <TextInput 
             style={styles.input} 
             clearTextOnFocus={true} 
             onChangeText={text => setUsername(text)}
             value={username} 
-            placeholder={"username"}/>
-          <TextInput 
-            style={styles.input} 
-            clearTextOnFocus={true} 
-            onChangeText={text => setJobTitle(text)}
-            value={jobTitle} 
-            placeholder={"job title"}/>
-
+            placeholder={"email"}/>
           <NextButton title='Submit'/>
-          <Button title="teamsettings" onPress={() => { navigation.navigate("TeamSettingsScreen")}}/>
         </View>
         <View style={styles.bottom}>
           {/*<NextButton title='Submit'/>*/}

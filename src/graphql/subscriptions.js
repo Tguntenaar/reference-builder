@@ -1,227 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = `subscription OnCreateUser($id: String!) {
-  onCreateUser(id: $id) {
-    id
-    createdAt
-    name
-    jobTitle
-    avatar {
-      bucket
-      region
-      key
-    }
-    teamId
-    team {
-      id
-      name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-    }
-    requests {
-      items {
-        id
-        evaluatorId
-        userId
-        status
-        createdAt
-      }
-      nextToken
-    }
-    ratings {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-    evaluations {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onUpdateUser = `subscription OnUpdateUser($id: String!) {
-  onUpdateUser(id: $id) {
-    id
-    createdAt
-    name
-    jobTitle
-    avatar {
-      bucket
-      region
-      key
-    }
-    teamId
-    team {
-      id
-      name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-    }
-    requests {
-      items {
-        id
-        evaluatorId
-        userId
-        status
-        createdAt
-      }
-      nextToken
-    }
-    ratings {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-    evaluations {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onDeleteUser = `subscription OnDeleteUser($id: String!) {
-  onDeleteUser(id: $id) {
-    id
-    createdAt
-    name
-    jobTitle
-    avatar {
-      bucket
-      region
-      key
-    }
-    teamId
-    team {
-      id
-      name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-    }
-    requests {
-      items {
-        id
-        evaluatorId
-        userId
-        status
-        createdAt
-      }
-      nextToken
-    }
-    ratings {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-    evaluations {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreateTeam = `subscription OnCreateTeam($adminId: String!) {
-  onCreateTeam(adminId: $adminId) {
+export const onCreateTeam = `subscription OnCreateTeam {
+  onCreateTeam {
     id
     name
     adminId
@@ -248,43 +29,42 @@ export const onCreateTeam = `subscription OnCreateTeam($adminId: String!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
     company
     members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      items {
         id
+        createdAt
         name
-        adminId
-        company
+        jobTitle
+        teamId
       }
-      requests {
-        nextToken
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
       }
-      ratings {
-        nextToken
-      }
-      evaluations {
-        nextToken
-      }
+      nextToken
     }
   }
 }
 `;
-export const onUpdateTeam = `subscription OnUpdateTeam($adminId: String!) {
-  onUpdateTeam(adminId: $adminId) {
+export const onUpdateTeam = `subscription OnUpdateTeam {
+  onUpdateTeam {
     id
     name
     adminId
@@ -311,37 +91,36 @@ export const onUpdateTeam = `subscription OnUpdateTeam($adminId: String!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
     company
     members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      items {
         id
+        createdAt
         name
-        adminId
-        company
+        jobTitle
+        teamId
       }
-      requests {
-        nextToken
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
       }
-      ratings {
-        nextToken
-      }
-      evaluations {
-        nextToken
-      }
+      nextToken
     }
   }
 }
@@ -374,37 +153,300 @@ export const onDeleteTeam = `subscription OnDeleteTeam {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
     company
     members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      items {
         id
+        createdAt
         name
-        adminId
-        company
+        jobTitle
+        teamId
       }
-      requests {
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateUser = `subscription OnCreateUser {
+  onCreateUser {
+    id
+    createdAt
+    name
+    jobTitle
+    avatar {
+      bucket
+      region
+      key
+    }
+    teamId
+    team {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
         nextToken
       }
-      ratings {
+      skills {
         nextToken
+      }
+    }
+    requests {
+      items {
+        id
+        evaluatorId
+        userId
+        status
+        createdAt
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
       }
       evaluations {
         nextToken
       }
+      comment
+      createdAt
+    }
+    evaluations {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateUser = `subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    createdAt
+    name
+    jobTitle
+    avatar {
+      bucket
+      region
+      key
+    }
+    teamId
+    team {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
+        nextToken
+      }
+      skills {
+        nextToken
+      }
+    }
+    requests {
+      items {
+        id
+        evaluatorId
+        userId
+        status
+        createdAt
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    evaluations {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteUser = `subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    createdAt
+    name
+    jobTitle
+    avatar {
+      bucket
+      region
+      key
+    }
+    teamId
+    team {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
+        nextToken
+      }
+      skills {
+        nextToken
+      }
+    }
+    requests {
+      items {
+        id
+        evaluatorId
+        userId
+        status
+        createdAt
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    evaluations {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
     }
   }
 }
@@ -436,6 +478,13 @@ export const onCreateRating = `subscription OnCreateRating {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -464,21 +513,33 @@ export const onCreateRating = `subscription OnCreateRating {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
   }
 }
 `;
-export const onUpdateRating = `subscription OnUpdateRating($owner: String!) {
-  onUpdateRating(owner: $owner) {
+export const onUpdateRating = `subscription OnUpdateRating {
+  onUpdateRating {
     id
     userId
     user {
@@ -504,6 +565,13 @@ export const onUpdateRating = `subscription OnUpdateRating($owner: String!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -532,21 +600,33 @@ export const onUpdateRating = `subscription OnUpdateRating($owner: String!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
   }
 }
 `;
-export const onDeleteRating = `subscription OnDeleteRating($owner: String!) {
-  onDeleteRating(owner: $owner) {
+export const onDeleteRating = `subscription OnDeleteRating {
+  onDeleteRating {
     id
     userId
     user {
@@ -572,6 +652,13 @@ export const onDeleteRating = `subscription OnDeleteRating($owner: String!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -600,21 +687,177 @@ export const onDeleteRating = `subscription OnDeleteRating($owner: String!) {
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
   }
 }
 `;
-export const onCreateEvaluationRequest = `subscription OnCreateEvaluationRequest($evaluatorId: String!) {
-  onCreateEvaluationRequest(evaluatorId: $evaluatorId) {
+export const onCreateEvaluation = `subscription OnCreateEvaluation {
+  onCreateEvaluation {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const onUpdateEvaluation = `subscription OnUpdateEvaluation {
+  onUpdateEvaluation {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const onDeleteEvaluation = `subscription OnDeleteEvaluation {
+  onDeleteEvaluation {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const onCreateSkill = `subscription OnCreateSkill {
+  onCreateSkill {
+    id
+    teamId
+    name
+    description
+  }
+}
+`;
+export const onUpdateSkill = `subscription OnUpdateSkill {
+  onUpdateSkill {
+    id
+    teamId
+    name
+    description
+  }
+}
+`;
+export const onDeleteSkill = `subscription OnDeleteSkill {
+  onDeleteSkill {
+    id
+    teamId
+    name
+    description
+  }
+}
+`;
+export const onCreateEvaluationRequest = `subscription OnCreateEvaluationRequest {
+  onCreateEvaluationRequest {
     id
     evaluatorId
     userId
@@ -640,6 +883,13 @@ export const onCreateEvaluationRequest = `subscription OnCreateEvaluationRequest
       }
       ratings {
         nextToken
+      }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
       }
       evaluations {
         nextToken
@@ -678,6 +928,13 @@ export const onUpdateEvaluationRequest = `subscription OnUpdateEvaluationRequest
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -687,8 +944,8 @@ export const onUpdateEvaluationRequest = `subscription OnUpdateEvaluationRequest
   }
 }
 `;
-export const onDeleteEvaluationRequest = `subscription OnDeleteEvaluationRequest($evaluatorId: String!) {
-  onDeleteEvaluationRequest(evaluatorId: $evaluatorId) {
+export const onDeleteEvaluationRequest = `subscription OnDeleteEvaluationRequest {
+  onDeleteEvaluationRequest {
     id
     evaluatorId
     userId
@@ -714,6 +971,13 @@ export const onDeleteEvaluationRequest = `subscription OnDeleteEvaluationRequest
       }
       ratings {
         nextToken
+      }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
       }
       evaluations {
         nextToken

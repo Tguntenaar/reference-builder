@@ -1,235 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createUser = `mutation CreateUser(
-  $input: CreateUserInput!
-  $condition: ModelUserConditionInput
-) {
-  createUser(input: $input, condition: $condition) {
-    id
-    createdAt
-    name
-    jobTitle
-    avatar {
-      bucket
-      region
-      key
-    }
-    teamId
-    team {
-      id
-      name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-    }
-    requests {
-      items {
-        id
-        evaluatorId
-        userId
-        status
-        createdAt
-      }
-      nextToken
-    }
-    ratings {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-    evaluations {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const updateUser = `mutation UpdateUser(
-  $input: UpdateUserInput!
-  $condition: ModelUserConditionInput
-) {
-  updateUser(input: $input, condition: $condition) {
-    id
-    createdAt
-    name
-    jobTitle
-    avatar {
-      bucket
-      region
-      key
-    }
-    teamId
-    team {
-      id
-      name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-    }
-    requests {
-      items {
-        id
-        evaluatorId
-        userId
-        status
-        createdAt
-      }
-      nextToken
-    }
-    ratings {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-    evaluations {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-  }
-}
-`;
-
-export const deleteUser = `mutation DeleteUser(
-  $input: DeleteUserInput!
-  $condition: ModelUserConditionInput
-) {
-  deleteUser(input: $input, condition: $condition) {
-    id
-    createdAt
-    name
-    jobTitle
-    avatar {
-      bucket
-      region
-      key
-    }
-    teamId
-    team {
-      id
-      name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-      company
-      members {
-        id
-        createdAt
-        name
-        jobTitle
-        teamId
-      }
-    }
-    requests {
-      items {
-        id
-        evaluatorId
-        userId
-        status
-        createdAt
-      }
-      nextToken
-    }
-    ratings {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-    evaluations {
-      items {
-        id
-        userId
-        authorId
-        skillName
-        description
-        grade
-        comment
-        createdAt
-        owner
-      }
-      nextToken
-    }
-  }
-}
-`;
 export const createTeam = `mutation CreateTeam(
   $input: CreateTeamInput!
   $condition: ModelTeamConditionInput
@@ -261,37 +32,36 @@ export const createTeam = `mutation CreateTeam(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
     company
     members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      items {
         id
+        createdAt
         name
-        adminId
-        company
+        jobTitle
+        teamId
       }
-      requests {
-        nextToken
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
       }
-      ratings {
-        nextToken
-      }
-      evaluations {
-        nextToken
-      }
+      nextToken
     }
   }
 }
@@ -327,37 +97,36 @@ export const updateTeam = `mutation UpdateTeam(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
     company
     members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      items {
         id
+        createdAt
         name
-        adminId
-        company
+        jobTitle
+        teamId
       }
-      requests {
-        nextToken
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
       }
-      ratings {
-        nextToken
-      }
-      evaluations {
-        nextToken
-      }
+      nextToken
     }
   }
 }
@@ -393,37 +162,309 @@ export const deleteTeam = `mutation DeleteTeam(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
     company
     members {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
+      items {
         id
+        createdAt
         name
-        adminId
-        company
+        jobTitle
+        teamId
       }
-      requests {
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const createUser = `mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    createdAt
+    name
+    jobTitle
+    avatar {
+      bucket
+      region
+      key
+    }
+    teamId
+    team {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
         nextToken
       }
-      ratings {
+      skills {
         nextToken
+      }
+    }
+    requests {
+      items {
+        id
+        evaluatorId
+        userId
+        status
+        createdAt
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
       }
       evaluations {
         nextToken
       }
+      comment
+      createdAt
+    }
+    evaluations {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const updateUser = `mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    createdAt
+    name
+    jobTitle
+    avatar {
+      bucket
+      region
+      key
+    }
+    teamId
+    team {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
+        nextToken
+      }
+      skills {
+        nextToken
+      }
+    }
+    requests {
+      items {
+        id
+        evaluatorId
+        userId
+        status
+        createdAt
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    evaluations {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const deleteUser = `mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    createdAt
+    name
+    jobTitle
+    avatar {
+      bucket
+      region
+      key
+    }
+    teamId
+    team {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      company
+      members {
+        nextToken
+      }
+      skills {
+        nextToken
+      }
+    }
+    requests {
+      items {
+        id
+        evaluatorId
+        userId
+        status
+        createdAt
+      }
+      nextToken
+    }
+    ratings {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
+    }
+    averageRatings {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    evaluations {
+      items {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
+      nextToken
     }
   }
 }
@@ -458,6 +499,13 @@ export const createRating = `mutation CreateRating(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -486,16 +534,28 @@ export const createRating = `mutation CreateRating(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
   }
 }
 `;
@@ -529,6 +589,13 @@ export const updateRating = `mutation UpdateRating(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -557,16 +624,28 @@ export const updateRating = `mutation UpdateRating(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
   }
 }
 `;
@@ -600,6 +679,13 @@ export const deleteRating = `mutation DeleteRating(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -628,16 +714,190 @@ export const deleteRating = `mutation DeleteRating(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
     }
-    skillName
-    description
-    grade
+    evaluations {
+      items {
+        id
+        ratingId
+        skillId
+        grade
+      }
+      nextToken
+    }
     comment
     createdAt
-    owner
+  }
+}
+`;
+export const createEvaluation = `mutation CreateEvaluation(
+  $input: CreateEvaluationInput!
+  $condition: ModelEvaluationConditionInput
+) {
+  createEvaluation(input: $input, condition: $condition) {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const updateEvaluation = `mutation UpdateEvaluation(
+  $input: UpdateEvaluationInput!
+  $condition: ModelEvaluationConditionInput
+) {
+  updateEvaluation(input: $input, condition: $condition) {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const deleteEvaluation = `mutation DeleteEvaluation(
+  $input: DeleteEvaluationInput!
+  $condition: ModelEvaluationConditionInput
+) {
+  deleteEvaluation(input: $input, condition: $condition) {
+    id
+    ratingId
+    rating {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      authorId
+      author {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      evaluations {
+        nextToken
+      }
+      comment
+      createdAt
+    }
+    skillId
+    skill {
+      id
+      teamId
+      name
+      description
+    }
+    grade
+  }
+}
+`;
+export const createSkill = `mutation CreateSkill(
+  $input: CreateSkillInput!
+  $condition: ModelSkillConditionInput
+) {
+  createSkill(input: $input, condition: $condition) {
+    id
+    teamId
+    name
+    description
+  }
+}
+`;
+export const updateSkill = `mutation UpdateSkill(
+  $input: UpdateSkillInput!
+  $condition: ModelSkillConditionInput
+) {
+  updateSkill(input: $input, condition: $condition) {
+    id
+    teamId
+    name
+    description
+  }
+}
+`;
+export const deleteSkill = `mutation DeleteSkill(
+  $input: DeleteSkillInput!
+  $condition: ModelSkillConditionInput
+) {
+  deleteSkill(input: $input, condition: $condition) {
+    id
+    teamId
+    name
+    description
   }
 }
 `;
@@ -671,6 +931,13 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
       }
       ratings {
         nextToken
+      }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
       }
       evaluations {
         nextToken
@@ -712,6 +979,13 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
       ratings {
         nextToken
       }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
+      }
       evaluations {
         nextToken
       }
@@ -751,6 +1025,13 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
       }
       ratings {
         nextToken
+      }
+      averageRatings {
+        id
+        userId
+        authorId
+        comment
+        createdAt
       }
       evaluations {
         nextToken
