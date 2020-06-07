@@ -1,12 +1,46 @@
-type User 
+# TODO:
+# organisation (with admin) -> team (with manager) -> users
+# 
+type Company
 @model
-@auth(rules: [
-  { allow: owner, ownerField: "id", operations: [create, update, delete]}
-  ])
+{
+  id: ID!
+  name: String!
+  adminId: ID!
+  admin: User! @connection(fields: ["adminId"]) # has one
+  teams: [Team!] @connection(keyName: "TeamsByCompany", fields: ["id"]) # has many
+}
+
+type Team
+@model
+# @auth(rules: [
+#   {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
+#   # {allow: groups, groupsField: "members", operations: [ read ]} 
+# ]) 
+@key(name: "TeamsByCompany", fields:["companyId", "createdAt"]) # team has many users
 {
   id: ID!
   createdAt: AWSDateTime
-  #presentation
+  name: String!
+  adminId: ID!
+  admin: User! @connection(fields: ["adminId"]) # has one
+  companyId: ID!
+  company: Company @connection(fields: ["companyId"]) # has one
+  members: [User!] @connection(keyName: "byTeam", fields: ["id"]) # has many
+  skills: [Skill!] @connection(keyName: "skillByTeam", fields: ["id"]) # has many # TODO: team evaluations om het gemiddelde van een team te zien
+}
+
+type User
+@model
+@key(name: "byTeam", fields:["teamId", "createdAt"]) # team has many users
+# @key(name: "", fields: [])  TODO: , queryField: "usersByTeam"
+# @auth(rules: [
+#   { allow: owner, ownerField: "id", operations: [create, update, delete]}
+#   ])
+{
+  id: ID!
+  createdAt: AWSDateTime
+  # presentation
   name: String
   jobTitle: String
   avatar: S3Object
@@ -15,6 +49,7 @@ type User
   team: Team @connection(fields: ["teamId"]) # has one
   requests: [EvaluationRequest] @connection(keyName: "forUser", fields: [ "id" ]) # has many
   ratings: [Rating] @connection(keyName: "byUser", fields: [ "id" ]) # has many
+  averageRatings: [Rating] 
   # given ratings
   evaluations: [Rating] @connection(keyName: "byAuthor", fields: [ "id" ]) # has many
 }
@@ -25,30 +60,20 @@ type S3Object {
   key: String!
 }
 
-type Team 
-@model 
-@auth(rules: [
-  {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
-  # {allow: groups, groupsField: "members", operations: [ read ]} 
-]) 
-{
-  id: ID!
-  name: String!
-  adminId: ID!
-  admin: User! @connection(fields: ["adminId"]) # has one
-  company: String
-  members: [User!]
-}
+# TODO: create Evaluation heeft 3 
+# rating heeft een skill grade and comment
+# 
 
 type Rating
 @model
-@auth(rules: [
-  {allow: owner, operations: [ update, delete ]}
-  ]) 
+# @auth(rules: [
+#   {allow: owner, operations: [ update, delete ]}
+#   ]) 
 @key(name: "byUser", fields: ["userId", "createdAt"]) # user connection 
 @key(name: "byAuthor", fields: ["authorId", "createdAt"]) # evaluator connection 
 {
   id: ID!
+  createdAt: AWSDateTime
   # receiver
   userId: ID!
   user: User! @connection(fields:["userId"]) # belongs to
@@ -56,26 +81,46 @@ type Rating
   authorId: ID!
   author: User! @connection(fields: ["authorId"]) # belongs to
   # content
-  skillName: String
-  description: String
-  grade: Int
+  evaluations: [Evaluation!] @connection(keyName: "evaluationByRating", fields: [ "id" ]) # has many
   comment: String
-  createdAt: AWSDateTime
+}
+
+type Evaluation
+@model
+@key(name: "evaluationByRating", fields:["ratingId"]) # Rating has many evaluations
+{
+  id: ID!
+  ratingId: ID!
+  rating: Rating! @connection(fields: ["ratingId"]) # has one
+  skillId: ID!
+  skill: Skill! @connection(fields: ["skillId"]) # has one
+  grade: Int
+  # comment: String
+}
+
+type Skill
+@model 
+@key(name: "skillByTeam", fields:["teamId"]) # team has many skills
+{
+  id: ID!
+  teamId: ID!
+  name: String!
+  description: String
 }
 
 type EvaluationRequest # message
 @model
-@auth(rules: [
-  { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
-])
+# @auth(rules: [
+#   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
+# ])
 @key(name: "forUser", fields: ["userId", "createdAt"]) # connection with user
 {
   id: ID!
+  createdAt: AWSDateTime
   evaluatorId: ID!
   userId: ID!
   user: User! @connection(fields: [ "userId" ]) # belongs to
   status: EvaluationStatus!
-  createdAt: AWSDateTime
 }
 
 enum EvaluationStatus {

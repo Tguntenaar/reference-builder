@@ -14,13 +14,15 @@
 				"authConfig": {
 					"additionalAuthenticationProviders": [],
 					"defaultAuthentication": {
-						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
-						"userPoolConfig": {
-							"userPoolId": "authtoptabtestc335db9c"
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "eerstSimpelMetKey",
+							"apiKeyExpirationDays": "180"
 						}
 					}
 				}
 			}
 		}
-	}
+	},
+	"function": {}
 }

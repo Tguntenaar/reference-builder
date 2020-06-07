@@ -13,26 +13,24 @@ import DetailedRatingScreen from '../screens/DetailedRatingScreen.js'
 import EvaluateScreen from '../screens/EvaluateScreen.js';
 import EvaluateCommentScreen from '../screens/EvaluateCommentScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
+import TeamSettingsScreen from '../screens/TeamSettingsScreen.js';
 import ModalScreen from '../screens/ModalScreen.js';
 
-function ParentNavigation({ratings, evaluationRequests, teamMembers}) {
-  console.log("Stacknavigation")
-  console.log({ratings, evaluationRequests, teamMembers});
+// AWS
+import { Auth } from 'aws-amplify';
+
+function ParentNavigation({ user }) {
+  const admin = true
   return (
     <Stack.Navigator initialRouteName="Tabs">
       <Stack.Screen name="Tabs" 
       component={TabNavigation} 
-      ratings={ratings}
-      evaluationRequests={evaluationRequests}
-      teamMembers={teamMembers}
+      
       options={({navigation, route}) => ({
-        // headerShown: false,
         headerTitle: () => (
           <View style={styles.container}>
-            {/*TODO:<Circle style={styles.circle}/>*/}
-            <Text style={styles.jobTitle}>Founder</Text>
-            <Text style={styles.name}>Esther Rookhuijzen</Text>
-            {/*<Circle />*/}
+            <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+            <Text style={styles.name}>{user.name}</Text>
           </View>
         ),
         headerStyle: {
@@ -65,7 +63,21 @@ function ParentNavigation({ratings, evaluationRequests, teamMembers}) {
       <Stack.Screen name="EvaluateCommentScreen" component={EvaluateCommentScreen} options={{
         headerShown: false,
       }}/>
-      <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{title: "Settings"}}/>
+      <Stack.Screen name="SettingsScreen" component={SettingsScreen} 
+        options={({navigation, route}) => ({
+          title: "Settings",
+          headerRight: () => (
+            <View style={styles.icons}>
+              {admin && <Feather name={"users"} color={"#000"} 
+              onPress={() => { navigation.navigate("TeamSettingsScreen") }}
+              style={styles.teamIcon}/>}
+              <Feather name={"log-out"} color={"#000"} 
+              onPress={() => { Auth.signOut() }}
+              style={styles.signOutIcon}/>
+            </View>
+          ), 
+        })}/>
+      <Stack.Screen name="TeamSettingsScreen" component={TeamSettingsScreen} options={{title: "Team Settings"}}/>
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
     </Stack.Navigator>
   )
@@ -104,6 +116,17 @@ const styles = StyleSheet.create({
   settingsIcon: {
     marginBottom: 120,
     marginRight: 20,
+    fontSize: 20,
+  },
+  icons:{
+    flexDirection: 'row',
+    paddingRight: 20,
+  },
+  teamIcon: {
+    fontSize: 20,
+    paddingRight: 20,
+  },
+  signOutIcon: {
     fontSize: 20,
   },
 });

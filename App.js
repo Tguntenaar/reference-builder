@@ -1,7 +1,22 @@
+/**
+ * TODO:
+ * Concepts to implement/investigate
+ * - useEffect Hook
+ * - Context
+ * - Redux Store
+ * - Presentational vs Container components -> classes -> functions
+ * - subscribe to what data?
+ * - circle overnemen van Fiverr
+ * - team settings screen
+ * - user settings screen
+ */
+
 /** First import gesture handler */
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SplashScreen } from 'expo';
@@ -9,10 +24,13 @@ import * as Font from 'expo-font';
 
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './navigation/StackNavigation.js';
+import LoginNavigation from './navigation/LoginNavigation.js';
+// import useLinking from './navigation/useLinking'; TODO: app.json 
 
+// AWS
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
+Amplify.configure({...awsconfig, Analytics: { disabled: true}});
 // PREBUILT UI
 import { withAuthenticator } from 'aws-amplify-react-native'
 // Load/fetch ratings evaluations and team members
@@ -22,16 +40,29 @@ import * as mutations from './src/graphql/mutations';
 
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+  const [user, setUser] = useState({name:'Esther Rookhuijzen', jobTitle: 'Founder Jaaf'})
   const [ratings, setRatings] = useState([{evaluator:"Thomas Guntenaar"}])
   const [evaluationRequests, setEvaluationRequests] = useState([{}])
+  
   const [teamMembers, setTeamMembers] = useState([{name:"App Level", jobTitle:'Founder'},{name:'Thomas', jobTitle:'developer'}])
   
+  // Load initial Navigation state TODO: sign up link
+  // const [initialNavigationState, setInitialNavigationState] = useState();
+  // const containerRef = useRef();
+  // const { getInitialState } = useLinking(containerRef);
 
+  // TODO: start using redux
+  const store = configureStore();
+
+  // Data fetching, setting up a subscription are both examples of side effects
   useEffect(() => {
     // Function to load resources
     async function loadResourcesAndDataAsync() {
       try {
         SplashScreen.preventAutoHide();
+
+        // Load our initial navigation state
+        // setInitialNavigationState(await getInitialState());
 
         await Font.loadAsync({
           'CooperHewitt-BookItalic': require('./assets/fonts/CooperHewitt-BookItalic.otf'),
@@ -46,28 +77,31 @@ function App(props) {
         });
 
         // TODO: USER first login
-        // let currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(err => console.log(err));
-        // const { attributes } = currentAuthenticatedUser;
-        // console.log({attributes});
-        // const id = attributes.sub
-        // var user = await API.graphql(graphqlOperation(queries.getUser, {id}))
-        // const { getUser } = user.data
-        // console.log("USERRRR")
-        // console.log({user});
-        // if (!getUser) {
-        //   user = await API.graphql(graphqlOperation(mutations.createUser, { id: id })).catch(err => console.log("error creating a user dummie."))
-        //   console.log("USER CREATED")
-        // } else {
-
-        //   const allRatings = [];
-        //   setRatings(allRatings)
-  
-        //   const allEvaluationRequests = await API.graphql(graphqlOperation(queries.listEvaluationRequests));
-        //   setEvaluationRequests(allEvaluationRequests)
-  
-        //   const allUsers = await API.graphql(graphqlOperation(queries.listUsers));
-        //   setTeamMembers(allUsers)
-        // }
+        // thomas@guntenaar.org
+        // thomasguntenaar
+        const getUser1 = `query GetUser($id: ID!) {
+          getUser(id: $id) {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+          }
+        }
+        `;
+        let currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(err => console.log(err));
+        const { attributes } = currentAuthenticatedUser;
+        console.log({attributes});
+        const id = attributes.sub; // "b403da70-bea8-4e54-9cff-6a68e9d07f4d";
+        var result = await API.graphql(graphqlOperation(getUser1, {id}))
+        console.log({result});
+        const { getUser } = result.data;
+        setUser( getUser );
+ 
 
       } catch (e) {
         // We might want to provide this error information to an error reporting service
@@ -85,13 +119,23 @@ function App(props) {
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   } else {
+    // const [isSignedIn, setSignedIn] = useState(true) // FIXME:
+    // return isSignedIn ? ( 
+    //   <SafeAreaProvider>
+    //       <NavigationContainer>
+    //         <StackNavigation user={user} />
+    //       </NavigationContainer>
+    //   </SafeAreaProvider>
+    // ) :
     return (
-      <SafeAreaProvider>
-          <NavigationContainer>
-            <StackNavigation ratings={ratings} evaluationRequests={evaluationRequests} teamMembers={teamMembers}/>
-          </NavigationContainer>
-      </SafeAreaProvider>
-    );
+      <Provider store={store}>
+        <SafeAreaProvider>
+            <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+              <LoginNavigation/>
+            </NavigationContainer>
+        </SafeAreaProvider>
+      </Provider>
+    )
   }
 }
 
@@ -103,6 +147,7 @@ const styles = StyleSheet.create({
 });
 
 
-export default App
+// export default App
 // PREBUILT UI
-// export default withAuthenticator(App, false)
+const greetings = false;
+export default withAuthenticator(App, greetings)

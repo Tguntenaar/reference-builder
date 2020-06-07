@@ -54,7 +54,7 @@ function TopTabNavigator({navigation, route, ratings, evaluationRequests, teamMe
         options={{ tabBarLabel: ({ tintColor, focused }) => ( <Text style={{ fontWeight: focused ? "bold" : null, color:focused ? '#fff': 'rgba(255,255,255,0.7)', fontSize:focused?16:14, textAlign:'center',  width:width/3.5, fontFamily: focused ? "CooperHewitt-Heavy" :  'CooperHewitt-Medium'}} >Evaluations</Text> ) }}
       />
       <Tab.Screen 
-        name="My team" 
+        name="My team"
         component={MyTeamScreen} 
         teamMembers={teamMembers} 
         options={{ tabBarLabel: ({ tintColor, focused }) => ( <Text style={{ fontWeight: focused ? "bold" : null, color:focused ? '#fff': 'rgba(255,255,255,0.7)', fontSize:focused?16:14, textAlign:'center',  width:width/3.5, fontFamily: focused ? "CooperHewitt-Heavy" : 'CooperHewitt-Medium' }} >My Team</Text> ) }}
