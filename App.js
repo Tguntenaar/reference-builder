@@ -120,22 +120,23 @@ function App(props) {
     return null;
   } else {
     // const [isSignedIn, setSignedIn] = useState(true) // FIXME:
-    // return isSignedIn ? ( 
-    //   <SafeAreaProvider>
-    //       <NavigationContainer>
-    //         <StackNavigation user={user} />
-    //       </NavigationContainer>
-    //   </SafeAreaProvider>
-    // ) :
-    return (
-      <Provider store={store}>
-        <SafeAreaProvider>
-            <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-              <LoginNavigation/>
-            </NavigationContainer>
-        </SafeAreaProvider>
-      </Provider>
-    )
+    // return isSignedIn ?
+    return ( 
+      <SafeAreaProvider>
+          <NavigationContainer>
+            <StackNavigation user={user} />
+          </NavigationContainer>
+      </SafeAreaProvider>
+    ) 
+    // : (
+    //   <Provider store={store}>
+    //     <SafeAreaProvider>
+    //         <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+    //           <LoginNavigation/>
+    //         </NavigationContainer>
+    //     </SafeAreaProvider>
+    //   </Provider>
+    // )
   }
 }
 

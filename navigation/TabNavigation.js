@@ -13,9 +13,7 @@ const Tab = createMaterialTopTabNavigator();
 
 const width = Dimensions.get('window').width;
 function TopTabNavigator({navigation, route, ratings, evaluationRequests, teamMembers}) {
-  console.log("Tabnavigation")
-  // console.log({ratings, evaluationRequests, teamMembers});
-  console.log({navigation, route})
+  console.log("Tabnavigation rendered")
   return (
     <Tab.Navigator 
       initialRouteName="My Ratings"

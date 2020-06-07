@@ -20,6 +20,8 @@ import ModalScreen from '../screens/ModalScreen.js';
 import { Auth } from 'aws-amplify';
 
 function ParentNavigation({ user }) {
+  console.log("Stacknavigation rendered")
+
   const admin = true
   return (
     <Stack.Navigator initialRouteName="Tabs">
