@@ -16,20 +16,8 @@ import SettingsScreen from '../screens/SettingsScreen.js';
 import ModalScreen from '../screens/ModalScreen.js';
 
 function ParentNavigation({ratings, evaluationRequests, teamMembers}) {
-  // console.log("StackNavigation")
-  // console.log({ratings, evaluationRequests, teamMembers});
-  /**
-   * style={{
-        shadowColor:'transparent',
-        shadowRadius: 0,
-        shadowOffset: {
-            height: 0,
-        },
-      }}
-   */
-  /** TODO: TabNavigationScreen 
-   * headerShown true
-  */
+  console.log("Stacknavigation")
+  console.log({ratings, evaluationRequests, teamMembers});
   return (
     <Stack.Navigator initialRouteName="Tabs">
       <Stack.Screen name="Tabs" 

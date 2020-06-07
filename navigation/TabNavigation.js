@@ -12,10 +12,10 @@ import {Text} from 'react-native'
 const Tab = createMaterialTopTabNavigator();
 
 const width = Dimensions.get('window').width;
-function TopTabNavigator({ratings, evaluationRequests, teamMembers}) {
-  // console.log("Tabnavigation")
+function TopTabNavigator({navigation, route, ratings, evaluationRequests, teamMembers}) {
+  console.log("Tabnavigation")
   // console.log({ratings, evaluationRequests, teamMembers});
-
+  console.log({navigation, route})
   return (
     <Tab.Navigator 
       initialRouteName="My Ratings"
@@ -31,28 +31,16 @@ function TopTabNavigator({ratings, evaluationRequests, teamMembers}) {
         },
         style: {
           backgroundColor:"#0009EE",
-          // borderBottomRightRadius: 20,
-          // borderBottomLeftRadius: 20,
           borderBottomRightRadius: 40,
           borderBottomLeftRadius: 40,
           paddingBottom:5
-          // borderRadius: 20,
-          // alignSelf: 'center',
-          //  width: width-50,
         },
         indicatorStyle: {
           backgroundColor:'#fff',
           width: 30,
           marginLeft: 35,
         },
-      }}
-      style={{
-        // width: width-50,
-        // TODO:
-        // alignSelf: 'center',
-        // backgroundColor: 'black',
-      }}
-    >
+      }}>
       <Tab.Screen 
         name="My Ratings" 
         component={RatingsScreen} 
@@ -64,7 +52,6 @@ function TopTabNavigator({ratings, evaluationRequests, teamMembers}) {
         component={EvaluationsScreen} 
         evaluationRequests={evaluationRequests}
         options={{ tabBarLabel: ({ tintColor, focused }) => ( <Text style={{ fontWeight: focused ? "bold" : null, color:focused ? '#fff': 'rgba(255,255,255,0.7)', fontSize:focused?16:14, textAlign:'center',  width:width/3.5, fontFamily: focused ? "CooperHewitt-Heavy" :  'CooperHewitt-Medium'}} >Evaluations</Text> ) }}
-
       />
       <Tab.Screen 
         name="My team" 
