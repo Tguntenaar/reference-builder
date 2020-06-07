@@ -16,7 +16,7 @@ import SettingsScreen from '../screens/SettingsScreen.js';
 import TeamSettingsScreen from '../screens/TeamSettingsScreen.js';
 import ModalScreen from '../screens/ModalScreen.js';
 
-// AWS
+// AWS to logout
 import { Auth } from 'aws-amplify';
 
 function ParentNavigation({ user }) {
@@ -31,7 +31,7 @@ function ParentNavigation({ user }) {
       options={({navigation, route}) => ({
         headerTitle: () => (
           <View style={styles.container}>
-            <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+            <Text style={styles.jobTitle}>{user.jobTitle} master</Text>
             <Text style={styles.name}>{user.name}</Text>
           </View>
         ),
