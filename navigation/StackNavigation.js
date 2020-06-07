@@ -29,7 +29,7 @@ function ParentNavigation({ user }) {
       options={({navigation, route}) => ({
         headerTitle: () => (
           <View style={styles.container}>
-            <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+            <Text style={styles.jobTitle}>{user.jobTitle} local</Text>
             <Text style={styles.name}>{user.name}</Text>
           </View>
         ),
