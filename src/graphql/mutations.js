@@ -1,11 +1,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createTeam = `mutation CreateTeam(
-  $input: CreateTeamInput!
-  $condition: ModelTeamConditionInput
+export const createCompany = `mutation CreateCompany(
+  $input: CreateCompanyInput!
+  $condition: ModelCompanyConditionInput
 ) {
-  createTeam(input: $input, condition: $condition) {
+  createCompany(input: $input, condition: $condition) {
     id
     name
     adminId
@@ -22,9 +22,10 @@ export const createTeam = `mutation CreateTeam(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -34,16 +35,200 @@ export const createTeam = `mutation CreateTeam(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const updateCompany = `mutation UpdateCompany(
+  $input: UpdateCompanyInput!
+  $condition: ModelCompanyConditionInput
+) {
+  updateCompany(input: $input, condition: $condition) {
+    id
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const deleteCompany = `mutation DeleteCompany(
+  $input: DeleteCompanyInput!
+  $condition: ModelCompanyConditionInput
+) {
+  deleteCompany(input: $input, condition: $condition) {
+    id
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const createTeam = `mutation CreateTeam(
+  $input: CreateTeamInput!
+  $condition: ModelTeamConditionInput
+) {
+  createTeam(input: $input, condition: $condition) {
+    id
+    createdAt
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -72,6 +257,7 @@ export const updateTeam = `mutation UpdateTeam(
 ) {
   updateTeam(input: $input, condition: $condition) {
     id
+    createdAt
     name
     adminId
     admin {
@@ -87,9 +273,10 @@ export const updateTeam = `mutation UpdateTeam(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -99,16 +286,31 @@ export const updateTeam = `mutation UpdateTeam(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -137,6 +339,7 @@ export const deleteTeam = `mutation DeleteTeam(
 ) {
   deleteTeam(input: $input, condition: $condition) {
     id
+    createdAt
     name
     adminId
     admin {
@@ -152,9 +355,10 @@ export const deleteTeam = `mutation DeleteTeam(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -164,16 +368,31 @@ export const deleteTeam = `mutation DeleteTeam(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -213,6 +432,7 @@ export const createUser = `mutation CreateUser(
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -222,7 +442,12 @@ export const createUser = `mutation CreateUser(
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -233,25 +458,26 @@ export const createUser = `mutation CreateUser(
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -272,15 +498,14 @@ export const createUser = `mutation CreateUser(
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -304,6 +529,7 @@ export const updateUser = `mutation UpdateUser(
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -313,7 +539,12 @@ export const updateUser = `mutation UpdateUser(
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -324,25 +555,26 @@ export const updateUser = `mutation UpdateUser(
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -363,15 +595,14 @@ export const updateUser = `mutation UpdateUser(
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -395,6 +626,7 @@ export const deleteUser = `mutation DeleteUser(
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -404,7 +636,12 @@ export const deleteUser = `mutation DeleteUser(
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -415,25 +652,26 @@ export const deleteUser = `mutation DeleteUser(
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -454,15 +692,14 @@ export const deleteUser = `mutation DeleteUser(
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -475,6 +712,7 @@ export const createRating = `mutation CreateRating(
 ) {
   createRating(input: $input, condition: $condition) {
     id
+    createdAt
     userId
     user {
       id
@@ -489,9 +727,10 @@ export const createRating = `mutation CreateRating(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -501,10 +740,10 @@ export const createRating = `mutation CreateRating(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -524,9 +763,10 @@ export const createRating = `mutation CreateRating(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -536,10 +776,10 @@ export const createRating = `mutation CreateRating(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -555,7 +795,6 @@ export const createRating = `mutation CreateRating(
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
@@ -565,6 +804,7 @@ export const updateRating = `mutation UpdateRating(
 ) {
   updateRating(input: $input, condition: $condition) {
     id
+    createdAt
     userId
     user {
       id
@@ -579,9 +819,10 @@ export const updateRating = `mutation UpdateRating(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -591,10 +832,10 @@ export const updateRating = `mutation UpdateRating(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -614,9 +855,10 @@ export const updateRating = `mutation UpdateRating(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -626,10 +868,10 @@ export const updateRating = `mutation UpdateRating(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -645,7 +887,6 @@ export const updateRating = `mutation UpdateRating(
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
@@ -655,6 +896,7 @@ export const deleteRating = `mutation DeleteRating(
 ) {
   deleteRating(input: $input, condition: $condition) {
     id
+    createdAt
     userId
     user {
       id
@@ -669,9 +911,10 @@ export const deleteRating = `mutation DeleteRating(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -681,10 +924,10 @@ export const deleteRating = `mutation DeleteRating(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -704,9 +947,10 @@ export const deleteRating = `mutation DeleteRating(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -716,10 +960,10 @@ export const deleteRating = `mutation DeleteRating(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -735,7 +979,6 @@ export const deleteRating = `mutation DeleteRating(
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
@@ -748,6 +991,7 @@ export const createEvaluation = `mutation CreateEvaluation(
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -768,7 +1012,6 @@ export const createEvaluation = `mutation CreateEvaluation(
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -790,6 +1033,7 @@ export const updateEvaluation = `mutation UpdateEvaluation(
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -810,7 +1054,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -832,6 +1075,7 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -852,7 +1096,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -907,6 +1150,7 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
 ) {
   createEvaluationRequest(input: $input, condition: $condition) {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -922,9 +1166,10 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -934,17 +1179,16 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;
@@ -954,6 +1198,7 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
 ) {
   updateEvaluationRequest(input: $input, condition: $condition) {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -969,9 +1214,10 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -981,17 +1227,16 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;
@@ -1001,6 +1246,7 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
 ) {
   deleteEvaluationRequest(input: $input, condition: $condition) {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -1016,9 +1262,10 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -1028,17 +1275,16 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;

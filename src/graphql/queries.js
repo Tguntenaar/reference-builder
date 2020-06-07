@@ -1,8 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getTeam = `query GetTeam($id: ID!) {
-  getTeam(id: $id) {
+export const getCompany = `query GetCompany($id: ID!) {
+  getCompany(id: $id) {
     id
     name
     adminId
@@ -19,9 +19,10 @@ export const getTeam = `query GetTeam($id: ID!) {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -31,16 +32,110 @@ export const getTeam = `query GetTeam($id: ID!) {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const listCompanys = `query ListCompanys(
+  $filter: ModelCompanyFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCompanys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getTeam = `query GetTeam($id: ID!) {
+  getTeam(id: $id) {
+    id
+    createdAt
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -71,6 +166,7 @@ export const listTeams = `query ListTeams(
   listTeams(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      createdAt
       name
       adminId
       admin {
@@ -80,7 +176,12 @@ export const listTeams = `query ListTeams(
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -106,6 +207,7 @@ export const getUser = `query GetUser($id: ID!) {
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -115,7 +217,12 @@ export const getUser = `query GetUser($id: ID!) {
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -126,25 +233,26 @@ export const getUser = `query GetUser($id: ID!) {
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -165,15 +273,14 @@ export const getUser = `query GetUser($id: ID!) {
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -199,9 +306,10 @@ export const listUsers = `query ListUsers(
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -211,10 +319,10 @@ export const listUsers = `query ListUsers(
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -227,6 +335,7 @@ export const listUsers = `query ListUsers(
 export const getRating = `query GetRating($id: ID!) {
   getRating(id: $id) {
     id
+    createdAt
     userId
     user {
       id
@@ -241,9 +350,10 @@ export const getRating = `query GetRating($id: ID!) {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -253,10 +363,10 @@ export const getRating = `query GetRating($id: ID!) {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -276,9 +386,10 @@ export const getRating = `query GetRating($id: ID!) {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -288,10 +399,10 @@ export const getRating = `query GetRating($id: ID!) {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -307,7 +418,6 @@ export const getRating = `query GetRating($id: ID!) {
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
@@ -319,6 +429,7 @@ export const listRatings = `query ListRatings(
   listRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      createdAt
       userId
       user {
         id
@@ -339,7 +450,6 @@ export const listRatings = `query ListRatings(
         nextToken
       }
       comment
-      createdAt
     }
     nextToken
   }
@@ -351,6 +461,7 @@ export const getEvaluation = `query GetEvaluation($id: ID!) {
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -371,7 +482,6 @@ export const getEvaluation = `query GetEvaluation($id: ID!) {
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -395,10 +505,10 @@ export const listEvaluations = `query ListEvaluations(
       ratingId
       rating {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       skillId
       skill {
@@ -441,6 +551,7 @@ export const listSkills = `query ListSkills(
 export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
   getEvaluationRequest(id: $id) {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -456,9 +567,10 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -468,17 +580,16 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;
@@ -494,6 +605,7 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
   ) {
     items {
       id
+      createdAt
       evaluatorId
       userId
       user {
@@ -504,7 +616,6 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
         teamId
       }
       status
-      createdAt
     }
     nextToken
   }

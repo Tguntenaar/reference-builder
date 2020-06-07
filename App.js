@@ -40,7 +40,6 @@ import * as mutations from './src/graphql/mutations';
 
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  const [isSignedIn, setSignedIn] = useState(true) // FIXME:
   const [user, setUser] = useState({name:'Esther Rookhuijzen', jobTitle: 'Founder Jaaf'})
   const [ratings, setRatings] = useState([{evaluator:"Thomas Guntenaar"}])
   const [evaluationRequests, setEvaluationRequests] = useState([{}])
@@ -120,16 +119,15 @@ function App(props) {
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   } else {
-    // ratings={ratings} evaluationRequests={evaluationRequests} teamMembers={teamMembers}
-    
-    return isSignedIn ? (
-      <SafeAreaProvider>
-          <NavigationContainer>
-            <StackNavigation user={user} />
-          </NavigationContainer>
-      </SafeAreaProvider>
-    ) :
-    (
+    // const [isSignedIn, setSignedIn] = useState(true) // FIXME:
+    // return isSignedIn ? ( 
+    //   <SafeAreaProvider>
+    //       <NavigationContainer>
+    //         <StackNavigation user={user} />
+    //       </NavigationContainer>
+    //   </SafeAreaProvider>
+    // ) :
+    return (
       <Provider store={store}>
         <SafeAreaProvider>
             <NavigationContainer ref={containerRef} initialState={initialNavigationState}>

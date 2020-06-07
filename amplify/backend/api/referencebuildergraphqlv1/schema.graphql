@@ -1,5 +1,5 @@
 # TODO:
-# organisation (with admin) -> team -> users
+# organisation (with admin) -> team (with manager) -> users
 # 
 type Company
 @model

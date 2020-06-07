@@ -1,8 +1,8 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTeam = `subscription OnCreateTeam {
-  onCreateTeam {
+export const onCreateCompany = `subscription OnCreateCompany {
+  onCreateCompany {
     id
     name
     adminId
@@ -19,9 +19,10 @@ export const onCreateTeam = `subscription OnCreateTeam {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -31,16 +32,191 @@ export const onCreateTeam = `subscription OnCreateTeam {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateCompany = `subscription OnUpdateCompany {
+  onUpdateCompany {
+    id
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteCompany = `subscription OnDeleteCompany {
+  onDeleteCompany {
+    id
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    teams {
+      items {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateTeam = `subscription OnCreateTeam {
+  onCreateTeam {
+    id
+    createdAt
+    name
+    adminId
+    admin {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teamId
+      team {
+        id
+        createdAt
+        name
+        adminId
+        companyId
+      }
+      requests {
+        nextToken
+      }
+      ratings {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        authorId
+        comment
+      }
+      evaluations {
+        nextToken
+      }
+    }
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -66,6 +242,7 @@ export const onCreateTeam = `subscription OnCreateTeam {
 export const onUpdateTeam = `subscription OnUpdateTeam {
   onUpdateTeam {
     id
+    createdAt
     name
     adminId
     admin {
@@ -81,9 +258,10 @@ export const onUpdateTeam = `subscription OnUpdateTeam {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -93,16 +271,31 @@ export const onUpdateTeam = `subscription OnUpdateTeam {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -128,6 +321,7 @@ export const onUpdateTeam = `subscription OnUpdateTeam {
 export const onDeleteTeam = `subscription OnDeleteTeam {
   onDeleteTeam {
     id
+    createdAt
     name
     adminId
     admin {
@@ -143,9 +337,10 @@ export const onDeleteTeam = `subscription OnDeleteTeam {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -155,16 +350,31 @@ export const onDeleteTeam = `subscription OnDeleteTeam {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
-    company
+    companyId
+    company {
+      id
+      name
+      adminId
+      admin {
+        id
+        createdAt
+        name
+        jobTitle
+        teamId
+      }
+      teams {
+        nextToken
+      }
+    }
     members {
       items {
         id
@@ -201,6 +411,7 @@ export const onCreateUser = `subscription OnCreateUser {
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -210,7 +421,12 @@ export const onCreateUser = `subscription OnCreateUser {
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -221,25 +437,26 @@ export const onCreateUser = `subscription OnCreateUser {
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -260,15 +477,14 @@ export const onCreateUser = `subscription OnCreateUser {
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -289,6 +505,7 @@ export const onUpdateUser = `subscription OnUpdateUser {
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -298,7 +515,12 @@ export const onUpdateUser = `subscription OnUpdateUser {
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -309,25 +531,26 @@ export const onUpdateUser = `subscription OnUpdateUser {
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -348,15 +571,14 @@ export const onUpdateUser = `subscription OnUpdateUser {
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -377,6 +599,7 @@ export const onDeleteUser = `subscription OnDeleteUser {
     teamId
     team {
       id
+      createdAt
       name
       adminId
       admin {
@@ -386,7 +609,12 @@ export const onDeleteUser = `subscription OnDeleteUser {
         jobTitle
         teamId
       }
-      company
+      companyId
+      company {
+        id
+        name
+        adminId
+      }
       members {
         nextToken
       }
@@ -397,25 +625,26 @@ export const onDeleteUser = `subscription OnDeleteUser {
     requests {
       items {
         id
+        createdAt
         evaluatorId
         userId
         status
-        createdAt
       }
       nextToken
     }
     ratings {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
     averageRatings {
       id
+      createdAt
       userId
       user {
         id
@@ -436,15 +665,14 @@ export const onDeleteUser = `subscription OnDeleteUser {
         nextToken
       }
       comment
-      createdAt
     }
     evaluations {
       items {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       nextToken
     }
@@ -454,6 +682,7 @@ export const onDeleteUser = `subscription OnDeleteUser {
 export const onCreateRating = `subscription OnCreateRating {
   onCreateRating {
     id
+    createdAt
     userId
     user {
       id
@@ -468,9 +697,10 @@ export const onCreateRating = `subscription OnCreateRating {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -480,10 +710,10 @@ export const onCreateRating = `subscription OnCreateRating {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -503,9 +733,10 @@ export const onCreateRating = `subscription OnCreateRating {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -515,10 +746,10 @@ export const onCreateRating = `subscription OnCreateRating {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -534,13 +765,13 @@ export const onCreateRating = `subscription OnCreateRating {
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
 export const onUpdateRating = `subscription OnUpdateRating {
   onUpdateRating {
     id
+    createdAt
     userId
     user {
       id
@@ -555,9 +786,10 @@ export const onUpdateRating = `subscription OnUpdateRating {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -567,10 +799,10 @@ export const onUpdateRating = `subscription OnUpdateRating {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -590,9 +822,10 @@ export const onUpdateRating = `subscription OnUpdateRating {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -602,10 +835,10 @@ export const onUpdateRating = `subscription OnUpdateRating {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -621,13 +854,13 @@ export const onUpdateRating = `subscription OnUpdateRating {
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
 export const onDeleteRating = `subscription OnDeleteRating {
   onDeleteRating {
     id
+    createdAt
     userId
     user {
       id
@@ -642,9 +875,10 @@ export const onDeleteRating = `subscription OnDeleteRating {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -654,10 +888,10 @@ export const onDeleteRating = `subscription OnDeleteRating {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -677,9 +911,10 @@ export const onDeleteRating = `subscription OnDeleteRating {
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -689,10 +924,10 @@ export const onDeleteRating = `subscription OnDeleteRating {
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
@@ -708,7 +943,6 @@ export const onDeleteRating = `subscription OnDeleteRating {
       nextToken
     }
     comment
-    createdAt
   }
 }
 `;
@@ -718,6 +952,7 @@ export const onCreateEvaluation = `subscription OnCreateEvaluation {
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -738,7 +973,6 @@ export const onCreateEvaluation = `subscription OnCreateEvaluation {
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -757,6 +991,7 @@ export const onUpdateEvaluation = `subscription OnUpdateEvaluation {
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -777,7 +1012,6 @@ export const onUpdateEvaluation = `subscription OnUpdateEvaluation {
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -796,6 +1030,7 @@ export const onDeleteEvaluation = `subscription OnDeleteEvaluation {
     ratingId
     rating {
       id
+      createdAt
       userId
       user {
         id
@@ -816,7 +1051,6 @@ export const onDeleteEvaluation = `subscription OnDeleteEvaluation {
         nextToken
       }
       comment
-      createdAt
     }
     skillId
     skill {
@@ -859,6 +1093,7 @@ export const onDeleteSkill = `subscription OnDeleteSkill {
 export const onCreateEvaluationRequest = `subscription OnCreateEvaluationRequest {
   onCreateEvaluationRequest {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -874,9 +1109,10 @@ export const onCreateEvaluationRequest = `subscription OnCreateEvaluationRequest
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -886,23 +1122,23 @@ export const onCreateEvaluationRequest = `subscription OnCreateEvaluationRequest
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;
 export const onUpdateEvaluationRequest = `subscription OnUpdateEvaluationRequest {
   onUpdateEvaluationRequest {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -918,9 +1154,10 @@ export const onUpdateEvaluationRequest = `subscription OnUpdateEvaluationRequest
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -930,23 +1167,23 @@ export const onUpdateEvaluationRequest = `subscription OnUpdateEvaluationRequest
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;
 export const onDeleteEvaluationRequest = `subscription OnDeleteEvaluationRequest {
   onDeleteEvaluationRequest {
     id
+    createdAt
     evaluatorId
     userId
     user {
@@ -962,9 +1199,10 @@ export const onDeleteEvaluationRequest = `subscription OnDeleteEvaluationRequest
       teamId
       team {
         id
+        createdAt
         name
         adminId
-        company
+        companyId
       }
       requests {
         nextToken
@@ -974,17 +1212,16 @@ export const onDeleteEvaluationRequest = `subscription OnDeleteEvaluationRequest
       }
       averageRatings {
         id
+        createdAt
         userId
         authorId
         comment
-        createdAt
       }
       evaluations {
         nextToken
       }
     }
     status
-    createdAt
   }
 }
 `;
