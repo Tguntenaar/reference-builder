@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet, Platform } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 // Navigation
@@ -20,7 +20,22 @@ import ModalScreen from '../screens/ModalScreen.js';
 import { Auth } from 'aws-amplify';
 
 function ParentNavigation({ user }) {
+
   const admin = true
+
+  const HeaderRightContent = ({ onPress }) => {
+    return (
+      <>
+        <Feather
+          name={"settings"}
+          color={"#fff"}
+          onPress={onPress}
+          style={styles.settingsIcon}
+        />
+        <View style={styles.transparentCircle}></View>
+      </>
+    );
+  };
   return (
     <Stack.Navigator initialRouteName="Tabs">
       <Stack.Screen name="Tabs" 
@@ -46,9 +61,11 @@ function ParentNavigation({ user }) {
           <Image source={require('../assets/images/esther-rookhuijzen.jpeg')} style={styles.image} />
         ),
         headerRight: () => (
-          <Feather name={"settings"} color={"#fff"} 
-          onPress={() => { navigation.navigate("SettingsScreen") }}
-          style={styles.settingsIcon}/>
+          <HeaderRightContent
+              onPress={() => {
+                navigation.navigate("SettingsScreen");
+              }}
+            />
         ),
       })} />
       <Stack.Screen name="RatingsDetailsScreen" component={RatingsDetailsScreen} options={{
@@ -88,6 +105,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 154,
+    marginLeft: 70,
     justifyContent: 'center',
   },
   jobTitle: {
@@ -117,6 +135,7 @@ const styles = StyleSheet.create({
     marginBottom: 120,
     marginRight: 20,
     fontSize: 20,
+    zIndex: 10,
   },
   icons:{
     flexDirection: 'row',
@@ -128,6 +147,17 @@ const styles = StyleSheet.create({
   },
   signOutIcon: {
     fontSize: 20,
+  },
+  transparentCircle: {
+    width: 300,
+    height: 300,
+    backgroundColor: "#fff",
+    position: "absolute",
+    top: -160,
+    right: -100,
+    borderRadius: 500,
+    opacity: 0.2,
+    // zIndex:-2 hides circle on android
   },
 });
 

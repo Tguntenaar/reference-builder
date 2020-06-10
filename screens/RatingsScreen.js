@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
-import { StyleSheet, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet, ScrollView, StatusBar, Text, Platform } from 'react-native';
 import RatingBox from '../components/RatingBox.js'
 
 function RatingsScreen({ navigation, ratings }) {
-  ratings = ratings || [{skillName:"Creativity", grade:"8.1", description:"Originality, new ideas, out of the box"},
-                        {skillName:"Learning", grade:"5.1", description:"Originality, new ideas, out of the box"},
-                        {skillName:"Teamwork", grade:"6.3", description:"Originality, new ideas, out of the box"}]
+  ratings = ratings || []; //[{skillName:"Creativity", grade:"8.1", description:"Originality, new ideas, out of the box"},
+                        //{skillName:"Learning", grade:"5.1", description:"Originality, new ideas, out of the box"},
+                        //{skillName:"Teamwork", grade:"6.3", description:"Originality, new ideas, out of the box"}]
   return (
     <Fragment>
       <StatusBar barStyle="light-content" />
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
         {
-          ratings.map((rating, index) => {
+          ratings.length ? ratings.map((rating, index) => {
             return (
               <RatingBox
                 key={index} 
@@ -22,7 +22,7 @@ function RatingsScreen({ navigation, ratings }) {
                     rating: rating,
                   })
                 }} />)
-          })
+          }) : ( <Text>You dont have been rated yet </Text>)
         }
       </ScrollView>
     </Fragment>

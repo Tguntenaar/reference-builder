@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 export default function Rating({ rating, onSeeDetails }) {
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 20,
-    height: 20,
+    height: Platform.OS === 'ios' ? 20: 30,
     padding: 2,
     color: "#2c2c2c"
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   grade: {
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 24,
-    height: 24,
+    height: Platform.OS === 'ios' ? 24: 30,
     paddingTop:2,
     textAlign: "center",
     color: "#fff"

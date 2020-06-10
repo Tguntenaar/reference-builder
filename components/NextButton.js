@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text , StyleSheet, TouchableOpacity } from 'react-native';
+import { Text , StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
 function NextButton({ title, onPress, color, size, textSize }) {
 
@@ -8,7 +8,8 @@ function NextButton({ title, onPress, color, size, textSize }) {
   textSize = textSize || 20;
   const defaultColors = { backgroundColor:"#0009EE", textColor:"#fff", height: size, borderRadius: size/2, width: size*4,};
   color = Object.assign(defaultColors, color);
-  const defaultText = { fontSize: textSize, height: textSize };
+  const defaultText = { fontSize: textSize, 
+    height: Platform.OS === 'ios' ? textSize: textSize + 10};
   textSize = Object.assign(defaultText, textSize);
   
   return (

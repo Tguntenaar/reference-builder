@@ -192,12 +192,13 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'CooperHewitt-Heavy',
     paddingTop: 2,
-    height:25,
+    height: Platform.OS === 'ios' ? 25: 30,
   },
   skill:{
     color: "#fff",
     fontSize: 24,
-    height: 24,
+    height: Platform.OS === 'ios' ? 24: 34,
+
     fontFamily: 'CooperHewitt-Heavy',
     padding: 2,
   },

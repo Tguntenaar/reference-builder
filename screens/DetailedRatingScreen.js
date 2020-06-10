@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, StatusBar, Image, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, Image, Dimensions, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
   name:{
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 20,
-    height: 20,
+    height: Platform.OS === 'ios' ? 20: 25,
+
     padding: 1,
     top: ImagePosition + 10,
 
@@ -95,7 +96,8 @@ const styles = StyleSheet.create({
     fontFamily: 'CooperHewitt-BookItalic',
     color: 'rgba(44,44,44,0.75)',
     fontSize: 14,
-    height: 14,
+    height: Platform.OS === 'ios' ? 14: 19,
+
     padding: 1,
     top: ImagePosition + 10,
   },
@@ -103,7 +105,8 @@ const styles = StyleSheet.create({
     fontFamily: 'CooperHewitt-Heavy',
     color: 'rgb(10,19,255)',
     fontSize: 24,
-    height: 24,
+    height: Platform.OS === 'ios' ? 24: 29,
+
     padding: 2,
   },
   skillDescription:{
@@ -134,13 +137,14 @@ const styles = StyleSheet.create({
   skillPart:{
     fontFamily: 'CooperHewitt-Medium',
     fontSize: 20,
-    height: 20,
+    height: Platform.OS === 'ios' ? 20: 25,
+
     padding: 2,
   },
   grade:{
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 30,
-    height: 30,
+    height: Platform.OS === 'ios' ? 30: 35,
     padding: 2,
     width: 30,
     // alignSelf: 'flex-end',

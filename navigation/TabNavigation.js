@@ -5,8 +5,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import EvaluationsScreen from '../screens/EvaluationsScreen.js';
 import MyTeamScreen from '../screens/MyTeamScreen.js';
 import RatingsScreen from '../screens/RatingsScreen.js';
-import { Dimensions } from 'react-native';
-import {Text} from 'react-native'
+import { Dimensions, Text, Platform } from 'react-native';
 
 
 const Tab = createMaterialTopTabNavigator();

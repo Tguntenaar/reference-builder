@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
+import { Text, StyleSheet, View, Image, Dimensions, Platform } from 'react-native';
 import NextButton from './NextButton';
 
 
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 20,
-    height: 20,
+    height: Platform.OS === 'ios' ? 20: 30,
     padding:1,
     fontStyle: "normal",
     color: "#2c2c2c"

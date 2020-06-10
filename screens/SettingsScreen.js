@@ -9,6 +9,9 @@ function SettingsScreen({ navigation }) {
   const [username, setUsername] = useState("Thomas Gunt")
   const [jobTitle, setJobTitle] = useState("dev")
   const [photo, setAvatar] = useState(null)
+  const submitProfileInfo = () => {
+    // user mutation
+  };
   const handlePhotoUpload = () => {
       const options = {
         noData: true,
@@ -59,22 +62,19 @@ function SettingsScreen({ navigation }) {
         <View style={styles.middle}>
           <TextInput 
             style={styles.input} 
-            clearTextOnFocus={true} 
+            clearTextOnFocus={false} 
             onChangeText={text => setUsername(text)}
             value={username} 
             placeholder={"username"}/>
           <TextInput 
             style={styles.input} 
-            clearTextOnFocus={true} 
+            clearTextOnFocus={false} 
             onChangeText={text => setJobTitle(text)}
             value={jobTitle} 
             placeholder={"job title"}/>
-
-          <NextButton title='Submit'/>
-          <Button title="teamsettings" onPress={() => { navigation.navigate("TeamSettingsScreen")}}/>
         </View>
         <View style={styles.bottom}>
-          {/*<NextButton title='Submit'/>*/}
+        <NextButton title='Submit' onPress={submitProfileInfo}/>
         </View>
       </View>
     </ScrollView>
@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
   },
   input:{ 
     height: 40, 
-    borderColor: 'gray', 
-    borderWidth: 1,
+    // borderColor: 'gray', 
+    // borderWidth: 1,
     paddingLeft: 5,
     paddingRight: 5,
     marginTop: 0,

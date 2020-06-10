@@ -10,7 +10,7 @@ function MyTeamScreen({ navigation, teamMembers }) {
   Sed sapien metus, scelerisque nec pharetra id, tempor.';
   // TODO:
   // const [teamMembers, setMembers] = useState([{ name:"TeamScreem", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }])
-  teamMembers = teamMembers || [{ name:"TeamScreen", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }];
+  teamMembers = teamMembers || [] //[{ name:"TeamScreen", jobTitle:'Founder'}, { name:'Thomas', jobTitle:'developer' }];
   return (
     <Fragment>
       <Modal
@@ -35,7 +35,16 @@ function MyTeamScreen({ navigation, teamMembers }) {
       </Modal>
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
         {
-          teamMembers.map((item, index) => (<TeamMember name={item.name} key={index} jobTitle={item.jobTitle} picture={item.picture} navigation={navigation} onPress={setModalVisible}/>))
+          teamMembers.length ? teamMembers.map((item, index) => (
+            <TeamMember 
+              name={item.name} 
+              key={index} 
+              jobTitle={item.jobTitle} 
+              picture={item.picture}
+              navigation={navigation} onPress={setModalVisible}/>)) :
+              (
+                <Text>No team members.. Go to the team settings screen to invite your team members</Text>
+              )
         }
       </ScrollView>
     </Fragment>

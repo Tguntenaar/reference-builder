@@ -97,7 +97,7 @@ function App(props) {
         const { attributes } = currentAuthenticatedUser;
         console.log({attributes});
         const id = attributes.sub; // "b403da70-bea8-4e54-9cff-6a68e9d07f4d";
-        var result = await API.graphql(graphqlOperation(getUser1, {id}))
+        var result = await API.graphql(graphqlOperation(queries.getUser, {id:"b403da70-bea8-4e54-9cff-6a68e9d07f4d"}))
         console.log({result});
         const { getUser } = result.data;
         setUser( getUser );
@@ -122,11 +122,13 @@ function App(props) {
     // const [isSignedIn, setSignedIn] = useState(true) // FIXME:
     // return isSignedIn ?
     return ( 
-      <SafeAreaProvider>
-          <NavigationContainer>
-            <StackNavigation user={user} />
-          </NavigationContainer>
-      </SafeAreaProvider>
+      <Provider store={store}>
+        <SafeAreaProvider>
+            <NavigationContainer>
+              <StackNavigation user={user} />
+            </NavigationContainer>
+        </SafeAreaProvider>
+      </Provider>
     ) 
     // : (
     //   <Provider store={store}>

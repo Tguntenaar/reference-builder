@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Text, View, StyleSheet, Dimensions, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, StatusBar, Platform } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -54,9 +54,10 @@ export default function EvaluateCommentScreen({navigation, route}) {
               </View>
             </View>
           </View>
-          <SafeAreaView style={styles.safe}/>
+          
       </Fragment>
     )
+    // <SafeAreaView style={styles.safe}/>
 }
 
 const height = Dimensions.get('window').height;
@@ -123,7 +124,8 @@ const styles = StyleSheet.create({
   grade: {
     fontFamily: "CooperHewitt-Heavy",
     fontSize: 60,
-    height:60,
+    height: Platform.OS === 'ios' ? 60: 65,
+
   },
   question: {
     fontFamily: 'SourceSansPro-Regular',

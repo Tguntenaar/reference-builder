@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 // import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -68,12 +68,15 @@ const styles = StyleSheet.create({
   name:{
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 20,
-    height: 20,
+    height: Platform.OS === 'ios' ? 20: 25,
+
     padding: 2,
   },
   jobTitle:{
     fontFamily: 'CooperHewitt-BookItalic',
     height: 16,
+    height: Platform.OS === 'ios' ? 16: 21,
+
     padding: 2,
   },
   gradeBox:{

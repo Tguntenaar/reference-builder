@@ -1,6 +1,5 @@
 # TODO:
 # organisation (with admin) -> team (with manager) -> users
-# 
 type Company
 @model
 {

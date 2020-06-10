@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Image, Dimensions } from 'react-native';
+import { Text, StyleSheet, View, Image, Dimensions, Platform } from 'react-native';
 import NextButton from './NextButton';
 
 export default function EvaluationRequest({name, jobTitle, navigation}) {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "CooperHewitt-Heavy",
-    height: 20,
+    height: Platform.OS === 'ios' ? 20:30,
     fontSize: 20,
     padding:1,
     color: "#2c2c2c"
