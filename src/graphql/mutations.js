@@ -8,791 +8,24 @@ export const createCompany = `mutation CreateCompany(
   createCompany(input: $input, condition: $condition) {
     id
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     teams {
       items {
         id
         createdAt
         name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
+        admins
         companyId
         company {
           id
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           teams {
             items {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
             nextToken
@@ -801,37 +34,20 @@ export const createCompany = `mutation CreateCompany(
         members {
           items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
             }
           }
           nextToken
@@ -858,791 +74,24 @@ export const updateCompany = `mutation UpdateCompany(
   updateCompany(input: $input, condition: $condition) {
     id
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     teams {
       items {
         id
         createdAt
         name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
+        admins
         companyId
         company {
           id
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           teams {
             items {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
             nextToken
@@ -1651,37 +100,20 @@ export const updateCompany = `mutation UpdateCompany(
         members {
           items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
             }
           }
           nextToken
@@ -1708,791 +140,24 @@ export const deleteCompany = `mutation DeleteCompany(
   deleteCompany(input: $input, condition: $condition) {
     id
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     teams {
       items {
         id
         createdAt
         name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
+        admins
         companyId
         company {
           id
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           teams {
             items {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
             nextToken
@@ -2501,37 +166,20 @@ export const deleteCompany = `mutation DeleteCompany(
         members {
           items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
             }
           }
           nextToken
@@ -2559,951 +207,23 @@ export const createTeam = `mutation CreateTeam(
     id
     createdAt
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     companyId
     company {
       id
       name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
+      admins
       teams {
         items {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           companyId
           company {
             id
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             teams {
               nextToken
             }
@@ -3511,9 +231,7 @@ export const createTeam = `mutation CreateTeam(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -3534,67 +252,89 @@ export const createTeam = `mutation CreateTeam(
     members {
       items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -3602,9 +342,7 @@ export const createTeam = `mutation CreateTeam(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -3618,163 +356,6 @@ export const createTeam = `mutation CreateTeam(
             }
             nextToken
           }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
         }
       }
       nextToken
@@ -3799,951 +380,23 @@ export const updateTeam = `mutation UpdateTeam(
     id
     createdAt
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     companyId
     company {
       id
       name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
+      admins
       teams {
         items {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           companyId
           company {
             id
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             teams {
               nextToken
             }
@@ -4751,9 +404,7 @@ export const updateTeam = `mutation UpdateTeam(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -4774,67 +425,89 @@ export const updateTeam = `mutation UpdateTeam(
     members {
       items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -4842,9 +515,7 @@ export const updateTeam = `mutation UpdateTeam(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -4858,163 +529,6 @@ export const updateTeam = `mutation UpdateTeam(
             }
             nextToken
           }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
         }
       }
       nextToken
@@ -5039,24 +553,54 @@ export const deleteTeam = `mutation DeleteTeam(
     id
     createdAt
     name
-    adminId
-    admin {
+    admins
+    companyId
+    company {
       id
-      createdAt
       name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
+      admins
+      teams {
+        items {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
+            teams {
+              nextToken
+            }
+          }
+          members {
+            items {
+              id
+              userId
+              teamId
+            }
+            nextToken
+          }
+          skills {
+            items {
+              id
+              teamId
+              name
+              description
+            }
+            nextToken
+          }
+        }
+        nextToken
       }
-      teamId
-      team {
+    }
+    members {
+      items {
         id
-        createdAt
-        name
-        adminId
-        admin {
+        userId
+        teamId
+        user {
           id
           createdAt
           name
@@ -5066,31 +610,13 @@ export const deleteTeam = `mutation DeleteTeam(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -5121,7 +647,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -5129,7 +654,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -5147,59 +671,77 @@ export const deleteTeam = `mutation DeleteTeam(
             nextToken
           }
         }
-        companyId
-        company {
+        team {
           id
+          createdAt
           name
-          adminId
-          admin {
+          admins
+          companyId
+          company {
             id
-            createdAt
             name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
+            admins
+            teams {
               nextToken
             }
           }
-          teams {
+          members {
             items {
               id
-              createdAt
+              userId
+              teamId
+            }
+            nextToken
+          }
+          skills {
+            items {
+              id
+              teamId
               name
-              adminId
-              companyId
+              description
             }
             nextToken
           }
         }
-        members {
-          items {
+      }
+      nextToken
+    }
+    skills {
+      items {
+        id
+        teamId
+        name
+        description
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const createTeamMemberLink = `mutation CreateTeamMemberLink(
+  $input: CreateTeamMemberLinkInput!
+  $condition: ModelTeamMemberLinkConditionInput
+) {
+  createTeamMemberLink(input: $input, condition: $condition) {
+    id
+    userId
+    teamId
+    user {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teams {
+        items {
+          id
+          userId
+          teamId
+          user {
             id
             createdAt
             name
@@ -5209,13 +751,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5234,17 +771,26 @@ export const deleteTeam = `mutation DeleteTeam(
               nextToken
             }
           }
-          nextToken
-        }
-        skills {
-          items {
+          team {
             id
-            teamId
+            createdAt
             name
-            description
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+            }
+            members {
+              nextToken
+            }
+            skills {
+              nextToken
+            }
           }
-          nextToken
         }
+        nextToken
       }
       requests {
         items {
@@ -5262,13 +808,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5306,13 +847,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5342,13 +878,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5394,31 +925,13 @@ export const deleteTeam = `mutation DeleteTeam(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -5449,7 +962,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -5457,7 +969,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -5486,31 +997,13 @@ export const deleteTeam = `mutation DeleteTeam(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -5541,7 +1034,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -5549,7 +1041,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -5606,13 +1097,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5642,13 +1128,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5681,146 +1162,43 @@ export const deleteTeam = `mutation DeleteTeam(
         nextToken
       }
     }
-    companyId
-    company {
+    team {
       id
+      createdAt
       name
-      adminId
-      admin {
+      admins
+      companyId
+      company {
         id
-        createdAt
         name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
+        admins
+        teams {
           items {
             id
             createdAt
-            evaluatorId
-            userId
-            user {
+            name
+            admins
+            companyId
+            company {
               id
-              createdAt
               name
-              jobTitle
-              teamId
+              admins
             }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
+            members {
               nextToken
             }
-            comment
+            skills {
+              nextToken
+            }
           }
           nextToken
         }
-        averageRatings {
+      }
+      members {
+        items {
           id
-          createdAt
           userId
+          teamId
           user {
             id
             createdAt
@@ -5831,13 +1209,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5856,88 +1229,64 @@ export const deleteTeam = `mutation DeleteTeam(
               nextToken
             }
           }
-          authorId
-          author {
+          team {
             id
             createdAt
             name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
+            admins
+            companyId
+            company {
               id
-              createdAt
               name
-              adminId
-              companyId
+              admins
             }
-            requests {
+            members {
               nextToken
             }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
+            skills {
               nextToken
             }
           }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
         }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
+        nextToken
+      }
+      skills {
+        items {
+          id
+          teamId
+          name
+          description
         }
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const updateTeamMemberLink = `mutation UpdateTeamMemberLink(
+  $input: UpdateTeamMemberLinkInput!
+  $condition: ModelTeamMemberLinkConditionInput
+) {
+  updateTeamMemberLink(input: $input, condition: $condition) {
+    id
+    userId
+    teamId
+    user {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
       }
       teams {
         items {
           id
-          createdAt
-          name
-          adminId
-          admin {
+          userId
+          teamId
+          user {
             id
             createdAt
             name
@@ -5947,13 +1296,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5972,63 +1316,34 @@ export const deleteTeam = `mutation DeleteTeam(
               nextToken
             }
           }
-          companyId
-          company {
+          team {
             id
+            createdAt
             name
-            adminId
-            admin {
+            admins
+            companyId
+            company {
               id
-              createdAt
               name
-              jobTitle
-              teamId
+              admins
             }
-            teams {
+            members {
               nextToken
             }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
+            skills {
+              nextToken
             }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
           }
         }
         nextToken
       }
-    }
-    members {
-      items {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
+      requests {
+        items {
           id
           createdAt
-          name
-          adminId
-          admin {
+          evaluatorId
+          userId
+          user {
             id
             createdAt
             name
@@ -6038,13 +1353,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6063,87 +1373,12 @@ export const deleteTeam = `mutation DeleteTeam(
               nextToken
             }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          status
         }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
+        nextToken
+      }
+      ratings {
+        items {
           id
           createdAt
           userId
@@ -6157,13 +1392,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6193,13 +1423,8 @@ export const deleteTeam = `mutation DeleteTeam(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6229,8 +1454,51 @@ export const deleteTeam = `mutation DeleteTeam(
           }
           comment
         }
-        evaluations {
-          items {
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        user {
+          id
+          createdAt
+          name
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              userId
+              status
+            }
+            nextToken
+          }
+          ratings {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+          averageRatings {
             id
             createdAt
             userId
@@ -6239,7 +1507,6 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6247,26 +1514,841 @@ export const deleteTeam = `mutation DeleteTeam(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
             }
             comment
           }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        authorId
+        author {
+          id
+          createdAt
+          name
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              userId
+              status
+            }
+            nextToken
+          }
+          ratings {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        evaluations {
+          items {
+            id
+            ratingId
+            rating {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+            }
+            grade
+          }
+          nextToken
+        }
+        comment
+      }
+      evaluations {
+        items {
+          id
+          createdAt
+          userId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          authorId
+          author {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          evaluations {
+            items {
+              id
+              ratingId
+              skillId
+              grade
+            }
+            nextToken
+          }
+          comment
+        }
+        nextToken
+      }
+    }
+    team {
+      id
+      createdAt
+      name
+      admins
+      companyId
+      company {
+        id
+        name
+        admins
+        teams {
+          items {
+            id
+            createdAt
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+            }
+            members {
+              nextToken
+            }
+            skills {
+              nextToken
+            }
+          }
           nextToken
         }
       }
-      nextToken
-    }
-    skills {
-      items {
-        id
-        teamId
-        name
-        description
+      members {
+        items {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          team {
+            id
+            createdAt
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+            }
+            members {
+              nextToken
+            }
+            skills {
+              nextToken
+            }
+          }
+        }
+        nextToken
       }
-      nextToken
+      skills {
+        items {
+          id
+          teamId
+          name
+          description
+        }
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const deleteTeamMemberLink = `mutation DeleteTeamMemberLink(
+  $input: DeleteTeamMemberLinkInput!
+  $condition: ModelTeamMemberLinkConditionInput
+) {
+  deleteTeamMemberLink(input: $input, condition: $condition) {
+    id
+    userId
+    teamId
+    user {
+      id
+      createdAt
+      name
+      jobTitle
+      avatar {
+        bucket
+        region
+        key
+      }
+      teams {
+        items {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          team {
+            id
+            createdAt
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+            }
+            members {
+              nextToken
+            }
+            skills {
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
+      requests {
+        items {
+          id
+          createdAt
+          evaluatorId
+          userId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          status
+        }
+        nextToken
+      }
+      ratings {
+        items {
+          id
+          createdAt
+          userId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          authorId
+          author {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          evaluations {
+            items {
+              id
+              ratingId
+              skillId
+              grade
+            }
+            nextToken
+          }
+          comment
+        }
+        nextToken
+      }
+      averageRatings {
+        id
+        createdAt
+        userId
+        user {
+          id
+          createdAt
+          name
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              userId
+              status
+            }
+            nextToken
+          }
+          ratings {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        authorId
+        author {
+          id
+          createdAt
+          name
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              userId
+              status
+            }
+            nextToken
+          }
+          ratings {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        evaluations {
+          items {
+            id
+            ratingId
+            rating {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+            }
+            grade
+          }
+          nextToken
+        }
+        comment
+      }
+      evaluations {
+        items {
+          id
+          createdAt
+          userId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          authorId
+          author {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          evaluations {
+            items {
+              id
+              ratingId
+              skillId
+              grade
+            }
+            nextToken
+          }
+          comment
+        }
+        nextToken
+      }
+    }
+    team {
+      id
+      createdAt
+      name
+      admins
+      companyId
+      company {
+        id
+        name
+        admins
+        teams {
+          items {
+            id
+            createdAt
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+            }
+            members {
+              nextToken
+            }
+            skills {
+              nextToken
+            }
+          }
+          nextToken
+        }
+      }
+      members {
+        items {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
+          team {
+            id
+            createdAt
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+            }
+            members {
+              nextToken
+            }
+            skills {
+              nextToken
+            }
+          }
+        }
+        nextToken
+      }
+      skills {
+        items {
+          id
+          teamId
+          name
+          description
+        }
+        nextToken
+      }
     }
   }
 }
@@ -6285,75 +2367,92 @@ export const createUser = `mutation CreateUser(
       region
       key
     }
-    teamId
-    team {
-      id
-      createdAt
-      name
-      adminId
-      admin {
+    teams {
+      items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -6361,9 +2460,7 @@ export const createUser = `mutation CreateUser(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -6378,392 +2475,8 @@ export const createUser = `mutation CreateUser(
             nextToken
           }
         }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
       }
-      companyId
-      company {
-        id
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        teams {
-          items {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          nextToken
-        }
-      }
-      members {
-        items {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        nextToken
-      }
-      skills {
-        items {
-          id
-          teamId
-          name
-          description
-        }
-        nextToken
-      }
+      nextToken
     }
     requests {
       items {
@@ -6781,31 +2494,13 @@ export const createUser = `mutation CreateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -6836,7 +2531,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6844,7 +2538,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6881,31 +2574,13 @@ export const createUser = `mutation CreateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -6936,7 +2611,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6944,7 +2618,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6973,31 +2646,13 @@ export const createUser = `mutation CreateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -7028,7 +2683,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7036,7 +2690,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7094,82 +2747,26 @@ export const createUser = `mutation CreateUser(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -7182,7 +2779,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -7198,7 +2794,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7206,7 +2801,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7229,13 +2823,8 @@ export const createUser = `mutation CreateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -7265,13 +2854,8 @@ export const createUser = `mutation CreateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -7311,7 +2895,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7319,7 +2902,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7340,82 +2922,26 @@ export const createUser = `mutation CreateUser(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -7428,7 +2954,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -7444,7 +2969,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7452,7 +2976,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7475,13 +2998,8 @@ export const createUser = `mutation CreateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -7511,13 +3029,8 @@ export const createUser = `mutation CreateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -7557,7 +3070,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7565,7 +3077,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7588,7 +3099,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7596,7 +3106,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7631,31 +3140,13 @@ export const createUser = `mutation CreateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -7686,7 +3177,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7694,7 +3184,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7723,31 +3212,13 @@ export const createUser = `mutation CreateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -7778,7 +3249,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7786,7 +3256,6 @@ export const createUser = `mutation CreateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7847,75 +3316,92 @@ export const updateUser = `mutation UpdateUser(
       region
       key
     }
-    teamId
-    team {
-      id
-      createdAt
-      name
-      adminId
-      admin {
+    teams {
+      items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -7923,9 +3409,7 @@ export const updateUser = `mutation UpdateUser(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -7940,392 +3424,8 @@ export const updateUser = `mutation UpdateUser(
             nextToken
           }
         }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
       }
-      companyId
-      company {
-        id
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        teams {
-          items {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          nextToken
-        }
-      }
-      members {
-        items {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        nextToken
-      }
-      skills {
-        items {
-          id
-          teamId
-          name
-          description
-        }
-        nextToken
-      }
+      nextToken
     }
     requests {
       items {
@@ -8343,31 +3443,13 @@ export const updateUser = `mutation UpdateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -8398,7 +3480,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8406,7 +3487,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8443,31 +3523,13 @@ export const updateUser = `mutation UpdateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -8498,7 +3560,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8506,7 +3567,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8535,31 +3595,13 @@ export const updateUser = `mutation UpdateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -8590,7 +3632,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8598,7 +3639,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8656,82 +3696,26 @@ export const updateUser = `mutation UpdateUser(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -8744,7 +3728,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -8760,7 +3743,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8768,7 +3750,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8791,13 +3772,8 @@ export const updateUser = `mutation UpdateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8827,13 +3803,8 @@ export const updateUser = `mutation UpdateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8873,7 +3844,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8881,7 +3851,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8902,82 +3871,26 @@ export const updateUser = `mutation UpdateUser(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -8990,7 +3903,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -9006,7 +3918,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -9014,7 +3925,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -9037,13 +3947,8 @@ export const updateUser = `mutation UpdateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -9073,13 +3978,8 @@ export const updateUser = `mutation UpdateUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -9119,7 +4019,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -9127,7 +4026,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -9150,7 +4048,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -9158,7 +4055,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -9193,31 +4089,13 @@ export const updateUser = `mutation UpdateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -9248,7 +4126,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -9256,7 +4133,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -9285,31 +4161,13 @@ export const updateUser = `mutation UpdateUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -9340,7 +4198,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -9348,7 +4205,6 @@ export const updateUser = `mutation UpdateUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -9409,75 +4265,92 @@ export const deleteUser = `mutation DeleteUser(
       region
       key
     }
-    teamId
-    team {
-      id
-      createdAt
-      name
-      adminId
-      admin {
+    teams {
+      items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -9485,9 +4358,7 @@ export const deleteUser = `mutation DeleteUser(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -9502,392 +4373,8 @@ export const deleteUser = `mutation DeleteUser(
             nextToken
           }
         }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
       }
-      companyId
-      company {
-        id
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        teams {
-          items {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          nextToken
-        }
-      }
-      members {
-        items {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        nextToken
-      }
-      skills {
-        items {
-          id
-          teamId
-          name
-          description
-        }
-        nextToken
-      }
+      nextToken
     }
     requests {
       items {
@@ -9905,31 +4392,13 @@ export const deleteUser = `mutation DeleteUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -9960,7 +4429,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -9968,7 +4436,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10005,31 +4472,13 @@ export const deleteUser = `mutation DeleteUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -10060,7 +4509,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10068,7 +4516,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10097,31 +4544,13 @@ export const deleteUser = `mutation DeleteUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -10152,7 +4581,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10160,7 +4588,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10218,82 +4645,26 @@ export const deleteUser = `mutation DeleteUser(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -10306,7 +4677,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -10322,7 +4692,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10330,7 +4699,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10353,13 +4721,8 @@ export const deleteUser = `mutation DeleteUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -10389,13 +4752,8 @@ export const deleteUser = `mutation DeleteUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -10435,7 +4793,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10443,7 +4800,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10464,82 +4820,26 @@ export const deleteUser = `mutation DeleteUser(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -10552,7 +4852,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -10568,7 +4867,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10576,7 +4874,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10599,13 +4896,8 @@ export const deleteUser = `mutation DeleteUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -10635,13 +4927,8 @@ export const deleteUser = `mutation DeleteUser(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -10681,7 +4968,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10689,7 +4975,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10712,7 +4997,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10720,7 +5004,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10755,31 +5038,13 @@ export const deleteUser = `mutation DeleteUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -10810,7 +5075,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10818,7 +5082,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10847,31 +5110,13 @@ export const deleteUser = `mutation DeleteUser(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -10902,7 +5147,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -10910,7 +5154,6 @@ export const deleteUser = `mutation DeleteUser(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -10975,40 +5218,51 @@ export const createRating = `mutation CreateRating(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -11017,159 +5271,8 @@ export const createRating = `mutation CreateRating(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -11187,13 +5290,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11231,13 +5329,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11267,13 +5360,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11319,31 +5407,13 @@ export const createRating = `mutation CreateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -11374,7 +5444,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -11382,7 +5451,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -11411,31 +5479,13 @@ export const createRating = `mutation CreateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -11466,7 +5516,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -11474,7 +5523,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -11531,13 +5579,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11567,13 +5610,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11617,40 +5655,51 @@ export const createRating = `mutation CreateRating(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -11659,159 +5708,8 @@ export const createRating = `mutation CreateRating(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -11829,13 +5727,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11873,13 +5766,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11909,13 +5797,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -11961,31 +5844,13 @@ export const createRating = `mutation CreateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -12016,7 +5881,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -12024,7 +5888,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -12053,31 +5916,13 @@ export const createRating = `mutation CreateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -12108,7 +5953,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -12116,7 +5960,6 @@ export const createRating = `mutation CreateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -12173,13 +6016,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12209,13 +6047,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12266,13 +6099,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12302,13 +6130,8 @@ export const createRating = `mutation CreateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12371,40 +6194,51 @@ export const updateRating = `mutation UpdateRating(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -12413,159 +6247,8 @@ export const updateRating = `mutation UpdateRating(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -12583,13 +6266,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12627,13 +6305,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12663,13 +6336,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12715,31 +6383,13 @@ export const updateRating = `mutation UpdateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -12770,7 +6420,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -12778,7 +6427,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -12807,31 +6455,13 @@ export const updateRating = `mutation UpdateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -12862,7 +6492,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -12870,7 +6499,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -12927,13 +6555,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -12963,13 +6586,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13013,40 +6631,51 @@ export const updateRating = `mutation UpdateRating(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -13055,159 +6684,8 @@ export const updateRating = `mutation UpdateRating(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -13225,13 +6703,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13269,13 +6742,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13305,13 +6773,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13357,31 +6820,13 @@ export const updateRating = `mutation UpdateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -13412,7 +6857,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -13420,7 +6864,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -13449,31 +6892,13 @@ export const updateRating = `mutation UpdateRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -13504,7 +6929,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -13512,7 +6936,6 @@ export const updateRating = `mutation UpdateRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -13569,13 +6992,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13605,13 +7023,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13662,13 +7075,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13698,13 +7106,8 @@ export const updateRating = `mutation UpdateRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -13767,40 +7170,51 @@ export const deleteRating = `mutation DeleteRating(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -13809,159 +7223,8 @@ export const deleteRating = `mutation DeleteRating(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -13979,13 +7242,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14023,13 +7281,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14059,13 +7312,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14111,31 +7359,13 @@ export const deleteRating = `mutation DeleteRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -14166,7 +7396,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -14174,7 +7403,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -14203,31 +7431,13 @@ export const deleteRating = `mutation DeleteRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -14258,7 +7468,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -14266,7 +7475,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -14323,13 +7531,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14359,13 +7562,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14409,40 +7607,51 @@ export const deleteRating = `mutation DeleteRating(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -14451,159 +7660,8 @@ export const deleteRating = `mutation DeleteRating(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -14621,13 +7679,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14665,13 +7718,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14701,13 +7749,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -14753,31 +7796,13 @@ export const deleteRating = `mutation DeleteRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -14808,7 +7833,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -14816,7 +7840,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -14845,31 +7868,13 @@ export const deleteRating = `mutation DeleteRating(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -14900,7 +7905,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -14908,7 +7912,6 @@ export const deleteRating = `mutation DeleteRating(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -14965,13 +7968,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15001,13 +7999,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15058,13 +8051,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15094,13 +8082,8 @@ export const deleteRating = `mutation DeleteRating(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15166,82 +8149,26 @@ export const createEvaluation = `mutation CreateEvaluation(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -15254,7 +8181,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -15270,7 +8196,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15278,7 +8203,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15301,13 +8225,8 @@ export const createEvaluation = `mutation CreateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15337,13 +8256,8 @@ export const createEvaluation = `mutation CreateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15383,7 +8297,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15391,7 +8304,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15412,82 +8324,26 @@ export const createEvaluation = `mutation CreateEvaluation(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -15500,7 +8356,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -15516,7 +8371,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15524,7 +8378,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15547,13 +8400,8 @@ export const createEvaluation = `mutation CreateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15583,13 +8431,8 @@ export const createEvaluation = `mutation CreateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15629,7 +8472,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15637,7 +8479,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15660,7 +8501,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15668,7 +8508,6 @@ export const createEvaluation = `mutation CreateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15720,82 +8559,26 @@ export const updateEvaluation = `mutation UpdateEvaluation(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -15808,7 +8591,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -15824,7 +8606,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15832,7 +8613,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15855,13 +8635,8 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15891,13 +8666,8 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -15937,7 +8707,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -15945,7 +8714,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -15966,82 +8734,26 @@ export const updateEvaluation = `mutation UpdateEvaluation(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -16054,7 +8766,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -16070,7 +8781,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16078,7 +8788,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16101,13 +8810,8 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -16137,13 +8841,8 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -16183,7 +8882,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16191,7 +8889,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16214,7 +8911,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16222,7 +8918,6 @@ export const updateEvaluation = `mutation UpdateEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16274,82 +8969,26 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -16362,7 +9001,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -16378,7 +9016,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16386,7 +9023,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16409,13 +9045,8 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -16445,13 +9076,8 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -16491,7 +9117,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16499,7 +9124,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16520,82 +9144,26 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -16608,7 +9176,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -16624,7 +9191,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16632,7 +9198,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16655,13 +9220,8 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -16691,13 +9251,8 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -16737,7 +9292,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16745,7 +9299,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16768,7 +9321,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -16776,7 +9328,6 @@ export const deleteEvaluation = `mutation DeleteEvaluation(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -16862,40 +9413,51 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -16904,159 +9466,8 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -17074,13 +9485,8 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17118,13 +9524,8 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17154,13 +9555,8 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17206,31 +9602,13 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -17261,7 +9639,6 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -17269,7 +9646,6 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -17298,31 +9674,13 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -17353,7 +9711,6 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -17361,7 +9718,6 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -17418,13 +9774,8 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17454,13 +9805,8 @@ export const createEvaluationRequest = `mutation CreateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17516,40 +9862,51 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -17558,159 +9915,8 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -17728,13 +9934,8 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17772,13 +9973,8 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17808,13 +10004,8 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -17860,31 +10051,13 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -17915,7 +10088,6 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -17923,7 +10095,6 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -17952,31 +10123,13 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -18007,7 +10160,6 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -18015,7 +10167,6 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -18072,13 +10223,8 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -18108,13 +10254,8 @@ export const updateEvaluationRequest = `mutation UpdateEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -18170,40 +10311,51 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -18212,159 +10364,8 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -18382,13 +10383,8 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -18426,13 +10422,8 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -18462,13 +10453,8 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -18514,31 +10500,13 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -18569,7 +10537,6 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -18577,7 +10544,6 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -18606,31 +10572,13 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -18661,7 +10609,6 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -18669,7 +10616,6 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -18726,13 +10672,8 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -18762,13 +10703,8 @@ export const deleteEvaluationRequest = `mutation DeleteEvaluationRequest(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken

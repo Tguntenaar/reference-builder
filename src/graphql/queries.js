@@ -5,791 +5,24 @@ export const getCompany = `query GetCompany($id: ID!) {
   getCompany(id: $id) {
     id
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     teams {
       items {
         id
         createdAt
         name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
+        admins
         companyId
         company {
           id
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           teams {
             items {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
             nextToken
@@ -798,37 +31,20 @@ export const getCompany = `query GetCompany($id: ID!) {
         members {
           items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
             }
           }
           nextToken
@@ -857,305 +73,18 @@ export const listCompanys = `query ListCompanys(
     items {
       id
       name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
+      admins
       teams {
         items {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           companyId
           company {
             id
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             teams {
               nextToken
             }
@@ -1163,9 +92,7 @@ export const listCompanys = `query ListCompanys(
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -1192,951 +119,23 @@ export const getTeam = `query GetTeam($id: ID!) {
     id
     createdAt
     name
-    adminId
-    admin {
-      id
-      createdAt
-      name
-      jobTitle
-      avatar {
-        bucket
-        region
-        key
-      }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
-      }
-      requests {
-        items {
-          id
-          createdAt
-          evaluatorId
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          status
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      evaluations {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        nextToken
-      }
-    }
+    admins
     companyId
     company {
       id
       name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
+      admins
       teams {
         items {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
+          admins
           companyId
           company {
             id
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             teams {
               nextToken
             }
@@ -2144,9 +143,7 @@ export const getTeam = `query GetTeam($id: ID!) {
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -2167,67 +164,89 @@ export const getTeam = `query GetTeam($id: ID!) {
     members {
       items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -2235,9 +254,7 @@ export const getTeam = `query GetTeam($id: ID!) {
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -2251,163 +268,6 @@ export const getTeam = `query GetTeam($id: ID!) {
             }
             nextToken
           }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
         }
       }
       nextToken
@@ -2434,366 +294,23 @@ export const listTeams = `query ListTeams(
       id
       createdAt
       name
-      adminId
-      admin {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
+      admins
       companyId
       company {
         id
         name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
+        admins
         teams {
           items {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -2808,32 +325,48 @@ export const listTeams = `query ListTeams(
       members {
         items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -2841,60 +374,6 @@ export const listTeams = `query ListTeams(
             skills {
               nextToken
             }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
           }
         }
         nextToken
@@ -2924,75 +403,92 @@ export const getUser = `query GetUser($id: ID!) {
       region
       key
     }
-    teamId
-    team {
-      id
-      createdAt
-      name
-      adminId
-      admin {
+    teams {
+      items {
         id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
+        userId
         teamId
-        team {
+        user {
           id
           createdAt
           name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          teams {
+            items {
+              id
+              userId
+              teamId
             }
-            teamId
-            team {
+            nextToken
+          }
+          requests {
+            items {
               id
               createdAt
-              name
-              adminId
-              companyId
+              evaluatorId
+              userId
+              status
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
+            nextToken
+          }
+          ratings {
+            items {
               id
               createdAt
               userId
               authorId
               comment
             }
-            evaluations {
-              nextToken
-            }
+            nextToken
           }
-          companyId
-          company {
+          averageRatings {
             id
-            name
-            adminId
-            admin {
+            createdAt
+            userId
+            user {
               id
               createdAt
               name
               jobTitle
-              teamId
             }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              jobTitle
+            }
+            evaluations {
+              nextToken
+            }
+            comment
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            nextToken
+          }
+        }
+        team {
+          id
+          createdAt
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
             teams {
               nextToken
             }
@@ -3000,9 +496,7 @@ export const getUser = `query GetUser($id: ID!) {
           members {
             items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
             nextToken
@@ -3017,392 +511,8 @@ export const getUser = `query GetUser($id: ID!) {
             nextToken
           }
         }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
       }
-      companyId
-      company {
-        id
-        name
-        adminId
-        admin {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        teams {
-          items {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          nextToken
-        }
-      }
-      members {
-        items {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        nextToken
-      }
-      skills {
-        items {
-          id
-          teamId
-          name
-          description
-        }
-        nextToken
-      }
+      nextToken
     }
     requests {
       items {
@@ -3420,31 +530,13 @@ export const getUser = `query GetUser($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -3475,7 +567,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -3483,7 +574,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -3520,31 +610,13 @@ export const getUser = `query GetUser($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -3575,7 +647,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -3583,7 +654,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -3612,31 +682,13 @@ export const getUser = `query GetUser($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -3667,7 +719,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -3675,7 +726,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -3733,82 +783,26 @@ export const getUser = `query GetUser($id: ID!) {
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -3821,7 +815,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -3837,7 +830,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -3845,7 +837,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -3868,13 +859,8 @@ export const getUser = `query GetUser($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -3904,13 +890,8 @@ export const getUser = `query GetUser($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -3950,7 +931,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -3958,7 +938,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -3979,82 +958,26 @@ export const getUser = `query GetUser($id: ID!) {
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -4067,7 +990,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -4083,7 +1005,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4091,7 +1012,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -4114,13 +1034,8 @@ export const getUser = `query GetUser($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -4150,13 +1065,8 @@ export const getUser = `query GetUser($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -4196,7 +1106,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4204,7 +1113,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -4227,7 +1135,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4235,7 +1142,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -4270,31 +1176,13 @@ export const getUser = `query GetUser($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -4325,7 +1213,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4333,7 +1220,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -4362,31 +1248,13 @@ export const getUser = `query GetUser($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -4417,7 +1285,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4425,7 +1292,6 @@ export const getUser = `query GetUser($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -4488,40 +1354,51 @@ export const listUsers = `query ListUsers(
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -4530,159 +1407,8 @@ export const listUsers = `query ListUsers(
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -4700,13 +1426,8 @@ export const listUsers = `query ListUsers(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -4744,13 +1465,8 @@ export const listUsers = `query ListUsers(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -4780,13 +1496,8 @@ export const listUsers = `query ListUsers(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -4832,31 +1543,13 @@ export const listUsers = `query ListUsers(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -4887,7 +1580,6 @@ export const listUsers = `query ListUsers(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4895,7 +1587,6 @@ export const listUsers = `query ListUsers(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -4924,31 +1615,13 @@ export const listUsers = `query ListUsers(
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -4979,7 +1652,6 @@ export const listUsers = `query ListUsers(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -4987,7 +1659,6 @@ export const listUsers = `query ListUsers(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -5044,13 +1715,8 @@ export const listUsers = `query ListUsers(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5080,13 +1746,8 @@ export const listUsers = `query ListUsers(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5138,40 +1799,51 @@ export const getRating = `query GetRating($id: ID!) {
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -5180,159 +1852,8 @@ export const getRating = `query GetRating($id: ID!) {
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -5350,13 +1871,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5394,13 +1910,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5430,13 +1941,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5482,31 +1988,13 @@ export const getRating = `query GetRating($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -5537,7 +2025,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -5545,7 +2032,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -5574,31 +2060,13 @@ export const getRating = `query GetRating($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -5629,7 +2097,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -5637,7 +2104,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -5694,13 +2160,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5730,13 +2191,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -5780,40 +2236,51 @@ export const getRating = `query GetRating($id: ID!) {
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -5822,159 +2289,8 @@ export const getRating = `query GetRating($id: ID!) {
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -5992,13 +2308,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6036,13 +2347,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6072,13 +2378,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6124,31 +2425,13 @@ export const getRating = `query GetRating($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -6179,7 +2462,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6187,7 +2469,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6216,31 +2497,13 @@ export const getRating = `query GetRating($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -6271,7 +2534,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6279,7 +2541,6 @@ export const getRating = `query GetRating($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6336,13 +2597,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6372,13 +2628,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6429,13 +2680,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6465,13 +2711,8 @@ export const getRating = `query GetRating($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6536,82 +2777,26 @@ export const listRatings = `query ListRatings(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -6624,7 +2809,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -6640,7 +2824,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6648,7 +2831,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6671,13 +2853,8 @@ export const listRatings = `query ListRatings(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6707,13 +2884,8 @@ export const listRatings = `query ListRatings(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6753,7 +2925,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6761,7 +2932,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6782,82 +2952,26 @@ export const listRatings = `query ListRatings(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -6870,7 +2984,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -6886,7 +2999,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -6894,7 +3006,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -6917,13 +3028,8 @@ export const listRatings = `query ListRatings(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6953,13 +3059,8 @@ export const listRatings = `query ListRatings(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -6999,7 +3100,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7007,7 +3107,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7030,7 +3129,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -7038,7 +3136,6 @@ export const listRatings = `query ListRatings(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -7057,790 +3154,6 @@ export const listRatings = `query ListRatings(
         nextToken
       }
       comment
-    }
-    nextToken
-  }
-}
-`;
-export const getEvaluation = `query GetEvaluation($id: ID!) {
-  getEvaluation(id: $id) {
-    id
-    ratingId
-    rating {
-      id
-      createdAt
-      userId
-      user {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
-      authorId
-      author {
-        id
-        createdAt
-        name
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            status
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              skillId
-              grade
-            }
-            nextToken
-          }
-          comment
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          nextToken
-        }
-      }
-      evaluations {
-        items {
-          id
-          ratingId
-          rating {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
-          }
-          grade
-        }
-        nextToken
-      }
-      comment
-    }
-    skillId
-    skill {
-      id
-      teamId
-      name
-      description
-    }
-    grade
-  }
-}
-`;
-export const listEvaluations = `query ListEvaluations(
-  $filter: ModelEvaluationFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listEvaluations(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      ratingId
-      rating {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-            }
-            grade
-          }
-          nextToken
-        }
-        comment
-      }
-      skillId
-      skill {
-        id
-        teamId
-        name
-        description
-      }
-      grade
     }
     nextToken
   }
@@ -7887,40 +3200,51 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
         region
         key
       }
-      teamId
-      team {
-        id
-        createdAt
-        name
-        adminId
-        admin {
+      teams {
+        items {
           id
-          createdAt
-          name
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
+          userId
           teamId
+          user {
+            id
+            createdAt
+            name
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teams {
+              nextToken
+            }
+            requests {
+              nextToken
+            }
+            ratings {
+              nextToken
+            }
+            averageRatings {
+              id
+              createdAt
+              userId
+              authorId
+              comment
+            }
+            evaluations {
+              nextToken
+            }
+          }
           team {
             id
             createdAt
             name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
+            admins
             companyId
             company {
               id
               name
-              adminId
+              admins
             }
             members {
               nextToken
@@ -7929,159 +3253,8 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               nextToken
             }
           }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              userId
-              status
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            evaluations {
-              nextToken
-            }
-            comment
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            nextToken
-          }
         }
-        companyId
-        company {
-          id
-          name
-          adminId
-          admin {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          teams {
-            items {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            nextToken
-          }
-        }
-        members {
-          items {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
-            }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-          }
-          nextToken
-        }
+        nextToken
       }
       requests {
         items {
@@ -8099,13 +3272,8 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8143,13 +3311,8 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8179,13 +3342,8 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8231,31 +3389,13 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -8286,7 +3426,6 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8294,7 +3433,6 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8323,31 +3461,13 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
             region
             key
           }
-          teamId
-          team {
-            id
-            createdAt
-            name
-            adminId
-            admin {
+          teams {
+            items {
               id
-              createdAt
-              name
-              jobTitle
+              userId
               teamId
             }
-            companyId
-            company {
-              id
-              name
-              adminId
-            }
-            members {
-              nextToken
-            }
-            skills {
-              nextToken
-            }
+            nextToken
           }
           requests {
             items {
@@ -8378,7 +3498,6 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8386,7 +3505,6 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8443,13 +3561,8 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8479,13 +3592,8 @@ export const getEvaluationRequest = `query GetEvaluationRequest($id: ID!) {
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8547,82 +3655,26 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
           region
           key
         }
-        teamId
-        team {
-          id
-          createdAt
-          name
-          adminId
-          admin {
+        teams {
+          items {
             id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
+            userId
             teamId
+            user {
+              id
+              createdAt
+              name
+              jobTitle
+            }
             team {
               id
               createdAt
               name
-              adminId
+              admins
               companyId
             }
-            requests {
-              nextToken
-            }
-            ratings {
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              authorId
-              comment
-            }
-            evaluations {
-              nextToken
-            }
           }
-          companyId
-          company {
-            id
-            name
-            adminId
-            admin {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            teams {
-              nextToken
-            }
-          }
-          members {
-            items {
-              id
-              createdAt
-              name
-              jobTitle
-              teamId
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-            }
-            nextToken
-          }
+          nextToken
         }
         requests {
           items {
@@ -8635,7 +3687,6 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               createdAt
               name
               jobTitle
-              teamId
             }
             status
           }
@@ -8651,7 +3702,6 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8659,7 +3709,6 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken
@@ -8682,13 +3731,8 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8718,13 +3762,8 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               region
               key
             }
-            teamId
-            team {
-              id
-              createdAt
-              name
-              adminId
-              companyId
+            teams {
+              nextToken
             }
             requests {
               nextToken
@@ -8764,7 +3803,6 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               createdAt
               name
               jobTitle
-              teamId
             }
             authorId
             author {
@@ -8772,7 +3810,6 @@ export const listEvaluationRequests = `query ListEvaluationRequests(
               createdAt
               name
               jobTitle
-              teamId
             }
             evaluations {
               nextToken

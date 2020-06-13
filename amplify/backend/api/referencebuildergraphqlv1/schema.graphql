@@ -2,7 +2,7 @@
 # user groups admin 
 
 type Company
-@model(subscription: null)
+@model(subscriptions: null)
 {
   id: ID!
   name: String!
@@ -11,7 +11,7 @@ type Company
 }
 
 type Team
-@model(subscription: null)
+@model(subscriptions: null)
 # @auth(rules: [
 #   {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
 #   # {allow: groups, groupsField: "members", operations: [ read ]} 
@@ -24,12 +24,12 @@ type Team
   admins: [ID!]
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
-  members: [User!] @connection(keyName: "userByTeam", fields: ["id"]) # has many
+  members: [TeamMemberLink!] @connection(keyName: "userByTeam", fields: ["id"]) # has many
   skills: [Skill!] @connection(keyName: "skillByTeam", fields: ["id"]) # has many # TODO: team evaluations om het gemiddelde van een team te zien
 }
 
-type TeamUserLink 
-@model(queries: null, subscription: null)
+type TeamMemberLink
+@model(queries: null, subscriptions: null)
 @key(name: "teamByUser", fields: ["userId", "teamId"])
 @key(name: "userByTeam", fields: ["teamId", "userId"])
 {
@@ -41,7 +41,7 @@ type TeamUserLink
 }
 
 type User
-@model(subscription: null)
+@model(subscriptions: null)
 # @auth(rules: [
 #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
 #   ])
@@ -53,7 +53,7 @@ type User
   jobTitle: String
   avatar: S3Object
   # dashboard
-  teams: [Team!] @connection(keyName: "teamByUser", fields: ["id"]) # many to many
+  teams: [TeamMemberLink!] @connection(keyName: "teamByUser", fields: ["id"]) # many to many
   requests: [EvaluationRequest] @connection(keyName: "forUser", fields: [ "id" ]) # has many
   ratings: [Rating] @connection(keyName: "byUser", fields: [ "id" ]) # has many
   averageRatings: [Rating] 
@@ -72,7 +72,7 @@ type S3Object {
 # 
 
 type Rating
-@model(subscription: null)
+@model(subscriptions: null)
 # @auth(rules: [
 #   {allow: owner, operations: [ update, delete ]}
 #   ]) 
@@ -93,7 +93,7 @@ type Rating
 }
 
 type Evaluation
-@model(subscription: null, queries: null)
+@model(subscriptions: null, queries: null)
 @key(name: "evaluationByRating", fields:["ratingId"]) # Rating has many evaluations
 {
   id: ID!
@@ -106,7 +106,7 @@ type Evaluation
 }
 
 type Skill
-@model(subscription: null)
+@model(subscriptions: null)
 @key(name: "skillByTeam", fields:["teamId"]) # team has many skills
 {
   id: ID!
