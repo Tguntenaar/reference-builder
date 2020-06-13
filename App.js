@@ -96,8 +96,9 @@ function App(props) {
         let currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(err => console.log(err));
         const { attributes } = currentAuthenticatedUser;
         console.log({attributes});
-        const id = attributes.sub; // "b403da70-bea8-4e54-9cff-6a68e9d07f4d";
-        var result = await API.graphql(graphqlOperation(queries.getUser, {id:"b403da70-bea8-4e54-9cff-6a68e9d07f4d"}))
+        // const id = attributes.sub; // "b403da70-bea8-4e54-9cff-6a68e9d07f4d";
+        const userId = "a5e0c5a0-a512-4fab-a74c-095ab7af6104";
+        var result = await API.graphql(graphqlOperation(queries.getUser, {id:userId}))
         console.log({result});
         const { getUser } = result.data;
         setUser( getUser );
