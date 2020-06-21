@@ -27,8 +27,6 @@ function Screen(props) {
   return (
     <UserContext.Consumer>
       {(userContext) => {
-        // console.log(`%c USER CONTEXT`, 'color:yellow');
-        // console.log({userContext})
         return <TeamSettingsScreen userContext={userContext} {...props} />;
       }}
     </UserContext.Consumer>
@@ -37,9 +35,7 @@ function Screen(props) {
 
 function TeamSettingsScreen({ navigation, userContext }) {
   const team = userContext.teams.items[0].team;
-  var teamMembers = team.members.items;
-  const teamSkills = team.skills.items;
-
+  // const { teams: [ team ] } = userContext
   // const {
   //   teams: {
   //     items: [
@@ -53,8 +49,10 @@ function TeamSettingsScreen({ navigation, userContext }) {
   //   },
   // } = userContext;
 
+  const [teamMembers, setTeamMembers] = useState(team.members.items);
+  const [teamSkills, setTeamSkills] = useState(team.skills.items);
   const [newUser, setNewUser] = useState({ name: "", jobTitle: "", email: "" });
-  const [newSkill, setNewSkill] = useState({ name: "", description: ""});
+  const [newSkill, setNewSkill] = useState({ name: "", description: "" });
   const [teamName, setTeamName] = useState(team.name);
   const [companyName, setCompany] = useState(team.company.name);
 
@@ -78,8 +76,9 @@ function TeamSettingsScreen({ navigation, userContext }) {
   const handlePress = () => {};
   // Add a User to your team
   const createUser = async () => {
+    // TODO: invite email create user in UserPool
     const {
-      data: { createUser },
+      data: { createUser: createdUser },
     } = await API.graphql(
       graphqlOperation(mutations.createUser, {
         input: {
@@ -92,23 +91,102 @@ function TeamSettingsScreen({ navigation, userContext }) {
     const teamLink = await API.graphql(
       graphqlOperation(mutations.createTeamMemberLink, {
         input: {
-          userId: createUser.id,
+          userId: createdUser.id,
           teamId: team.id,
         },
       })
     ).catch((error) => {
       console.log(error);
     });
+
     if (!teamLink.errors) {
-      teamMembers = [...teamMembers, createUser];
+      setTeamMembers([...teamMembers, { ...teamLink, user: createdUser  }]);
       setNewUser({ name: "", jobTitle: "", email: "" });
     }
   };
 
   const createSkill = async () => {
+    const {
+      data: { createSkill: createdSkill },
+    } = await API.graphql(
+      graphqlOperation(mutations.createSkill, {
+        input: {
+          teamId: team.id,
+          name: newSkill.name,
+          description: newSkill.description,
+        },
+      })
+    ).catch((error) =>
+      console.log("ERROR creating skill.. \n" + error.errors[0].message)
+    );
+    if (createdSkill.name && createdSkill.description) {
+      setTeamSkills([...teamSkills, createdSkill]);
+      setNewSkill({ name: "", description: "" });
+    }
+  };
 
-    setNewSkill({ name: "", description: "" });
-  }
+  const updateHeader = async () => {
+    const updateTeamName = () => {
+      return API.graphql(
+        graphqlOperation(mutations.updateTeam, {
+          input: {
+            id: team.id,
+            name: teamName,
+          },
+        })
+      );
+    };
+    const updateCompanyName = () => {
+      return API.graphql(
+        graphqlOperation(mutations.updateCompany, {
+          input: {
+            id: team.company.id,
+            name: companyName,
+          },
+        })
+      );
+    };
+
+    let t1 = updateTeamName();
+    let t2 = updateCompanyName();
+
+    const {
+      data: { updateTeam: updatedTeam },
+    } = await t1;
+    const {
+      data: { updateCompany: updatedCompany },
+    } = await t2;
+
+    if (updatedTeam.errors || updatedCompany.errors) {
+      console.log("ERRORS!!!");
+    } else {
+      console.log("succes");
+    }
+  };
+
+  const deleteSkill = async (skillId) => {
+    console.log(skillId)
+    setTeamSkills(teamSkills.filter((skill)=>skillId!==skill.id))
+    const { data: { deleteSkill: result}} = await API.graphql(
+      graphqlOperation(mutations.deleteSkill, {
+        input: { id: skillId },
+      })
+    ).catch(console.log)
+    console.log(result.id)
+
+  };
+
+  const deleteMember = async (teamMemberLinkId) => {
+    console.log(teamMemberLinkId)
+    setTeamMembers(teamMembers.filter((user)=>teamMemberLinkId!==user.id))
+    const { data: { deleteTeamMemberLink: result}} = await API.graphql(
+      graphqlOperation(mutations.deleteTeamMemberLink, {
+        input: { id: teamMemberLinkId },
+      })
+    ).catch(console.log)
+    console.log(result.id)
+
+  };
 
   return (
     <ScrollView style={styles.safe}>
@@ -151,7 +229,7 @@ function TeamSettingsScreen({ navigation, userContext }) {
             }}
           >
             {teamSkills.length ? (
-              teamSkills.map((member, index) => (
+              teamSkills.map((skill, index) => (
                 <View
                   key={index}
                   style={{
@@ -162,12 +240,17 @@ function TeamSettingsScreen({ navigation, userContext }) {
                     paddingBottom: 10,
                   }}
                 >
-                  {/* TODO: teammember image */}
                   <View style={{ flexDirection: "row", marginLeft: 10 }}>
                     <Text>
-                      {member.name} Average: {member.average}
+                      {skill.name}, {skill.description} {/** */}
                     </Text>
                   </View>
+                  <TouchableOpacity
+                    style={{ position: "absolute", right: 40, top: 10 }}
+                    onPress={() => deleteSkill(skill.id)}
+                  >
+                    <Text style={{ color: "red" }}>Remove</Text>
+                  </TouchableOpacity>
                 </View>
               ))
             ) : (
@@ -183,7 +266,9 @@ function TeamSettingsScreen({ navigation, userContext }) {
           />
 
           <TextInput
-            onChangeText={(text) => setNewSkill({ ...newSkill, description: text })}
+            onChangeText={(text) =>
+              setNewSkill({ ...newSkill, description: text })
+            }
             value={newSkill.description}
             placeholder={"description"}
           />
@@ -213,9 +298,9 @@ function TeamSettingsScreen({ navigation, userContext }) {
             }}
           >
             {teamMembers.length ? (
-              teamMembers.map(({ user }, index) => (
+              teamMembers.map(({ id: teamMemberLinkId, user }) => (
                 <View
-                  key={index}
+                  key={teamMemberLinkId}
                   style={{
                     borderTopWidth: 1,
                     borderTopColor: "lightgrey",
@@ -233,6 +318,12 @@ function TeamSettingsScreen({ navigation, userContext }) {
                     <Text>{user.name}</Text>
                     <Text>{user.jobTitle}</Text>
                   </View>
+                  <TouchableOpacity
+                    style={{ position: "absolute", right: 40, top: 10 }}
+                    onPress={() => deleteMember(teamMemberLinkId)}
+                  >
+                    <Text style={{ color: "red" }}>Remove</Text>
+                  </TouchableOpacity>
                 </View>
               ))
             ) : (
@@ -263,8 +354,8 @@ function TeamSettingsScreen({ navigation, userContext }) {
           {/** END NEW USER FORM */}
         </View>
         <View style={styles.bottom}>
-          <NextButton title="Submit" />
-          {/*<NextButton title='Submit'/>*/}
+          
+          {/*<NextButton title="Submit" onPress={updateHeader} />*/}
         </View>
         <ModalScreen />
       </View>

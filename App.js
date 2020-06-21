@@ -55,7 +55,7 @@ function App(props) {
     const { attributes: { sub } } = await Auth.currentAuthenticatedUser().catch(e => console.log(e));
     const { data: { getUser: user } } = await API.graphql(graphqlOperation(queries.getUser, { id: sub })).catch(e => console.log(e))
     setUser(user);
-    console.log(user.teams.items[0].team)
+    // console.log(user.teams.items[0].team)
   }
 
   // Data fetching, setting up a subscription are both examples of side effects
