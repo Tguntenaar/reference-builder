@@ -19,8 +19,8 @@ import ModalScreen from '../screens/ModalScreen.js';
 // AWS
 import { Auth } from 'aws-amplify';
 
-function ParentNavigation({ user }) {
-
+function ParentNavigation() {
+  const user = { name: 'parentnav', jobTitle: 'idk' }
   const admin = true
 
   const HeaderRightContent = ({ onPress }) => {
@@ -37,7 +37,7 @@ function ParentNavigation({ user }) {
     );
   };
   return (
-    <Stack.Navigator initialRouteName="Tabs">
+    <Stack.Navigator initialRouteName="TeamSettingsScreen">
       <Stack.Screen name="Tabs" 
       component={TabNavigation} 
       

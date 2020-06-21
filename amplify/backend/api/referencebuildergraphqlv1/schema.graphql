@@ -24,7 +24,7 @@ type Team
   admins: [ID!]
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
-  members: [TeamMemberLink!] @connection(keyName: "userByTeam", fields: ["id"]) # has many
+  membersLink: [TeamMemberLink!] @connection(keyName: "userByTeam", fields: ["id"]) # has many
   skills: [Skill!] @connection(keyName: "skillByTeam", fields: ["id"]) # has many # TODO: team evaluations om het gemiddelde van een team te zien
 }
 
@@ -50,10 +50,11 @@ type User
   createdAt: AWSDateTime
   # presentation
   name: String
+  email: String
   jobTitle: String
   avatar: S3Object
   # dashboard
-  teams: [TeamMemberLink!] @connection(keyName: "teamByUser", fields: ["id"]) # many to many
+  teamsLink: [TeamMemberLink!] @connection(keyName: "teamByUser", fields: ["id"]) # many to many
   requests: [EvaluationRequest] @connection(keyName: "forUser", fields: [ "id" ]) # has many
   ratings: [Rating] @connection(keyName: "byUser", fields: [ "id" ]) # has many
   averageRatings: [Rating] 
@@ -69,7 +70,6 @@ type S3Object {
 
 # TODO: create Evaluation heeft 3 
 # rating heeft een skill grade and comment
-# 
 
 type Rating
 @model(subscriptions: null)

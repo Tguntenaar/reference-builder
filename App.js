@@ -13,24 +13,22 @@
 
 /** First import gesture handler */
 import 'react-native-gesture-handler';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 
+import UserContextProvider from './contexts/UserContext'
 import { NavigationContainer } from '@react-navigation/native';
 import StackNavigation from './navigation/StackNavigation.js';
-import LoginNavigation from './navigation/LoginNavigation.js';
 // import useLinking from './navigation/useLinking'; TODO: app.json 
 
 // AWS
 import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-Amplify.configure({...awsconfig, Analytics: { disabled: true}});
+Amplify.configure({ ...awsconfig, Analytics: { disabled: true } });
 // PREBUILT UI
 import { withAuthenticator } from 'aws-amplify-react-native'
 // Load/fetch ratings evaluations and team members
@@ -38,24 +36,31 @@ import { API, graphqlOperation } from 'aws-amplify';
 import * as queries from './src/graphql/queries';
 import * as mutations from './src/graphql/mutations';
 
+const defaultUser = { 
+  name:"Thomas Guntenaar", 
+  jobTitle:"App creator", 
+  team: [
+    { name:"App", jobTitle:'Founder'}, 
+    { name:'Thomas', jobTitle:'developer'}
+  ]}
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  const [user, setUser] = useState({name:'Esther Rookhuijzen', jobTitle: 'Founder Jaaf'})
-  const [ratings, setRatings] = useState([{evaluator:"Thomas Guntenaar"}])
-  const [evaluationRequests, setEvaluationRequests] = useState([{}])
-  
-  const [teamMembers, setTeamMembers] = useState([{name:"App Level", jobTitle:'Founder'},{name:'Thomas', jobTitle:'developer'}])
-  
+  const [user, setUser] = useState(defaultUser)
   // Load initial Navigation state TODO: sign up link
   // const [initialNavigationState, setInitialNavigationState] = useState();
   // const containerRef = useRef();
   // const { getInitialState } = useLinking(containerRef);
 
-  // TODO: start using redux
-  const store = configureStore();
+  const loadAuth = async () => {
+    const { attributes: { sub } } = await Auth.currentAuthenticatedUser().catch(e => console.log(e));
+    const { data: { getUser: user } } = await API.graphql(graphqlOperation(queries.getUser, { id: sub })).catch(e => console.log(e))
+    setUser(user);
+    console.log(user.teams.items[0].team)
+  }
 
   // Data fetching, setting up a subscription are both examples of side effects
   useEffect(() => {
+
     // Function to load resources
     async function loadResourcesAndDataAsync() {
       try {
@@ -76,33 +81,7 @@ function App(props) {
           'Montserrat-Black': require('./assets/fonts/Montserrat-Black.otf'),
         });
 
-        // TODO: USER first login
-        // thomas@guntenaar.org
-        // thomasguntenaar
-        const getUser1 = `query GetUser($id: ID!) {
-          getUser(id: $id) {
-            id
-            createdAt
-            name
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-          }
-        }
-        `;
-        let currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(err => console.log(err));
-        const { attributes } = currentAuthenticatedUser;
-        console.log({attributes});
-        // const id = attributes.sub; // "b403da70-bea8-4e54-9cff-6a68e9d07f4d";
-        const userId = "a5e0c5a0-a512-4fab-a74c-095ab7af6104";
-        var result = await API.graphql(graphqlOperation(queries.getUser, {id:userId}))
-        console.log({result});
-        const { getUser } = result.data;
-        setUser( getUser );
- 
+        await loadAuth()
 
       } catch (e) {
         // We might want to provide this error information to an error reporting service
@@ -120,26 +99,15 @@ function App(props) {
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   } else {
-    // const [isSignedIn, setSignedIn] = useState(true) // FIXME:
-    // return isSignedIn ?
-    return ( 
-      <Provider store={store}>
+    return (
+      <UserContextProvider user={user}>
         <SafeAreaProvider>
-            <NavigationContainer>
-              <StackNavigation user={user} />
-            </NavigationContainer>
+          <NavigationContainer>
+              <StackNavigation />
+          </NavigationContainer>
         </SafeAreaProvider>
-      </Provider>
-    ) 
-    // : (
-    //   <Provider store={store}>
-    //     <SafeAreaProvider>
-    //         <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-    //           <LoginNavigation/>
-    //         </NavigationContainer>
-    //     </SafeAreaProvider>
-    //   </Provider>
-    // )
+      </UserContextProvider>
+    )
   }
 }
 

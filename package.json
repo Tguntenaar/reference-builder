@@ -8,13 +8,15 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@aws-amplify/pubsub": "^2.1.9",
+    "@babel/preset-env": "^7.10.2",
     "@react-native-community/masked-view": "0.1.6",
     "@react-native-community/netinfo": "5.5.1",
     "@react-navigation/material-top-tabs": "^5.1.8",
     "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.2.10",
     "aws-amplify": "^3.0.10",
-    "aws-amplify-react-native": "^4.1.1",
+    "aws-amplify-react-native": "^4.2.0",
     "expo": "~37.0.3",
     "expo-chart-kit": "^1.2.4",
     "expo-contacts": "~8.1.0",
