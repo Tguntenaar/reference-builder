@@ -37,7 +37,7 @@ function ParentNavigation() {
     );
   };
   return (
-    <Stack.Navigator initialRouteName="TeamSettingsScreen">
+    <Stack.Navigator initialRouteName="Tabs">
       <Stack.Screen name="Tabs" 
       component={TabNavigation} 
       

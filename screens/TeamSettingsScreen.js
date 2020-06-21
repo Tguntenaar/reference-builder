@@ -74,7 +74,7 @@ function TeamSettingsScreen({ navigation, userContext }) {
   }, []);
   // Submit changes
   const handlePress = () => {};
-  // Add a User to your team
+  // Add a User to your team TODO: validation
   const createUser = async () => {
     // TODO: invite email create user in UserPool
     const {
@@ -105,6 +105,7 @@ function TeamSettingsScreen({ navigation, userContext }) {
     }
   };
 
+  // TODO: validation
   const createSkill = async () => {
     const {
       data: { createSkill: createdSkill },
@@ -165,27 +166,21 @@ function TeamSettingsScreen({ navigation, userContext }) {
   };
 
   const deleteSkill = async (skillId) => {
-    console.log(skillId)
     setTeamSkills(teamSkills.filter((skill)=>skillId!==skill.id))
     const { data: { deleteSkill: result}} = await API.graphql(
       graphqlOperation(mutations.deleteSkill, {
         input: { id: skillId },
       })
     ).catch(console.log)
-    console.log(result.id)
-
   };
 
   const deleteMember = async (teamMemberLinkId) => {
-    console.log(teamMemberLinkId)
     setTeamMembers(teamMembers.filter((user)=>teamMemberLinkId!==user.id))
     const { data: { deleteTeamMemberLink: result}} = await API.graphql(
       graphqlOperation(mutations.deleteTeamMemberLink, {
         input: { id: teamMemberLinkId },
       })
     ).catch(console.log)
-    console.log(result.id)
-
   };
 
   return (

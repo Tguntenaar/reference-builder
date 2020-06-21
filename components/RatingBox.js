@@ -5,12 +5,12 @@ import { Feather } from '@expo/vector-icons';
 export default function Rating({ rating, onSeeDetails }) {
   const translateGradeToColor = (grade) => {
     grade = parseInt(grade)
-    if (grade < 5.5) {
+    if (grade < 4.5) {
       return "#ff100a"
-    } else if (grade < 7) {
+    } else if (grade < 6.5) {
       return "rgb(255,171,10)"
     } else {
-      return "rgb(10,185,255)"
+      return "#3fc380"
     }
   }
   const gradeColor = translateGradeToColor(rating.grade)
