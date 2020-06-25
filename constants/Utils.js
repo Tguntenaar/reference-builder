@@ -1,11 +1,11 @@
-import { Dimensions, Platform } from 'react-native'
+import { Dimensions, Platform } from 'react-native';
 
-export const isIphoneX = () => {
-  const window = Dimensions.get('window')
-  const height = window.height;
-  const width = window.width;
-  const iphoneXLength = 812
-  const iphoneXSMaxLength = 896
+export default () => {
+  const window = Dimensions.get('window');
+  const { height } = window;
+  const { width } = window;
+  const iphoneXLength = 812;
+  const iphoneXSMaxLength = 896;
   return (
     Platform.OS === 'ios' &&
     !Platform.isPad &&
@@ -14,6 +14,5 @@ export const isIphoneX = () => {
       height === iphoneXLength ||
       width === iphoneXSMaxLength ||
       height === iphoneXSMaxLength)
-  )
-}
-
+  );
+};

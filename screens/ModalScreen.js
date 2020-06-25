@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 const ModalScreen = ({ navigation, visible }) => {
   return (
@@ -7,11 +7,9 @@ const ModalScreen = ({ navigation, visible }) => {
       <Text style={{ fontSize: 30 }}>This is a modal!</Text>
       <Button onPress={() => navigation.goBack()} title="Dismiss" />
     </View>
-  )
-}
+  );
+};
 
+export default ModalScreen;
 
-
-export default ModalScreen
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

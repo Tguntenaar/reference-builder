@@ -2,32 +2,31 @@ import * as React from 'react';
 import { Text, StyleSheet, View, Image, Dimensions, Platform } from 'react-native';
 import NextButton from './NextButton';
 
-
 export default function TeamMember({ name, jobTitle, onPress }) {
-  const handlePress = () => { 
+  const handlePress = () => {
     onPress(true);
   };
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-       <Image style={styles.image} source={require('../assets/images/thomas-guntenaar.jpeg')}/>
+        <Image style={styles.image} source={require('../assets/images/thomas-guntenaar.jpeg')} />
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>
         <Text style={styles.description}>{jobTitle}</Text>
-        <NextButton size={45} textSize={15} title={"Request evaluation"} onPress={handlePress} />
+        <NextButton size={45} textSize={15} title="Request evaluation" onPress={handlePress} />
       </View>
     </View>
   );
 }
 
-const width = Dimensions.get('window').width;
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   Box: {
-    width: width-40,
+    width: width - 40,
     height: 0.4 * (width - 40),
-    backgroundColor: "rgb(239, 244, 253)",
+    backgroundColor: 'rgb(239, 244, 253)',
     borderRadius: 7,
     flexDirection: 'row',
     marginBottom: 20,
@@ -43,17 +42,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontFamily: "CooperHewitt-Heavy",
+    fontFamily: 'CooperHewitt-Heavy',
     fontSize: 20,
-    height: Platform.OS === 'ios' ? 20: 30,
-    padding:1,
-    fontStyle: "normal",
-    color: "#2c2c2c"
+    height: Platform.OS === 'ios' ? 20 : 30,
+    padding: 1,
+    fontStyle: 'normal',
+    color: '#2c2c2c',
   },
   description: {
-    fontFamily: "SourceSansPro-Regular",
+    fontFamily: 'SourceSansPro-Regular',
     fontSize: 14,
-    color: "rgb(44,44,44)"
+    color: 'rgb(44,44,44)',
   },
   circleBox: {
     alignItems: 'center',

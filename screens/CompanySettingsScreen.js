@@ -13,7 +13,6 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import * as Contacts from 'expo-contacts';
 import { API, graphqlOperation } from 'aws-amplify';
-import NextButton from '../components/NextButton';
 import ModalScreen from './ModalScreen';
 import * as mutations from '../src/graphql/mutations';
 import { UserContext } from '../contexts/UserContext';
@@ -34,25 +33,25 @@ function Screen(props) {
 function TeamSettingsScreen({ navigation, userContext }) {
   const { team } = userContext.teams.items[0];
   // const { teams: [ team ] } = userContext
-  // const {
-  //   teams: {
-  //     items: [
-  //       {
-  //         name: initialTeamName,
-  //         company: { name: initialCompanyName },
-  //         members: { items: initialTeamMembers },
-  //         skills: { items: initialTeamSkills },
-  //       }
-  //     ],
-  //   },
-  // } = userContext;
+  const {
+    teams: {
+      items: [
+        {
+          name: initialTeamName,
+          company: { name: initialCompanyName },
+          members: { items: initialTeamMembers },
+          skills: { items: initialTeamSkills },
+        },
+      ],
+    },
+  } = userContext;
 
-  const [teamMembers, setTeamMembers] = useState(team.members.items);
-  const [teamSkills, setTeamSkills] = useState(team.skills.items);
+  const [teamMembers, setTeamMembers] = useState(initialTeamMembers);
+  const [teamSkills, setTeamSkills] = useState(initialTeamSkills);
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newSkill, setNewSkill] = useState({ name: '', description: '' });
-  const [teamName, setTeamName] = useState(team.name);
-  const [companyName, setCompany] = useState(team.company.name);
+  const [teamName, setTeamName] = useState(initialTeamName);
+  const [companyName, setCompany] = useState(initialCompanyName);
 
   // Get Contact List
   useEffect(() => {

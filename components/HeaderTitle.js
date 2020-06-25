@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet} from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-function HeaderTitle({name, jobTitle, imageSource}) {
+function HeaderTitle({ name, jobTitle, imageSource }) {
   return (
     <View style={styles.container}>
       <Text style={styles.jobTitle}>{jobTitle}</Text>
       <Text style={styles.text}>{name}</Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -18,14 +18,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   jobTitle: {
-    color:'#fff',
+    color: '#fff',
     fontSize: 20,
   },
   text: {
     fontSize: 36,
-    color:'#fff',
+    color: '#fff',
   },
-  
 });
 
-export default HeaderTitle
+export default HeaderTitle;
