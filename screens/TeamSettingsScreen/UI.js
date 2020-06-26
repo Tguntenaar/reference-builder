@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   StyleSheet,
@@ -6,144 +7,80 @@ import {
   Text,
   StatusBar,
   ScrollView,
-  Dimensions,
   TouchableOpacity,
   Button,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import * as Contacts from 'expo-contacts';
-import NextButton from '../components/NextButton';
-import ModalScreen from './ModalScreen';
-import { UserContext } from '../contexts/UserContext';
-import { imageEsther } from '../constants/Images';
-import api from '../apiwrapper';
 
-const { width } = Dimensions.get('window');
-const { height } = Dimensions.get('window');
+import NextButton from '../../components/NextButton';
+
+import { imageEsther } from '../../constants/Images';
+
+import { width, height } from '../../constants/Utils';
 
 const imageSize = 40;
 
-function Screen(props) {
-  return (
-    <UserContext.Consumer>
-      {(userContext) => <TeamSettingsScreen userContext={userContext} {...props} />}
-    </UserContext.Consumer>
-  );
-}
+const styles = StyleSheet.create({
+  safe: {
+    flexGrow: 1,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  top: {
+    height: 0.2 * height,
+    // backgroundColor: 'red',
+    width,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    width: imageSize,
+    height: imageSize,
+    borderRadius: imageSize / 2,
+    backgroundColor: 'lightgrey',
+  },
+  edit: {
+    color: 'blue',
+    fontSize: 20,
+  },
+  middle: {
+    // paddingTop: 50,
+    height: 0.6 * height,
+    // backgroundColor: 'blue',
+    width: width - 40,
+  },
+  input: {
+    height: 40,
+    paddingLeft: 5,
+    paddingRight: 5,
+    marginTop: 0,
+  },
+  bottom: {
+    height: 0.15 * height,
+    // backgroundColor: 'grey',
+  },
+});
 
-function TeamSettingsScreen({ navigation, userContext }) {
-  const { team } = userContext.teams.items[0];
-  // const { teams: [ team ] } = userContext
-  // const {
-  //   teams: {
-  //     items: [
-  //       {
-  //         name: initialTeamName,
-  //         company: { name: initialCompanyName },
-  //         members: { items: initialTeamMembers },
-  //         skills: { items: initialTeamSkills },
-  //       }
-  //     ],
-  //   },
-  // } = userContext;
-
-  const [teamMembers, setTeamMembers] = useState(team.members.items);
-  const [teamSkills, setTeamSkills] = useState(team.skills.items);
-  const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
-  const [newSkill, setNewSkill] = useState({ name: '', description: '' });
-  const [teamName, setTeamName] = useState(team.name);
-
-  // Get Contact List
-  useEffect(() => {
-    (async () => {
-      const { status } = await Contacts.requestPermissionsAsync();
-      if (status === 'granted') {
-        const { data } = await Contacts.getContactsAsync({
-          fields: [Contacts.Fields.Emails],
-        });
-
-        if (data.length > 0) {
-          // const contact = data[0];
-          // console.log(data);
-        }
-      }
-    })();
-  }, []);
-  // Submit changes
-  const handlePress = () => {};
-  // Add a User to your team TODO: validation
-  const createUser = async () => {
-    // TODO: invite email create user in UserPool
-    const {
-      data: { createUser: createdUser },
-    } = await api
-      .createUser({
-        name: newUser.name,
-        jobTitle: newUser.jobTitle,
-      })
-      .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
-
-    const teamLink = await api
-      .createTeamMemberLink({
-        userId: createdUser.id,
-        teamId: team.id,
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    if (!teamLink.errors) {
-      setTeamMembers([...teamMembers, { ...teamLink, user: createdUser }]);
-      setNewUser({ name: '', jobTitle: '', email: '' });
-    }
-  };
-
-  // TODO: validation
-  const createSkill = async () => {
-    const {
-      data: { createSkill: createdSkill },
-    } = await api
-      .createSkill({
-        teamId: team.id,
-        name: newSkill.name,
-        description: newSkill.description,
-      })
-      .catch((error) => console.log(`ERROR creating skill.. \n${error.errors[0].message}`));
-    if (createdSkill.name && createdSkill.description) {
-      setTeamSkills([...teamSkills, createdSkill]);
-      setNewSkill({ name: '', description: '' });
-    }
-  };
-
-  const updateHeader = async () => {
-    const {
-      data: { updateTeam: updatedTeam },
-    } = await api.updateTeam({
-      id: team.id,
-      name: teamName,
-    });
-
-    if (updatedTeam.errors) {
-      console.log('ERRORS!!!');
-    } else {
-      console.log('succes');
-    }
-  };
-
-  const deleteSkill = async (skillId) => {
-    setTeamSkills(teamSkills.filter((skill) => skillId !== skill.id));
-    const {
-      data: { deleteSkill: result },
-    } = await api.deleteSkill(skillId).catch(console.log);
-  };
-
-  const deleteMember = async (teamMemberLinkId) => {
-    setTeamMembers(teamMembers.filter((user) => teamMemberLinkId !== user.id));
-    const {
-      data: { deleteTeamMemberLink: result },
-    } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
-  };
-
+const screen = ({
+  teamMembers,
+  teamSkills,
+  newUser,
+  setNewUser,
+  newSkill,
+  setNewSkill,
+  teamName,
+  setTeamName,
+  handlePress,
+  createUser,
+  updateHeader,
+  deleteSkill,
+  deleteMember,
+  createSkill,
+}) => {
   return (
     <ScrollView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -151,6 +88,7 @@ function TeamSettingsScreen({ navigation, userContext }) {
         <View style={styles.top}>
           {/* <Text style={{fontSize: 40}}> Team name </Text>
           <Text style={{fontSize: 25}}> Company </Text> */}
+
           <TextInput
             style={[styles.input, { fontSize: 40 }]}
             clearTextOnFocus={false}
@@ -299,55 +237,35 @@ function TeamSettingsScreen({ navigation, userContext }) {
           {/* <NextButton title="Submit" onPress={updateHeader} /> */}
           <NextButton title="Submit" onPress={updateHeader} />
         </View>
-        <ModalScreen />
       </View>
     </ScrollView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  safe: {
-    flexGrow: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  top: {
-    height: 0.2 * height,
-    // backgroundColor: 'red',
-    width,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image: {
-    width: imageSize,
-    height: imageSize,
-    borderRadius: imageSize / 2,
-    backgroundColor: 'lightgrey',
-  },
-  edit: {
-    color: 'blue',
-    fontSize: 20,
-  },
-  middle: {
-    // paddingTop: 50,
-    height: 0.6 * height,
-    // backgroundColor: 'blue',
-    width: width - 40,
-  },
-  input: {
-    height: 40,
-    paddingLeft: 5,
-    paddingRight: 5,
-    marginTop: 0,
-  },
-  bottom: {
-    height: 0.15 * height,
-    // backgroundColor: 'grey',
-  },
-});
+screen.propTypes = {
+  teamMembers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  teamSkills: PropTypes.arrayOf(PropTypes.object).isRequired,
+  newUser: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    jobTitle: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }).isRequired,
+  setNewUser: PropTypes.func.isRequired,
+  newSkill: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+  setNewSkill: PropTypes.func.isRequired,
+  teamName: PropTypes.string.isRequired,
+  setTeamName: PropTypes.func.isRequired,
+  handlePress: PropTypes.func.isRequired,
+  createUser: PropTypes.func.isRequired,
+  updateHeader: PropTypes.func.isRequired,
+  deleteSkill: PropTypes.func.isRequired,
+  deleteMember: PropTypes.func.isRequired,
+  createSkill: PropTypes.func.isRequired,
+};
 
-export default Screen;
+screen.propDefault = {};
+
+export default screen;

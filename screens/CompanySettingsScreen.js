@@ -13,7 +13,6 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import * as Contacts from 'expo-contacts';
 import NextButton from '../components/NextButton';
-import ModalScreen from './ModalScreen';
 import { UserContext } from '../contexts/UserContext';
 import { imageEsther } from '../constants/Images';
 import api from '../apiwrapper';
@@ -297,7 +296,6 @@ function TeamSettingsScreen({ navigation, userContext }) {
         <View style={styles.bottom}>
           {/* <NextButton title="Submit" onPress={updateHeader} /> */}
         </View>
-        <ModalScreen />
       </View>
     </ScrollView>
   );

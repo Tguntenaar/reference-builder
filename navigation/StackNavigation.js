@@ -144,6 +144,9 @@ function ParentNavigation() {
           ),
         })}
       />
+      {/**
+       *
+       */}
       <Stack.Screen
         name="TeamSettingsScreen"
         component={TeamSettingsScreen}
