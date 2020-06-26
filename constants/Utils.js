@@ -1,9 +1,8 @@
 import { Dimensions, Platform } from 'react-native';
 
-export default () => {
-  const window = Dimensions.get('window');
-  const { height } = window;
-  const { width } = window;
+const { width, height } = Dimensions.get('window');
+
+function isIphoneX() {
   const iphoneXLength = 812;
   const iphoneXSMaxLength = 896;
   return (
@@ -15,4 +14,6 @@ export default () => {
       width === iphoneXSMaxLength ||
       height === iphoneXSMaxLength)
   );
-};
+}
+
+export { isIphoneX, width, height };

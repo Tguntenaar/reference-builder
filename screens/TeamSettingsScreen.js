@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import * as Contacts from 'expo-contacts';
-import { API, graphqlOperation } from 'aws-amplify';
 import NextButton from '../components/NextButton';
 import ModalScreen from './ModalScreen';
-import * as mutations from '../src/graphql/mutations';
 import { UserContext } from '../contexts/UserContext';
+import { imageEsther } from '../constants/Images';
+import api from '../apiwrapper';
 
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
@@ -52,7 +52,6 @@ function TeamSettingsScreen({ navigation, userContext }) {
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newSkill, setNewSkill] = useState({ name: '', description: '' });
   const [teamName, setTeamName] = useState(team.name);
-  const [companyName, setCompany] = useState(team.company.name);
 
   // Get Contact List
   useEffect(() => {
@@ -77,25 +76,21 @@ function TeamSettingsScreen({ navigation, userContext }) {
     // TODO: invite email create user in UserPool
     const {
       data: { createUser: createdUser },
-    } = await API.graphql(
-      graphqlOperation(mutations.createUser, {
-        input: {
-          name: newUser.name,
-          jobTitle: newUser.jobTitle,
-        },
+    } = await api
+      .createUser({
+        name: newUser.name,
+        jobTitle: newUser.jobTitle,
       })
-    ).catch((error) => console.log(`ERROR ${error.errors[0].message}`));
+      .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
 
-    const teamLink = await API.graphql(
-      graphqlOperation(mutations.createTeamMemberLink, {
-        input: {
-          userId: createdUser.id,
-          teamId: team.id,
-        },
+    const teamLink = await api
+      .createTeamMemberLink({
+        userId: createdUser.id,
+        teamId: team.id,
       })
-    ).catch((error) => {
-      console.log(error);
-    });
+      .catch((error) => {
+        console.log(error);
+      });
 
     if (!teamLink.errors) {
       setTeamMembers([...teamMembers, { ...teamLink, user: createdUser }]);
@@ -107,15 +102,13 @@ function TeamSettingsScreen({ navigation, userContext }) {
   const createSkill = async () => {
     const {
       data: { createSkill: createdSkill },
-    } = await API.graphql(
-      graphqlOperation(mutations.createSkill, {
-        input: {
-          teamId: team.id,
-          name: newSkill.name,
-          description: newSkill.description,
-        },
+    } = await api
+      .createSkill({
+        teamId: team.id,
+        name: newSkill.name,
+        description: newSkill.description,
       })
-    ).catch((error) => console.log(`ERROR creating skill.. \n${error.errors[0].message}`));
+      .catch((error) => console.log(`ERROR creating skill.. \n${error.errors[0].message}`));
     if (createdSkill.name && createdSkill.description) {
       setTeamSkills([...teamSkills, createdSkill]);
       setNewSkill({ name: '', description: '' });
@@ -123,36 +116,14 @@ function TeamSettingsScreen({ navigation, userContext }) {
   };
 
   const updateHeader = async () => {
-    const updateTeamName = () =>
-      API.graphql(
-        graphqlOperation(mutations.updateTeam, {
-          input: {
-            id: team.id,
-            name: teamName,
-          },
-        })
-      );
-    const updateCompanyName = () =>
-      API.graphql(
-        graphqlOperation(mutations.updateCompany, {
-          input: {
-            id: team.company.id,
-            name: companyName,
-          },
-        })
-      );
-
-    const t1 = updateTeamName();
-    const t2 = updateCompanyName();
-
     const {
       data: { updateTeam: updatedTeam },
-    } = await t1;
-    const {
-      data: { updateCompany: updatedCompany },
-    } = await t2;
+    } = await api.updateTeam({
+      id: team.id,
+      name: teamName,
+    });
 
-    if (updatedTeam.errors || updatedCompany.errors) {
+    if (updatedTeam.errors) {
       console.log('ERRORS!!!');
     } else {
       console.log('succes');
@@ -163,22 +134,14 @@ function TeamSettingsScreen({ navigation, userContext }) {
     setTeamSkills(teamSkills.filter((skill) => skillId !== skill.id));
     const {
       data: { deleteSkill: result },
-    } = await API.graphql(
-      graphqlOperation(mutations.deleteSkill, {
-        input: { id: skillId },
-      })
-    ).catch(console.log);
+    } = await api.deleteSkill(skillId).catch(console.log);
   };
 
   const deleteMember = async (teamMemberLinkId) => {
     setTeamMembers(teamMembers.filter((user) => teamMemberLinkId !== user.id));
     const {
       data: { deleteTeamMemberLink: result },
-    } = await API.graphql(
-      graphqlOperation(mutations.deleteTeamMemberLink, {
-        input: { id: teamMemberLinkId },
-      })
-    ).catch(console.log);
+    } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
   };
 
   return (
@@ -194,13 +157,6 @@ function TeamSettingsScreen({ navigation, userContext }) {
             onChangeText={(text) => setTeamName(text)}
             value={teamName}
             placeholder="Team name"
-          />
-          <TextInput
-            style={[styles.input, { fontSize: 25 }]}
-            clearTextOnFocus={false}
-            onChangeText={(text) => setCompany(text)}
-            value={companyName}
-            placeholder="Company"
           />
         </View>
         <View style={styles.middle}>
@@ -298,10 +254,7 @@ function TeamSettingsScreen({ navigation, userContext }) {
                     paddingBottom: 10,
                   }}
                 >
-                  <Image
-                    style={styles.image}
-                    source={require('../assets/images/boris-guntenaar.jpeg')}
-                  />
+                  <Image style={styles.image} source={imageEsther} />
                   {/* TODO: teammember image */}
                   <View style={{ flexDirection: 'column', marginLeft: 10 }}>
                     <Text>{user.name}</Text>
@@ -344,6 +297,7 @@ function TeamSettingsScreen({ navigation, userContext }) {
         </View>
         <View style={styles.bottom}>
           {/* <NextButton title="Submit" onPress={updateHeader} /> */}
+          <NextButton title="Submit" onPress={updateHeader} />
         </View>
         <ModalScreen />
       </View>

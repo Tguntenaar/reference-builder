@@ -1,12 +1,19 @@
 import React from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 
-function BackButton({ onPress, color, size }) {
-  color = color || { backgroundColor: '#0009EE', iconColor: '#fff' };
-  const backgroundColor = color.backgroundColor || '#0009EE';
-  const iconColor = color.iconColor || '#fff';
-  size = size || 50;
+const styles = StyleSheet.create({
+  button: {
+    marginTop: 10,
+    marginLeft: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+const BackButton = ({ onPress, color, size }) => {
+  const { backgroundColor, iconColor } = color;
   return (
     <TouchableOpacity
       style={[
@@ -24,15 +31,20 @@ function BackButton({ onPress, color, size }) {
       />
     </TouchableOpacity>
   );
-}
-
-const styles = StyleSheet.create({
-  button: {
-    marginTop: 10,
-    marginLeft: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
+// Type checking
+BackButton.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  color: PropTypes.shape({
+    backgroundColor: PropTypes.string,
+    iconColor: PropTypes.string,
+  }),
+  size: PropTypes.number,
+};
+// Default props
+BackButton.defaultProps = {
+  color: { backgroundColor: '#0009EE', iconColor: '#fff' },
+  size: 50,
+};
 
 export default BackButton;

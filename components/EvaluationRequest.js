@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, Image, Dimensions, Platform } from 'react-native';
 import NextButton from './NextButton';
+// Constants
+import { imageEsther } from '../constants/Images';
 
 export default function EvaluationRequest({ name, jobTitle, navigation }) {
   const due = '21-08-2019';
@@ -8,7 +10,7 @@ export default function EvaluationRequest({ name, jobTitle, navigation }) {
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-        <Image style={styles.image} source={require('../assets/images/boris-guntenaar.jpeg')} />
+        <Image style={styles.image} source={imageEsther} />
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{name}</Text>

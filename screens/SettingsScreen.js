@@ -12,11 +12,17 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
+
+// AWS
 import { S3Image } from 'aws-amplify-react-native';
 import { API, graphqlOperation, Auth, Storage } from 'aws-amplify';
 import NextButton from '../components/NextButton';
+
+// Graphql
 import { updateUser } from '../src/graphql/mutations';
 import { getUser } from '../src/graphql/queries';
+// Constants
+import { imageEsther } from '../constants/Images';
 
 const path = 'avatars';
 const localFile =
@@ -123,12 +129,7 @@ function SettingsScreen({ navigation }) {
         
         */}
 
-          <Image
-            style={styles.image}
-            source={
-              (photo && { uri: photo.uri }) || require('../assets/images/thomas-guntenaar.jpeg')
-            }
-          />
+          <Image style={styles.image} source={(photo && { uri: photo.uri }) || imageEsther} />
           <TouchableOpacity onPress={pickImage}>
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>

@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { Text, View, StyleSheet, Dimensions, StatusBar, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, StatusBar, Platform } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -8,10 +8,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 import CommentInput from '../components/CommentInput';
-import { isIphoneX } from '../constants/Utils';
+import { isIphoneX, height, width } from '../constants/Utils';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
-export default function EvaluateCommentScreen({ navigation, route }) {
+function EvaluateCommentScreen({ navigation, route }) {
   const [text, setText] = useState('');
   const { skill } = route.params || 'Test';
   const { average } = route.params || 8;
@@ -51,8 +51,8 @@ export default function EvaluateCommentScreen({ navigation, route }) {
             <CommentInput
               style={styles.input}
               numberOfLines={7}
-              onChangeText={handleText}
               text={text}
+              onChangeText={handleText}
             />
           </ScrollView>
           <View style={styles.bottom}>
@@ -68,10 +68,6 @@ export default function EvaluateCommentScreen({ navigation, route }) {
   );
   // <SafeAreaView style={styles.safe}/>
 }
-
-const { height } = Dimensions.get('window');
-const { width } = Dimensions.get('window');
-
 const styles = StyleSheet.create({
   safeTop: {
     backgroundColor: 'rgb(10,185,255)',
@@ -143,3 +139,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
+
+export default EvaluateCommentScreen;

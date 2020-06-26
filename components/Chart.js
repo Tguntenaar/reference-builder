@@ -1,8 +1,6 @@
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
-// import { LineChart } from 'expo-chart-kit'
-import LineChart from './LineChart.js';
-// legend: ["Rainy Days", "Sunny Days", "Snowy Days"],
+import { Dimensions } from 'react-native';
+import LineChart from './LineChart';
 
 function Chart() {
   return (
@@ -37,9 +35,6 @@ function Chart() {
       }}
       bezier
       style={{
-        // marginVertiscal: 8,
-        // alignSelf: 'center',
-        // paddingTop: 50,
         borderRadius: 16,
         width: Dimensions.get('window').width - 40,
         shadowOffset: {
@@ -49,14 +44,8 @@ function Chart() {
         shadowOpacity: 0.2,
         shadowRadius: 15,
       }}
-      // yAxis:{
-      //   drawGridLines: false,
-      //   gridDashedLine: {spaceLength:0}
-      // },
     />
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default Chart;

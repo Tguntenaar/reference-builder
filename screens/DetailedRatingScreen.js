@@ -8,6 +8,9 @@ import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 import Circle from '../components/Circle';
 
+// Constants
+import { imageEsther } from '../constants/Images';
+
 function DetailedRatingScreen({ navigation, route }) {
   const { evaluator } = route.params;
   return (
@@ -18,10 +21,7 @@ function DetailedRatingScreen({ navigation, route }) {
           <Circle color="rgba(239,244,253,0.5)" />
           <BackButton onPress={() => navigation.navigate('RatingsDetailsScreen')} />
           <View style={styles.header}>
-            <Image
-              style={styles.image}
-              source={require('../assets/images/thomas-guntenaar.jpeg')}
-            />
+            <Image style={styles.image} source={imageEsther} />
             <Text style={styles.name}>{evaluator.name}</Text>
             <Text style={styles.jobTitle}>{evaluator.jobTitle}</Text>
             <Text style={styles.skill}>{route.params.skill}</Text>

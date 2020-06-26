@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions, Platform } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,7 +7,7 @@ import BackButton from '../components/BackButton';
 import Circle from '../components/Circle';
 import RatingDetails from '../components/RatingDetails';
 import Chart from '../components/Chart';
-import { isIphoneX } from '../constants/Utils';
+import { isIphoneX, height, width } from '../constants/Utils';
 
 // <SafeAreaView style={styles.safe}/>
 function RatingsDetailsScreen({ navigation, route }) {
@@ -127,9 +127,6 @@ function RatingsDetailsScreen({ navigation, route }) {
 }
 // <SafeAreaView style={styles.safe2}/>
 
-const window = Dimensions.get('window');
-const { height } = window;
-const { width } = window;
 const circleSize = 70;
 const mediumRingSize = circleSize + 12;
 const bigRingSize = circleSize + 20;

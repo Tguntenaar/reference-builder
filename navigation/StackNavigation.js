@@ -1,20 +1,24 @@
 import * as React from 'react';
-import { Image, View, Text, StyleSheet, Platform } from 'react-native';
+import { Image, View, Text, StyleSheet, Alert } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 // Navigation
 import { createStackNavigator } from '@react-navigation/stack';
 import { Auth } from 'aws-amplify';
-import TabNavigation from './TabNavigation.js';
+import TabNavigation from './TabNavigation';
 
 // Screens
-import RatingsDetailsScreen from '../screens/RatingsDetailsScreen.js';
-import DetailedRatingScreen from '../screens/DetailedRatingScreen.js';
-import EvaluateScreen from '../screens/EvaluateScreen.js';
-import EvaluateCommentScreen from '../screens/EvaluateCommentScreen.js';
-import SettingsScreen from '../screens/SettingsScreen.js';
-import TeamSettingsScreen from '../screens/TeamSettingsScreen.js';
-import ModalScreen from '../screens/ModalScreen.js';
+import RatingsDetailsScreen from '../screens/RatingsDetailsScreen';
+import DetailedRatingScreen from '../screens/DetailedRatingScreen';
+import EvaluateScreen from '../screens/EvaluateScreen';
+import EvaluateCommentScreen from '../screens/EvaluateCommentScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import TeamSettingsScreen from '../screens/TeamSettingsScreen';
+import CompanySettingsScreen from '../screens/CompanySettingsScreen';
+import ModalScreen from '../screens/ModalScreen';
+
+// Constants
+import { imageEsther } from '../constants/Images';
 
 // AWS
 
@@ -32,42 +36,35 @@ function ParentNavigation() {
       </>
     );
   };
+
+  const TabNavigationHeader = ({ navigation, route }) => ({
+    headerTitle: () => (
+      <View style={styles.container}>
+        <Text style={styles.jobTitle}>{user.jobTitle} local</Text>
+        <Text style={styles.name}>{user.name}</Text>
+      </View>
+    ),
+    headerStyle: {
+      backgroundColor: '#0009EE',
+      shadowColor: 'transparent',
+      height: 190,
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    headerLeft: () => <Image source={imageEsther} style={styles.image} />,
+    headerRight: () => (
+      <HeaderRightContent
+        onPress={() => {
+          navigation.navigate('SettingsScreen');
+        }}
+      />
+    ),
+  });
   return (
     <Stack.Navigator initialRouteName="Tabs">
-      <Stack.Screen
-        name="Tabs"
-        component={TabNavigation}
-        options={({ navigation, route }) => ({
-          headerTitle: () => (
-            <View style={styles.container}>
-              <Text style={styles.jobTitle}>{user.jobTitle} local</Text>
-              <Text style={styles.name}>{user.name}</Text>
-            </View>
-          ),
-          headerStyle: {
-            backgroundColor: '#0009EE',
-            shadowColor: 'transparent',
-            height: 190,
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          headerLeft: () => (
-            <Image
-              source={require('../assets/images/esther-rookhuijzen.jpeg')}
-              style={styles.image}
-            />
-          ),
-          headerRight: () => (
-            <HeaderRightContent
-              onPress={() => {
-                navigation.navigate('SettingsScreen');
-              }}
-            />
-          ),
-        })}
-      />
+      <Stack.Screen name="Tabs" component={TabNavigation} options={TabNavigationHeader} />
       <Stack.Screen
         name="RatingsDetailsScreen"
         component={RatingsDetailsScreen}
@@ -105,6 +102,16 @@ function ParentNavigation() {
             <View style={styles.icons}>
               {admin && (
                 <Feather
+                  name="sliders"
+                  color="#000"
+                  onPress={() => {
+                    navigation.navigate('CompanySettingsScreen');
+                  }}
+                  style={styles.teamIcon}
+                />
+              )}
+              {admin && (
+                <Feather
                   name="users"
                   color="#000"
                   onPress={() => {
@@ -117,7 +124,19 @@ function ParentNavigation() {
                 name="log-out"
                 color="#000"
                 onPress={() => {
-                  Auth.signOut();
+                  Alert.alert(
+                    'Alert Title',
+                    'My Alert Msg',
+                    [
+                      {
+                        text: 'Cancel',
+                        onPress: () => {},
+                        style: 'cancel',
+                      },
+                      { text: 'OK', onPress: () => Auth.signOut() },
+                    ],
+                    { cancelable: true }
+                  );
                 }}
                 style={styles.signOutIcon}
               />
@@ -129,6 +148,11 @@ function ParentNavigation() {
         name="TeamSettingsScreen"
         component={TeamSettingsScreen}
         options={{ title: 'Team Settings' }}
+      />
+      <Stack.Screen
+        name="CompanySettingsScreen"
+        component={CompanySettingsScreen}
+        options={{ title: 'Company Settings' }}
       />
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
     </Stack.Navigator>

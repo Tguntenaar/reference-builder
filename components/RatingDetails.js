@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-// import { SafeAreaView } from 'react-native-safe-area-context';
+// Constants
+import { imageEsther } from '../constants/Images';
 
 // <SafeAreaView style={styles.safe}>
 const RatingDetails = ({ onViewDetails, item }) => {
   return (
     <View style={styles.container}>
       <View style={styles.left}>
-        <Image style={styles.image} source={require('../assets/images/boris-guntenaar.jpeg')} />
+        <Image style={styles.image} source={imageEsther} />
       </View>
       <View style={styles.right}>
         <View style={styles.header}>
