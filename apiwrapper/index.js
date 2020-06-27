@@ -13,23 +13,32 @@ const company = {
     );
   },
 };
+
 const user = {
+  getUser: (id) => {
+    return API.graphql(graphqlOperation(queries.getUser, { id }));
+  },
   createUser: (input) => {
     return API.graphql(graphqlOperation(mutations.createUser, { input }));
   },
-  deleteUser: (userId) => {},
+  updateUser: (input) => {
+    return API.graphql(graphqlOperation(mutations.updateUser, { input }));
+  },
+  deleteUser: (id) => {
+    return API.graphql(graphqlOperation(mutations.deleteUser, { input: { id } }));
+  },
 };
 
-const userteamlink = {
+const userTeamLink = {
   createTeamMemberLink: ({ userId, teamId }) => {
     return API.graphql(
       graphqlOperation(mutations.createTeamMemberLink, { input: { userId, teamId } })
     );
   },
-  deleteTeamMemberLink: (teamMemberLinkId) => {
+  deleteTeamMemberLink: (id) => {
     return API.graphql(
       graphqlOperation(mutations.deleteTeamMemberLink, {
-        input: { id: teamMemberLinkId },
+        input: { id },
       })
     );
   },
@@ -60,10 +69,28 @@ const skill = {
   },
 };
 
+const evaluationRequest = {
+  createEvaluationRequest: (input) => {
+    return API.graphql(
+      graphqlOperation(mutations.createEvaluationRequest, {
+        input,
+      })
+    );
+  },
+  deleteEvaluationRequest: (id) => {
+    return API.graphql(
+      graphqlOperation(mutations.deleteEvaluationRequest, {
+        input: { id },
+      })
+    );
+  },
+};
+
 export default {
   ...team,
   ...user,
-  ...userteamlink,
+  ...userTeamLink,
   ...company,
   ...skill,
+  ...evaluationRequest,
 };

@@ -2,19 +2,12 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import * as Contacts from 'expo-contacts';
-import { UserContext } from '../../contexts/UserContext';
+import withUser from '../../contexts/withUser';
 import api from '../../apiwrapper';
 import UI from './UI';
 
-function Screen(props) {
-  return (
-    <UserContext.Consumer>
-      {(userContext) => <TeamSettingsScreen userContext={userContext} {...props} />}
-    </UserContext.Consumer>
-  );
-}
-
 function TeamSettingsScreen({ userContext }) {
+  console.log('TeamSettingsScreen');
   const { team } = userContext.teams.items[0];
   // const { teams: [ team ] } = userContext
   // const {
@@ -145,8 +138,8 @@ function TeamSettingsScreen({ userContext }) {
   return <UI {...properties} />;
 }
 
-Screen.propTypes = {
+TeamSettingsScreen.propTypes = {
   userContext: PropTypes.object,
 };
 
-export default Screen;
+export default withUser(TeamSettingsScreen);

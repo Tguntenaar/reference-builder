@@ -13,7 +13,7 @@ import {
 import { TextInput } from 'react-native-gesture-handler';
 import * as Contacts from 'expo-contacts';
 import NextButton from '../components/NextButton';
-import { UserContext } from '../contexts/UserContext';
+import withUser from '../contexts/withUser';
 import { imageEsther } from '../constants/Images';
 import api from '../apiwrapper';
 
@@ -22,15 +22,16 @@ const { height } = Dimensions.get('window');
 
 const imageSize = 40;
 
-function Screen(props) {
-  return (
-    <UserContext.Consumer>
-      {(userContext) => <TeamSettingsScreen userContext={userContext} {...props} />}
-    </UserContext.Consumer>
-  );
-}
+// function Screen(props) {
+//   return (
+//     <UserContext.Consumer>
+//       {(userContext) => <TeamSettingsScreen userContext={userContext} {...props} />}
+//     </UserContext.Consumer>
+//   );
+// }
 
-function TeamSettingsScreen({ navigation, userContext }) {
+function CompanySettingsScreen({ navigation, userContext }) {
+  console.log('CompanySettingsScreen');
   const { team } = userContext.teams.items[0];
   // const { teams: [ team ] } = userContext
   // const {
@@ -346,4 +347,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Screen;
+export default withUser(CompanySettingsScreen);

@@ -20,12 +20,11 @@ import ModalScreen from '../screens/ModalScreen';
 // Constants
 import { imageEsther } from '../constants/Images';
 
-// AWS
-
+// Navigation
 const Stack = createStackNavigator();
 
-function ParentNavigation() {
-  const user = { name: 'parentnav', jobTitle: 'idk' };
+function StackNavigation() {
+  const user = { name: 'Esther R', jobTitle: 'Designer' };
   const admin = true;
 
   const HeaderRightContent = ({ onPress }) => {
@@ -37,7 +36,55 @@ function ParentNavigation() {
     );
   };
 
-  const TabNavigationHeader = ({ navigation, route }) => ({
+  const SettingsScreenHeader = ({ navigation }) => ({
+    title: 'Settings',
+    headerRight: () => (
+      <View style={styles.icons}>
+        {admin && (
+          <Feather
+            name="sliders"
+            color="#000"
+            onPress={() => {
+              navigation.navigate('CompanySettingsScreen');
+            }}
+            style={styles.teamIcon}
+          />
+        )}
+        {admin && (
+          <Feather
+            name="users"
+            color="#000"
+            onPress={() => {
+              navigation.navigate('TeamSettingsScreen');
+            }}
+            style={styles.teamIcon}
+          />
+        )}
+        <Feather
+          name="log-out"
+          color="#000"
+          onPress={() => {
+            Alert.alert(
+              'Alert Title',
+              'My Alert Msg',
+              [
+                {
+                  text: 'Cancel',
+                  onPress: () => {},
+                  style: 'cancel',
+                },
+                { text: 'OK', onPress: () => Auth.signOut() },
+              ],
+              { cancelable: true }
+            );
+          }}
+          style={styles.signOutIcon}
+        />
+      </View>
+    ),
+  });
+
+  const TabNavigationHeader = ({ navigation }) => ({
     headerTitle: () => (
       <View style={styles.container}>
         <Text style={styles.jobTitle}>{user.jobTitle} local</Text>
@@ -62,6 +109,7 @@ function ParentNavigation() {
       />
     ),
   });
+
   return (
     <Stack.Navigator initialRouteName="Tabs">
       <Stack.Screen name="Tabs" component={TabNavigation} options={TabNavigationHeader} />
@@ -96,57 +144,8 @@ function ParentNavigation() {
       <Stack.Screen
         name="SettingsScreen"
         component={SettingsScreen}
-        options={({ navigation, route }) => ({
-          title: 'Settings',
-          headerRight: () => (
-            <View style={styles.icons}>
-              {admin && (
-                <Feather
-                  name="sliders"
-                  color="#000"
-                  onPress={() => {
-                    navigation.navigate('CompanySettingsScreen');
-                  }}
-                  style={styles.teamIcon}
-                />
-              )}
-              {admin && (
-                <Feather
-                  name="users"
-                  color="#000"
-                  onPress={() => {
-                    navigation.navigate('TeamSettingsScreen');
-                  }}
-                  style={styles.teamIcon}
-                />
-              )}
-              <Feather
-                name="log-out"
-                color="#000"
-                onPress={() => {
-                  Alert.alert(
-                    'Alert Title',
-                    'My Alert Msg',
-                    [
-                      {
-                        text: 'Cancel',
-                        onPress: () => {},
-                        style: 'cancel',
-                      },
-                      { text: 'OK', onPress: () => Auth.signOut() },
-                    ],
-                    { cancelable: true }
-                  );
-                }}
-                style={styles.signOutIcon}
-              />
-            </View>
-          ),
-        })}
+        options={SettingsScreenHeader}
       />
-      {/**
-       *
-       */}
       <Stack.Screen
         name="TeamSettingsScreen"
         component={TeamSettingsScreen}
@@ -223,4 +222,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ParentNavigation;
+export default StackNavigation;
