@@ -8,7 +8,7 @@ import UI from './UI';
 
 function TeamSettingsScreen({ userContext }) {
   console.log('TeamSettingsScreen');
-  const { team } = userContext.teams.items[0];
+  const { team } = userContext.teamsLink.items[0];
   // const { teams: [ team ] } = userContext
   // const {
   //   teams: {
@@ -23,7 +23,7 @@ function TeamSettingsScreen({ userContext }) {
   //   },
   // } = userContext;
 
-  const [teamMembers, setTeamMembers] = useState(team.members.items);
+  const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
   const [teamSkills, setTeamSkills] = useState(team.skills.items);
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newSkill, setNewSkill] = useState({ name: '', description: '' });

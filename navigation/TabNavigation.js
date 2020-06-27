@@ -3,14 +3,14 @@ import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 /** Screens */
 import { Dimensions, Text, Platform } from 'react-native';
-import EvaluationsScreen from '../screens/EvaluationsScreen.js';
-import MyTeamScreen from '../screens/MyTeamScreen.js';
-import RatingsScreen from '../screens/RatingsScreen.js';
+import EvaluationsScreen from '../screens/EvaluationsScreen';
+import MyTeamScreen from '../screens/MyTeamScreen';
+import RatingsScreen from '../screens/RatingsScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
 const { width } = Dimensions.get('window');
-function TopTabNavigator({ ratings, evaluationRequests, teamMembers }) {
+function TopTabNavigator() {
   return (
     <Tab.Navigator
       initialRouteName="My Ratings"
@@ -53,7 +53,6 @@ function TopTabNavigator({ ratings, evaluationRequests, teamMembers }) {
       <Tab.Screen
         name="My Ratings"
         component={RatingsScreen}
-        ratings={ratings}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (
             <Text
@@ -75,7 +74,6 @@ function TopTabNavigator({ ratings, evaluationRequests, teamMembers }) {
       <Tab.Screen
         name="Evaluations"
         component={EvaluationsScreen}
-        evaluationRequests={evaluationRequests}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (
             <Text
@@ -96,7 +94,6 @@ function TopTabNavigator({ ratings, evaluationRequests, teamMembers }) {
       <Tab.Screen
         name="My team"
         component={MyTeamScreen}
-        teamMembers={teamMembers}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (
             <Text

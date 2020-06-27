@@ -1,9 +1,7 @@
 # TODO:
-# user groups admin 
+# user groups admin
 
-type Company
-@model(subscriptions: null)
-{
+type Company @model(subscriptions: null) {
   id: ID!
   name: String!
   admins: [ID!]
@@ -11,28 +9,27 @@ type Company
 }
 
 type Team
-@model(subscriptions: null)
-# @auth(rules: [
-#   {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
-#   # {allow: groups, groupsField: "members", operations: [ read ]} 
-# ]) 
-@key(name: "TeamsByCompany", fields:["companyId", "createdAt"]) # team has many users
-{
+  @model(subscriptions: null)
+  # @auth(rules: [
+  #   {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
+  #   # {allow: groups, groupsField: "members", operations: [ read ]}
+  # ])
+  @key(name: "TeamsByCompany", fields: ["companyId", "createdAt"]) { # team has many users
   id: ID!
   createdAt: AWSDateTime
   name: String!
   admins: [ID!]
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
-  membersLink: [TeamMemberLink!] @connection(keyName: "userByTeam", fields: ["id"]) # has many
+  membersLink: [TeamMemberLink!]
+    @connection(keyName: "userByTeam", fields: ["id"]) # has many
   skills: [Skill!] @connection(keyName: "skillByTeam", fields: ["id"]) # has many # TODO: team evaluations om het gemiddelde van een team te zien
 }
 
 type TeamMemberLink
-@model(queries: null, subscriptions: null)
-@key(name: "teamByUser", fields: ["userId", "teamId"])
-@key(name: "userByTeam", fields: ["teamId", "userId"])
-{
+  @model(queries: null, subscriptions: null)
+  @key(name: "teamByUser", fields: ["userId", "teamId"])
+  @key(name: "userByTeam", fields: ["teamId", "userId"]) {
   id: ID!
   userId: ID!
   teamId: ID!
@@ -40,12 +37,10 @@ type TeamMemberLink
   team: Team @connection(fields: ["teamId"])
 }
 
-type User
-@model(subscriptions: null)
-# @auth(rules: [
-#   { allow: owner, ownerField: "id", operations: [create, update, delete]}
-#   ])
-{
+type User @model(subscriptions: null) {
+  # @auth(rules: [
+  #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
+  #   ])
   id: ID!
   createdAt: AWSDateTime
   # presentation
@@ -54,12 +49,15 @@ type User
   jobTitle: String
   avatar: S3Object
   # dashboard
-  teamsLink: [TeamMemberLink!] @connection(keyName: "teamByUser", fields: ["id"]) # many to many
-  requests: [EvaluationRequest] @connection(keyName: "forUser", fields: [ "id" ]) # has many
-  ratings: [Rating] @connection(keyName: "byUser", fields: [ "id" ]) # has many
-  averageRatings: [Rating] 
+  teamsLink: [TeamMemberLink!]
+    @connection(keyName: "teamByUser", fields: ["id"]) # many to many
+  requests: [EvaluationRequest] @connection(keyName: "forUser", fields: ["id"]) # has many
+  receivedRequests: [EvaluationRequest]
+    @connection(keyName: "evaluationRequestByEvaluator", fields: ["id"]) # has many
+  ratings: [Rating] @connection(keyName: "byUser", fields: ["id"]) # has many
+  averageRatings: [Rating]
   # given ratings
-  evaluations: [Rating] @connection(keyName: "byAuthor", fields: [ "id" ]) # has many
+  evaluations: [Rating] @connection(keyName: "byAuthor", fields: ["id"]) # has many
 }
 
 type S3Object {
@@ -68,34 +66,33 @@ type S3Object {
   key: String!
 }
 
-# TODO: create Evaluation heeft 3 
+# TODO: create Evaluation heeft 3
 # rating heeft een skill grade and comment
 
 type Rating
-@model(subscriptions: null)
-# @auth(rules: [
-#   {allow: owner, operations: [ update, delete ]}
-#   ]) 
-@key(name: "byUser", fields: ["userId", "createdAt"]) # user connection 
-@key(name: "byAuthor", fields: ["authorId", "createdAt"]) # evaluator connection 
-{
+  @model(subscriptions: null)
+  # @auth(rules: [
+  #   {allow: owner, operations: [ update, delete ]}
+  #   ])
+  @key(name: "byUser", fields: ["userId", "createdAt"]) # user connection
+  @key(name: "byAuthor", fields: ["authorId", "createdAt"]) { # evaluator connection
   id: ID!
   createdAt: AWSDateTime
   # receiver
   userId: ID!
-  user: User! @connection(fields:["userId"]) # belongs to
+  user: User! @connection(fields: ["userId"]) # belongs to
   # evaluator
   authorId: ID!
   author: User! @connection(fields: ["authorId"]) # belongs to
   # content
-  evaluations: [Evaluation!] @connection(keyName: "evaluationByRating", fields: [ "id" ]) # has many
+  evaluations: [Evaluation!]
+    @connection(keyName: "evaluationByRating", fields: ["id"]) # has many
   comment: String
 }
 
 type Evaluation
-@model(subscriptions: null, queries: null)
-@key(name: "evaluationByRating", fields:["ratingId"]) # Rating has many evaluations
-{
+  @model(subscriptions: null, queries: null)
+  @key(name: "evaluationByRating", fields: ["ratingId"]) { # Rating has many evaluations
   id: ID!
   ratingId: ID!
   rating: Rating! @connection(fields: ["ratingId"]) # has one
@@ -106,27 +103,30 @@ type Evaluation
 }
 
 type Skill
-@model(subscriptions: null)
-@key(name: "skillByTeam", fields:["teamId"]) # team has many skills
-{
+  @model(subscriptions: null)
+  @key(name: "skillByTeam", fields: ["teamId"]) { # team has many skills
   id: ID!
   teamId: ID!
   name: String!
   description: String
 }
 
-type EvaluationRequest # message
-@model
-# @auth(rules: [
-#   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
-# ])
-@key(name: "forUser", fields: ["userId", "createdAt"]) # connection with user
-{
+type EvaluationRequest  # message
+  @model
+  # @auth(rules: [
+  #   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
+  # ])
+  @key(
+    name: "evaluationRequestByEvaluator"
+    fields: ["evaluatorId", "createdAt"]
+  ) # connection with user
+  @key(name: "forUser", fields: ["userId", "createdAt"]) { # connection with user
   id: ID!
   createdAt: AWSDateTime
   evaluatorId: ID!
+  evaluator: User! @connection(fields: ["evaluatorId"]) # belongs to
   userId: ID!
-  user: User! @connection(fields: [ "userId" ]) # belongs to
+  user: User! @connection(fields: ["userId"]) # belongs to
   status: EvaluationStatus!
 }
 

@@ -32,7 +32,7 @@ const imageSize = 40;
 
 function CompanySettingsScreen({ navigation, userContext }) {
   console.log('CompanySettingsScreen');
-  const { team } = userContext.teams.items[0];
+  const { team } = userContext.teamsLink.items[0];
   // const { teams: [ team ] } = userContext
   // const {
   //   teams: {
@@ -47,7 +47,7 @@ function CompanySettingsScreen({ navigation, userContext }) {
   //   },
   // } = userContext;
 
-  const [teamMembers, setTeamMembers] = useState(team.members.items);
+  const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
   const [teams, setteams] = useState(team.company.teams.items);
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newTeam, setNewTeam] = useState('');

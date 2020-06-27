@@ -24,7 +24,7 @@ import { imageEsther } from '../constants/Images';
 const Stack = createStackNavigator();
 
 function StackNavigation() {
-  const user = { name: 'Esther R', jobTitle: 'Designer' };
+  const user = { name: 'Esther Rookhuijzen', jobTitle: 'Designer' };
   const admin = true;
 
   const HeaderRightContent = ({ onPress }) => {
@@ -65,8 +65,8 @@ function StackNavigation() {
           color="#000"
           onPress={() => {
             Alert.alert(
-              'Alert Title',
-              'My Alert Msg',
+              'Log Out',
+              'Are you sure you want to logout?',
               [
                 {
                   text: 'Cancel',

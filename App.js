@@ -65,7 +65,7 @@ function App(props) {
     } = await api.getUser(sub).catch(console.log);
     // console.log(user);
     setUser(user);
-    // console.log(user.teams.items[0].team)
+    // console.log(user.teamsLink.items[0].team)
   };
 
   // Data fetching, setting up a subscription are both examples of side effects

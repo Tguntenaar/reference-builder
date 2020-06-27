@@ -39,8 +39,8 @@ const TeamList = ({ setModalVisible, teamMembers, navigation }) => {
 
 function MyTeamScreen({ navigation, userContext }) {
   const [modalVisible, setModalVisible] = useState(false);
-  const { team } = userContext.teams.items[0];
-  const teamMembers = team.members.items.map((item) => item.user);
+  const { team } = userContext.teamsLink.items[0];
+  const teamMembers = team.membersLink.items.map((item) => item.user);
   return (
     <>
       <TeamList
