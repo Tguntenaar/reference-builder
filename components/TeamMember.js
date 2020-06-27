@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, Image, Dimensions, Platform } from 'react-native';
 import NextButton from './NextButton';
-import api from '../apiwrapper';
 // Constants
 import { imageEsther } from '../constants/Images';
 
