@@ -266,6 +266,6 @@ screen.propTypes = {
   createSkill: PropTypes.func.isRequired,
 };
 
-screen.propDefault = {};
+screen.defaultProps = {};
 
 export default screen;

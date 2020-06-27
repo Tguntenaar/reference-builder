@@ -1,6 +1,6 @@
 import { API, graphqlOperation } from 'aws-amplify';
-import * as mutations from '../src/graphql/mutations';
-import * as queries from '../src/graphql/queries';
+import * as mutations from './graphql/mutations';
+import * as queries from './graphql/queries';
 
 const company = {
   updateCompany: (input) => {

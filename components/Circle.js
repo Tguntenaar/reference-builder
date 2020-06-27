@@ -1,9 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
-const Circle = ({ color }) => {
-  color = color || 'rgba(239, 244, 253, 0.2)';
-  const size = 300;
+const Circle = ({ color, size }) => {
   return (
     <View
       style={{
@@ -18,6 +17,16 @@ const Circle = ({ color }) => {
       }}
     />
   );
+};
+
+Circle.propTypes = {
+  color: PropTypes.string,
+  size: PropTypes.number,
+};
+
+Circle.defaultProps = {
+  color: 'rgba(239, 244, 253, 0.2)',
+  size: 300,
 };
 
 export default Circle;
