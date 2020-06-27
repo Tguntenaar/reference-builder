@@ -38,13 +38,25 @@ const TeamList = ({ setModalVisible, teamMembers, navigation }) => {
 };
 
 function MyTeamScreen({ navigation, userContext }) {
-  const [modalVisible, setModalVisible] = useState(false);
   const { team } = userContext.teamsLink.items[0];
   const teamMembers = team.membersLink.items.map((item) => item.user);
+  // State
+  const [modalVisible, setModalVisible] = useState(false);
+  // Functions
+  const sendEvaluationRequest = () => {
+    // TODO: npm i jest-expo --save-dev
+    // api.createEvaluationRequest({
+    //   userId: '',
+    //   evaluatorId: '',
+    //   status: 'PENDING',
+    // }).
+    setModalVisible(true);
+  };
+
   return (
     <>
       <TeamList
-        setModalVisible={setModalVisible}
+        setModalVisible={sendEvaluationRequest}
         teamMembers={teamMembers}
         navigation={navigation}
       />

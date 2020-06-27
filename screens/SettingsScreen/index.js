@@ -77,15 +77,9 @@ const SettingsScreen = ({ userContext }) => {
   };
 
   useEffect(() => {
-    // fetch(
-    //   'https://i.picsum.photos/id/322/200/200.jpg?hmac=h5_-NQtnn86YBEwVT2_4zcSeuxpCnMAdriBcZchtfas'
-    // )
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json))
-    //   .catch((error) => console.log(error))
-    //   .finally(() => console.log('this'));
     // getAvatarFromStorage();
   }, []);
+
   const properties = {
     submitProfileInfo,
     pickImage,
