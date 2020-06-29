@@ -7,23 +7,31 @@ import styles from './style';
 // Components
 import NextButton from '../NextButton';
 
-const EvaluationRequest = ({ name, jobTitle, status, navigation }) => {
-  const due = '21-08-2019';
+const EvaluationRequest = ({ request, navigation }) => {
+  const dueDate = ((createdAt) => {
+    const due = new Date(new Date(createdAt).getTime() + 1000 * 3600 * 24 * 7); // plus one week
+    return `${due.getDate()}-${due.getMonth()}-${due.getFullYear()}`;
+  })(request.createdAt);
+
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
         <Image style={styles.image} source={imageEsther} />
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{name}</Text>
-        <Text style={styles.description}>{jobTitle}</Text>
-        <Text style={styles.status}>{status}</Text>
-        <Text style={styles.due}>Due date: {due}</Text>
+        <Text style={styles.title}>{request.user.name}</Text>
+        <Text style={styles.description}>{request.user.jobTitle}</Text>
+        <Text style={styles.status}>{request.status}</Text>
+        <Text style={styles.due}>Due date: {dueDate}</Text>
         <NextButton
           size={40}
           textSize={15}
           title="Evaluate"
-          onPress={() => navigation.navigate('EvaluateScreen')}
+          onPress={() =>
+            navigation.navigate('EvaluateScreen', {
+              request,
+            })
+          }
         />
       </View>
     </View>
@@ -31,9 +39,11 @@ const EvaluationRequest = ({ name, jobTitle, status, navigation }) => {
 };
 
 EvaluationRequest.propTypes = {
-  name: PropTypes.string.isRequired,
-  jobTitle: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
+  request: PropTypes.shape({
+    user: PropTypes.object.isRequired,
+    status: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+  }).isRequired,
   navigation: PropTypes.object.isRequired,
 };
 

@@ -81,10 +81,10 @@ function TeamSettingsScreen({ userContext }) {
     } = await api
       .createSkill({
         teamId: team.id,
-        name: newSkill.name,
+        name: newSkill.name.replace(/./, (m) => m.toUpperCase()), // First letter uppercase
         description: newSkill.description,
       })
-      .catch((error) => console.log(`ERROR creating skill.. \n${error.errors[0].message}`));
+      .catch(console.log);
     if (createdSkill.name && createdSkill.description) {
       setTeamSkills([...teamSkills, createdSkill]);
       setNewSkill({ name: '', description: '' });

@@ -1,29 +1,35 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, TouchableOpacity, Dimensions, Platform } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Platform } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
+import { width } from '../constants/Utils';
 
-export default function Rating({ rating, onSeeDetails }) {
-  const translateGradeToColor = (grade) => {
-    grade = parseInt(grade);
-    if (grade < 4.5) {
+const Rating = ({ rating, onSeeDetails }) => {
+  const { grade } = rating.evaluations.items[0];
+  const skillName = rating.evaluations.items[0].skill.name;
+  const skillDescription = rating.evaluations.items[0].skill.description;
+
+  const gradeColor = ((gradeString) => {
+    const number = parseInt(gradeString, 10);
+    if (number < 4.5) {
       return '#ff100a';
     }
-    if (grade < 6.5) {
+    if (number < 6.5) {
       return 'rgb(255,171,10)';
     }
     return '#3fc380';
-  };
-  const gradeColor = translateGradeToColor(rating.grade);
+  })(grade);
+
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
         <View style={[styles.circle, { backgroundColor: gradeColor }]}>
-          <Text style={styles.grade}>{rating.grade}</Text>
+          <Text style={styles.grade}>{grade}</Text>
         </View>
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{rating.skillName}</Text>
-        <Text style={styles.description}>{rating.description}</Text>
+        <Text style={styles.title}>{skillName}</Text>
+        <Text style={styles.description}>{skillDescription}</Text>
         <TouchableOpacity
           onPress={onSeeDetails}
           accessibilityLabel="see rating details"
@@ -35,9 +41,8 @@ export default function Rating({ rating, onSeeDetails }) {
       </View>
     </View>
   );
-}
+};
 
-const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   Box: {
     width: width - 40,
@@ -107,3 +112,22 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 });
+
+Rating.propTypes = {
+  rating: PropTypes.shape({
+    comment: PropTypes.string.isRequired,
+    evaluations: PropTypes.shape({
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          grade: PropTypes.number.isRequired,
+          skill: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+          }),
+        })
+      ),
+    }),
+  }).isRequired,
+};
+
+export default Rating;

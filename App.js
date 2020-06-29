@@ -111,7 +111,7 @@ function App(props) {
     <UserContextProvider user={user}>
       <SafeAreaProvider>
         <NavigationContainer>
-          <StackNavigation />
+          <StackNavigation user={user} />
         </NavigationContainer>
       </SafeAreaProvider>
     </UserContextProvider>

@@ -5,24 +5,47 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
+import PropTypes from 'prop-types';
 import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 import CommentInput from '../components/CommentInput';
 import { isIphoneX, height, width } from '../constants/Utils';
+import api from '../apiwrapper';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function EvaluateCommentScreen({ navigation, route }) {
   const [text, setText] = useState('');
-  const { skill } = route.params || 'Test';
-  const { average } = route.params || 8;
+  const [status, setStatus] = useState({ loading: false, errored: false });
+  const { skill, average } = route.params;
   const handleText = (txt) => {
     setText(txt);
   };
-
-  const uploadEvaluation = () => {
-    // mutate
-    // text
-    // route.params.skills
+  // TODO:
+  const uploadEvaluation = async () => {
+    setStatus({ ...status, loading: true });
+    const {
+      data: {
+        createRating: { id: ratingId },
+      },
+    } = await api.createRating({
+      userId: '',
+      authorId: '',
+      commment: '',
+    });
+    // for each skill create evaluation
+    api.createEvaluation({
+      ratingId,
+      skillId: '',
+      grade: '',
+    });
+    // TODO: await all evaluations if no error deleteEvaluationRequest else delete
+    // ratings and skills that where made?
+    const id = '';
+    await api.deleteEvaluationRequest(id);
+    navigation.navigate('Tabs');
+    // setStatus({ ...status, errored: true });
+    // setStatus({ ...status, loading: false });
+    return Promise.resolve('done');
   };
 
   return (
@@ -59,7 +82,7 @@ function EvaluateCommentScreen({ navigation, route }) {
             <NextButton
               title="Next"
               color={{ backgroundColor: '#fff', textColor: 'rgb(44,44,44)' }}
-              onPress={() => navigation.navigate('Tabs')}
+              onPress={uploadEvaluation}
             />
           </View>
         </View>
@@ -68,6 +91,12 @@ function EvaluateCommentScreen({ navigation, route }) {
   );
   // <SafeAreaView style={styles.safe}/>
 }
+
+EvaluateCommentScreen.propTypes = {
+  route: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
+};
+
 const styles = StyleSheet.create({
   safeTop: {
     backgroundColor: 'rgb(10,185,255)',

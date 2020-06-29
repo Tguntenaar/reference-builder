@@ -12,10 +12,10 @@ export default class EvaluationSlider extends Component {
   }
 
   render() {
-    const { grade } = this.props.item;
+    const { name, grade } = this.props.item;
     return (
       <View>
-        <Text style={styles.skill}>{this.props.item.skill}</Text>
+        <Text style={styles.title}>{name}</Text>
         <Text style={styles.grade}>{String((grade / 10).toFixed(1))}</Text>
 
         <Slider
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   slider: {
     width: width * 0.8,
   },
-  skill: {
+  title: {
     fontSize: 20,
     fontFamily: 'CooperHewitt-Medium',
     padding: 2,

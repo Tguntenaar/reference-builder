@@ -4,9 +4,9 @@ import NextButton from './NextButton';
 // Constants
 import { imageEsther } from '../constants/Images';
 
-export default function TeamMember({ name, jobTitle, onPress }) {
+export default function TeamMember({ teamMember, onPress }) {
   const handlePress = () => {
-    onPress(true);
+    onPress(teamMember.id);
   };
   return (
     <View style={styles.Box}>
@@ -14,8 +14,8 @@ export default function TeamMember({ name, jobTitle, onPress }) {
         <Image style={styles.image} source={imageEsther} />
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{name}</Text>
-        <Text style={styles.description}>{jobTitle}</Text>
+        <Text style={styles.title}>{teamMember.name}</Text>
+        <Text style={styles.description}>{teamMember.jobTitle}</Text>
         <NextButton size={45} textSize={15} title="Request evaluation" onPress={handlePress} />
       </View>
     </View>

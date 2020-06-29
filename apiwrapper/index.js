@@ -84,6 +84,18 @@ const evaluationRequest = {
   },
 };
 
+const rating = {
+  createRating: (input) => {
+    return API.graphql(graphqlOperation(mutation.createRating, { input }));
+  },
+};
+
+const evaluation = {
+  createEvaluation: (input) => {
+    return API.graphql(graphqlOperation(mutation.createEvaluation, { input }));
+  },
+};
+
 export default {
   ...team,
   ...user,
@@ -91,4 +103,6 @@ export default {
   ...company,
   ...skill,
   ...evaluationRequest,
+  ...evaluation,
+  ...rating,
 };

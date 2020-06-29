@@ -5,30 +5,42 @@ import NextButton from '../components/NextButton';
 import BackButton from '../components/BackButton';
 import EvaluationSlider from '../components/EvaluationSlider';
 import Circle from '../components/Circle';
+import withUser from '../contexts/withUser';
 
 // TODO: Performance van sliders..
-function EvaluateScreen({ navigation }) {
-  const skill = {
-    name: 'Creativity',
-    description:
-      'Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate.',
-  };
-  const [sliders, setSliders] = useState([
-    { id: 1, skill: 'Out of the box', grade: 60 },
-    { id: 2, skill: 'Visual skills', grade: 60 },
-    { id: 3, skill: 'Ideas', grade: 60 },
-  ]);
+function EvaluateScreen({ route, navigation, userContext }) {
+  const {
+    request: { user },
+  } = route.params;
+  const {
+    teamsLink: {
+      items: [{ team }],
+    },
+  } = userContext;
+  const {
+    skills: { items: teamSkills },
+  } = team;
+  const copy = teamSkills.map((skill) => {
+    return { ...skill, grade: 60 };
+  });
+
+  const [sliders, setSliders] = useState(copy);
+  // const [sliders, setSliders] = useState([
+  //   { id: 1, name: 'Out of the box', grade: 60 },
+  //   { id: 2, name: 'Visual skills', grade: 60 },
+  //   { id: 3, name: 'Ideas', grade: 60 },
+  // ]);
   const [average, setAverage] = useState(6);
   // var average = 6
   const handleChange = (id, value) => {
     const temp = [...sliders];
-    temp.map((slider, index) => {
+    temp.map((slider) => {
       if (slider.id == id) {
         slider.grade = value;
       }
     });
     setSliders(temp);
-    const sum = temp.reduce(function (accumulator, currentValue) {
+    const sum = temp.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.grade;
     }, 0);
     const average = String((sum / temp.length / 10).toFixed(0));
@@ -45,14 +57,16 @@ function EvaluateScreen({ navigation }) {
 
           <BackButton style={styles.back} onPress={() => navigation.navigate('Tabs')} />
           <View style={styles.header}>
-            <Text style={styles.skillName}>{skill.name}</Text>
-            <Text style={styles.skillDescription}>{skill.description}</Text>
+            <Text style={styles.headerTitle}>{user.name}</Text>
+            <Text style={styles.headerDescription}>
+              How would you rate {user.name} based on these skills?
+            </Text>
           </View>
         </View>
 
         <View style={styles.middle}>
-          {sliders.map((item, index) => {
-            return <EvaluationSlider key={index} item={item} onSliderChange={handleChange} />;
+          {sliders.map((skill, index) => {
+            return <EvaluationSlider key={index} item={skill} onSliderChange={handleChange} />;
           })}
         </View>
         <View style={styles.bottom}>
@@ -61,7 +75,7 @@ function EvaluateScreen({ navigation }) {
             title="Next"
             onPress={() =>
               navigation.navigate('EvaluateCommentScreen', {
-                skill: skill.name,
+                skill: user.name,
                 average,
               })
             }
@@ -99,16 +113,17 @@ const styles = StyleSheet.create({
   header: {
     alignSelf: 'center',
   },
-  skillName: {
+  headerTitle: {
     fontSize: 28,
     alignSelf: 'center',
     fontFamily: 'CooperHewitt-Bold',
     color: 'rgb(10,19,255)',
     padding: 2,
   },
-  skillDescription: {
+  headerDescription: {
     fontSize: 18,
     alignSelf: 'center',
+    textAlign: 'center',
     width: 260,
     fontFamily: 'SourceSansPro-Regular',
     color: 'rgb(118,118,118)',
@@ -119,4 +134,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EvaluateScreen;
+export default withUser(EvaluateScreen);

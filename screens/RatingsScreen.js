@@ -1,23 +1,26 @@
-import React, { Fragment } from 'react';
-import { StyleSheet, ScrollView, StatusBar, Text, Platform } from 'react-native';
+import React from 'react';
+import { StyleSheet, ScrollView, StatusBar, Text } from 'react-native';
 import RatingBox from '../components/RatingBox.js';
+import withUser from '../contexts/withUser';
 
-function RatingsScreen({ navigation, ratings }) {
-  ratings = ratings || [
-    {
-      skillName: 'Creativity',
-      grade: '8.1',
-      description: 'Originality, new ideas, out of the box',
-    },
-    { skillName: 'Learning', grade: '4.5', description: 'Originality, new ideas, out of the box' },
-    { skillName: 'Teamwork', grade: '6.3', description: 'Originality, new ideas, out of the box' },
-  ];
+function RatingsScreen({ navigation, userContext }) {
+  // const ratings = [
+  //   {
+  //     skillName: 'Creativity',
+  //     grade: '8.1',
+  //     description: 'Originality, new ideas, out of the box',
+  //   },
+  //   { skillName: 'Learning', grade: '4.5', description: 'Originality, new ideas, out of the box' },
+  //   { skillName: 'Teamwork', grade: '6.3', description: 'Originality, new ideas, out of the box' },
+  // ];
+  const { ratings } = userContext;
+  console.log(Object.keys(ratings));
   return (
     <>
       <StatusBar barStyle="light-content" />
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
-        {ratings.length ? (
-          ratings.map((rating, index) => {
+        {ratings.items.length ? (
+          ratings.items.map((rating, index) => {
             return (
               <RatingBox
                 key={index}
@@ -55,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RatingsScreen;
+export default withUser(RatingsScreen);

@@ -23,8 +23,8 @@ import { imageEsther } from '../constants/Images';
 // Navigation
 const Stack = createStackNavigator();
 
-function StackNavigation() {
-  const user = { name: 'Esther Rookhuijzen', jobTitle: 'Designer' };
+function StackNavigation({ user }) {
+  // user = user || { name: 'Esther Rookhuijzen', jobTitle: 'Designer' };
   const admin = true;
 
   const HeaderRightContent = ({ onPress }) => {
@@ -87,7 +87,7 @@ function StackNavigation() {
   const TabNavigationHeader = ({ navigation }) => ({
     headerTitle: () => (
       <View style={styles.container}>
-        <Text style={styles.jobTitle}>{user.jobTitle} local</Text>
+        <Text style={styles.jobTitle}>{user.jobTitle}</Text>
         <Text style={styles.name}>{user.name}</Text>
       </View>
     ),

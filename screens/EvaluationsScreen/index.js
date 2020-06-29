@@ -24,15 +24,7 @@ function EvaluationsScreen({ navigation, userContext }) {
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
       {evaluationRequests.length ? (
         evaluationRequests.map((request) => {
-          return (
-            <EvaluationRequest
-              key={request.id}
-              name={request.user.name}
-              jobTitle={request.user.jobTitle}
-              status={request.status}
-              navigation={navigation}
-            />
-          );
+          return <EvaluationRequest key={request.id} request={request} navigation={navigation} />;
         })
       ) : (
         <Text> Wait for the Teammanager to activate a new rating round </Text>
@@ -43,7 +35,7 @@ function EvaluationsScreen({ navigation, userContext }) {
 
 EvaluationsScreen.propTypes = {
   userContext: PropTypes.object.isRequired,
-  navigation: PropTypes.object.isRequired,
+  // navigation: PropTypes.object.isRequired,
 };
 
 export default withUser(EvaluationsScreen);

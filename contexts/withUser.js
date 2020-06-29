@@ -8,7 +8,7 @@ const withUser = (Component) => {
     render() {
       return (
         <UserContext.Consumer>
-          {(userContext) => <Component userContext={userContext} />}
+          {(userContext) => <Component userContext={userContext} {...this.props} />}
         </UserContext.Consumer>
       );
     }

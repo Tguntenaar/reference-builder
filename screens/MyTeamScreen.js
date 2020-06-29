@@ -3,6 +3,7 @@ import { StyleSheet, ScrollView, Text } from 'react-native';
 import TeamMember from '../components/TeamMember';
 import PopUpModal from '../components/Modal';
 import withUser from '../contexts/withUser';
+import api from '../apiwrapper';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,18 +17,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const TeamList = ({ setModalVisible, teamMembers, navigation }) => {
+const TeamList = ({ sendEvaluationRequest, teamMembers, navigation }) => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
       {teamMembers.length ? (
         teamMembers.map((teamMember) => (
           <TeamMember
-            name={teamMember.name}
+            teamMember={teamMember}
             key={teamMember.id}
-            jobTitle={teamMember.jobTitle}
-            picture={teamMember.picture}
+            picture={teamMember.avatar}
             navigation={navigation}
-            onPress={setModalVisible}
+            onPress={sendEvaluationRequest}
           />
         ))
       ) : (
@@ -43,20 +43,25 @@ function MyTeamScreen({ navigation, userContext }) {
   // State
   const [modalVisible, setModalVisible] = useState(false);
   // Functions
-  const sendEvaluationRequest = () => {
+  const sendEvaluationRequest = (evaluatorId) => {
     // TODO: npm i jest-expo --save-dev
-    // api.createEvaluationRequest({
-    //   userId: '',
-    //   evaluatorId: '',
-    //   status: 'PENDING',
-    // }).
+    api
+      .createEvaluationRequest({
+        userId: userContext.id,
+        evaluatorId,
+        status: 'PENDING',
+      })
+      .then(() => {
+        console.log('created evaluation request');
+      })
+      .catch(console.log);
     setModalVisible(true);
   };
 
   return (
     <>
       <TeamList
-        setModalVisible={sendEvaluationRequest}
+        sendEvaluationRequest={sendEvaluationRequest}
         teamMembers={teamMembers}
         navigation={navigation}
       />

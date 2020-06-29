@@ -2,14 +2,14 @@ import * as React from 'react';
 /** Navigation */
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 /** Screens */
-import { Dimensions, Text, Platform } from 'react-native';
+import { Text } from 'react-native';
 import EvaluationsScreen from '../screens/EvaluationsScreen';
 import MyTeamScreen from '../screens/MyTeamScreen';
 import RatingsScreen from '../screens/RatingsScreen';
+import { width } from '../constants/Utils';
 
 const Tab = createMaterialTopTabNavigator();
 
-const { width } = Dimensions.get('window');
 function TopTabNavigator() {
   return (
     <Tab.Navigator
@@ -41,14 +41,6 @@ function TopTabNavigator() {
           marginLeft: 35,
         },
       }}
-      style={
-        {
-          // width: width-50,
-          // TODO:
-          // alignSelf: 'center',
-          // backgroundColor: 'black',
-        }
-      }
     >
       <Tab.Screen
         name="My Ratings"
