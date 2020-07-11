@@ -86,13 +86,13 @@ const evaluationRequest = {
 
 const rating = {
   createRating: (input) => {
-    return API.graphql(graphqlOperation(mutation.createRating, { input }));
+    return API.graphql(graphqlOperation(mutations.createRating, { input }));
   },
 };
 
 const evaluation = {
   createEvaluation: (input) => {
-    return API.graphql(graphqlOperation(mutation.createEvaluation, { input }));
+    return API.graphql(graphqlOperation(mutations.createEvaluation, { input }));
   },
 };
 

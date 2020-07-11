@@ -1,50 +1,53 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Text, View, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
-import EvaluationSlider from '../components/EvaluationSlider';
-import Circle from '../components/Circle';
-import withUser from '../contexts/withUser';
+import PropTypes from 'prop-types';
+import styles from './style';
+import NextButton from '../../components/NextButton';
+import BackButton from '../../components/BackButton';
+import EvaluationSlider from '../../components/EvaluationSlider';
+import Circle from '../../components/Circle';
+import withUser from '../../contexts/withUser';
 
 // TODO: Performance van sliders..
 function EvaluateScreen({ route, navigation, userContext }) {
   const {
     request: { user },
   } = route.params;
+  // get the team
   const {
     teamsLink: {
       items: [{ team }],
     },
   } = userContext;
+  // team Skills
   const {
     skills: { items: teamSkills },
   } = team;
+
   const copy = teamSkills.map((skill) => {
     return { ...skill, grade: 60 };
   });
 
   const [sliders, setSliders] = useState(copy);
-  // const [sliders, setSliders] = useState([
-  //   { id: 1, name: 'Out of the box', grade: 60 },
-  //   { id: 2, name: 'Visual skills', grade: 60 },
-  //   { id: 3, name: 'Ideas', grade: 60 },
-  // ]);
   const [average, setAverage] = useState(6);
   // var average = 6
   const handleChange = (id, value) => {
     const temp = [...sliders];
     temp.map((slider) => {
-      if (slider.id == id) {
-        slider.grade = value;
+      // FIXME: const?
+      const withGrade = { ...slider };
+      if (slider.id === id) {
+        withGrade.grade = value;
       }
+      return withGrade;
     });
     setSliders(temp);
     const sum = temp.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.grade;
     }, 0);
-    const average = String((sum / temp.length / 10).toFixed(0));
-    setAverage(average);
+    const avg = String((sum / temp.length / 10).toFixed(0));
+    setAverage(avg);
   };
 
   return (
@@ -65,8 +68,8 @@ function EvaluateScreen({ route, navigation, userContext }) {
         </View>
 
         <View style={styles.middle}>
-          {sliders.map((skill, index) => {
-            return <EvaluationSlider key={index} item={skill} onSliderChange={handleChange} />;
+          {sliders.map((skill) => {
+            return <EvaluationSlider key={skill.id} item={skill} onSliderChange={handleChange} />;
           })}
         </View>
         <View style={styles.bottom}>
@@ -77,6 +80,7 @@ function EvaluateScreen({ route, navigation, userContext }) {
               navigation.navigate('EvaluateCommentScreen', {
                 skill: user.name,
                 average,
+                sliders,
               })
             }
           />
@@ -86,52 +90,18 @@ function EvaluateScreen({ route, navigation, userContext }) {
   );
 }
 
-const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'space-between',
-  },
-  top: {
-    flex: 0.2,
-    // backgroundColor: 'grey',
-  },
-  middle: {
-    flex: 0.6,
-    // backgroundColor: "red",
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  bottom: {
-    flex: 0.15,
-    // backgroundColor:'grey',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    alignSelf: 'center',
-  },
-  headerTitle: {
-    fontSize: 28,
-    alignSelf: 'center',
-    fontFamily: 'CooperHewitt-Bold',
-    color: 'rgb(10,19,255)',
-    padding: 2,
-  },
-  headerDescription: {
-    fontSize: 18,
-    alignSelf: 'center',
-    textAlign: 'center',
-    width: 260,
-    fontFamily: 'SourceSansPro-Regular',
-    color: 'rgb(118,118,118)',
-  },
-  next: {},
-  back: {
-    // marginLeft: 20,
-  },
-});
+EvaluateScreen.propTypes = {
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      request: PropTypes.shape({
+        user: PropTypes.object,
+      }),
+    }),
+  }).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
+  userContext: PropTypes.object.isRequired,
+};
 
 export default withUser(EvaluateScreen);

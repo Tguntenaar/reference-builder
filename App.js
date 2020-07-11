@@ -61,10 +61,10 @@ function App(props) {
     } = await Auth.currentAuthenticatedUser().catch(console.log);
     console.log(sub);
     const {
-      data: { getUser: user },
+      data: { getUser: userData },
     } = await api.getUser(sub).catch(console.log);
     // console.log(user);
-    setUser(user);
+    setUser(userData);
     // console.log(user.teamsLink.items[0].team)
   };
 
