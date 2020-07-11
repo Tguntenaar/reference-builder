@@ -1,14 +1,11 @@
 import React from 'react';
-import { Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { Text, TouchableOpacity, Platform } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
+import styles from './style';
 
 const NextButton = ({ title, onPress, color, size, textSize, loading }) => {
-  // TODO: dit moet handig
-  size = size || 50;
-  textSize = textSize || 20;
-  loading = loading || false;
-
+  // TODO:
   const defaultColors = {
     backgroundColor: '#0009EE',
     textColor: '#fff',
@@ -17,6 +14,7 @@ const NextButton = ({ title, onPress, color, size, textSize, loading }) => {
     width: size * 4,
   };
   color = Object.assign(defaultColors, color);
+
   const defaultText = {
     fontSize: textSize,
     height: Platform.OS === 'ios' ? textSize : textSize + 10,
@@ -39,30 +37,21 @@ NextButton.PropTypes = {
   onPress: PropTypes.func.isRequired,
   color: PropTypes.object.isRequired,
   size: PropTypes.number,
-  textSize: PropTypes.number,
+  textSize: PropTypes.object,
   loading: PropTypes.bool,
 };
 
 NextButton.defaultProps = {
-  loading: false,
   size: 50,
+  // color: {
+  //   backgroundColor: '#0009EE',
+  //   textColor: '#fff',
+  //   height: size,
+  //   borderRadius: size / 2,
+  //   width: size * 4,
+  // },
+  loading: false,
   textSize: 20,
 };
-
-const styles = StyleSheet.create({
-  loadingIcon: {
-    fontSize: 16,
-  },
-  button: {
-    marginTop: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    textAlign: 'center',
-    fontFamily: 'CooperHewitt-Heavy',
-    padding: 1,
-  },
-});
 
 export default NextButton;

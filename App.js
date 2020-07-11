@@ -118,7 +118,7 @@ function App(props) {
   );
 }
 
-App.propType = {
+App.propTypes = {
   skipLoadingScreen: PropTypes.bool,
 };
 

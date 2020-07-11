@@ -47,6 +47,10 @@ const styles = StyleSheet.create({
   input: {
     // alignSelf: 'center'
   },
+  error: {
+    color: 'white',
+    fontSize: 20,
+  },
   bottom: {
     flex: 0.2,
     alignItems: 'center',

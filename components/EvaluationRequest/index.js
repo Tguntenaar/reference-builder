@@ -29,7 +29,7 @@ const EvaluationRequest = ({ request, navigation }) => {
           title="Evaluate"
           onPress={() =>
             navigation.navigate('EvaluateScreen', {
-              request,
+              evaluationRequest: request,
             })
           }
         />

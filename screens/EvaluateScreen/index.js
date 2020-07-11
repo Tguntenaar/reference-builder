@@ -11,9 +11,8 @@ import withUser from '../../contexts/withUser';
 
 // TODO: Performance van sliders..
 function EvaluateScreen({ route, navigation, userContext }) {
-  const {
-    request: { user },
-  } = route.params;
+  const { evaluationRequest } = route.params;
+  const { user } = evaluationRequest;
   // get the team
   const {
     teamsLink: {
@@ -24,25 +23,24 @@ function EvaluateScreen({ route, navigation, userContext }) {
   const {
     skills: { items: teamSkills },
   } = team;
-
+  // add grade to every skill
   const copy = teamSkills.map((skill) => {
     return { ...skill, grade: 60 };
   });
 
   const [sliders, setSliders] = useState(copy);
   const [average, setAverage] = useState(6);
-  // var average = 6
+
   const handleChange = (id, value) => {
-    const temp = [...sliders];
-    temp.map((slider) => {
-      // FIXME: const?
-      const withGrade = { ...slider };
+    let temp = [...sliders];
+    temp = temp.map((slider) => {
       if (slider.id === id) {
-        withGrade.grade = value;
+        return { ...slider, grade: value };
       }
-      return withGrade;
+      return slider;
     });
     setSliders(temp);
+    // Calc average
     const sum = temp.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.grade;
     }, 0);
@@ -78,7 +76,8 @@ function EvaluateScreen({ route, navigation, userContext }) {
             title="Next"
             onPress={() =>
               navigation.navigate('EvaluateCommentScreen', {
-                skill: user.name,
+                evaluationRequest,
+                username: user.name,
                 average,
                 sliders,
               })
@@ -93,7 +92,7 @@ function EvaluateScreen({ route, navigation, userContext }) {
 EvaluateScreen.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
-      request: PropTypes.shape({
+      evaluationRequest: PropTypes.shape({
         user: PropTypes.object,
       }),
     }),

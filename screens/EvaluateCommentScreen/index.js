@@ -16,35 +16,46 @@ import api from '../../apiwrapper';
 function EvaluateCommentScreen({ navigation, route }) {
   const [text, setText] = useState('');
   const [status, setStatus] = useState({ loading: false, errored: false });
-  const { skill, average } = route.params;
+  const { username, average, sliders, evaluationRequest } = route.params;
   const handleText = (txt) => {
     setText(txt);
   };
-  // TODO:
   const uploadEvaluation = async () => {
     setStatus({ ...status, loading: true });
+    const rating = {
+      userId: evaluationRequest.user.id,
+      authorId: evaluationRequest.evaluator.id,
+      comment: text,
+    };
+    console.log(rating);
     const {
       data: {
         createRating: { id: ratingId },
       },
-    } = await api.createRating({
-      userId: '',
-      authorId: '',
-      commment: '',
-    });
+    } = await api.createRating(rating);
+    console.log('rating succes');
+    console.log(ratingId);
     // for each skill create evaluation
-    api.createEvaluation({
-      ratingId,
-      skillId: '',
-      grade: '',
+    sliders.forEach((skill) => {
+      const skillEvaluation = {
+        ratingId,
+        skillId: skill.id,
+        grade: parseInt(skill.grade, 10),
+      };
+      console.log(skillEvaluation);
+      api
+        .createEvaluation(skillEvaluation)
+        .then(console.log('created evaluation'))
+        .catch(console.log);
     });
-    // TODO: await all evaluations if no error deleteEvaluationRequest else delete
-    // ratings and skills that where made?
-    const id = '';
-    await api.deleteEvaluationRequest(id);
+    // TODO:
+    // await all createEvaluations
+    // if no error deleteEvaluationRequest
+    // else get all created evaluations via getRating en delete ze 1 voor 1
+    // await api.deleteEvaluationRequest(evaluationRequest.id);
     navigation.navigate('Tabs');
     // setStatus({ ...status, errored: true });
-    // setStatus({ ...status, loading: false });
+    setStatus({ ...status, loading: false });
     return Promise.resolve('done');
   };
 
@@ -64,7 +75,7 @@ function EvaluateCommentScreen({ navigation, route }) {
               onPress={() => navigation.navigate('EvaluateScreen')}
             />
             <View styles={styles.header}>
-              <Text style={[styles.text, styles.header, { fontSize: 26 }]}>{skill}</Text>
+              <Text style={[styles.text, styles.header, { fontSize: 26 }]}>{username}</Text>
               <Text style={[styles.text, styles.header, { fontSize: 18 }]}>Your average:</Text>
               <Text style={[styles.text, styles.header, styles.grade]}>{average}</Text>
             </View>
@@ -79,10 +90,13 @@ function EvaluateCommentScreen({ navigation, route }) {
             />
           </ScrollView>
           <View style={styles.bottom}>
+            <Text style={styles.error}> {status.errored ? 'Something went wrong..' : ''} </Text>
+
             <NextButton
               title="Next"
               color={{ backgroundColor: '#fff', textColor: 'rgb(44,44,44)' }}
               onPress={uploadEvaluation}
+              loading={status.loading}
             />
           </View>
         </View>
