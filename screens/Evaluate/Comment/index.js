@@ -7,10 +7,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
 import styles from './style';
 
-import NextButton from '../../components/NextButton';
-import BackButton from '../../components/BackButton';
-import CommentInput from '../../components/CommentInput';
-import api from '../../apiwrapper';
+import NextButton from '../../../components/NextButton';
+import BackButton from '../../../components/BackButton';
+import CommentInput from '../../../components/CommentInput';
+import api from '../../../apiwrapper';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function EvaluateCommentScreen({ navigation, route }) {

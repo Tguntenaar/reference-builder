@@ -4,12 +4,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView } from 'react-native-gesture-handler';
 
 /** Components */
-import NextButton from '../components/NextButton';
-import BackButton from '../components/BackButton';
-import Circle from '../components/Circle';
+import NextButton from '../../components/NextButton';
+import BackButton from '../../components/BackButton';
+import Circle from '../../components/Circle';
 
 // Constants
-import { imageEsther } from '../constants/Images';
+import { imageEsther } from '../../constants/Images';
 
 function DetailedRatingScreen({ navigation, route }) {
   const { evaluator } = route.params;

@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { isIphoneX, height, width } from '../../constants/Utils';
+import { isIphoneX, height, width } from '../../../constants/Utils';
 
 const styles = StyleSheet.create({
   safeTop: {

@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, ScrollView, Platform } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BackButton from '../components/BackButton';
-import Circle from '../components/Circle';
-import RatingDetails from '../components/RatingDetails';
-import Chart from '../components/Chart';
-import { isIphoneX, height, width } from '../constants/Utils';
+import BackButton from '../../components/BackButton';
+import Circle from '../../components/Circle';
+import RatingDetails from '../../components/RatingDetails';
+import Chart from '../../components/Chart';
+import { isIphoneX, height, width } from '../../constants/Utils';
 
 // <SafeAreaView style={styles.safe}/>
 function RatingsDetailsScreen({ navigation, route }) {

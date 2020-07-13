@@ -6,7 +6,6 @@ import withUser from '../../../contexts/withUser';
 import api from '../../../apiwrapper';
 
 function CompanySettingsScreen({ userContext }) {
-  // console.log('CompanySettingsScreen');
   const { team } = userContext.teamsLink.items[0];
 
   const [teamMembers, setTeamMembers] = useState(team.membersLink.items);

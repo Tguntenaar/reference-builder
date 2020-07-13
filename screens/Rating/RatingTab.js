@@ -1,8 +1,14 @@
 import React from 'react';
 import { StyleSheet, ScrollView, StatusBar, Text } from 'react-native';
-import RatingBox from '../components/RatingBox.js';
-import withUser from '../contexts/withUser';
+import RatingBox from '../../components/RatingBox';
+import withUser from '../../contexts/withUser';
 
+/**
+ * TODO:
+ * 1. alles lezen uit database
+ * 2. data aggregation via lambda function triggered by adding a new Rating
+ * 3.
+ */
 function RatingsScreen({ navigation, userContext }) {
   // const ratings = [
   //   {
@@ -13,8 +19,28 @@ function RatingsScreen({ navigation, userContext }) {
   //   { skillName: 'Learning', grade: '4.5', description: 'Originality, new ideas, out of the box' },
   //   { skillName: 'Teamwork', grade: '6.3', description: 'Originality, new ideas, out of the box' },
   // ];
-  const { ratings } = userContext;
-  console.log(Object.keys(ratings));
+  const { ratings, averageRatings } = userContext;
+  console.log(ratings);
+  ratings.items = [
+    ...ratings.items,
+    {
+      id: '3',
+      comment: '',
+      evaluations: {
+        items: [
+          {
+            grade: 8.4,
+            skill: {
+              name: 'creativity',
+              description: 'lorem ipsum',
+            },
+          },
+        ],
+      },
+    },
+  ];
+  console.log(ratings);
+
   return (
     <>
       <StatusBar barStyle="light-content" />

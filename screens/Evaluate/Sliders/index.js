@@ -3,11 +3,11 @@ import { Text, View, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 import styles from './style';
-import NextButton from '../../components/NextButton';
-import BackButton from '../../components/BackButton';
-import EvaluationSlider from '../../components/EvaluationSlider';
-import Circle from '../../components/Circle';
-import withUser from '../../contexts/withUser';
+import NextButton from '../../../components/NextButton';
+import BackButton from '../../../components/BackButton';
+import EvaluationSlider from '../../../components/EvaluationSlider';
+import Circle from '../../../components/Circle';
+import withUser from '../../../contexts/withUser';
 
 // TODO: Performance van sliders..
 function EvaluateScreen({ route, navigation, userContext }) {

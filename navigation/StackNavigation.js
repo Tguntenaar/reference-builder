@@ -1,3 +1,6 @@
+/**
+ * TODO: animate header
+ */
 import * as React from 'react';
 import { Image, View, Text, StyleSheet, Alert } from 'react-native';
 import { Feather } from '@expo/vector-icons';
@@ -8,13 +11,13 @@ import { Auth } from 'aws-amplify';
 import TabNavigation from './TabNavigation';
 
 // Screens
-import RatingsDetailsScreen from '../screens/RatingsDetailsScreen';
-import DetailedRatingScreen from '../screens/DetailedRatingScreen';
-import EvaluateScreen from '../screens/EvaluateScreen';
-import EvaluateCommentScreen from '../screens/EvaluateCommentScreen';
+import RatingsDetailsScreen from '../screens/Rating/RatingChart';
+import DetailedRatingScreen from '../screens/Rating/RatingDetails';
+import EvaluateScreen from '../screens/Evaluate/Sliders';
+import EvaluateCommentScreen from '../screens/Evaluate/Comment';
 import SettingsScreen from '../screens/Settings/Main';
 import TeamSettingsScreen from '../screens/Settings/Team';
-import CompanySettingsScreen from '../screens/Settings/Company'; // FIXME:
+import CompanySettingsScreen from '../screens/Settings/Company';
 import ModalScreen from '../screens/ModalScreen';
 
 // Constants
