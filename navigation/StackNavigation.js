@@ -12,9 +12,9 @@ import RatingsDetailsScreen from '../screens/RatingsDetailsScreen';
 import DetailedRatingScreen from '../screens/DetailedRatingScreen';
 import EvaluateScreen from '../screens/EvaluateScreen';
 import EvaluateCommentScreen from '../screens/EvaluateCommentScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import TeamSettingsScreen from '../screens/TeamSettingsScreen';
-import CompanySettingsScreen from '../screens/CompanySettingsScreen';
+import SettingsScreen from '../screens/Settings/Main';
+import TeamSettingsScreen from '../screens/Settings/Team';
+import CompanySettingsScreen from '../screens/CompanySettingsScreen'; // FIXME:
 import ModalScreen from '../screens/ModalScreen';
 
 // Constants

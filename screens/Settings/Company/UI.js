@@ -1,151 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  StyleSheet,
-  Image,
-  Text,
-  StatusBar,
-  ScrollView,
-  TouchableOpacity,
-  Button,
-} from 'react-native';
+import React from 'react';
+import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, Button } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import * as Contacts from 'expo-contacts';
-import NextButton from '../components/NextButton';
-import withUser from '../contexts/withUser';
-import { imageEsther } from '../constants/Images';
-import api from '../apiwrapper';
-import { width, height } from '../constants/Utils';
+import PropTypes from 'prop-types';
+import styles from './style';
+import { imageEsther } from '../../../constants/Images';
+import { width } from '../../../constants/Utils';
 
-const imageSize = 40;
-
-// function Screen(props) {
-//   return (
-//     <UserContext.Consumer>
-//       {(userContext) => <TeamSettingsScreen userContext={userContext} {...props} />}
-//     </UserContext.Consumer>
-//   );
-// }
-
-function CompanySettingsScreen({ navigation, userContext }) {
-  console.log('CompanySettingsScreen');
-  const { team } = userContext.teamsLink.items[0];
-  // const { teams: [ team ] } = userContext
-  // const {
-  //   teams: {
-  //     items: [
-  //       {
-  //         name: initialTeamName,
-  //         company: { name: initialCompanyName },
-  //         members: { items: initialTeamMembers },
-  //         skills: { items: initialteams },
-  //       }
-  //     ],
-  //   },
-  // } = userContext;
-
-  const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
-  const [teams, setteams] = useState(team.company.teams.items);
-  const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
-  const [newTeam, setNewTeam] = useState('');
-  const [companyName, setCompany] = useState(team.company.name);
-
-  // Get Contact List
-  useEffect(() => {
-    (async () => {
-      const { status } = await Contacts.requestPermissionsAsync();
-      if (status === 'granted') {
-        const { data } = await Contacts.getContactsAsync({
-          fields: [Contacts.Fields.Emails],
-        });
-
-        if (data.length > 0) {
-          // const contact = data[0];
-          // console.log(data);
-        }
-      }
-    })();
-  }, []);
-  // Submit changes
-  const handlePress = () => {};
-  // Add a User to your team TODO: validation
-  const createUser = async () => {
-    // TODO: invite email create user in UserPool
-    const {
-      data: { createUser: createdUser },
-    } = await api
-      .createUser({
-        name: newUser.name,
-        jobTitle: newUser.jobTitle,
-      })
-      .catch((error) => console.log(`Error creating user ${error.errors[0].message}`));
-
-    const teamLink = await api
-      .createTeamMemberLink({
-        userId: createdUser.id,
-        teamId: team.id,
-      })
-      .catch(console.log);
-
-    if (!teamLink.errors) {
-      setTeamMembers([...teamMembers, { ...teamLink, user: createdUser }]);
-      setNewUser({ name: '', jobTitle: '', email: '' });
-    }
-  };
-
-  // TODO: validation
-  const createTeam = async () => {
-    const {
-      data: { createTeam: createdTeam },
-    } = await api
-      .createTeam({
-        companyId: team.company.id,
-        name: newTeam,
-      })
-      .catch((error) => console.log(`ERROR creating skill.. \n${error.errors[0].message}`));
-    if (createdTeam.name) {
-      setteams([...teams, createdTeam]);
-      setNewTeam('');
-    }
-  };
-
-  const updateHeader = async () => {
-    const t2 = () =>
-      api.updateCompany({
-        id: team.company.id,
-        name: companyName,
-      });
-
-    // const t2 = updateCompanyName();
-
-    const {
-      data: { updateTeam: updatedTeam },
-    } = await t1;
-    const {
-      data: { updateCompany: updatedCompany },
-    } = await t2;
-
-    if (updatedTeam.errors || updatedCompany.errors) {
-      console.log('ERRORS!!!');
-    } else {
-      console.log('succes');
-    }
-  };
-
-  const removeTeam = async (teamId) => {
-    setteams(teams.filter((team) => teamId !== team.id));
-    const {
-      data: { deleteTeam: result },
-    } = await api.deleteTeam(teamId).catch(console.log);
-  };
-
-  const deleteMember = async (teamMemberLinkId) => {
-    setTeamMembers(teamMembers.filter((user) => teamMemberLinkId !== user.id));
-    const {
-      data: { deleteTeamMemberLink: result },
-    } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
-  };
-
+const Screen = ({
+  teams,
+  teamMembers,
+  companyName,
+  setCompany,
+  removeTeam,
+  setNewTeam,
+  handlePress,
+  createTeam,
+  setNewUser,
+  deleteMember,
+  createUser,
+  newUser,
+}) => {
   return (
     <ScrollView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -178,9 +52,9 @@ function CompanySettingsScreen({ navigation, userContext }) {
             }}
           >
             {teams.length ? (
-              teams.map((team, index) => (
+              teams.map((team) => (
                 <View
-                  key={index}
+                  key={team.id}
                   style={{
                     borderTopWidth: 1,
                     borderTopColor: 'lightgrey',
@@ -297,51 +171,10 @@ function CompanySettingsScreen({ navigation, userContext }) {
       </View>
     </ScrollView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  safe: {
-    flexGrow: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  top: {
-    height: 0.2 * height,
-    // backgroundColor: 'red',
-    width,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image: {
-    width: imageSize,
-    height: imageSize,
-    borderRadius: imageSize / 2,
-    backgroundColor: 'lightgrey',
-  },
-  edit: {
-    color: 'blue',
-    fontSize: 20,
-  },
-  middle: {
-    // paddingTop: 50,
-    height: 0.6 * height,
-    // backgroundColor: 'blue',
-    width: width - 40,
-  },
-  input: {
-    height: 40,
-    paddingLeft: 5,
-    paddingRight: 5,
-    marginTop: 0,
-  },
-  bottom: {
-    height: 0.15 * height,
-    // backgroundColor: 'grey',
-  },
-});
+Screen.propTypes = {
+  teams: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
-export default withUser(CompanySettingsScreen);
+export default Screen;

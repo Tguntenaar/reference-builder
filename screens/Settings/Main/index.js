@@ -6,8 +6,8 @@ import { Storage } from 'aws-amplify';
 
 //
 import Screen from './UI';
-import api from '../../apiwrapper';
-import withUser from '../../contexts/withUser';
+import api from '../../../apiwrapper';
+import withUser from '../../../contexts/withUser';
 
 const path = 'avatars';
 

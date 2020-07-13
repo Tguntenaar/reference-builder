@@ -4,10 +4,10 @@ import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, Picker } fr
 import { TextInput } from 'react-native-gesture-handler';
 // aws
 import { S3Image } from 'aws-amplify-react-native';
-import NextButton from '../../components/NextButton';
-import { imageEsther } from '../../constants/Images';
+import NextButton from '../../../components/NextButton';
+import { imageEsther } from '../../../constants/Images';
 import styles from './style';
-import { width } from '../../constants/Utils';
+import { width } from '../../../constants/Utils';
 
 export default function UI({
   submitProfileInfo,

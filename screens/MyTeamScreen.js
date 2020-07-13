@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, Text } from 'react-native';
-import TeamMember from '../components/TeamMember';
+import TeamMember from '../components/TeamMemberBox';
 import PopUpModal from '../components/Modal';
 import withUser from '../contexts/withUser';
 import api from '../apiwrapper';

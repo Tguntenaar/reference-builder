@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { width, height } from '../../constants/Utils';
+import { width, height } from '../../../constants/Utils';
 
 const imageSize = 130;
 export default StyleSheet.create({

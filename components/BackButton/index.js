@@ -1,16 +1,9 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
-const styles = StyleSheet.create({
-  button: {
-    marginTop: 10,
-    marginLeft: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import React from 'react';
+import { TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import styles from './style';
 
 const BackButton = ({ onPress, color, size }) => {
   const { backgroundColor, iconColor } = color;

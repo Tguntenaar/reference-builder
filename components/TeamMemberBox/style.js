@@ -1,28 +1,5 @@
-import * as React from 'react';
-import { Text, StyleSheet, View, Image, Dimensions, Platform } from 'react-native';
-import NextButton from './NextButton';
-// Constants
-import { imageEsther } from '../constants/Images';
-
-export default function TeamMember({ teamMember, onPress }) {
-  const handlePress = () => {
-    onPress(teamMember.id);
-  };
-  return (
-    <View style={styles.Box}>
-      <View style={styles.circleBox}>
-        <Image style={styles.image} source={imageEsther} />
-      </View>
-      <View style={styles.textBox}>
-        <Text style={styles.title}>{teamMember.name}</Text>
-        <Text style={styles.description}>{teamMember.jobTitle}</Text>
-        <NextButton size={45} textSize={15} title="Request evaluation" onPress={handlePress} />
-      </View>
-    </View>
-  );
-}
-
-const { width } = Dimensions.get('window');
+import { StyleSheet, Platform } from 'react-native';
+import { width } from '../../constants/Utils';
 
 const styles = StyleSheet.create({
   Box: {
@@ -67,3 +44,5 @@ const styles = StyleSheet.create({
     borderRadius: 44,
   },
 });
+
+export default styles;

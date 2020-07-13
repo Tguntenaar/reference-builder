@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import * as Contacts from 'expo-contacts';
-import withUser from '../../contexts/withUser';
-import api from '../../apiwrapper';
+import withUser from '../../../contexts/withUser';
+import api from '../../../apiwrapper';
 import UI from './UI';
 
 function TeamSettingsScreen({ userContext }) {

@@ -34,10 +34,10 @@ const NextButton = ({ title, onPress, color, size, textSize, loading }) => {
   );
 };
 
-NextButton.PropTypes = {
+NextButton.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
-  color: PropTypes.object.isRequired,
+  color: PropTypes.any,
   size: PropTypes.number,
   textSize: PropTypes.number,
   loading: PropTypes.bool,

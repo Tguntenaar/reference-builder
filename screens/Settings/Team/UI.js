@@ -12,11 +12,11 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
-import NextButton from '../../components/NextButton';
+import NextButton from '../../../components/NextButton';
 
-import { imageEsther } from '../../constants/Images';
+import { imageEsther } from '../../../constants/Images';
 
-import { width, height } from '../../constants/Utils';
+import { width, height } from '../../../constants/Utils';
 
 const imageSize = 40;
 
