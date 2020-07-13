@@ -14,7 +14,7 @@ import EvaluateScreen from '../screens/EvaluateScreen';
 import EvaluateCommentScreen from '../screens/EvaluateCommentScreen';
 import SettingsScreen from '../screens/Settings/Main';
 import TeamSettingsScreen from '../screens/Settings/Team';
-import CompanySettingsScreen from '../screens/CompanySettingsScreen'; // FIXME:
+import CompanySettingsScreen from '../screens/Settings/Company'; // FIXME:
 import ModalScreen from '../screens/ModalScreen';
 
 // Constants

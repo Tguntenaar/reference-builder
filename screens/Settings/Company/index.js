@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import * as Contacts from 'expo-contacts';
+import PropTypes from 'prop-types';
 import Screen from './UI';
 import withUser from '../../../contexts/withUser';
 import api from '../../../apiwrapper';
 
-function CompanySettingsScreen({ navigation, userContext }) {
-  console.log('CompanySettingsScreen');
+function CompanySettingsScreen({ userContext }) {
+  // console.log('CompanySettingsScreen');
   const { team } = userContext.teamsLink.items[0];
 
   const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
-  const [teams, setteams] = useState(team.company.teams.items);
+  const [teams, setTeams] = useState(team.company.teams.items);
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newTeam, setNewTeam] = useState('');
   const [companyName, setCompany] = useState(team.company.name);
@@ -67,8 +68,9 @@ function CompanySettingsScreen({ navigation, userContext }) {
         name: newTeam,
       })
       .catch((error) => console.log(`ERROR creating skill.. \n${error.errors[0].message}`));
+    console.log(createdTeam);
     if (createdTeam.name) {
-      setteams([...teams, createdTeam]);
+      setTeams([...teams, createdTeam]);
       setNewTeam('');
     }
   };
@@ -97,7 +99,7 @@ function CompanySettingsScreen({ navigation, userContext }) {
   };
 
   const removeTeam = async (teamId) => {
-    setteams(teams.filter((team) => teamId !== team.id));
+    setTeams(teams.filter((team) => teamId !== team.id));
     const {
       data: { deleteTeam: result },
     } = await api.deleteTeam(teamId).catch(console.log);
@@ -110,16 +112,26 @@ function CompanySettingsScreen({ navigation, userContext }) {
     } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
   };
   const props = {
-    handlePress,
-    createUser,
-    createTeam,
-    updateHeader,
-    removeTeam,
-    deleteMember,
-    company,
+    teams,
+    teamMembers,
+    companyName,
     setCompany,
+    removeTeam,
+    setNewTeam,
+    handlePress,
+    createTeam,
+    setNewUser,
+    deleteMember,
+    createUser,
+    newUser,
+    newTeam,
+    updateHeader,
   };
   return <Screen {...props} />;
 }
+
+CompanySettingsScreen.propTypes = {
+  userContext: PropTypes.object.isRequired,
+};
 
 export default withUser(CompanySettingsScreen);

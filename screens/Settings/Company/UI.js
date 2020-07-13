@@ -19,6 +19,8 @@ const Screen = ({
   deleteMember,
   createUser,
   newUser,
+  newTeam,
+  updateHeader,
 }) => {
   return (
     <ScrollView style={styles.safe}>
@@ -175,6 +177,22 @@ const Screen = ({
 
 Screen.propTypes = {
   teams: PropTypes.arrayOf(PropTypes.object).isRequired,
+  teamMembers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  companyName: PropTypes.string.isRequired,
+  setCompany: PropTypes.func.isRequired,
+  removeTeam: PropTypes.func.isRequired,
+  setNewTeam: PropTypes.func.isRequired,
+  handlePress: PropTypes.func.isRequired,
+  createTeam: PropTypes.func.isRequired,
+  setNewUser: PropTypes.func.isRequired,
+  deleteMember: PropTypes.func.isRequired,
+  createUser: PropTypes.func.isRequired,
+  newUser: PropTypes.shape({
+    jobTitle: PropTypes.string,
+    name: PropTypes.string,
+  }).isRequired,
+  newTeam: PropTypes.string.isRequired,
+  updateHeader: PropTypes.func.isRequired,
 };
 
 export default Screen;
