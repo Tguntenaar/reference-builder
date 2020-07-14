@@ -5,8 +5,9 @@ import withUser from '../../contexts/withUser';
 
 /**
  * TODO:
- * 1. alles lezen uit database
- * 2. data aggregation via lambda function triggered by adding a new Rating
+ * Ratings Schermen
+ * 1. Data access patterns fixen get ratings by user / skill
+ * 2. Data aggregation via lambda function triggered by adding a new Rating
  * 3.
  */
 function RatingsScreen({ navigation, userContext }) {
@@ -19,6 +20,7 @@ function RatingsScreen({ navigation, userContext }) {
   //   { skillName: 'Learning', grade: '4.5', description: 'Originality, new ideas, out of the box' },
   //   { skillName: 'Teamwork', grade: '6.3', description: 'Originality, new ideas, out of the box' },
   // ];
+
   const { ratings, averageRatings } = userContext;
   console.log(ratings);
   ratings.items = [
@@ -49,7 +51,7 @@ function RatingsScreen({ navigation, userContext }) {
           ratings.items.map((rating, index) => {
             return (
               <RatingBox
-                key={index}
+                key={rating.id}
                 rating={rating}
                 gradeColor="rgb(10,185,255)"
                 onSeeDetails={() => {

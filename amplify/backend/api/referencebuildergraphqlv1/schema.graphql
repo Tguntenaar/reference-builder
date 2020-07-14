@@ -1,4 +1,5 @@
 # TODO:
+# auth
 # user groups admin
 
 type Company @model(subscriptions: null) {
@@ -22,14 +23,15 @@ type Team
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
   membersLink: [TeamMemberLink!]
-    @connection(keyName: "userByTeam", fields: ["id"]) # has many
-  skills: [Skill!] @connection(keyName: "skillByTeam", fields: ["id"]) # has many # TODO: team evaluations om het gemiddelde van een team te zien
+    @connection(keyName: "usersByTeam", fields: ["id"]) # has many
+  skills: [Skill!] @connection(keyName: "skillsByTeam", fields: ["id"]) # has many
+  averageRatings: [Rating] #FIXME:
 }
 
 type TeamMemberLink
   @model(queries: null, subscriptions: null)
-  @key(name: "teamByUser", fields: ["userId", "teamId"])
-  @key(name: "userByTeam", fields: ["teamId", "userId"]) {
+  @key(name: "teamsByUser", fields: ["userId", "teamId"])
+  @key(name: "usersByTeam", fields: ["teamId", "userId"]) {
   id: ID!
   userId: ID!
   teamId: ID!
@@ -50,14 +52,19 @@ type User @model(subscriptions: null) {
   avatar: S3Object
   # dashboard
   teamsLink: [TeamMemberLink!]
-    @connection(keyName: "teamByUser", fields: ["id"]) # many to many
-  requests: [EvaluationRequest] @connection(keyName: "forUser", fields: ["id"]) # has many
+    @connection(keyName: "teamsByUser", fields: ["id"]) # many to many
+  # evaluation requests
+  requests: [EvaluationRequest]
+    @connection(keyName: "evaluationRequestsByUser", fields: ["id"]) # has many
   receivedRequests: [EvaluationRequest]
-    @connection(keyName: "evaluationRequestByEvaluator", fields: ["id"]) # has many
-  ratings: [Rating] @connection(keyName: "byUser", fields: ["id"]) # has many
-  averageRatings: [Rating]
-  # given ratings
-  evaluations: [Rating] @connection(keyName: "byAuthor", fields: ["id"]) # has many
+    @connection(keyName: "evaluationRequestsByEvaluator", fields: ["id"]) # has many
+  # evaluations
+  # TODO: fixme het is niet echt many to many want het is 2 to many maar mis wel beter
+  evaluations: [Evaluation]
+    @connection(keyName: "evaluationsByEvaluator", fields: ["id"]) # has many
+  receivedEvaluations: [Evaluation]
+    @connection(keyName: "evaluationsByUser", fields: ["id"]) # has many
+  averageRatings: [Rating] #FIXME:
 }
 
 type S3Object {
@@ -66,16 +73,13 @@ type S3Object {
   key: String!
 }
 
-# TODO: create Evaluation heeft 3
-# rating heeft een skill grade and comment
-
-type Rating
+type Evaluation
   @model(subscriptions: null)
   # @auth(rules: [
   #   {allow: owner, operations: [ update, delete ]}
   #   ])
-  @key(name: "byUser", fields: ["userId", "createdAt"]) # user connection
-  @key(name: "byAuthor", fields: ["authorId", "createdAt"]) { # evaluator connection
+  @key(name: "evaluationsByUser", fields: ["userId", "createdAt"]) # user connection
+  @key(name: "evaluationsByEvaluator", fields: ["authorId", "createdAt"]) { # evaluator connection
   id: ID!
   createdAt: AWSDateTime
   # receiver
@@ -85,17 +89,16 @@ type Rating
   authorId: ID!
   author: User! @connection(fields: ["authorId"]) # belongs to
   # content
-  evaluations: [Evaluation!]
-    @connection(keyName: "evaluationByRating", fields: ["id"]) # has many
+  ratings: [Rating!] @connection(keyName: "ratingsByEvaluation", fields: ["id"]) # has many
   comment: String
 }
 
-type Evaluation
+type Rating
   @model(subscriptions: null, queries: null)
-  @key(name: "evaluationByRating", fields: ["ratingId"]) { # Rating has many evaluations
+  @key(name: "ratingsByEvaluation", fields: ["evaluationId"]) { # Evaluation has many ratings
   id: ID!
-  ratingId: ID!
-  rating: Rating! @connection(fields: ["ratingId"]) # has one
+  evaluationId: ID!
+  evaluation: Evaluation! @connection(fields: ["evaluationId"]) # has one
   skillId: ID!
   skill: Skill! @connection(fields: ["skillId"]) # has one
   grade: Int
@@ -104,7 +107,7 @@ type Evaluation
 
 type Skill
   @model(subscriptions: null)
-  @key(name: "skillByTeam", fields: ["teamId"]) { # team has many skills
+  @key(name: "skillsByTeam", fields: ["teamId"]) { # team has many skills
   id: ID!
   teamId: ID!
   name: String!
@@ -117,10 +120,10 @@ type EvaluationRequest  # message
   #   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
   # ])
   @key(
-    name: "evaluationRequestByEvaluator"
+    name: "evaluationRequestsByEvaluator"
     fields: ["evaluatorId", "createdAt"]
   ) # connection with user
-  @key(name: "forUser", fields: ["userId", "createdAt"]) { # connection with user
+  @key(name: "evaluationRequestsByUser", fields: ["userId", "createdAt"]) { # connection with user
   id: ID!
   createdAt: AWSDateTime
   evaluatorId: ID!
