@@ -3,9 +3,9 @@ import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 /** Screens */
 import { Text } from 'react-native';
-import EvaluationsScreen from '../screens/EvaluationsScreen';
-import MyTeamScreen from '../screens/MyTeamScreen';
-import RatingsScreen from '../screens/Rating/RatingTab';
+import EvaluationRequestsTab from '../screens/EvaluationsScreen';
+import TeamTab from '../screens/MyTeamScreen';
+import RatingTab from '../screens/Rating/RatingTab';
 import { width } from '../constants/Utils';
 
 const Tab = createMaterialTopTabNavigator();
@@ -44,7 +44,7 @@ function TopTabNavigator() {
     >
       <Tab.Screen
         name="My Ratings"
-        component={RatingsScreen}
+        component={RatingTab}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (
             <Text
@@ -65,7 +65,7 @@ function TopTabNavigator() {
       />
       <Tab.Screen
         name="Evaluations"
-        component={EvaluationsScreen}
+        component={EvaluationRequestsTab}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (
             <Text
@@ -85,7 +85,7 @@ function TopTabNavigator() {
       />
       <Tab.Screen
         name="My team"
-        component={MyTeamScreen}
+        component={TeamTab}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (
             <Text

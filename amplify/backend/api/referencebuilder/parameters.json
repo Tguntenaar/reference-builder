@@ -1,5 +1,5 @@
 {
-    "AppSyncApiName": "referencebuildergraphqlv1",
+    "AppSyncApiName": "referencebuilder",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "DynamoDBEnableServerSideEncryption": "false"
 }

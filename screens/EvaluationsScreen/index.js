@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
 });
 
 function EvaluationsScreen({ navigation, userContext }) {
-  const {
+  let {
     receivedRequests: { items: evaluationRequests },
   } = userContext;
+
+  if (!evaluationRequests) {
+    evaluationRequests = [];
+  }
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
       {evaluationRequests.length ? (

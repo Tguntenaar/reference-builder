@@ -38,8 +38,21 @@ const TeamList = ({ sendEvaluationRequest, teamMembers, navigation }) => {
 };
 
 function MyTeamScreen({ navigation, userContext }) {
-  const { team } = userContext.teamsLink.items[0];
-  const teamMembers = team.membersLink.items.map((item) => item.user);
+  let noTeam = false;
+  let team;
+  let teamMembers;
+  if (!userContext.teamsLink.items.length) {
+    noTeam = true;
+    team = {
+      membersLink: {
+        items: [],
+      },
+    };
+    teamMembers = [];
+  } else {
+    team = userContext.teamsLink.items[0].team;
+    teamMembers = team.membersLink.items.map((item) => item.user);
+  }
   // State
   const [modalVisible, setModalVisible] = useState(false);
   // Functions
@@ -60,11 +73,17 @@ function MyTeamScreen({ navigation, userContext }) {
 
   return (
     <>
-      <TeamList
-        sendEvaluationRequest={sendEvaluationRequest}
-        teamMembers={teamMembers}
-        navigation={navigation}
-      />
+      {!noTeam ? (
+        <TeamList
+          sendEvaluationRequest={sendEvaluationRequest}
+          teamMembers={teamMembers}
+          navigation={navigation}
+        />
+      ) : (
+        <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
+          <Text>Your not in a team yet</Text>
+        </ScrollView>
+      )}
       <PopUpModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </>
   );

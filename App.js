@@ -46,6 +46,10 @@ const defaultUser = {
       { name: 'Thomas', jobTitle: 'developer' },
     ],
   },
+  receivedRequests: [],
+  teamsLink: {
+    items: [],
+  },
 };
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -60,12 +64,15 @@ function App(props) {
       attributes: { sub },
     } = await Auth.currentAuthenticatedUser().catch(console.log);
     console.log(sub);
-    const {
-      data: { getUser: userData },
-    } = await api.getUser(sub).catch(console.log);
-    // console.log(user);
-    setUser(userData);
-    // console.log(user.teamsLink.items[0].team)
+    const result = await api.getUser(sub).catch(console.log);
+    if (!result.data) {
+      // Cant getUser
+    } else {
+      const {
+        data: { getUser: userData },
+      } = result;
+      setUser(userData);
+    }
   };
 
   // Data fetching, setting up a subscription are both examples of side effects

@@ -7,7 +7,7 @@
 		}
 	},
 	"api": {
-		"referencebuildergraphqlv1": {
+		"referencebuilder": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
@@ -16,7 +16,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "API_KEY",
 						"apiKeyConfig": {
-							"description": "eerstSimpelMetKey",
+							"description": "refbuilderAPIkey",
 							"apiKeyExpirationDays": "180"
 						}
 					}

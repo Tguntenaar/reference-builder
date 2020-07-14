@@ -10,21 +10,16 @@ import withUser from '../../contexts/withUser';
  * 2. Data aggregation via lambda function triggered by adding a new Rating
  * 3.
  */
-function RatingsScreen({ navigation, userContext }) {
-  // const ratings = [
-  //   {
-  //     skillName: 'Creativity',
-  //     grade: '8.1',
-  //     description: 'Originality, new ideas, out of the box',
-  //   },
-  //   { skillName: 'Learning', grade: '4.5', description: 'Originality, new ideas, out of the box' },
-  //   { skillName: 'Teamwork', grade: '6.3', description: 'Originality, new ideas, out of the box' },
-  // ];
-
-  const { ratings, averageRatings } = userContext;
-  console.log(ratings);
-  ratings.items = [
-    ...ratings.items,
+function RatingTab({ navigation, userContext }) {
+  let { evaluations, averageRatings } = userContext;
+  console.log(evaluations);
+  if (!evaluations) {
+    evaluations = {
+      items: [],
+    };
+  }
+  evaluations.items = [
+    ...evaluations.items,
     {
       id: '3',
       comment: '',
@@ -41,14 +36,14 @@ function RatingsScreen({ navigation, userContext }) {
       },
     },
   ];
-  console.log(ratings);
+  console.log(evaluations);
 
   return (
     <>
       <StatusBar barStyle="light-content" />
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
-        {ratings.items.length ? (
-          ratings.items.map((rating, index) => {
+        {evaluations.items.length ? (
+          evaluations.items.map((rating, index) => {
             return (
               <RatingBox
                 key={rating.id}
@@ -86,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withUser(RatingsScreen);
+export default withUser(RatingTab);

@@ -1,0 +1,139 @@
+# TODO:
+# auth
+# user groups admin
+
+type Company @model(subscriptions: null) {
+  id: ID!
+  name: String!
+  admins: [ID!]
+  teams: [Team!] @connection(keyName: "TeamsByCompany", fields: ["id"]) # has many
+}
+
+type Team
+  @model(subscriptions: null)
+  # @auth(rules: [
+  #   {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
+  #   # {allow: groups, groupsField: "members", operations: [ read ]}
+  # ])
+  @key(name: "TeamsByCompany", fields: ["companyId", "createdAt"]) { # team has many users
+  id: ID!
+  createdAt: AWSDateTime
+  name: String!
+  admins: [ID!]
+  companyId: ID!
+  company: Company @connection(fields: ["companyId"]) # has one
+  membersLink: [TeamMemberLink!]
+    @connection(keyName: "usersByTeam", fields: ["id"]) # has many
+  skills: [Skill!] @connection(keyName: "skillsByTeam", fields: ["id"]) # has many
+  averageRatings: [Rating] #FIXME:
+}
+
+type TeamMemberLink
+  @model(queries: null, subscriptions: null)
+  @key(name: "teamsByUser", fields: ["userId", "teamId"])
+  @key(name: "usersByTeam", fields: ["teamId", "userId"]) {
+  id: ID!
+  userId: ID!
+  teamId: ID!
+  user: User @connection(fields: ["userId"])
+  team: Team @connection(fields: ["teamId"])
+}
+
+type User @model(subscriptions: null) {
+  # @auth(rules: [
+  #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
+  #   ])
+  id: ID!
+  createdAt: AWSDateTime
+  # presentation
+  name: String
+  email: String
+  jobTitle: String
+  avatar: S3Object
+  # dashboard
+  teamsLink: [TeamMemberLink!]
+    @connection(keyName: "teamsByUser", fields: ["id"]) # many to many
+  # evaluation requests
+  requests: [EvaluationRequest]
+    @connection(keyName: "evaluationRequestsByUser", fields: ["id"]) # has many
+  receivedRequests: [EvaluationRequest]
+    @connection(keyName: "evaluationRequestsByEvaluator", fields: ["id"]) # has many
+  # evaluations
+  # TODO: fixme het is niet echt many to many want het is 2 to many maar mis wel beter
+  evaluations: [Evaluation]
+    @connection(keyName: "evaluationsByEvaluator", fields: ["id"]) # has many
+  receivedEvaluations: [Evaluation]
+    @connection(keyName: "evaluationsByUser", fields: ["id"]) # has many
+  averageRatings: [Rating] #FIXME:
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+type Evaluation
+  @model(subscriptions: null)
+  # @auth(rules: [
+  #   {allow: owner, operations: [ update, delete ]}
+  #   ])
+  @key(name: "evaluationsByUser", fields: ["userId", "createdAt"]) # user connection
+  @key(name: "evaluationsByEvaluator", fields: ["authorId", "createdAt"]) { # evaluator connection
+  id: ID!
+  createdAt: AWSDateTime
+  # receiver
+  userId: ID!
+  user: User! @connection(fields: ["userId"]) # belongs to
+  # evaluator
+  authorId: ID!
+  author: User! @connection(fields: ["authorId"]) # belongs to
+  # content
+  ratings: [Rating!] @connection(keyName: "ratingsByEvaluation", fields: ["id"]) # has many
+  comment: String
+}
+
+type Rating
+  @model(subscriptions: null, queries: null)
+  @key(name: "ratingsByEvaluation", fields: ["evaluationId"]) { # Evaluation has many ratings
+  id: ID!
+  evaluationId: ID!
+  evaluation: Evaluation! @connection(fields: ["evaluationId"]) # has one
+  skillId: ID!
+  skill: Skill! @connection(fields: ["skillId"]) # has one
+  grade: Int
+  # comment: String
+}
+
+type Skill
+  @model(subscriptions: null)
+  @key(name: "skillsByTeam", fields: ["teamId"]) { # team has many skills
+  id: ID!
+  teamId: ID!
+  name: String!
+  description: String
+}
+
+type EvaluationRequest  # message
+  @model
+  # @auth(rules: [
+  #   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
+  # ])
+  @key(
+    name: "evaluationRequestsByEvaluator"
+    fields: ["evaluatorId", "createdAt"]
+  ) # connection with user
+  @key(name: "evaluationRequestsByUser", fields: ["userId", "createdAt"]) { # connection with user
+  id: ID!
+  createdAt: AWSDateTime
+  evaluatorId: ID!
+  evaluator: User! @connection(fields: ["evaluatorId"]) # belongs to
+  userId: ID!
+  user: User! @connection(fields: ["userId"]) # belongs to
+  status: EvaluationStatus!
+}
+
+enum EvaluationStatus {
+  PENDING
+  REVIEWED
+}
