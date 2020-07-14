@@ -1,6 +1,6 @@
 projects:
   referencebuilder:
-    schemaPath: src/graphql/schema.json
+    schemaPath: apiwrapper/graphql/schema.json
     includes:
       - apiwrapper/graphql/**/*.js
     excludes:
@@ -9,4 +9,8 @@ projects:
       amplify:
         codeGenTarget: javascript
         generatedFileName: ''
-        docsFilePath: src/graphql
+        docsFilePath: apiwrapper/graphql
+        maxDepth: 7
+extensions:
+  amplify:
+    version: 3

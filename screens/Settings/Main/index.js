@@ -12,16 +12,21 @@ import withUser from '../../../contexts/withUser';
 const path = 'avatars';
 
 const SettingsScreen = ({ userContext }) => {
-  const { id: userId, name: username, jobTitle, teamsLink } = userContext;
   const {
-    items: [{ team }],
-  } = teamsLink;
+    id: userId,
+    name: username,
+    jobTitle,
+    teamsLink: { items: teamLinks },
+  } = userContext;
+
+  // const [{ team }] = teamLinks;
+  const team = { name: 'test', id: '0' };
   // console.log(team.name);
   // console.log(teams.items[0].team.name);
 
   const [photo, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
-  const [selectedValue, setSelectedValue] = useState(teamsLink.items[0].team.name);
+  const [selectedTeam, setSelectedTeam] = useState(team.name);
 
   const getAvatarFromStorage = async () => {
     // get photo
@@ -86,9 +91,9 @@ const SettingsScreen = ({ userContext }) => {
     photo,
     form,
     setForm,
-    selectedValue,
-    setSelectedValue,
-    teamsLink,
+    selectedTeam,
+    setSelectedTeam,
+    teamLinks,
   };
   return <Screen {...properties} />;
 };

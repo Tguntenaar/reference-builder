@@ -15,6 +15,7 @@
 /** First import gesture handler */
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
+import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -54,6 +55,7 @@ const defaultUser = {
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [user, setUser] = useState(defaultUser);
+  let errors;
   // Load initial Navigation state TODO: sign up link
   // const [initialNavigationState, setInitialNavigationState] = useState();
   // const containerRef = useRef();
@@ -64,9 +66,12 @@ function App(props) {
       attributes: { sub },
     } = await Auth.currentAuthenticatedUser().catch(console.log);
     console.log(sub);
-    const result = await api.getUser(sub).catch(console.log);
+    const result = await api.getUser(sub); // .catch((error) => console.log({ error }));
+    console.log({ result });
     if (!result.data) {
-      // Cant getUser
+      // FIXME: Cant getUser
+      // if user deleted route to other screen
+      errors = result.errors.map((error) => error.message);
     } else {
       const {
         data: { getUser: userData },
@@ -118,6 +123,13 @@ function App(props) {
     <UserContextProvider user={user}>
       <SafeAreaProvider>
         <NavigationContainer>
+          {/** errors ? (
+            errors.map((error) => {
+              return <Text> {error} </Text>;
+            })
+          ) : (
+            <StackNavigation user={user} />
+          ) */}
           <StackNavigation user={user} />
         </NavigationContainer>
       </SafeAreaProvider>

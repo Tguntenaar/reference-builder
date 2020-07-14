@@ -8,7 +8,10 @@ const withUser = (Component) => {
     render() {
       return (
         <UserContext.Consumer>
-          {(userContext) => <Component userContext={userContext} {...this.props} />}
+          {(userContext) => {
+            // TODO: checks hier
+            return <Component userContext={userContext} {...this.props} />;
+          }}
         </UserContext.Consumer>
       );
     }

@@ -38,6 +38,14 @@ export const getCompany = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
                 updatedAt
               }
               nextToken
@@ -70,19 +78,19 @@ export const getCompany = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -105,6 +113,14 @@ export const getCompany = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
                 updatedAt
               }
               createdAt
@@ -122,6 +138,113 @@ export const getCompany = /* GraphQL */ `
               updatedAt
             }
             nextToken
+          }
+          averageRatings {
+            id
+            evaluationId
+            evaluation {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              createdAt
+              updatedAt
+            }
+            grade
+            createdAt
+            updatedAt
           }
           updatedAt
         }
@@ -204,6 +327,49 @@ export const listCompanys = /* GraphQL */ `
                 updatedAt
               }
               nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -289,6 +455,49 @@ export const getTeam = /* GraphQL */ `
                 updatedAt
               }
               nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -393,127 +602,6 @@ export const getTeam = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -536,13 +624,86 @@ export const getTeam = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
                 updatedAt
               }
               nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -607,6 +768,49 @@ export const getTeam = /* GraphQL */ `
               }
               nextToken
             }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
             updatedAt
           }
           createdAt
@@ -624,6 +828,468 @@ export const getTeam = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      averageRatings {
+        id
+        evaluationId
+        evaluation {
+          id
+          createdAt
+          userId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          authorId
+          author {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          ratings {
+            items {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          comment
+          updatedAt
+        }
+        skillId
+        skill {
+          id
+          teamId
+          name
+          description
+          createdAt
+          updatedAt
+        }
+        grade
+        createdAt
+        updatedAt
       }
       updatedAt
     }
@@ -684,6 +1350,30 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
               updatedAt
             }
             nextToken
@@ -739,7 +1429,18 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -752,33 +1453,8 @@ export const listTeams = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -786,7 +1462,18 @@ export const listTeams = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -827,6 +1514,30 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
               updatedAt
             }
             createdAt
@@ -844,6 +1555,239 @@ export const listTeams = /* GraphQL */ `
             updatedAt
           }
           nextToken
+        }
+        averageRatings {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          skillId
+          skill {
+            id
+            teamId
+            name
+            description
+            createdAt
+            updatedAt
+          }
+          grade
+          createdAt
+          updatedAt
         }
         updatedAt
       }
@@ -960,127 +1904,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -1103,13 +1926,86 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
                 updatedAt
               }
               nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -1173,6 +2069,49 @@ export const getUser = /* GraphQL */ `
                 updatedAt
               }
               nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -1277,127 +2216,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -1420,13 +2238,86 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
                 updatedAt
               }
               nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -1522,127 +2413,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -1665,13 +2435,86 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
                 updatedAt
               }
               nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -1776,127 +2619,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -1919,7 +2641,7 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
@@ -1927,101 +2649,7 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
-          }
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
+            receivedEvaluations {
               items {
                 id
                 createdAt
@@ -2043,7 +2671,7 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
@@ -2053,97 +2681,8 @@ export const getUser = /* GraphQL */ `
             }
             averageRatings {
               id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
+              evaluationId
+              evaluation {
                 id
                 createdAt
                 userId
@@ -2164,541 +2703,7 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          status
-          updatedAt
-        }
-        nextToken
-      }
-      ratings {
-        items {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
                 ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
                   nextToken
                 }
                 comment
@@ -2717,1444 +2722,209 @@ export const getUser = /* GraphQL */ `
               createdAt
               updatedAt
             }
-            nextToken
+            updatedAt
           }
-          comment
+          userId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          status
           updatedAt
         }
         nextToken
-      }
-      averageRatings {
-        id
-        createdAt
-        userId
-        user {
-          id
-          createdAt
-          name
-          email
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamsLink {
-            items {
-              id
-              userId
-              teamId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              team {
-                id
-                createdAt
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                updatedAt
-              }
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              evaluator {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              status
-              updatedAt
-            }
-            nextToken
-          }
-          receivedRequests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              evaluator {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              status
-              updatedAt
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          updatedAt
-        }
-        authorId
-        author {
-          id
-          createdAt
-          name
-          email
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          teamsLink {
-            items {
-              id
-              userId
-              teamId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              team {
-                id
-                createdAt
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                updatedAt
-              }
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              evaluator {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              status
-              updatedAt
-            }
-            nextToken
-          }
-          receivedRequests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              evaluator {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              status
-              updatedAt
-            }
-            nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          updatedAt
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-              createdAt
-              updatedAt
-            }
-            grade
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        comment
-        updatedAt
       }
       evaluations {
         items {
@@ -4252,127 +3022,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -4395,13 +3044,86 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
                 updatedAt
               }
               nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
             }
             updatedAt
           }
@@ -4497,127 +3219,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
             evaluations {
               items {
                 id
@@ -4640,7 +3241,7 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
                   nextToken
                 }
                 comment
@@ -4648,13 +3249,8 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
+            receivedEvaluations {
+              items {
                 id
                 createdAt
                 userId
@@ -4675,7 +3271,85 @@ export const getUser = /* GraphQL */ `
                   jobTitle
                   updatedAt
                 }
-                evaluations {
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          ratings {
+            items {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
                   nextToken
                 }
                 comment
@@ -4700,6 +3374,917 @@ export const getUser = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      receivedEvaluations {
+        items {
+          id
+          createdAt
+          userId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          authorId
+          author {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          ratings {
+            items {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          comment
+          updatedAt
+        }
+        nextToken
+      }
+      averageRatings {
+        id
+        evaluationId
+        evaluation {
+          id
+          createdAt
+          userId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          authorId
+          author {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            updatedAt
+          }
+          ratings {
+            items {
+              id
+              evaluationId
+              evaluation {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                createdAt
+                updatedAt
+              }
+              grade
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          comment
+          updatedAt
+        }
+        skillId
+        skill {
+          id
+          teamId
+          name
+          description
+          createdAt
+          updatedAt
+        }
+        grade
+        createdAt
+        updatedAt
       }
       updatedAt
     }
@@ -4771,7 +4356,18 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -4784,33 +4380,8 @@ export const listUsers = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -4818,7 +4389,18 @@ export const listUsers = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -4858,6 +4440,30 @@ export const listUsers = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -4914,7 +4520,18 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -4927,33 +4544,8 @@ export const listUsers = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -4961,7 +4553,18 @@ export const listUsers = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -5009,7 +4612,18 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -5022,33 +4636,8 @@ export const listUsers = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -5056,7 +4645,18 @@ export const listUsers = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -5113,7 +4713,18 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -5126,343 +4737,8 @@ export const listUsers = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -5483,554 +4759,104 @@ export const listUsers = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              updatedAt
             }
-            comment
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            status
             updatedAt
           }
           nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                createdAt
-                updatedAt
-              }
-              grade
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          comment
-          updatedAt
         }
         evaluations {
           items {
@@ -6080,7 +4906,18 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -6093,33 +4930,8 @@ export const listUsers = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -6127,7 +4939,18 @@ export const listUsers = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -6175,7 +4998,18 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -6188,33 +5022,8 @@ export const listUsers = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -6222,15 +5031,26 @@ export const listUsers = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
-            evaluations {
+            ratings {
               items {
                 id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -6258,15 +5078,468 @@ export const listUsers = /* GraphQL */ `
           }
           nextToken
         }
+        receivedEvaluations {
+          items {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          nextToken
+        }
+        averageRatings {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          skillId
+          skill {
+            id
+            teamId
+            name
+            description
+            createdAt
+            updatedAt
+          }
+          grade
+          createdAt
+          updatedAt
+        }
         updatedAt
       }
       nextToken
     }
   }
 `;
-export const getRating = /* GraphQL */ `
-  query GetRating($id: ID!) {
-    getRating(id: $id) {
+export const getEvaluation = /* GraphQL */ `
+  query GetEvaluation($id: ID!) {
+    getEvaluation(id: $id) {
       id
       createdAt
       userId
@@ -6329,7 +5602,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -6342,33 +5626,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -6376,7 +5635,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -6416,6 +5686,30 @@ export const getRating = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -6472,7 +5766,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -6485,33 +5790,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -6519,7 +5799,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -6567,7 +5858,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -6580,33 +5882,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -6614,7 +5891,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -6671,7 +5959,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -6684,343 +5983,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -7041,554 +6005,104 @@ export const getRating = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              updatedAt
             }
-            comment
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            status
             updatedAt
           }
           nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                createdAt
-                updatedAt
-              }
-              grade
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          comment
-          updatedAt
         }
         evaluations {
           items {
@@ -7638,7 +6152,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -7651,33 +6176,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -7685,7 +6185,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -7733,7 +6244,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -7746,33 +6268,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -7780,15 +6277,26 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
-            evaluations {
+            ratings {
               items {
                 id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -7815,6 +6323,459 @@ export const getRating = /* GraphQL */ `
             updatedAt
           }
           nextToken
+        }
+        receivedEvaluations {
+          items {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          nextToken
+        }
+        averageRatings {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          skillId
+          skill {
+            id
+            teamId
+            name
+            description
+            createdAt
+            updatedAt
+          }
+          grade
+          createdAt
+          updatedAt
         }
         updatedAt
       }
@@ -7878,7 +6839,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -7891,33 +6863,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -7925,7 +6872,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -7965,6 +6923,30 @@ export const getRating = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -8021,7 +7003,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -8034,33 +7027,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -8068,7 +7036,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -8116,7 +7095,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -8129,33 +7119,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -8163,7 +7128,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -8220,7 +7196,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -8233,343 +7220,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -8590,554 +7242,104 @@ export const getRating = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              updatedAt
             }
-            comment
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            status
             updatedAt
           }
           nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                createdAt
-                updatedAt
-              }
-              grade
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          comment
-          updatedAt
         }
         evaluations {
           items {
@@ -9187,7 +7389,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -9200,33 +7413,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -9234,7 +7422,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -9282,7 +7481,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -9295,33 +7505,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -9329,15 +7514,26 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
-            evaluations {
+            ratings {
               items {
                 id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -9365,13 +7561,8 @@ export const getRating = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
-      }
-      evaluations {
-        items {
-          id
-          ratingId
-          rating {
+        receivedEvaluations {
+          items {
             id
             createdAt
             userId
@@ -9418,7 +7609,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -9431,33 +7633,8 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -9465,7 +7642,18 @@ export const getRating = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -9513,7 +7701,18 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -9526,30 +7725,111 @@ export const getRating = /* GraphQL */ `
               }
               averageRatings {
                 id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
                 createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
                 updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          nextToken
+        }
+        averageRatings {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
               }
               evaluations {
                 items {
@@ -9562,13 +7842,376 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
               updatedAt
             }
-            evaluations {
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
               items {
                 id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          skillId
+          skill {
+            id
+            teamId
+            name
+            description
+            createdAt
+            updatedAt
+          }
+          grade
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
+      ratings {
+        items {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -9614,13 +8257,13 @@ export const getRating = /* GraphQL */ `
     }
   }
 `;
-export const listRatings = /* GraphQL */ `
-  query ListRatings(
-    $filter: ModelRatingFilterInput
+export const listEvaluations = /* GraphQL */ `
+  query ListEvaluations(
+    $filter: ModelEvaluationFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listRatings(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listEvaluations(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         createdAt
@@ -9661,19 +8304,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -9695,6 +8338,14 @@ export const listRatings = /* GraphQL */ `
                 }
                 skills {
                   nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
                 }
                 updatedAt
               }
@@ -9728,19 +8379,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -9765,19 +8416,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -9811,19 +8462,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -9848,19 +8499,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -9868,323 +8519,6 @@ export const listRatings = /* GraphQL */ `
               updatedAt
             }
             nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
           }
           evaluations {
             items {
@@ -10211,19 +8545,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10248,26 +8582,26 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
-              evaluations {
+              ratings {
                 items {
                   id
-                  ratingId
+                  evaluationId
                   skillId
                   grade
                   createdAt
@@ -10279,6 +8613,207 @@ export const listRatings = /* GraphQL */ `
               updatedAt
             }
             nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            evaluationId
+            evaluation {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              createdAt
+              updatedAt
+            }
+            grade
+            createdAt
+            updatedAt
           }
           updatedAt
         }
@@ -10319,19 +8854,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10353,6 +8888,14 @@ export const listRatings = /* GraphQL */ `
                 }
                 skills {
                   nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
                 }
                 updatedAt
               }
@@ -10386,19 +8929,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10423,19 +8966,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10469,19 +9012,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10506,19 +9049,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10526,323 +9069,6 @@ export const listRatings = /* GraphQL */ `
               updatedAt
             }
             nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
           }
           evaluations {
             items {
@@ -10869,19 +9095,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -10906,26 +9132,26 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
-              evaluations {
+              ratings {
                 items {
                   id
-                  ratingId
+                  evaluationId
                   skillId
                   grade
                   createdAt
@@ -10938,13 +9164,8 @@ export const listRatings = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
-        }
-        evaluations {
-          items {
-            id
-            ratingId
-            rating {
+          receivedEvaluations {
+            items {
               id
               createdAt
               userId
@@ -10968,19 +9189,19 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -11005,26 +9226,232 @@ export const listRatings = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            evaluationId
+            evaluation {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
                 }
                 evaluations {
                   nextToken
                 }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
                 updatedAt
               }
-              evaluations {
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
                 items {
                   id
-                  ratingId
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              createdAt
+              updatedAt
+            }
+            grade
+            createdAt
+            updatedAt
+          }
+          updatedAt
+        }
+        ratings {
+          items {
+            id
+            evaluationId
+            evaluation {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
                   skillId
                   grade
                   createdAt
@@ -11153,7 +9580,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -11166,33 +9604,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -11200,7 +9613,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -11240,6 +9664,30 @@ export const getEvaluationRequest = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -11296,7 +9744,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -11309,33 +9768,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -11343,7 +9777,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -11391,7 +9836,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -11404,33 +9860,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -11438,7 +9869,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -11495,7 +9937,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -11508,343 +9961,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -11865,554 +9983,104 @@ export const getEvaluationRequest = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              updatedAt
             }
-            comment
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            status
             updatedAt
           }
           nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                createdAt
-                updatedAt
-              }
-              grade
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          comment
-          updatedAt
         }
         evaluations {
           items {
@@ -12462,7 +10130,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -12475,33 +10154,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -12509,7 +10163,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -12557,7 +10222,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -12570,33 +10246,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -12604,15 +10255,26 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
-            evaluations {
+            ratings {
               items {
                 id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -12639,6 +10301,459 @@ export const getEvaluationRequest = /* GraphQL */ `
             updatedAt
           }
           nextToken
+        }
+        receivedEvaluations {
+          items {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          nextToken
+        }
+        averageRatings {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          skillId
+          skill {
+            id
+            teamId
+            name
+            description
+            createdAt
+            updatedAt
+          }
+          grade
+          createdAt
+          updatedAt
         }
         updatedAt
       }
@@ -12702,7 +10817,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -12715,33 +10841,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -12749,7 +10850,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -12789,6 +10901,30 @@ export const getEvaluationRequest = /* GraphQL */ `
                   updatedAt
                 }
                 nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -12845,7 +10981,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -12858,33 +11005,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -12892,7 +11014,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -12940,7 +11073,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -12953,33 +11097,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -12987,7 +11106,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -13044,7 +11174,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -13057,343 +11198,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        ratings {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -13414,554 +11220,104 @@ export const getEvaluationRequest = /* GraphQL */ `
                 createdAt
                 updatedAt
               }
-              nextToken
+              updatedAt
             }
-            comment
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            status
             updatedAt
           }
           nextToken
-        }
-        averageRatings {
-          id
-          createdAt
-          userId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          authorId
-          author {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            ratings {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          evaluations {
-            items {
-              id
-              ratingId
-              rating {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                createdAt
-                updatedAt
-              }
-              grade
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          comment
-          updatedAt
         }
         evaluations {
           items {
@@ -14011,7 +11367,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -14024,33 +11391,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -14058,7 +11400,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
@@ -14106,7 +11459,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              ratings {
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
                 items {
                   id
                   createdAt
@@ -14119,33 +11483,8 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -14153,15 +11492,26 @@ export const getEvaluationRequest = /* GraphQL */ `
                   comment
                   updatedAt
                 }
-                nextToken
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
               }
               updatedAt
             }
-            evaluations {
+            ratings {
               items {
                 id
-                ratingId
-                rating {
+                evaluationId
+                evaluation {
                   id
                   createdAt
                   userId
@@ -14188,6 +11538,459 @@ export const getEvaluationRequest = /* GraphQL */ `
             updatedAt
           }
           nextToken
+        }
+        receivedEvaluations {
+          items {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          nextToken
+        }
+        averageRatings {
+          id
+          evaluationId
+          evaluation {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              updatedAt
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  createdAt
+                  updatedAt
+                }
+                grade
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            updatedAt
+          }
+          skillId
+          skill {
+            id
+            teamId
+            name
+            description
+            createdAt
+            updatedAt
+          }
+          grade
+          createdAt
+          updatedAt
         }
         updatedAt
       }
@@ -14247,19 +12050,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14281,6 +12084,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 skills {
                   nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
                 }
                 updatedAt
               }
@@ -14314,19 +12125,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14351,19 +12162,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14397,19 +12208,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14434,19 +12245,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14454,323 +12265,6 @@ export const listEvaluationRequests = /* GraphQL */ `
               updatedAt
             }
             nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
           }
           evaluations {
             items {
@@ -14797,19 +12291,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14834,26 +12328,26 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
-              evaluations {
+              ratings {
                 items {
                   id
-                  ratingId
+                  evaluationId
                   skillId
                   grade
                   createdAt
@@ -14865,6 +12359,207 @@ export const listEvaluationRequests = /* GraphQL */ `
               updatedAt
             }
             nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            evaluationId
+            evaluation {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              createdAt
+              updatedAt
+            }
+            grade
+            createdAt
+            updatedAt
           }
           updatedAt
         }
@@ -14905,19 +12600,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -14939,6 +12634,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 skills {
                   nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
                 }
                 updatedAt
               }
@@ -14972,19 +12675,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -15009,19 +12712,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -15055,19 +12758,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -15092,19 +12795,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -15112,323 +12815,6 @@ export const listEvaluationRequests = /* GraphQL */ `
               updatedAt
             }
             nextToken
-          }
-          ratings {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                ratings {
-                  nextToken
-                }
-                averageRatings {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  ratingId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              ratings {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                evaluations {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            evaluations {
-              items {
-                id
-                ratingId
-                rating {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
           }
           evaluations {
             items {
@@ -15455,19 +12841,19 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
@@ -15492,26 +12878,26 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedRequests {
                   nextToken
                 }
-                ratings {
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
                   nextToken
                 }
                 averageRatings {
                   id
+                  evaluationId
+                  skillId
+                  grade
                   createdAt
-                  userId
-                  authorId
-                  comment
                   updatedAt
-                }
-                evaluations {
-                  nextToken
                 }
                 updatedAt
               }
-              evaluations {
+              ratings {
                 items {
                   id
-                  ratingId
+                  evaluationId
                   skillId
                   grade
                   createdAt
@@ -15523,6 +12909,207 @@ export const listEvaluationRequests = /* GraphQL */ `
               updatedAt
             }
             nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            id
+            evaluationId
+            evaluation {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              createdAt
+              updatedAt
+            }
+            grade
+            createdAt
+            updatedAt
           }
           updatedAt
         }

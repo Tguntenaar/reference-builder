@@ -9,16 +9,16 @@ import { imageEsther } from '../../../constants/Images';
 import styles from './style';
 import { width } from '../../../constants/Utils';
 
-export default function UI({
+const UI = ({
   submitProfileInfo,
   pickImage,
   photo,
   form,
   setForm,
-  selectedValue,
-  setSelectedValue,
-  teamsLink,
-}) {
+  selectedTeam,
+  setSelectedTeam,
+  teamLinks,
+}) => {
   return (
     <ScrollView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -50,17 +50,18 @@ export default function UI({
             value={form.jobTitle}
             placeholder="job title"
           />
-          <Text>Pick current team</Text>
+          <Text>Pick current team:</Text>
           <Picker
-            selectedValue={selectedValue}
+            selectedValue={selectedTeam}
             style={{ height: 50, width }}
-            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+            onValueChange={(itemValue) => setSelectedTeam(itemValue)}
           >
-            {teamsLink.items.map(({ team }) => {
-              return <Picker.Item key={team.id} label={team.name} value={team} />;
+            {teamLinks.map(({ team }) => {
+              return <Picker.Item key={team.id} label={team.name} value={team.id} />;
             })}
+            {/**
             <Picker.Item label="Second team" value="1" />
-            <Picker.Item label="Third team" value="2" />
+            <Picker.Item label="Third team" value="2" /> */}
           </Picker>
         </View>
         <View style={styles.bottom}>
@@ -69,4 +70,17 @@ export default function UI({
       </View>
     </ScrollView>
   );
-}
+};
+
+UI.propTypes = {
+  submitProfileInfo: PropTypes.func.isRequired,
+  pickImage: PropTypes.func.isRequired,
+  photo: PropTypes.any,
+  form: PropTypes.shape({ username: PropTypes.string, jobTitle: PropTypes.string }).isRequired,
+  setForm: PropTypes.func.isRequired,
+  selectedTeam: PropTypes.string.isRequired,
+  setSelectedTeam: PropTypes.func.isRequired,
+  teamLinks: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export default UI;

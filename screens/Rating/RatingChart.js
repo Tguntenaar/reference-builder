@@ -79,10 +79,10 @@ function RatingsDetailsScreen({ navigation, route }) {
         <View style={styles.bottom}>
           <ScrollView contentContainerStyle={styles.scroll}>
             <Text style={styles.date}>October 2019</Text>
-            {ratings.map(function (item, index) {
+            {ratings.map((item) => {
               return (
                 <RatingDetails
-                  key={index}
+                  key={item.id}
                   item={item}
                   onViewDetails={() =>
                     navigation.navigate('DetailedRatingScreen', {

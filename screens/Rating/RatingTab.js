@@ -3,6 +3,21 @@ import { StyleSheet, ScrollView, StatusBar, Text } from 'react-native';
 import RatingBox from '../../components/RatingBox';
 import withUser from '../../contexts/withUser';
 
+const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  scroll: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 50,
+    // flexGrow: 1,
+  },
+});
 /**
  * TODO:
  * Ratings Schermen
@@ -36,7 +51,7 @@ function RatingTab({ navigation, userContext }) {
       },
     },
   ];
-  console.log(evaluations);
+  // console.log(evaluations);
 
   return (
     <>
@@ -64,21 +79,5 @@ function RatingTab({ navigation, userContext }) {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  scroll: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 50,
-    // flexGrow: 1,
-  },
-});
 
 export default withUser(RatingTab);
