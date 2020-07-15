@@ -27,9 +27,11 @@ import { NavigationContainer } from '@react-navigation/native';
 // import useLinking from './navigation/useLinking'; TODO: app.json
 
 // AWS
-import Amplify, { Auth } from 'aws-amplify';
-// PREBUILT UI
+import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native';
+import { onCreateEvaluationRequest } from './apiwrapper/graphql/subscriptions';
+
+// PREBUILT UI
 // Load/fetch ratings evaluations and team members
 import api from './apiwrapper';
 import awsconfig from './aws-exports';
@@ -67,7 +69,7 @@ function App(props) {
     } = await Auth.currentAuthenticatedUser().catch(console.log);
     console.log(sub);
     const result = await api.getUser(sub); // .catch((error) => console.log({ error }));
-    console.log({ result });
+    // console.log({ result });
     if (!result.data) {
       // FIXME: Cant getUser
       // if user deleted route to other screen
@@ -103,6 +105,7 @@ function App(props) {
         });
 
         await loadAuth();
+        // await loadUserContext();
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);
@@ -113,7 +116,19 @@ function App(props) {
     }
 
     loadResourcesAndDataAsync();
+
     // Load only once
+  }, []);
+
+  useEffect(() => {
+    // subscribe
+    const subscription = API.graphql(graphqlOperation(onCreateEvaluationRequest)).subscribe({
+      next: (data) => console.log(data.value),
+    });
+    return () => {
+      // unsubscribe
+      subscription.unsubscribe();
+    };
   }, []);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {

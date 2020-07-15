@@ -114,6 +114,7 @@ type Skill
   description: String
 }
 
+# TODO: binnen een team alleen zichtbaar?
 type EvaluationRequest  # message
   @model
   # @auth(rules: [

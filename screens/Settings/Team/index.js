@@ -68,6 +68,8 @@ function TeamSettingsScreen({ userContext }) {
         console.log(error);
       });
 
+    console.log(createdUser);
+
     if (!teamLink.errors) {
       setTeamMembers([...teamMembers, { ...teamLink, user: createdUser }]);
       setNewUser({ name: '', jobTitle: '', email: '' });
@@ -118,6 +120,7 @@ function TeamSettingsScreen({ userContext }) {
     const {
       data: { deleteTeamMemberLink: result },
     } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
+    console.log(result);
   };
   const properties = {
     teamMembers,

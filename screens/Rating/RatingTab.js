@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
  */
 function RatingTab({ navigation, userContext }) {
   let { evaluations, averageRatings } = userContext;
-  console.log(evaluations);
+  // console.log(evaluations);
   if (!evaluations) {
     evaluations = {
       items: [],

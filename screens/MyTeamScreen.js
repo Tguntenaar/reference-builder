@@ -51,7 +51,9 @@ function MyTeamScreen({ navigation, userContext }) {
     teamMembers = [];
   } else {
     team = userContext.teamsLink.items[0].team;
-    teamMembers = team.membersLink.items.map((item) => item.user);
+    teamMembers = team.membersLink.items
+      .filter((item) => item.user.id !== userContext.id)
+      .map((item) => item.user);
   }
   // State
   const [modalVisible, setModalVisible] = useState(false);

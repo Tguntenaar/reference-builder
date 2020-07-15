@@ -24,7 +24,30 @@
 			}
 		}
 	},
-	"function": {},
+	"function": {
+		"onCreateUser": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "api",
+					"resourceName": "referencebuilder",
+					"attributes": [
+						"GraphQLAPIIdOutput",
+						"GraphQLAPIEndpointOutput"
+					]
+				},
+				{
+					"category": "auth",
+					"resourceName": "toptabtestc335db9c",
+					"attributes": [
+						"UserPoolId"
+					]
+				}
+			]
+		}
+	},
 	"storage": {
 		"profilepictures": {
 			"service": "S3",
