@@ -41,6 +41,7 @@ function CompanySettingsScreen({ userContext }) {
       .createUser({
         name: newUser.name,
         jobTitle: newUser.jobTitle,
+        email: newUser.email,
       })
       .catch((error) => console.log(`Error creating user ${error.errors[0].message}`));
 
