@@ -15,7 +15,6 @@
 /** First import gesture handler */
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
-import { Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -40,24 +39,21 @@ import UserContextProvider from './contexts/UserContext';
 
 Amplify.configure({ ...awsconfig, Analytics: { disabled: true } });
 
+global.Buffer = global.Buffer || require('buffer').Buffer;
+
 const defaultUser = {
   name: 'Thomas Guntenaar',
   jobTitle: 'App creator',
-  teams: {
-    items: [
-      { name: 'App', jobTitle: 'Founder' },
-      { name: 'Thomas', jobTitle: 'developer' },
-    ],
-  },
   receivedRequests: [],
   teamsLink: {
-    items: [],
+    items: [
+      { team: { membersLink: { items: [] }, skills: [], company: { teams: { items: [] } } } },
+    ],
   },
 };
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [user, setUser] = useState(defaultUser);
-  let errors;
   // Load initial Navigation state TODO: sign up link
   // const [initialNavigationState, setInitialNavigationState] = useState();
   // const containerRef = useRef();
@@ -70,14 +66,16 @@ function App(props) {
     console.log(sub);
     const result = await api.getUser(sub); // .catch((error) => console.log({ error }));
     // console.log({ result });
-    if (!result.data) {
+    if (result.errors || !result.data) {
       // FIXME: Cant getUser
       // if user deleted route to other screen
-      errors = result.errors.map((error) => error.message);
+      // if status do this
+      // errors = result.errors.map((error) => error.message);
     } else {
       const {
         data: { getUser: userData },
       } = result;
+      console.log(userData.receivedRequests.items.length);
       setUser(userData);
     }
   };
@@ -108,7 +106,7 @@ function App(props) {
         // await loadUserContext();
       } catch (e) {
         // We might want to provide this error information to an error reporting service
-        console.warn(e);
+        // console.log(e);
       } finally {
         setLoadingComplete(true);
         SplashScreen.hide();
@@ -122,12 +120,14 @@ function App(props) {
 
   useEffect(() => {
     // subscribe
-    const subscription = API.graphql(graphqlOperation(onCreateEvaluationRequest)).subscribe({
-      next: (data) => console.log(data.value),
-    });
+
+    // const subscription = API.graphql(graphqlOperation(onCreateEvaluationRequest)).subscribe({
+    //   error: (err) => console.log('Error subscribing', err),
+    //   next: (data) => console.log('Subscription data', data.value),
+    // });
     return () => {
       // unsubscribe
-      subscription.unsubscribe();
+      // subscription.unsubscribe();
     };
   }, []);
 
@@ -138,13 +138,6 @@ function App(props) {
     <UserContextProvider user={user}>
       <SafeAreaProvider>
         <NavigationContainer>
-          {/** errors ? (
-            errors.map((error) => {
-              return <Text> {error} </Text>;
-            })
-          ) : (
-            <StackNavigation user={user} />
-          ) */}
           <StackNavigation user={user} />
         </NavigationContainer>
       </SafeAreaProvider>

@@ -33,24 +33,25 @@ function RatingTab({ navigation, userContext }) {
       items: [],
     };
   }
-  evaluations.items = [
-    ...evaluations.items,
-    {
-      id: '3',
-      comment: '',
-      evaluations: {
-        items: [
-          {
-            grade: 8.4,
-            skill: {
-              name: 'creativity',
-              description: 'lorem ipsum',
-            },
+  evaluations.items = evaluations.items.length
+    ? evaluations.items
+    : [
+        {
+          id: '3',
+          comment: '',
+          evaluations: {
+            items: [
+              {
+                grade: 8.4,
+                skill: {
+                  name: 'creativity',
+                  description: 'lorem ipsum',
+                },
+              },
+            ],
           },
-        ],
-      },
-    },
-  ];
+        },
+      ];
   // console.log(evaluations);
 
   return (

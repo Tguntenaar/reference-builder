@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Text } from 'react-native';
+import { StyleSheet, ScrollView, Text, RefreshControl } from 'react-native';
 import PropTypes from 'prop-types';
 import EvaluationRequest from '../../components/EvaluationRequest';
 import withUser from '../../contexts/withUser';
@@ -25,7 +25,13 @@ function EvaluationsScreen({ navigation, userContext }) {
     evaluationRequests = [];
   }
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.scroll}
+      refreshControl={
+        <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
+      }
+    >
       {evaluationRequests.length ? (
         evaluationRequests.map((request) => {
           return <EvaluationRequest key={request.id} request={request} navigation={navigation} />;

@@ -45,12 +45,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"onCreateUser",
+						"getToUser",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"onCreateUser",
+									"getToUser",
 									"-",
 									{
 										"Ref": "env"
@@ -70,6 +70,12 @@
 						},
 						"AUTH_TOPTABTESTC335DB9C_USERPOOLID": {
 							"Ref": "authtoptabtestc335db9cUserPoolId"
+						},
+						"API_REFERENCEBUILDER_GRAPHQLAPIIDOUTPUT": {
+							"Ref": "apireferencebuilderGraphQLAPIIdOutput"
+						},
+						"API_REFERENCEBUILDER_GRAPHQLAPIENDPOINTOUTPUT": {
+							"Ref": "apireferencebuilderGraphQLAPIEndpointOutput"
 						}
 					}
 				},
@@ -84,7 +90,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-toptabtest-dev-111859-deployment",
-					"S3Key": "amplify-builds/onCreateUser-37656d6a632f32555972-build.zip"
+					"S3Key": "amplify-builds/getToUser-5834724e7567502b645a-build.zip"
 				}
 			}
 		},
@@ -94,12 +100,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"referencebuilderLambdaRole93f3f185",
+						"referencebuilderLambdaRoleef1e4869",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"referencebuilderLambdaRole93f3f185",
+									"referencebuilderLambdaRoleef1e4869",
 									"-",
 									{
 										"Ref": "env"
@@ -281,18 +287,51 @@
 									]
 								}
 							]
+						},
+						{
+							"Effect": "Allow",
+							"Action": [
+								"appsync:Create*",
+								"appsync:StartSchemaCreation",
+								"appsync:GraphQL",
+								"appsync:Get*",
+								"appsync:List*",
+								"appsync:Update*"
+							],
+							"Resource": [
+								{
+									"Fn::Join": [
+										"",
+										[
+											"arn:aws:appsync:",
+											{
+												"Ref": "AWS::Region"
+											},
+											":",
+											{
+												"Ref": "AWS::AccountId"
+											},
+											":apis/",
+											{
+												"Ref": "apireferencebuilderGraphQLAPIIdOutput"
+											},
+											"/*"
+										]
+									]
+								}
+							]
 						}
 					]
 				}
 			}
 		},
-		"LambdaTriggerPolicyUser": {
+		"LambdaTriggerPolicyRating": {
 			"DependsOn": [
 				"LambdaExecutionRole"
 			],
 			"Type": "AWS::IAM::Policy",
 			"Properties": {
-				"PolicyName": "amplify-lambda-execution-policy-User",
+				"PolicyName": "amplify-lambda-execution-policy-Rating",
 				"Roles": [
 					{
 						"Ref": "LambdaExecutionRole"
@@ -311,7 +350,7 @@
 							],
 							"Resource": {
 								"Fn::ImportValue": {
-									"Fn::Sub": "${apireferencebuilderGraphQLAPIIdOutput}:GetAtt:UserTable:StreamArn"
+									"Fn::Sub": "${apireferencebuilderGraphQLAPIIdOutput}:GetAtt:RatingTable:StreamArn"
 								}
 							}
 						}
@@ -319,10 +358,10 @@
 				}
 			}
 		},
-		"LambdaEventSourceMappingUser": {
+		"LambdaEventSourceMappingRating": {
 			"Type": "AWS::Lambda::EventSourceMapping",
 			"DependsOn": [
-				"LambdaTriggerPolicyUser",
+				"LambdaTriggerPolicyRating",
 				"LambdaExecutionRole"
 			],
 			"Properties": {
@@ -330,7 +369,7 @@
 				"Enabled": true,
 				"EventSourceArn": {
 					"Fn::ImportValue": {
-						"Fn::Sub": "${apireferencebuilderGraphQLAPIIdOutput}:GetAtt:UserTable:StreamArn"
+						"Fn::Sub": "${apireferencebuilderGraphQLAPIIdOutput}:GetAtt:RatingTable:StreamArn"
 					}
 				},
 				"FunctionName": {

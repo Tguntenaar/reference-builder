@@ -89,28 +89,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -152,28 +138,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
+                items {
                   teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -253,28 +225,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -345,28 +303,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -446,28 +390,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -538,28 +468,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -639,28 +555,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -731,28 +633,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -859,28 +747,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -951,28 +825,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1009,11 +869,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
           nextToken
         }
         averageRatings {
-          id
-          evaluationId
-          evaluation {
-            id
-            createdAt
+          items {
             userId
             user {
               id
@@ -1081,165 +937,31 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
-            authorId
-            author {
+            skillId
+            skill {
               id
-              createdAt
+              teamId
               name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
+              description
+              createdAt
               updatedAt
             }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
+            grade
             createdAt
             updatedAt
           }
-          grade
-          createdAt
-          updatedAt
+          nextToken
         }
         updatedAt
       }
@@ -1326,28 +1048,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1389,28 +1097,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
+                items {
                   teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1490,28 +1184,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1582,28 +1262,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1683,28 +1349,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1775,28 +1427,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1876,28 +1514,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -1968,28 +1592,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2096,28 +1706,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2188,28 +1784,14 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2246,11 +1828,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
           nextToken
         }
         averageRatings {
-          id
-          evaluationId
-          evaluation {
-            id
-            createdAt
+          items {
             userId
             user {
               id
@@ -2318,165 +1896,31 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
-            authorId
-            author {
+            skillId
+            skill {
               id
-              createdAt
+              teamId
               name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
+              description
+              createdAt
               updatedAt
             }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
+            grade
             createdAt
             updatedAt
           }
-          grade
-          createdAt
-          updatedAt
+          nextToken
         }
         updatedAt
       }
@@ -2573,28 +2017,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2636,28 +2066,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
+                items {
                   teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2737,28 +2153,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2829,28 +2231,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -2930,28 +2318,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3022,28 +2396,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3123,28 +2483,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3215,28 +2561,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3343,28 +2675,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3435,28 +2753,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3493,11 +2797,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
           nextToken
         }
         averageRatings {
-          id
-          evaluationId
-          evaluation {
-            id
-            createdAt
+          items {
             userId
             user {
               id
@@ -3565,165 +2865,31 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
-            authorId
-            author {
+            skillId
+            skill {
               id
-              createdAt
+              teamId
               name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
+              description
+              createdAt
               updatedAt
             }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
+            grade
             createdAt
             updatedAt
           }
-          grade
-          createdAt
-          updatedAt
+          nextToken
         }
         updatedAt
       }
@@ -3810,28 +2976,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3873,28 +3025,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
+                items {
                   teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -3974,28 +3112,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4066,28 +3190,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4167,28 +3277,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4259,28 +3355,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4360,28 +3442,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4452,28 +3520,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4580,28 +3634,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4672,28 +3712,14 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -4730,11 +3756,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
           nextToken
         }
         averageRatings {
-          id
-          evaluationId
-          evaluation {
-            id
-            createdAt
+          items {
             userId
             user {
               id
@@ -4802,165 +3824,31 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
-            authorId
-            author {
+            skillId
+            skill {
               id
-              createdAt
+              teamId
               name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
+              description
+              createdAt
               updatedAt
             }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
+            grade
             createdAt
             updatedAt
           }
-          grade
-          createdAt
-          updatedAt
+          nextToken
         }
         updatedAt
       }
@@ -5057,28 +3945,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5120,28 +3994,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
+                items {
                   teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5221,28 +4081,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5313,28 +4159,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5414,28 +4246,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5506,28 +4324,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5607,28 +4411,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5699,28 +4489,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5827,28 +4603,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5919,28 +4681,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -5977,11 +4725,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
           nextToken
         }
         averageRatings {
-          id
-          evaluationId
-          evaluation {
-            id
-            createdAt
+          items {
             userId
             user {
               id
@@ -6049,165 +4793,31 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
-            authorId
-            author {
+            skillId
+            skill {
               id
-              createdAt
+              teamId
               name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
+              description
+              createdAt
               updatedAt
             }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
+            grade
             createdAt
             updatedAt
           }
-          grade
-          createdAt
-          updatedAt
+          nextToken
         }
         updatedAt
       }
@@ -6294,28 +4904,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6357,28 +4953,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
+                items {
                   teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6458,28 +5040,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6550,28 +5118,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6651,28 +5205,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6743,28 +5283,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6844,28 +5370,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -6936,28 +5448,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -7064,28 +5562,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -7156,28 +5640,14 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
@@ -7214,11 +5684,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
           nextToken
         }
         averageRatings {
-          id
-          evaluationId
-          evaluation {
-            id
-            createdAt
+          items {
             userId
             user {
               id
@@ -7286,165 +5752,31 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 nextToken
               }
               averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
+                items {
                   userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
+                  skillId
+                  grade
                   createdAt
                   updatedAt
                 }
-                grade
-                createdAt
-                updatedAt
+                nextToken
               }
               updatedAt
             }
-            authorId
-            author {
+            skillId
+            skill {
               id
-              createdAt
+              teamId
               name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
+              description
+              createdAt
               updatedAt
             }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          skillId
-          skill {
-            id
-            teamId
-            name
-            description
+            grade
             createdAt
             updatedAt
           }
-          grade
-          createdAt
-          updatedAt
+          nextToken
         }
         updatedAt
       }

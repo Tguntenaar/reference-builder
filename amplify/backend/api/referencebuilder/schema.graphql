@@ -25,7 +25,8 @@ type Team
   membersLink: [TeamMemberLink!]
     @connection(keyName: "usersByTeam", fields: ["id"]) # has many
   skills: [Skill!] @connection(keyName: "skillsByTeam", fields: ["id"]) # has many
-  averageRatings: [Rating] #FIXME:
+  averageRatings: [averageTeamRatings]
+    @connection(keyName: "averageRatingsByTeam", fields: ["id"]) #has many
 }
 
 type TeamMemberLink
@@ -64,7 +65,8 @@ type User @model(subscriptions: null) {
     @connection(keyName: "evaluationsByEvaluator", fields: ["id"]) # has many
   receivedEvaluations: [Evaluation]
     @connection(keyName: "evaluationsByUser", fields: ["id"]) # has many
-  averageRatings: [Rating] #FIXME:
+  averageRatings: [averageUserRatings]
+    @connection(keyName: "averageRatingsByUser", fields: ["id"]) # has many
 }
 
 type S3Object {
@@ -103,6 +105,28 @@ type Rating
   skill: Skill! @connection(fields: ["skillId"]) # has one
   grade: Int
   # comment: String
+}
+
+type averageUserRatings
+  @model(subscriptions: null)
+  @key(name: "averageRatingsByUser", fields: ["userId"]) {
+  # Team or Skill
+  userId: ID!
+  user: User! @connection(fields: ["userId"]) # has one
+  skillId: ID!
+  skill: Skill! @connection(fields: ["skillId"]) # has one
+  grade: Int
+}
+
+type averageTeamRatings
+  @model(subscriptions: null)
+  @key(name: "averageRatingsByTeam", fields: ["teamId"]) {
+  # Team or Skill
+  teamId: ID!
+  team: User! @connection(fields: ["teamId"]) # has one
+  skillId: ID!
+  skill: Skill! @connection(fields: ["skillId"]) # has one
+  grade: Int
 }
 
 type Skill

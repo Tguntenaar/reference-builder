@@ -40,6 +40,7 @@ const EvaluationRequest = ({ request, navigation }) => {
 
 EvaluationRequest.propTypes = {
   request: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     user: PropTypes.object.isRequired,
     status: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
