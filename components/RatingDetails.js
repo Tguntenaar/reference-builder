@@ -4,8 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 // Constants
 import { imageEsther } from '../constants/Images';
 
-// <SafeAreaView style={styles.safe}>
-const RatingDetails = ({ onViewDetails, item }) => {
+const RatingDetails = ({ onViewDetails, evaluation }) => {
+  console.log(evaluation);
   return (
     <View style={styles.container}>
       <View style={styles.left}>
@@ -14,8 +14,8 @@ const RatingDetails = ({ onViewDetails, item }) => {
       <View style={styles.right}>
         <View style={styles.header}>
           <View>
-            <Text style={styles.name}>{item.evaluator.name}</Text>
-            <Text style={styles.jobTitle}>{item.evaluator.jobTitle}</Text>
+            <Text style={styles.name}>{evaluation.author.name}</Text>
+            <Text style={styles.jobTitle}>{evaluation.author.jobTitle}</Text>
           </View>
           <LinearGradient
             colors={['rgb(10,185,255)', 'rgb(10,19,255)']}
@@ -23,11 +23,11 @@ const RatingDetails = ({ onViewDetails, item }) => {
             start={{ x: 1, y: 1 }}
             end={{ x: 0, y: 0.5 }}
           >
-            <Text style={styles.grade}>{item.rating.grade}</Text>
+            <Text style={styles.grade}>{evaluation.ratings.items[0].grade}</Text>
           </LinearGradient>
         </View>
 
-        <Text style={styles.description}>{item.rating.comment}</Text>
+        <Text style={styles.description}>{evaluation.comment}</Text>
         <TouchableOpacity onPress={onViewDetails} accessibilityLabel="Learn more about this rating">
           <Text style={styles.viewDetails}>View Details</Text>
         </TouchableOpacity>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   jobTitle: {
     fontFamily: 'CooperHewitt-BookItalic',
-    height: 16,
+    // height: 16,
     height: Platform.OS === 'ios' ? 16 : 21,
 
     padding: 2,

@@ -75,12 +75,17 @@ type S3Object {
   key: String!
 }
 
+# all ratings/skill and a comment
 type Evaluation
   @model(subscriptions: null)
   # @auth(rules: [
   #   {allow: owner, operations: [ update, delete ]}
   #   ])
-  @key(name: "evaluationsByUser", fields: ["userId", "createdAt"]) # user connection
+  @key(
+    name: "evaluationsByUser"
+    fields: ["userId", "createdAt"]
+    queryField: "evaluationsByUser"
+  ) # user connection
   @key(name: "evaluationsByEvaluator", fields: ["authorId", "createdAt"]) { # evaluator connection
   id: ID!
   createdAt: AWSDateTime
@@ -95,9 +100,11 @@ type Evaluation
   comment: String
 }
 
+# per skill rating
 type Rating
-  @model(subscriptions: null, queries: null)
-  @key(name: "ratingsByEvaluation", fields: ["evaluationId"]) { # Evaluation has many ratings
+  @model(subscriptions: null)
+  @key(name: "ratingsByEvaluation", fields: ["evaluationId"]) # Evaluation has many ratings
+  @key(name: "ratingsBySkill", fields: ["skillId"]) { # TODO: misschien overbodig
   id: ID!
   evaluationId: ID!
   evaluation: Evaluation! @connection(fields: ["evaluationId"]) # has one
@@ -107,7 +114,8 @@ type Rating
   # comment: String
 }
 
-type averageUserRatings
+# on create skill create average from every user in team
+type averageUserRating
   @model(subscriptions: null)
   @key(name: "averageRatingsByUser", fields: ["userId"]) {
   # Team or Skill
@@ -118,7 +126,8 @@ type averageUserRatings
   grade: Int
 }
 
-type averageTeamRatings
+# on create skill create average
+type averageTeamRating
   @model(subscriptions: null)
   @key(name: "averageRatingsByTeam", fields: ["teamId"]) {
   # Team or Skill

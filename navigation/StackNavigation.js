@@ -12,7 +12,7 @@ import TabNavigation from './TabNavigation';
 
 // Screens
 import RatingsDetailsScreen from '../screens/Rating/RatingChart';
-import DetailedRatingScreen from '../screens/Rating/RatingDetails';
+import DetailedRatingScreen from '../screens/Rating/RatingSkillDetails';
 import EvaluateScreen from '../screens/Evaluate/Sliders';
 import EvaluateCommentScreen from '../screens/Evaluate/Comment';
 import SettingsScreen from '../screens/Settings/Main';

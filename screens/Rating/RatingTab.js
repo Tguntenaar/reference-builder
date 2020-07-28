@@ -26,48 +26,39 @@ const styles = StyleSheet.create({
  * 3.
  */
 function RatingTab({ navigation, userContext }) {
-  let { evaluations, averageRatings } = userContext;
+  const { evaluations, averageRatings } = userContext;
   // console.log(evaluations);
-  if (!evaluations) {
-    evaluations = {
-      items: [],
-    };
-  }
-  evaluations.items = evaluations.items.length
-    ? evaluations.items
-    : [
-        {
-          id: '3',
-          comment: '',
-          evaluations: {
-            items: [
-              {
-                grade: 8.4,
-                skill: {
-                  name: 'creativity',
-                  description: 'lorem ipsum',
-                },
-              },
-            ],
+
+  averageRatings.items =
+    averageRatings.items && averageRatings.items.length
+      ? averageRatings.items
+      : [
+          {
+            id: 'averageRatingId',
+            grade: 8.4,
+            skill: {
+              id: 'skillId',
+              name: 'Creativity',
+              description: 'lorem ipsum',
+            },
           },
-        },
-      ];
+        ];
   // console.log(evaluations);
 
   return (
     <>
       <StatusBar barStyle="light-content" />
       <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
-        {evaluations.items.length ? (
-          evaluations.items.map((rating, index) => {
+        {averageRatings.items.length ? (
+          averageRatings.items.map((averageRating) => {
             return (
               <RatingBox
-                key={rating.id}
-                rating={rating}
+                key={averageRating.id}
+                rating={averageRating}
                 gradeColor="rgb(10,185,255)"
                 onSeeDetails={() => {
                   navigation.navigate('RatingsDetailsScreen', {
-                    rating,
+                    rating: averageRating,
                   });
                 }}
               />

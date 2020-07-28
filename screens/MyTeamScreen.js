@@ -41,6 +41,9 @@ function MyTeamScreen({ navigation, userContext }) {
   let noTeam = false;
   let team;
   let teamMembers;
+  // console.log('USER CONTEXT');
+  // console.log(Object.keys(userContext));
+  // console.log(userContext.teamsLink.items.length);
   if (!userContext.teamsLink.items.length) {
     noTeam = true;
     team = {

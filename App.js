@@ -39,7 +39,7 @@ import UserContextProvider from './contexts/UserContext';
 
 Amplify.configure({ ...awsconfig, Analytics: { disabled: true } });
 
-global.Buffer = global.Buffer || require('buffer').Buffer;
+global.Buffer = global.Buffer || require('buffer').Buffer; //
 
 const defaultUser = {
   name: 'Thomas Guntenaar',
@@ -71,6 +71,7 @@ function App(props) {
       // if user deleted route to other screen
       // if status do this
       // errors = result.errors.map((error) => error.message);
+      console.log('ohjee er zitten errors in');
     } else {
       const {
         data: { getUser: userData },
@@ -147,6 +148,10 @@ function App(props) {
 
 App.propTypes = {
   skipLoadingScreen: PropTypes.bool,
+};
+
+App.defaultTypes = {
+  skipLoadingScreen: false,
 };
 
 // export default App

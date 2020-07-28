@@ -91,6 +91,9 @@ const rating = {
 };
 
 const evaluation = {
+  getEvaluationsByUser: (userId) => {
+    return API.graphql(graphqlOperation(queries.evaluationsByUser, { userId }));
+  },
   createEvaluation: (input) => {
     return API.graphql(graphqlOperation(mutations.createEvaluation, { input }));
   },

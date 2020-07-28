@@ -4,10 +4,10 @@ import { Feather } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { width } from '../constants/Utils';
 
-const Rating = ({ rating, onSeeDetails }) => {
-  const { grade } = rating.evaluations.items[0];
-  const skillName = rating.evaluations.items[0].skill.name;
-  const skillDescription = rating.evaluations.items[0].skill.description;
+const RatingBox = ({ rating, onSeeDetails }) => {
+  const { grade } = rating;
+  const skillName = rating.skill.name;
+  const skillDescription = rating.skill.description;
 
   const gradeColor = ((gradeString) => {
     const number = parseInt(gradeString, 10);
@@ -113,21 +113,14 @@ const styles = StyleSheet.create({
   },
 });
 
-Rating.propTypes = {
+RatingBox.propTypes = {
   rating: PropTypes.shape({
-    comment: PropTypes.string.isRequired,
-    evaluations: PropTypes.shape({
-      items: PropTypes.arrayOf(
-        PropTypes.shape({
-          grade: PropTypes.number.isRequired,
-          skill: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-          }),
-        })
-      ),
+    grade: PropTypes.number.isRequired,
+    skill: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };
 
-export default Rating;
+export default RatingBox;
