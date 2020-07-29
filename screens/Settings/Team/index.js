@@ -86,10 +86,25 @@ function TeamSettingsScreen({ userContext }) {
         name: newSkill.name.replace(/./, (m) => m.toUpperCase()), // First letter uppercase
         description: newSkill.description,
       })
-      .catch(console.log);
+      .catch(({ errors }) => {
+        console.log(errors);
+      });
+    const p1 = api.createTeamAverage({
+      skillId: createdSkill.id,
+      userId: userContext.id,
+    });
+    const p2 = api.createUserAverage({
+      skillId: createdSkill.id,
+      teamId: team.id,
+    });
+    await p1;
+    await p2;
+
     if (createdSkill.name && createdSkill.description) {
       setTeamSkills([...teamSkills, createdSkill]);
       setNewSkill({ name: '', description: '' });
+    } else {
+      // Error pop up?
     }
   };
 

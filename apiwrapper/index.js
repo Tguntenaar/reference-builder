@@ -67,6 +67,31 @@ const skill = {
   },
 };
 
+const average = {
+  /**
+   * Gets called every time create Skill is called
+   * @param {skillId, userId}
+   */
+  createUserAverage: (ids) => {
+    return API.graphql(
+      graphqlOperation(mutations.createAverageUserRatings, {
+        input: { ...ids, grade: 0, timesRated: 0 },
+      })
+    );
+  },
+  /**
+   * Gets called every time create Skill is called
+   * @param {skillId, teamId}
+   */
+  createTeamAverage: (ids) => {
+    return API.graphql(
+      graphqlOperation(mutations.createAverageTeamRatings, {
+        input: { ...ids, grade: 0, timesRated: 0 },
+      })
+    );
+  },
+};
+
 const evaluationRequest = {
   createEvaluationRequest: (input) => {
     return API.graphql(
@@ -100,6 +125,7 @@ const evaluation = {
 };
 
 export default {
+  ...average,
   ...team,
   ...user,
   ...userTeamLink,

@@ -90,9 +90,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -139,9 +141,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   teamId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -226,9 +230,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -304,9 +310,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -391,9 +399,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -469,9 +479,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -556,9 +568,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -634,9 +648,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -748,9 +764,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -826,9 +844,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -870,6 +890,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
         }
         averageRatings {
           items {
+            id
             userId
             user {
               id
@@ -938,9 +959,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -958,6 +981,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               updatedAt
             }
             grade
+            timesRated
             createdAt
             updatedAt
           }
@@ -1049,9 +1073,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1098,9 +1124,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   teamId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1185,9 +1213,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1263,9 +1293,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1350,9 +1382,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1428,9 +1462,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1515,9 +1551,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1593,9 +1631,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1707,9 +1747,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1785,9 +1827,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1829,6 +1873,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
         }
         averageRatings {
           items {
+            id
             userId
             user {
               id
@@ -1897,9 +1942,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -1917,6 +1964,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               updatedAt
             }
             grade
+            timesRated
             createdAt
             updatedAt
           }
@@ -2018,9 +2066,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2067,9 +2117,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   teamId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2154,9 +2206,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2232,9 +2286,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2319,9 +2375,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2397,9 +2455,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2484,9 +2544,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2562,9 +2624,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2676,9 +2740,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2754,9 +2820,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2798,6 +2866,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
         }
         averageRatings {
           items {
+            id
             userId
             user {
               id
@@ -2866,9 +2935,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -2886,6 +2957,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               updatedAt
             }
             grade
+            timesRated
             createdAt
             updatedAt
           }
@@ -2977,9 +3049,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3026,9 +3100,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   teamId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3113,9 +3189,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3191,9 +3269,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3278,9 +3358,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3356,9 +3438,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3443,9 +3527,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3521,9 +3607,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3635,9 +3723,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3713,9 +3803,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3757,6 +3849,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
         }
         averageRatings {
           items {
+            id
             userId
             user {
               id
@@ -3825,9 +3918,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3845,6 +3940,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               updatedAt
             }
             grade
+            timesRated
             createdAt
             updatedAt
           }
@@ -3946,9 +4042,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -3995,9 +4093,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   teamId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4082,9 +4182,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4160,9 +4262,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4247,9 +4351,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4325,9 +4431,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4412,9 +4520,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4490,9 +4600,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4604,9 +4716,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4682,9 +4796,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4726,6 +4842,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
         }
         averageRatings {
           items {
+            id
             userId
             user {
               id
@@ -4794,9 +4911,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4814,6 +4933,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               updatedAt
             }
             grade
+            timesRated
             createdAt
             updatedAt
           }
@@ -4905,9 +5025,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -4954,9 +5076,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   teamId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5041,9 +5165,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5119,9 +5245,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5206,9 +5334,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5284,9 +5414,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5371,9 +5503,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5449,9 +5583,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5563,9 +5699,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5641,9 +5779,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5685,6 +5825,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
         }
         averageRatings {
           items {
+            id
             userId
             user {
               id
@@ -5753,9 +5894,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               }
               averageRatings {
                 items {
+                  id
                   userId
                   skillId
                   grade
+                  timesRated
                   createdAt
                   updatedAt
                 }
@@ -5773,6 +5916,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               updatedAt
             }
             grade
+            timesRated
             createdAt
             updatedAt
           }

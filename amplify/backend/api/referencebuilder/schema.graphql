@@ -25,7 +25,7 @@ type Team
   membersLink: [TeamMemberLink!]
     @connection(keyName: "usersByTeam", fields: ["id"]) # has many
   skills: [Skill!] @connection(keyName: "skillsByTeam", fields: ["id"]) # has many
-  averageRatings: [averageTeamRatings]
+  averageRatings: [averageTeamRating]
     @connection(keyName: "averageRatingsByTeam", fields: ["id"]) #has many
 }
 
@@ -65,7 +65,7 @@ type User @model(subscriptions: null) {
     @connection(keyName: "evaluationsByEvaluator", fields: ["id"]) # has many
   receivedEvaluations: [Evaluation]
     @connection(keyName: "evaluationsByUser", fields: ["id"]) # has many
-  averageRatings: [averageUserRatings]
+  averageRatings: [averageUserRating]
     @connection(keyName: "averageRatingsByUser", fields: ["id"]) # has many
 }
 
@@ -117,25 +117,29 @@ type Rating
 # on create skill create average from every user in team
 type averageUserRating
   @model(subscriptions: null)
-  @key(name: "averageRatingsByUser", fields: ["userId"]) {
+  @key(name: "averageRatingsByUser", fields: ["userId", "skillId"]) {
   # Team or Skill
+  id: ID!
   userId: ID!
   user: User! @connection(fields: ["userId"]) # has one
   skillId: ID!
   skill: Skill! @connection(fields: ["skillId"]) # has one
-  grade: Int
+  grade: Int!
+  timesRated: Int!
 }
 
 # on create skill create average
 type averageTeamRating
   @model(subscriptions: null)
-  @key(name: "averageRatingsByTeam", fields: ["teamId"]) {
+  @key(name: "averageRatingsByTeam", fields: ["teamId", "skillId"]) {
   # Team or Skill
+  id: ID!
   teamId: ID!
-  team: User! @connection(fields: ["teamId"]) # has one
+  team: Team! @connection(fields: ["teamId"]) # has one
   skillId: ID!
   skill: Skill! @connection(fields: ["skillId"]) # has one
-  grade: Int
+  grade: Int!
+  timesRated: Int!
 }
 
 type Skill

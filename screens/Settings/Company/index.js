@@ -35,6 +35,7 @@ function CompanySettingsScreen({ userContext }) {
   // Add a User to your team TODO: validation
   const createUser = async () => {
     // TODO: invite email create user in UserPool
+    // TODO: create average for every skill in this team
     const {
       data: { createUser: createdUser },
     } = await api
@@ -43,7 +44,7 @@ function CompanySettingsScreen({ userContext }) {
         jobTitle: newUser.jobTitle,
         email: newUser.email,
       })
-      .catch((error) => console.log(`Error creating user ${error.errors[0].message}`));
+      .catch(({ errors }) => console.log(`Error creating user ${errors[0].message}`));
 
     const teamLink = await api
       .createTeamMemberLink({

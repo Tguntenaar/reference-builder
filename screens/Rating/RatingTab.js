@@ -26,8 +26,12 @@ const styles = StyleSheet.create({
  * 3.
  */
 function RatingTab({ navigation, userContext }) {
-  const { evaluations, averageRatings } = userContext;
-  // console.log(evaluations);
+  const { averageRatings } = userContext;
+
+  // console.log('Object.keys(userContext)');
+  // console.log(Object.keys(userContext));
+  // console.log('averageRatings.items.length');
+  // console.log(averageRatings.items.length);
 
   averageRatings.items =
     averageRatings.items && averageRatings.items.length
@@ -38,7 +42,7 @@ function RatingTab({ navigation, userContext }) {
             grade: 8.4,
             skill: {
               id: 'skillId',
-              name: 'Creativity',
+              name: 'Template',
               description: 'lorem ipsum',
             },
           },

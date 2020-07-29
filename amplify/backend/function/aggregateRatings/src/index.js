@@ -16,7 +16,7 @@ async function getTeamAverage(teamId) {
 
 async function updateTeamTable(record, newAverage) {
   const params = {
-    TableName: 'Team-5ewtrl3mujdszlbmiha3wrdk5i-dev',
+    TableName: 'averageTeamRatings-5ewtrl3mujdszlbmiha3wrdk5i-dev',
     Key: {
       id: record.id,
     },
@@ -57,7 +57,7 @@ async function getUserAverage(userId) {
 
 async function updateUserTable() {
   const params = {
-    TableName: 'User-5ewtrl3mujdszlbmiha3wrdk5i-dev',
+    TableName: 'averageUserRatings-5ewtrl3mujdszlbmiha3wrdk5i-dev',
     Key: {
       CustomerId: record.CustomerId,
       Day: new Date(aggregatedDay).toISOString(),

@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const TeamList = ({ sendEvaluationRequest, teamMembers, navigation }) => {
+const TeamList = ({ sendEvaluationRequest, teamMembers, team, navigation }) => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
       {teamMembers.length ? (
@@ -31,7 +31,10 @@ const TeamList = ({ sendEvaluationRequest, teamMembers, navigation }) => {
           />
         ))
       ) : (
-        <Text>No team members.. Go to the team settings screen to invite your team members</Text>
+        <Text>
+          No team members in team {team.name} yet. Go to the team settings screen to invite your
+          team members or activate another team to view those teammembers
+        </Text>
       )}
     </ScrollView>
   );
@@ -53,6 +56,7 @@ function MyTeamScreen({ navigation, userContext }) {
     };
     teamMembers = [];
   } else {
+    // TODO: [0] moet de active team worden
     team = userContext.teamsLink.items[0].team;
     teamMembers = team.membersLink.items
       .filter((item) => item.user.id !== userContext.id)
@@ -82,6 +86,7 @@ function MyTeamScreen({ navigation, userContext }) {
         <TeamList
           sendEvaluationRequest={sendEvaluationRequest}
           teamMembers={teamMembers}
+          team={team}
           navigation={navigation}
         />
       ) : (

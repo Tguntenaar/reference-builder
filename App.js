@@ -50,6 +50,9 @@ const defaultUser = {
       { team: { membersLink: { items: [] }, skills: [], company: { teams: { items: [] } } } },
     ],
   },
+  averageRatings: {
+    items: [],
+  },
 };
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -64,19 +67,21 @@ function App(props) {
       attributes: { sub },
     } = await Auth.currentAuthenticatedUser().catch(console.log);
     console.log(sub);
-    const result = await api.getUser(sub); // .catch((error) => console.log({ error }));
+    const result = await api.getUser(sub).catch(({ errors }) => console.log(errors));
     // console.log({ result });
     if (result.errors || !result.data) {
       // FIXME: Cant getUser
       // if user deleted route to other screen
       // if status do this
       // errors = result.errors.map((error) => error.message);
-      console.log('ohjee er zitten errors in');
+      console.log('Ohjee er zitten errors in');
     } else {
       const {
         data: { getUser: userData },
       } = result;
-      console.log(userData.receivedRequests.items.length);
+      console.log(Object.keys(userData));
+
+      // console.log(userData.receivedRequests.items.length);
       setUser(userData);
     }
   };

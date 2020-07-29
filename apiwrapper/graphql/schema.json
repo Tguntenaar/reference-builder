@@ -325,7 +325,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getAverageUserRatings",
+          "name" : "getAverageUserRating",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -343,20 +343,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageUserRatings",
+            "name" : "averageUserRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listAverageUserRatingss",
+          "name" : "listAverageUserRatings",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsFilterInput",
+              "name" : "ModelaverageUserRatingFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -381,13 +381,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelaverageUserRatingsConnection",
+            "name" : "ModelaverageUserRatingConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "getAverageTeamRatings",
+          "name" : "getAverageTeamRating",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -405,20 +405,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageTeamRatings",
+            "name" : "averageTeamRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listAverageTeamRatingss",
+          "name" : "listAverageTeamRatings",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsFilterInput",
+              "name" : "ModelaverageTeamRatingFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -443,7 +443,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelaverageTeamRatingsConnection",
+            "name" : "ModelaverageTeamRatingConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -1036,11 +1036,20 @@
           "name" : "averageRatings",
           "description" : null,
           "args" : [ {
+            "name" : "skillId",
+            "description" : null,
+            "type" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelIDKeyConditionInput",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsFilterInput",
+              "name" : "ModelaverageTeamRatingFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -1074,7 +1083,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelaverageTeamRatingsConnection",
+            "name" : "ModelaverageTeamRatingConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -1607,11 +1616,20 @@
           "name" : "averageRatings",
           "description" : null,
           "args" : [ {
+            "name" : "skillId",
+            "description" : null,
+            "type" : {
+              "kind" : "INPUT_OBJECT",
+              "name" : "ModelIDKeyConditionInput",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          }, {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsFilterInput",
+              "name" : "ModelaverageUserRatingFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -1645,7 +1663,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelaverageUserRatingsConnection",
+            "name" : "ModelaverageUserRatingConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -3397,7 +3415,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelaverageUserRatingsConnection",
+        "name" : "ModelaverageUserRatingConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -3408,7 +3426,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "averageUserRatings",
+              "name" : "averageUserRating",
               "ofType" : null
             }
           },
@@ -3432,9 +3450,24 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "averageUserRatings",
+        "name" : "averageUserRating",
         "description" : null,
         "fields" : [ {
+          "name" : "id",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "userId",
           "description" : null,
           "args" : [ ],
@@ -3499,9 +3532,28 @@
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "timesRated",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -3542,10 +3594,19 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelaverageUserRatingsFilterInput",
+        "name" : "ModelaverageUserRatingFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIDInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "userId",
           "description" : null,
           "type" : {
@@ -3573,6 +3634,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIntInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -3580,7 +3650,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsFilterInput",
+              "name" : "ModelaverageUserRatingFilterInput",
               "ofType" : null
             }
           },
@@ -3593,7 +3663,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsFilterInput",
+              "name" : "ModelaverageUserRatingFilterInput",
               "ofType" : null
             }
           },
@@ -3603,7 +3673,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelaverageUserRatingsFilterInput",
+            "name" : "ModelaverageUserRatingFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -3728,7 +3798,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelaverageTeamRatingsConnection",
+        "name" : "ModelaverageTeamRatingConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -3739,7 +3809,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "averageTeamRatings",
+              "name" : "averageTeamRating",
               "ofType" : null
             }
           },
@@ -3763,9 +3833,24 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "averageTeamRatings",
+        "name" : "averageTeamRating",
         "description" : null,
         "fields" : [ {
+          "name" : "id",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
           "name" : "teamId",
           "description" : null,
           "args" : [ ],
@@ -3789,7 +3874,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "User",
+              "name" : "Team",
               "ofType" : null
             }
           },
@@ -3830,9 +3915,28 @@
           "description" : null,
           "args" : [ ],
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "timesRated",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -3873,10 +3977,19 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelaverageTeamRatingsFilterInput",
+        "name" : "ModelaverageTeamRatingFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIDInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "teamId",
           "description" : null,
           "type" : {
@@ -3904,6 +4017,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIntInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -3911,7 +4033,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsFilterInput",
+              "name" : "ModelaverageTeamRatingFilterInput",
               "ofType" : null
             }
           },
@@ -3924,7 +4046,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsFilterInput",
+              "name" : "ModelaverageTeamRatingFilterInput",
               "ofType" : null
             }
           },
@@ -3934,7 +4056,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelaverageTeamRatingsFilterInput",
+            "name" : "ModelaverageTeamRatingFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -4860,7 +4982,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createAverageUserRatings",
+          "name" : "createAverageUserRating",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -4870,7 +4992,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateAverageUserRatingsInput",
+                "name" : "CreateAverageUserRatingInput",
                 "ofType" : null
               }
             },
@@ -4880,20 +5002,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsConditionInput",
+              "name" : "ModelaverageUserRatingConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageUserRatings",
+            "name" : "averageUserRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateAverageUserRatings",
+          "name" : "updateAverageUserRating",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -4903,7 +5025,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateAverageUserRatingsInput",
+                "name" : "UpdateAverageUserRatingInput",
                 "ofType" : null
               }
             },
@@ -4913,20 +5035,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsConditionInput",
+              "name" : "ModelaverageUserRatingConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageUserRatings",
+            "name" : "averageUserRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteAverageUserRatings",
+          "name" : "deleteAverageUserRating",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -4936,7 +5058,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteAverageUserRatingsInput",
+                "name" : "DeleteAverageUserRatingInput",
                 "ofType" : null
               }
             },
@@ -4946,20 +5068,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsConditionInput",
+              "name" : "ModelaverageUserRatingConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageUserRatings",
+            "name" : "averageUserRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createAverageTeamRatings",
+          "name" : "createAverageTeamRating",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -4969,7 +5091,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateAverageTeamRatingsInput",
+                "name" : "CreateAverageTeamRatingInput",
                 "ofType" : null
               }
             },
@@ -4979,20 +5101,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsConditionInput",
+              "name" : "ModelaverageTeamRatingConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageTeamRatings",
+            "name" : "averageTeamRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateAverageTeamRatings",
+          "name" : "updateAverageTeamRating",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -5002,7 +5124,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateAverageTeamRatingsInput",
+                "name" : "UpdateAverageTeamRatingInput",
                 "ofType" : null
               }
             },
@@ -5012,20 +5134,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsConditionInput",
+              "name" : "ModelaverageTeamRatingConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageTeamRatings",
+            "name" : "averageTeamRating",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteAverageTeamRatings",
+          "name" : "deleteAverageTeamRating",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -5035,7 +5157,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteAverageTeamRatingsInput",
+                "name" : "DeleteAverageTeamRatingInput",
                 "ofType" : null
               }
             },
@@ -5045,14 +5167,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsConditionInput",
+              "name" : "ModelaverageTeamRatingConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "averageTeamRatings",
+            "name" : "averageTeamRating",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -6521,10 +6643,19 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateAverageUserRatingsInput",
+        "name" : "CreateAverageUserRatingInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "ID",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "userId",
           "description" : null,
           "type" : {
@@ -6554,9 +6685,26 @@
           "name" : "grade",
           "description" : null,
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
           },
           "defaultValue" : null
         } ],
@@ -6565,7 +6713,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelaverageUserRatingsConditionInput",
+        "name" : "ModelaverageUserRatingConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -6596,6 +6744,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIntInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -6603,7 +6760,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsConditionInput",
+              "name" : "ModelaverageUserRatingConditionInput",
               "ofType" : null
             }
           },
@@ -6616,7 +6773,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageUserRatingsConditionInput",
+              "name" : "ModelaverageUserRatingConditionInput",
               "ofType" : null
             }
           },
@@ -6626,7 +6783,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelaverageUserRatingsConditionInput",
+            "name" : "ModelaverageUserRatingConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -6636,10 +6793,23 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateAverageUserRatingsInput",
+        "name" : "UpdateAverageUserRatingInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
           "name" : "userId",
           "description" : null,
           "type" : {
@@ -6666,13 +6836,22 @@
             "ofType" : null
           },
           "defaultValue" : null
+        }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
         } ],
         "interfaces" : null,
         "enumValues" : null,
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteAverageUserRatingsInput",
+        "name" : "DeleteAverageUserRatingInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -6690,10 +6869,19 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateAverageTeamRatingsInput",
+        "name" : "CreateAverageTeamRatingInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "ID",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "teamId",
           "description" : null,
           "type" : {
@@ -6723,9 +6911,26 @@
           "name" : "grade",
           "description" : null,
           "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
           },
           "defaultValue" : null
         } ],
@@ -6734,7 +6939,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelaverageTeamRatingsConditionInput",
+        "name" : "ModelaverageTeamRatingConditionInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -6765,6 +6970,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelIntInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -6772,7 +6986,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsConditionInput",
+              "name" : "ModelaverageTeamRatingConditionInput",
               "ofType" : null
             }
           },
@@ -6785,7 +6999,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelaverageTeamRatingsConditionInput",
+              "name" : "ModelaverageTeamRatingConditionInput",
               "ofType" : null
             }
           },
@@ -6795,7 +7009,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelaverageTeamRatingsConditionInput",
+            "name" : "ModelaverageTeamRatingConditionInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -6805,10 +7019,23 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateAverageTeamRatingsInput",
+        "name" : "UpdateAverageTeamRatingInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
           "name" : "teamId",
           "description" : null,
           "type" : {
@@ -6835,13 +7062,22 @@
             "ofType" : null
           },
           "defaultValue" : null
+        }, {
+          "name" : "timesRated",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
         } ],
         "interfaces" : null,
         "enumValues" : null,
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteAverageTeamRatingsInput",
+        "name" : "DeleteAverageTeamRatingInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -8244,6 +8480,23 @@
         "onFragment" : false,
         "onField" : true
       }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
         "name" : "aws_auth",
         "description" : "Directs the schema to enforce authorization on a field",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -8327,23 +8580,6 @@
         "description" : "Tells the service this field/object has access authorized by an OIDC token.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
         "args" : [ ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
-        } ],
         "onOperation" : false,
         "onFragment" : false,
         "onField" : false
