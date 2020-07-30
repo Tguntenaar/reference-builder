@@ -47,7 +47,13 @@ function MyTeamScreen({ navigation, userContext }) {
   // console.log('USER CONTEXT');
   // console.log(Object.keys(userContext));
   // console.log(userContext.teamsLink.items.length);
-  if (!userContext.teamsLink.items.length) {
+  if (
+    // TODO:
+    !userContext ||
+    !userContext.teamsLink ||
+    !userContext.teamsLink.items ||
+    !userContext.teamsLink.items.length
+  ) {
     noTeam = true;
     team = {
       membersLink: {

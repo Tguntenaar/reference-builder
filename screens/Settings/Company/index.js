@@ -6,9 +6,10 @@ import withUser from '../../../contexts/withUser';
 import api from '../../../apiwrapper';
 
 function CompanySettingsScreen({ userContext }) {
+  // TODO: active team only
   const { team } = userContext.teamsLink.items[0];
-
-  const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
+  // uniq = [...new Set(array)];
+  const [teamMembers, setTeamMembers] = useState(team.membersLink.items); // FIXME: all users not just one team
   const [teams, setTeams] = useState(team.company.teams.items);
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newTeam, setNewTeam] = useState('');
@@ -35,7 +36,6 @@ function CompanySettingsScreen({ userContext }) {
   // Add a User to your team TODO: validation
   const createUser = async () => {
     // TODO: invite email create user in UserPool
-    // TODO: create average for every skill in this team
     const {
       data: { createUser: createdUser },
     } = await api
@@ -45,6 +45,16 @@ function CompanySettingsScreen({ userContext }) {
         email: newUser.email,
       })
       .catch(({ errors }) => console.log(`Error creating user ${errors[0].message}`));
+
+    // TODO: create average user for every skill in active team + error handling
+    // TODO: active team
+    // TODO: promise all ofso
+    const promises = team.skills.items.map((skill) => {
+      return api.createUserAverage({
+        userId: userContext.id,
+        skillId: skill.id,
+      });
+    });
 
     const teamLink = await api
       .createTeamMemberLink({

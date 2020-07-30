@@ -44,8 +44,8 @@ function RatingChart({ navigation, route, userContext }) {
       // TODO: get all evaluations per skill per user
       console.log('Retrieving all ratings per skill..');
       const userId = userContext.id;
-      const result = await api.getEvaluationsByUser(userId).catch((err) => {
-        console.log(err);
+      const result = await api.getEvaluationsByUser(userId).catch(({ errors }) => {
+        console.log(errors);
       });
       // console.log(result);
       if (result.errors || !result.data) {

@@ -74,7 +74,7 @@ const average = {
    */
   createUserAverage: (ids) => {
     return API.graphql(
-      graphqlOperation(mutations.createAverageUserRatings, {
+      graphqlOperation(mutations.createAverageUserRating, {
         input: { ...ids, grade: 0, timesRated: 0 },
       })
     );
@@ -85,7 +85,7 @@ const average = {
    */
   createTeamAverage: (ids) => {
     return API.graphql(
-      graphqlOperation(mutations.createAverageTeamRatings, {
+      graphqlOperation(mutations.createAverageTeamRating, {
         input: { ...ids, grade: 0, timesRated: 0 },
       })
     );

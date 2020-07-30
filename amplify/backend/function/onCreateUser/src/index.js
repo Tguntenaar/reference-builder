@@ -127,7 +127,35 @@ exports.handler = async (event, context, callback) => {
       signUp(record)
         .then(function () {
           console.log('signed up now sending email');
-          sendEmail(record, event, context, callback);
+          // sendEmail(record, event, context, callback);
+          const sendEmailParams = {
+            Destination: {
+              ToAddresses: [record.email],
+            },
+            Message: {
+              Body: {
+                Text: {
+                  Data: `Hey ${record.name}, you have been invited to the referencebuilder download the app in de appstore and click on this link`,
+                },
+              },
+
+              Subject: { Data: 'ReferenceBuilder invite' },
+            },
+            Source: 'thomas@guntenaar.org',
+          };
+
+          ses.sendEmail(sendEmailParams, function (err, data) {
+            callback(null, { err, data });
+            if (err) {
+      //eslint-disable-line
+              console.log(err);
+              context.fail(err);
+            } else {
+      //eslint-disable-line
+              console.log(data);
+              context.succeed(event);
+            }
+          });
         })
         .catch(function (err) {
           console.log(err);

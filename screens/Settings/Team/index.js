@@ -56,22 +56,24 @@ function TeamSettingsScreen({ userContext }) {
       .createUser({
         name: newUser.name,
         jobTitle: newUser.jobTitle,
+        email: newUser.email,
       })
       .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
 
-    const teamLink = await api
+    const { data: createTeamMemberLink } = await api
       .createTeamMemberLink({
         userId: createdUser.id,
         teamId: team.id,
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(({ errors }) => {
+        console.log(errors);
       });
 
     console.log(createdUser);
+    console.log(Object.keys(createTeamMemberLink));
 
-    if (!teamLink.errors) {
-      setTeamMembers([...teamMembers, { ...teamLink, user: createdUser }]);
+    if (!createTeamMemberLink.errors) {
+      setTeamMembers([...teamMembers, { ...createTeamMemberLink, user: createdUser }]);
       setNewUser({ name: '', jobTitle: '', email: '' });
     }
   };
@@ -89,14 +91,28 @@ function TeamSettingsScreen({ userContext }) {
       .catch(({ errors }) => {
         console.log(errors);
       });
-    const p1 = api.createTeamAverage({
-      skillId: createdSkill.id,
-      userId: userContext.id,
-    });
-    const p2 = api.createUserAverage({
-      skillId: createdSkill.id,
-      teamId: team.id,
-    });
+
+    console.log(createdSkill.id);
+    console.log(team.id);
+    console.log(userContext.id);
+    const p1 = api
+      .createTeamAverage({
+        skillId: createdSkill.id,
+        userId: userContext.id,
+      })
+      .catch(({ errors }) => {
+        console.log('error creating team average');
+        console.log(errors);
+      });
+    const p2 = api
+      .createUserAverage({
+        skillId: createdSkill.id,
+        teamId: team.id,
+      })
+      .catch(({ errors }) => {
+        console.log('error creating user average');
+        console.log(errors);
+      });
     await p1;
     await p2;
 

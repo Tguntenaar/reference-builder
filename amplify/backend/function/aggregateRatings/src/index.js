@@ -14,9 +14,20 @@ async function getTeamAverage(teamId) {
   return documentClient.get(params).promise();
 }
 
-async function updateTeamTable(record, newAverage) {
+async function getUserAverage(userId) {
   const params = {
-    TableName: 'averageTeamRatings-5ewtrl3mujdszlbmiha3wrdk5i-dev',
+    Key: {
+      id: userId,
+    },
+    TableName: 'User-5ewtrl3mujdszlbmiha3wrdk5i-dev',
+  };
+
+  return documentClient.get(params).promise();
+}
+
+async function updateTeamTable(record) {
+  const params = {
+    TableName: 'averageTeamRating-5ewtrl3mujdszlbmiha3wrdk5i-dev',
     Key: {
       id: record.id,
     },
@@ -44,23 +55,12 @@ async function updateTeamTable(record, newAverage) {
   }
 }
 
-async function getUserAverage(userId) {
+async function updateUserTable(record) {
   const params = {
+    TableName: 'averageUserRating-5ewtrl3mujdszlbmiha3wrdk5i-dev',
     Key: {
-      id: userId,
-    },
-    TableName: 'User-5ewtrl3mujdszlbmiha3wrdk5i-dev',
-  };
-
-  return documentClient.get(params).promise();
-}
-
-async function updateUserTable() {
-  const params = {
-    TableName: 'averageUserRatings-5ewtrl3mujdszlbmiha3wrdk5i-dev',
-    Key: {
-      CustomerId: record.CustomerId,
-      Day: new Date(aggregatedDay).toISOString(),
+      userId: record.userId,
+      Day: new Date(record.TransferTime).toISOString(),
     },
     UpdateExpression: 'ADD #TotalBytes :Bytes, #CombinedRecords :CombinedRecords',
     ExpressionAttributeNames: {
@@ -88,29 +88,27 @@ async function updateUserTable() {
 
 exports.handler = async (event) => {
   console.log(JSON.stringify(event, null, 2));
-  const id =
-    Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-  const date = new Date(record.TransferTime).toString();
+
+  const date = new Date().toString();
   const writeParams = {
-    TableName: 'User-5ewtrl3mujdszlbmiha3wrdk5i-dev',
-    // Get item parameter
-    // Key: {
-    //   id: 'dbb0b1a7-ec21-49ee-aa83-bce55dd44da3',
-    // },
-    Item: {
-      id: 'dbb0b1a7-ec21-49ee-aa83-bce55dd44da4',
-      name: 'Liza Miller',
-      jobTitle: 'Europa voorzitter',
-      email: 'lizamiller@eu.com',
-      createdAt: date,
-      updatedAt: date,
-      __typename: 'User',
+    TableName: 'averageTeamRating-5ewtrl3mujdszlbmiha3wrdk5i-dev',
+    Key: {
+      id: 'e71256b7-03f9-4c90-9ead-305855fb354d', // teamtable
+      // userId: "b403da70-bea8-4e54-9cff-6a68e9d07f4d", //record.userId,
     },
+    UpdateExpression: 'ADD #timesRated :timesRated, #grade :grade',
+    ExpressionAttributeNames: {
+      '#timesRated': 'timesRated',
+      '#grade': 'grade',
+    },
+    ExpressionAttributeValues: {
+      ':timesRated': 1,
+      ':grade': 80, // record.grade,
+    },
+    ReturnValues: 'ALL_NEW',
   };
 
-  // // batchWriteItem
-  // console.log('put item');
-  const result = await documentClient.put(writeParams).promise();
+  const result = await documentClient.update(writeParams).promise();
   console.log(JSON.stringify(result, null, 2));
   return Promise.resolve('Successfully processed DynamoDB record Thomas');
   // try {
