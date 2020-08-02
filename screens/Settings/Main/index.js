@@ -11,7 +11,7 @@ import withUser from '../../../contexts/withUser';
 
 const path = 'avatars';
 
-const SettingsScreen = ({ userContext }) => {
+const SettingsScreen = ({ userContext, navigation }) => {
   const {
     id: userId,
     name: username,
@@ -94,6 +94,7 @@ const SettingsScreen = ({ userContext }) => {
     selectedTeam,
     setSelectedTeam,
     teamLinks,
+    navigation,
   };
   return <Screen {...properties} />;
 };

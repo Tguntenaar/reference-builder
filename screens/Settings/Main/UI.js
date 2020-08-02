@@ -5,6 +5,7 @@ import { TextInput } from 'react-native-gesture-handler';
 // aws
 import { S3Image } from 'aws-amplify-react-native';
 import NextButton from '../../../components/NextButton';
+import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
 import styles from './style';
 import { width } from '../../../constants/Utils';
@@ -18,57 +19,76 @@ const UI = ({
   selectedTeam,
   setSelectedTeam,
   teamLinks,
+  navigation,
 }) => {
   return (
-    <ScrollView style={styles.safe}>
+    <View style={styles.safe}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.top}>
-          {/**
-          // <S3Image style={{height: 50, width: 50}}key={'path'} picker body={photo} fileToKey={fileToKey}/>
-          // <S3Image level="private" preview="hidden" path="test/" fileToKey={fileToKey} onLoad={handleLoad} picker />
-        */}
-
-          <Image style={styles.image} source={(photo && { uri: photo.uri }) || imageEsther} />
-          <TouchableOpacity onPress={pickImage}>
-            <Text style={styles.edit}>Edit</Text>
-          </TouchableOpacity>
+          <View style={styles.topLeft}>
+            <BackButton />
+          </View>
+          <View style={styles.topRight}>
+            <Text style={styles.pageTitle}>Settings</Text>
+            <Image style={styles.image} source={(photo && { uri: photo.uri }) || imageEsther} />
+            <TouchableOpacity onPress={pickImage}>
+              <Text style={styles.edit}>Edit</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.middle}>
-          <S3Image key="testing" picker />
-          <TextInput
-            style={styles.input}
-            clearTextOnFocus={false}
-            onChangeText={(text) => setForm({ ...form, username: text })}
-            value={form.username}
-            placeholder="username"
-          />
-          <TextInput
-            style={styles.input}
-            clearTextOnFocus={false}
-            onChangeText={(text) => setForm({ ...form, jobTitle: text })}
-            value={form.jobTitle}
-            placeholder="job title"
-          />
-          <Text>Pick current team:</Text>
-          <Picker
-            selectedValue={selectedTeam}
-            style={{ height: 50, width }}
-            onValueChange={(itemValue) => setSelectedTeam(itemValue)}
-          >
-            {teamLinks.map(({ team }) => {
-              return <Picker.Item key={team.id} label={team.name} value={team.id} />;
-            })}
-            {/**
-            <Picker.Item label="Second team" value="1" />
-            <Picker.Item label="Third team" value="2" /> */}
-          </Picker>
+          <View style={styles.names}>
+            <View>
+              <TextInput
+                style={[styles.input, styles.inputName]}
+                clearTextOnFocus={false}
+                onChangeText={(text) => setForm({ ...form, username: text })}
+                value={form.username}
+                placeholder="username"
+              />
+              <TextInput
+                style={[styles.input, styles.inputJobTitle]}
+                clearTextOnFocus={false}
+                onChangeText={(text) => setForm({ ...form, jobTitle: text })}
+                value={form.jobTitle}
+                placeholder="job title"
+              />
+            </View>
+            <TouchableOpacity>
+              <Text style={styles.edit}>Edit</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Text style={styles.teams}>Teams</Text>
         </View>
         <View style={styles.bottom}>
-          <NextButton title="Submit" onPress={submitProfileInfo} />
+          {[{ name: 'Team Jaaf', id: 1 }].map(function (team) {
+            return (
+              <View style={styles.card}>
+                <View style={styles.imageContainer}>
+                  <Image
+                    style={styles.teamImage}
+                    source={(photo && { uri: photo.uri }) || imageEsther}
+                  />
+                </View>
+                <View style={styles.innerCard}>
+                  <Text style={styles.teamName}>{team.name}</Text>
+                  <NextButton
+                    title="View"
+                    onPress={() => {
+                      navigation.navigate('TeamSettingsScreen', {
+                        ...team,
+                      });
+                    }}
+                  />
+                </View>
+              </View>
+            );
+          })}
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 

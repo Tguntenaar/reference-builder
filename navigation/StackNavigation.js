@@ -41,6 +41,7 @@ function StackNavigation({ user }) {
 
   const SettingsScreenHeader = ({ navigation }) => ({
     title: 'Settings',
+    headerShown: false,
     headerRight: () => (
       <View style={styles.icons}>
         {admin && (
@@ -152,7 +153,7 @@ function StackNavigation({ user }) {
       <Stack.Screen
         name="TeamSettingsScreen"
         component={TeamSettingsScreen}
-        options={{ title: 'Team Settings' }}
+        options={{ headerShown: false, title: 'Team Settings' }}
       />
       <Stack.Screen
         name="CompanySettingsScreen"

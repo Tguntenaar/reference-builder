@@ -6,9 +6,11 @@ import withUser from '../../../contexts/withUser';
 import api from '../../../apiwrapper';
 import UI from './UI';
 
-function TeamSettingsScreen({ userContext }) {
+function TeamSettingsScreen({ userContext, route, navigation }) {
   console.log('TeamSettingsScreen');
+  // TODO: const { team } = route.params;
   const { team } = userContext.teamsLink.items[0];
+  console.log(route.params);
   // const { teams: [ team ] } = userContext
   // const {
   //   teams: {
@@ -170,6 +172,7 @@ function TeamSettingsScreen({ userContext }) {
     deactivateSkill,
     deleteMember,
     createSkill,
+    navigation,
   };
   return <UI {...properties} />;
 }

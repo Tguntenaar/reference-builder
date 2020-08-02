@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, Button } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import { Feather } from '@expo/vector-icons';
 import { width } from '../../../constants/Utils';
 
 import NextButton from '../../../components/NextButton';
@@ -9,6 +10,7 @@ import NextButton from '../../../components/NextButton';
 import { imageEsther } from '../../../constants/Images';
 
 import styles from './style';
+import BackButton from '../../../components/BackButton';
 
 const screen = ({
   teamMembers,
@@ -25,36 +27,38 @@ const screen = ({
   deactivateSkill,
   deleteMember,
   createSkill,
+  navigation,
 }) => {
   return (
     <ScrollView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.top}>
-          {/* <Text style={{fontSize: 40}}> Team name </Text>
-          <Text style={{fontSize: 25}}> Company </Text> */}
-
+          <BackButton onPress={() => navigation.navigate('SettingsScreen')} />
           <TextInput
-            style={[styles.input, { fontSize: 40 }]}
+            style={[styles.input, styles.pageTitle]}
             clearTextOnFocus={false}
             onChangeText={(text) => setTeamName(text)}
             value={teamName}
             placeholder="Team name"
           />
+          <NextButton title="Send EvaluationRequests" />
         </View>
         <View style={styles.middle}>
           {/** SKILLS */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text> {teamSkills.length} skills</Text>
+            <Text style={styles.headerTitles}>Skills</Text>
             <TouchableOpacity>
-              <Text style={{ color: 'blue' }}> Add </Text>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'blue' }}> Skills toevoegen </Text>
+                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+              </View>
             </TouchableOpacity>
           </View>
           <View
             style={{
+              paddingLeft: 20,
               marginLeft: 0,
-              borderBottomWidth: 1,
-              borderColor: 'lightgrey',
               width,
             }}
           >
@@ -63,24 +67,20 @@ const screen = ({
                 <View
                   key={skill.id}
                   style={{
-                    borderTopWidth: 1,
-                    borderTopColor: 'lightgrey',
                     flexDirection: 'row',
                     paddingTop: 10,
                     paddingBottom: 10,
                   }}
                 >
-                  <View style={{ flexDirection: 'row', marginLeft: 10 }}>
-                    <Text>
-                      {skill.name},{skill.description} {/** */}
-                    </Text>
+                  <View style={styles.skill}>
+                    <Text>{skill.name}</Text>
+                    <Feather
+                      name="x"
+                      color="black"
+                      style={styles.loadingIcon}
+                      onPress={() => deactivateSkill(skill.id)}
+                    />
                   </View>
-                  <TouchableOpacity
-                    style={{ position: 'absolute', right: 40, top: 10 }}
-                    onPress={() => deactivateSkill(skill.id)}
-                  >
-                    <Text style={{ color: 'red' }}>Remove</Text>
-                  </TouchableOpacity>
                 </View>
               ))
             ) : (
@@ -88,7 +88,8 @@ const screen = ({
             )}
           </View>
 
-          {/** NEW SKILL FORM */}
+          {/** 
+            TODO: move skill form
           <TextInput
             onChangeText={(text) => setNewSkill({ ...newSkill, name: text })}
             value={newSkill.name}
@@ -99,9 +100,11 @@ const screen = ({
             onChangeText={(text) => setNewSkill({ ...newSkill, description: text })}
             value={newSkill.description}
             placeholder="description"
-          />
-
+          /> 
+        
           <Button title="Submit" onPress={createSkill} />
+        */}
+
           {/** END NEW SKILL FORM */}
 
           {/** TEAM MEMBERS */}
@@ -112,52 +115,42 @@ const screen = ({
               justifyContent: 'space-between',
             }}
           >
-            <Text> {teamMembers.length} members</Text>
+            <Text style={styles.headerTitles}>Members</Text>
             <TouchableOpacity onPress={handlePress}>
-              <Text style={{ color: 'blue' }}> Invite </Text>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'blue' }}> Invite members </Text>
+                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+              </View>
             </TouchableOpacity>
           </View>
           <View
             style={{
               marginLeft: 0,
-              borderBottomWidth: 1,
-              borderColor: 'lightgrey',
               width,
             }}
           >
             {teamMembers.length ? (
               teamMembers.map(({ id: teamMemberLinkId, user }) => (
-                <View
-                  key={teamMemberLinkId}
-                  style={{
-                    borderTopWidth: 1,
-                    borderTopColor: 'lightgrey',
-                    flexDirection: 'row',
-                    paddingTop: 10,
-                    paddingBottom: 10,
-                  }}
-                >
+                <View key={teamMemberLinkId} style={styles.card}>
                   <Image style={styles.image} source={imageEsther} />
                   {/* TODO: teammember image */}
-                  <View style={{ flexDirection: 'column', marginLeft: 10 }}>
+                  <View style={{ marginLeft: 10 }}>
                     <Text>{user.name}</Text>
                     <Text>{user.jobTitle}</Text>
+                    <NextButton title="Send Evaluation" />
+                    <TouchableOpacity onPress={() => deleteMember(teamMemberLinkId)}>
+                      <Text style={{ color: 'red' }}>Remove</Text>
+                    </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
-                    style={{ position: 'absolute', right: 40, top: 10 }}
-                    onPress={() => deleteMember(teamMemberLinkId)}
-                  >
-                    <Text style={{ color: 'red' }}>Remove</Text>
-                  </TouchableOpacity>
                 </View>
               ))
             ) : (
               <Text>Start adding Team Members</Text>
             )}
           </View>
-
-          {/** NEW USER FORM */}
-          <TextInput
+          {/**
+            TODO: move form to proper place
+            <TextInput
             onChangeText={(text) => setNewUser({ ...newUser, name: text })}
             value={newUser.name}
             placeholder="name"
@@ -176,11 +169,8 @@ const screen = ({
           />
 
           <Button title="Submit" onPress={createUser} />
+         */}
           {/** END NEW USER FORM */}
-        </View>
-        <View style={styles.bottom}>
-          {/* <NextButton title="Submit" onPress={updateHeader} /> */}
-          <NextButton title="Submit" onPress={updateHeader} />
         </View>
       </View>
     </ScrollView>
