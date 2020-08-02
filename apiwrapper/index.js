@@ -60,8 +60,8 @@ const skill = {
   },
   deleteSkill: (skillId) => {
     return API.graphql(
-      graphqlOperation(mutations.deleteSkill, {
-        input: { id: skillId },
+      graphqlOperation(mutations.updateSkill, {
+        input: { id: skillId, active: false },
       })
     );
   },
@@ -79,6 +79,13 @@ const average = {
       })
     );
   },
+  deleteUserAverage: (id) => {
+    return API.graphql(
+      graphqlOperation(mutations.deleteAverageUserRating, {
+        input: { id },
+      })
+    );
+  },
   /**
    * Gets called every time create Skill is called
    * @param {skillId, teamId}
@@ -87,6 +94,13 @@ const average = {
     return API.graphql(
       graphqlOperation(mutations.createAverageTeamRating, {
         input: { ...ids, grade: 0, timesRated: 0 },
+      })
+    );
+  },
+  deleteTeamAverage: (id) => {
+    return API.graphql(
+      graphqlOperation(mutations.deleteAverageTeamRating, {
+        input: { id },
       })
     );
   },

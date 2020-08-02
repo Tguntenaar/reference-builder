@@ -24,7 +24,7 @@ function TeamSettingsScreen({ userContext }) {
   // } = userContext;
 
   const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
-  const [teamSkills, setTeamSkills] = useState(team.skills.items);
+  const [teamSkills, setTeamSkills] = useState(team.skills.items.filter((skill) => skill.active));
   const [newUser, setNewUser] = useState({ name: '', jobTitle: '', email: '' });
   const [newSkill, setNewSkill] = useState({ name: '', description: '' });
   const [teamName, setTeamName] = useState(team.name);
@@ -60,7 +60,9 @@ function TeamSettingsScreen({ userContext }) {
       })
       .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
 
-    const { data: createTeamMemberLink } = await api
+    const {
+      data: { createTeamMemberLink },
+    } = await api
       .createTeamMemberLink({
         userId: createdUser.id,
         teamId: team.id,
@@ -139,7 +141,7 @@ function TeamSettingsScreen({ userContext }) {
     }
   };
 
-  const deleteSkill = async (skillId) => {
+  const deactivateSkill = async (skillId) => {
     setTeamSkills(teamSkills.filter((skill) => skillId !== skill.id));
     const {
       data: { deleteSkill: result },
@@ -165,7 +167,7 @@ function TeamSettingsScreen({ userContext }) {
     handlePress,
     createUser,
     updateHeader,
-    deleteSkill,
+    deactivateSkill,
     deleteMember,
     createSkill,
   };

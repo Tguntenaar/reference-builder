@@ -119,6 +119,7 @@ export const getCompany = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -158,6 +159,7 @@ export const getCompany = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -245,6 +247,7 @@ export const listCompanys = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -268,6 +271,7 @@ export const listCompanys = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -358,6 +362,7 @@ export const getTeam = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -381,6 +386,7 @@ export const getTeam = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -572,6 +578,7 @@ export const getTeam = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -640,6 +647,7 @@ export const getTeam = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -663,6 +671,7 @@ export const getTeam = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -686,6 +695,7 @@ export const getTeam = /* GraphQL */ `
           teamId
           name
           description
+          active
           createdAt
           updatedAt
         }
@@ -751,6 +761,7 @@ export const getTeam = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -774,6 +785,7 @@ export const getTeam = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -792,6 +804,7 @@ export const getTeam = /* GraphQL */ `
             teamId
             name
             description
+            active
             createdAt
             updatedAt
           }
@@ -856,6 +869,7 @@ export const listTeams = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -996,6 +1010,7 @@ export const listTeams = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1026,6 +1041,7 @@ export const listTeams = /* GraphQL */ `
             teamId
             name
             description
+            active
             createdAt
             updatedAt
           }
@@ -1067,6 +1083,7 @@ export const listTeams = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1092,6 +1109,7 @@ export const listTeams = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -1295,6 +1313,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1363,6 +1382,7 @@ export const getUser = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -1386,6 +1406,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1577,6 +1598,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1759,6 +1781,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1950,6 +1973,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2132,6 +2156,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2323,6 +2348,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2505,6 +2531,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2554,6 +2581,7 @@ export const getUser = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -2742,6 +2770,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2924,6 +2953,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2973,6 +3003,7 @@ export const getUser = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -3160,6 +3191,7 @@ export const getUser = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3178,6 +3210,7 @@ export const getUser = /* GraphQL */ `
             teamId
             name
             description
+            active
             createdAt
             updatedAt
           }
@@ -3326,6 +3359,7 @@ export const listUsers = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3870,6 +3904,7 @@ export const listUsers = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4066,6 +4101,7 @@ export const listUsers = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4169,6 +4205,7 @@ export const listUsers = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -4318,6 +4355,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4862,6 +4900,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5058,6 +5097,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5161,6 +5201,7 @@ export const getEvaluation = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -5301,6 +5342,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5845,6 +5887,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6041,6 +6084,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6144,6 +6188,7 @@ export const getEvaluation = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -6341,6 +6386,7 @@ export const getEvaluation = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6359,6 +6405,7 @@ export const getEvaluation = /* GraphQL */ `
             teamId
             name
             description
+            active
             createdAt
             updatedAt
           }
@@ -6815,6 +6862,7 @@ export const listEvaluations = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -7259,6 +7307,7 @@ export const listEvaluations = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -7362,6 +7411,7 @@ export const listEvaluations = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -7818,6 +7868,7 @@ export const getRating = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -8262,6 +8313,7 @@ export const getRating = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -8365,6 +8417,7 @@ export const getRating = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -8383,6 +8436,7 @@ export const getRating = /* GraphQL */ `
         teamId
         name
         description
+        active
         createdAt
         updatedAt
       }
@@ -8575,6 +8629,7 @@ export const listRatings = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8757,6 +8812,7 @@ export const listRatings = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8806,6 +8862,7 @@ export const listRatings = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -8824,6 +8881,7 @@ export const listRatings = /* GraphQL */ `
           teamId
           name
           description
+          active
           createdAt
           updatedAt
         }
@@ -8967,6 +9025,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9511,6 +9570,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9707,6 +9767,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9810,6 +9871,7 @@ export const getAverageUserRating = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -9828,6 +9890,7 @@ export const getAverageUserRating = /* GraphQL */ `
         teamId
         name
         description
+        active
         createdAt
         updatedAt
       }
@@ -10283,6 +10346,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -10301,6 +10365,7 @@ export const listAverageUserRatings = /* GraphQL */ `
           teamId
           name
           description
+          active
           createdAt
           updatedAt
         }
@@ -10361,6 +10426,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10501,6 +10567,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10531,6 +10598,7 @@ export const getAverageTeamRating = /* GraphQL */ `
             teamId
             name
             description
+            active
             createdAt
             updatedAt
           }
@@ -10572,6 +10640,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10597,6 +10666,7 @@ export const getAverageTeamRating = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -10615,6 +10685,7 @@ export const getAverageTeamRating = /* GraphQL */ `
         teamId
         name
         description
+        active
         createdAt
         updatedAt
       }
@@ -10750,6 +10821,7 @@ export const listAverageTeamRatings = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -10789,6 +10861,7 @@ export const listAverageTeamRatings = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -10807,6 +10880,7 @@ export const listAverageTeamRatings = /* GraphQL */ `
           teamId
           name
           description
+          active
           createdAt
           updatedAt
         }
@@ -10826,6 +10900,7 @@ export const getSkill = /* GraphQL */ `
       teamId
       name
       description
+      active
       createdAt
       updatedAt
     }
@@ -10843,6 +10918,7 @@ export const listSkills = /* GraphQL */ `
         teamId
         name
         description
+        active
         createdAt
         updatedAt
       }
@@ -10983,6 +11059,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11527,6 +11604,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11723,6 +11801,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11826,6 +11905,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -11966,6 +12046,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12510,6 +12591,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12706,6 +12788,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12809,6 +12892,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }
@@ -13272,6 +13356,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -13716,6 +13801,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -14187,6 +14273,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -14631,6 +14718,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 teamId
                 name
                 description
+                active
                 createdAt
                 updatedAt
               }
@@ -14734,6 +14822,7 @@ export const evaluationsByUser = /* GraphQL */ `
               teamId
               name
               description
+              active
               createdAt
               updatedAt
             }

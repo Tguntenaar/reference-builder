@@ -22,7 +22,7 @@ const screen = ({
   handlePress,
   createUser,
   updateHeader,
-  deleteSkill,
+  deactivateSkill,
   deleteMember,
   createSkill,
 }) => {
@@ -59,9 +59,9 @@ const screen = ({
             }}
           >
             {teamSkills.length ? (
-              teamSkills.map((skill, index) => (
+              teamSkills.map((skill) => (
                 <View
-                  key={index}
+                  key={skill.id}
                   style={{
                     borderTopWidth: 1,
                     borderTopColor: 'lightgrey',
@@ -77,7 +77,7 @@ const screen = ({
                   </View>
                   <TouchableOpacity
                     style={{ position: 'absolute', right: 40, top: 10 }}
-                    onPress={() => deleteSkill(skill.id)}
+                    onPress={() => deactivateSkill(skill.id)}
                   >
                     <Text style={{ color: 'red' }}>Remove</Text>
                   </TouchableOpacity>
@@ -206,7 +206,7 @@ screen.propTypes = {
   handlePress: PropTypes.func.isRequired,
   createUser: PropTypes.func.isRequired,
   updateHeader: PropTypes.func.isRequired,
-  deleteSkill: PropTypes.func.isRequired,
+  deactivateSkill: PropTypes.func.isRequired,
   deleteMember: PropTypes.func.isRequired,
   createSkill: PropTypes.func.isRequired,
 };

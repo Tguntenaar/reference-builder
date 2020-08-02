@@ -149,6 +149,7 @@ type Skill
   teamId: ID!
   name: String!
   description: String
+  active: Boolean
 }
 
 # TODO: binnen een team alleen zichtbaar?
