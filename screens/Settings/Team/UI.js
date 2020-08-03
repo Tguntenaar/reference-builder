@@ -29,12 +29,29 @@ const screen = ({
   createSkill,
   navigation,
 }) => {
+  // Random array of objects
+  const foo = Array.from(Array(3).keys());
+  teamSkills = foo.map((item, index) => {
+    return {
+      id: index,
+      name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 7),
+    };
+  });
+  console.log(teamSkills);
   return (
-    <ScrollView style={styles.safe}>
+    <ScrollView
+      contentContainerStyle={{
+        flexGrow: 1,
+        justifyContent: 'space-between',
+      }}
+      // style={styles.safe}
+    >
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.top}>
-          <BackButton onPress={() => navigation.navigate('SettingsScreen')} />
+          <View style={styles.back}>
+            <BackButton onPress={() => navigation.goBack()} />
+          </View>
           <TextInput
             style={[styles.input, styles.pageTitle]}
             clearTextOnFocus={false}
@@ -42,7 +59,7 @@ const screen = ({
             value={teamName}
             placeholder="Team name"
           />
-          <NextButton title="Send EvaluationRequests" />
+          <NextButton title="Send team evaluations" textSize={14} />
         </View>
         <View style={styles.middle}>
           {/** SKILLS */}
@@ -55,31 +72,27 @@ const screen = ({
               </View>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              paddingLeft: 20,
-              marginLeft: 0,
-              width,
-            }}
-          >
+          <View style={styles.skillsContainer}>
             {teamSkills.length ? (
               teamSkills.map((skill) => (
                 <View
                   key={skill.id}
                   style={{
-                    flexDirection: 'row',
+                    // flexDirection: 'column',
                     paddingTop: 10,
                     paddingBottom: 10,
                   }}
                 >
                   <View style={styles.skill}>
-                    <Text>{skill.name}</Text>
-                    <Feather
-                      name="x"
-                      color="black"
-                      style={styles.loadingIcon}
-                      onPress={() => deactivateSkill(skill.id)}
-                    />
+                    <View style={styles.innerSkill}>
+                      <Text style={styles.skillName}>{skill.name}</Text>
+                      <Feather
+                        name="x"
+                        color="black"
+                        style={styles.xIcon}
+                        onPress={() => deactivateSkill(skill.id)}
+                      />
+                    </View>
                   </View>
                 </View>
               ))
@@ -134,12 +147,14 @@ const screen = ({
                 <View key={teamMemberLinkId} style={styles.card}>
                   <Image style={styles.image} source={imageEsther} />
                   {/* TODO: teammember image */}
-                  <View style={{ marginLeft: 10 }}>
-                    <Text>{user.name}</Text>
-                    <Text>{user.jobTitle}</Text>
-                    <NextButton title="Send Evaluation" />
+                  <View style={styles.innerCard}>
+                    <View style={styles.userInfo}>
+                      <Text style={styles.name}>{user.name}</Text>
+                      <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+                    </View>
+                    <NextButton title="Send Evaluation" textSize={14} onPress={() => null} />
                     <TouchableOpacity onPress={() => deleteMember(teamMemberLinkId)}>
-                      <Text style={{ color: 'red' }}>Remove</Text>
+                      <Text style={styles.remove}>Remove</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -147,6 +162,7 @@ const screen = ({
             ) : (
               <Text>Start adding Team Members</Text>
             )}
+            <View style={{ height: 50 }} />
           </View>
           {/**
             TODO: move form to proper place

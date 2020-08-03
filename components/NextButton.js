@@ -22,6 +22,9 @@ const NextButton = ({ title, onPress, color, size, textSize, loading }) => {
     height: Platform.OS === 'ios' ? textSize : textSize + 10,
   };
   textSize = Object.assign(defaultText, textSize);
+  if (textSize < 15) {
+    const fontFamily = 'CooperHewitt-SemiBold'; // FIXME: laad nog in
+  }
 
   return (
     <TouchableOpacity style={[styles.button, defaultColors]} onPress={onPress} underlayColor="#fff">

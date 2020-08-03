@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { width, height } from '../../../constants/Utils';
+import { width, height, isIphoneX } from '../../../constants/Utils';
 
 const imageSize = 110;
-const imageSizeTeam = 90;
+const imageSizeTeam = 110;
 
 export default StyleSheet.create({
   safe: {
@@ -16,11 +16,17 @@ export default StyleSheet.create({
   },
   top: {
     height: 0.3 * height,
+    marginTop: isIphoneX() ? 30 : 0,
     // backgroundColor: 'red',
     width: width - 40,
-    flexDirection: 'row',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    // flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  back: {
+    position: 'absolute',
+    top: 20,
+    left: 0,
   },
   pageTitle: {
     fontSize: 24,
@@ -79,7 +85,6 @@ export default StyleSheet.create({
   inputJobTitle: {
     height: 25,
     fontSize: 16,
-
     fontFamily: 'CooperHewitt-BookItalic',
   },
   bottom: {
@@ -97,13 +102,14 @@ export default StyleSheet.create({
     width: width - 40 - imageSizeTeam,
   },
   teamName: {
+    marginTop: 20,
     fontFamily: 'CooperHewitt-Heavy',
     padding: 2,
     fontSize: 25,
   },
   imageContainer: {
-    paddingLeft: 20,
-    height: 130,
+    paddingLeft: 30,
+    // height: 130,
     justifyContent: 'center',
   },
   card: {
@@ -113,12 +119,19 @@ export default StyleSheet.create({
     width: width - 40,
     backgroundColor: 'rgb(239,244,253)',
     borderRadius: 7,
-    height: 130,
+    // height: 130,
   },
   teamImage: {
     width: imageSizeTeam,
     height: imageSizeTeam,
     borderRadius: imageSizeTeam / 2,
     backgroundColor: 'lightgrey',
+  },
+  removeTouch: {
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  remove: {
+    color: 'rgb(255,16,10)',
   },
 });
