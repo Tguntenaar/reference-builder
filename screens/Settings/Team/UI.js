@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, Button } from 'react-native';
+import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { width } from '../../../constants/Utils';
@@ -31,7 +31,7 @@ const screen = ({
 }) => {
   // Random array of objects
   const foo = Array.from(Array(3).keys());
-  teamSkills = foo.map((item, index) => {
+  const TeamSkills = foo.map((item, index) => {
     return {
       id: index,
       name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 7),
@@ -65,7 +65,27 @@ const screen = ({
           {/** SKILLS */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={styles.headerTitles}>Skills</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                Alert.prompt(
+                  'Skill Toevoegen',
+                  'Geef de naam een beschrijving van de skill',
+                  [
+                    {
+                      text: 'Ask me later',
+                      onPress: () => console.log('Ask me later pressed'),
+                    },
+                    {
+                      text: 'Cancel',
+                      onPress: () => console.log('Cancel Pressed'),
+                      style: 'cancel',
+                    },
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+                  ],
+                  { cancelable: false }
+                );
+              }}
+            >
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ color: 'blue' }}> Skills toevoegen </Text>
                 <Feather name="plus-circle" color="blue" style={styles.plusIcon} />

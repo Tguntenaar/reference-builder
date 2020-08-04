@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
   },
   back: {
     position: 'absolute',
-    top: 20,
-    left: 10,
+    top: 5,
+    left: 5,
   },
   headerTitles: {
     fontFamily: 'CooperHewitt-Medium',

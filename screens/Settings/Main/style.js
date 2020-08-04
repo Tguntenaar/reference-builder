@@ -18,14 +18,14 @@ export default StyleSheet.create({
     height: 0.3 * height,
     marginTop: isIphoneX() ? 30 : 0,
     // backgroundColor: 'red',
-    width: width - 40,
+    width,
     // flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   back: {
     position: 'absolute',
-    top: 20,
+    top: 5,
     left: 0,
   },
   pageTitle: {

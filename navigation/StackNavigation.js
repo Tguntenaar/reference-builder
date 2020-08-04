@@ -19,6 +19,7 @@ import SettingsScreen from '../screens/Settings/Main';
 import TeamSettingsScreen from '../screens/Settings/Team';
 import CompanySettingsScreen from '../screens/Settings/Company';
 import ModalScreen from '../screens/ModalScreen';
+import Form from '../screens/Form';
 
 // Constants
 import { imageEsther } from '../constants/Images';
@@ -161,6 +162,7 @@ function StackNavigation({ user }) {
         options={{ title: 'Company Settings' }}
       />
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
+      <Stack.Screen name="Form" component={Form} />
     </Stack.Navigator>
   );
 }
