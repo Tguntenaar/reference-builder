@@ -9,7 +9,6 @@ const index = ({ navigation, route }) => {
     form,
     setForm,
     route,
-    fields: route.params.fields,
   };
 
   return <UI {...props} />;

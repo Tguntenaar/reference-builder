@@ -11,7 +11,7 @@ import withUser from '../../../contexts/withUser';
 
 const path = 'avatars';
 
-const SettingsScreen = ({ userContext, navigation }) => {
+const SettingsScreen = ({ userContext, navigation, route }) => {
   const {
     id: userId,
     name: username,
@@ -85,8 +85,21 @@ const SettingsScreen = ({ userContext, navigation }) => {
     // getAvatarFromStorage();
   }, []);
 
+  useEffect(() => {
+    if (route.params?.post) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, jobTitle } = route.params.post;
+      if (!name || !jobTitle ) {
+        console.warn('no name or jobtitle');
+        return
+      }
+      api.updateUser({ id: userId, name, jobTitle });
+    }
+  }, [route.params?.post]);
+
   const properties = {
-    submitProfileInfo,
+    // submitProfileInfo,
     pickImage,
     photo,
     form,

@@ -73,6 +73,7 @@ export default StyleSheet.create({
   input: {
     // borderColor: 'gray',
     // borderWidth: 1,
+    padding: 2,
     paddingLeft: 5,
     paddingRight: 5,
     marginTop: 0,

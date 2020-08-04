@@ -47,18 +47,19 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       }
     })();
   }, []);
+
   // Submit changes
   const handlePress = () => {};
   // Add a User to your team TODO: validation
-  const createUser = async () => {
+  const createUser = async (name, jobTitle, email) => {
     // TODO: invite email create user in UserPool
     const {
       data: { createUser: createdUser },
     } = await api
       .createUser({
-        name: newUser.name,
-        jobTitle: newUser.jobTitle,
-        email: newUser.email,
+        name,
+        jobTitle,
+        email,
       })
       .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
 
@@ -73,8 +74,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         console.log(errors);
       });
 
-    console.log(createdUser);
-    console.log(Object.keys(createTeamMemberLink));
+    // console.log(createdUser);
+    // console.log(Object.keys(createTeamMemberLink));
 
     if (!createTeamMemberLink.errors) {
       setTeamMembers([...teamMembers, { ...createTeamMemberLink, user: createdUser }]);
@@ -82,15 +83,43 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   };
 
+  useEffect(() => {
+    if (route.params?.newSkill) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, description } = route.params.newSkill;
+      if (!name || !description ) {
+        console.warn('no name or description for new skill');
+        return
+      }
+      createSkill(name, description)
+    }
+  }, [route.params?.newSkill]);
+
+  useEffect(() => {
+    console.log('run effect')
+    if (route.params?.newMember) {
+      console.log('creating new user')
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, jobTitle, email } = route.params.newMember;
+      if (!name || !jobTitle || !email ) {
+        console.warn('no name | jobTitle | email for new member');
+        return
+      }
+      createUser(name, jobTitle, email)
+    }
+  }, [route.params?.newMember]);
+
   // TODO: validation
-  const createSkill = async () => {
+  const createSkill = async (skillName, skillDescription) => {
     const {
       data: { createSkill: createdSkill },
     } = await api
       .createSkill({
         teamId: team.id,
-        name: newSkill.name.replace(/./, (m) => m.toUpperCase()), // First letter uppercase
-        description: newSkill.description,
+        name: skillName.replace(/./, (m) => m.toUpperCase()), // First letter uppercase
+        description: skillDescription,
       })
       .catch(({ errors }) => {
         console.log(errors);
@@ -155,8 +184,31 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     const {
       data: { deleteTeamMemberLink: result },
     } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
-    console.log(result);
+    // console.log(result);
+    
   };
+
+  const sendTeamEvaluations = async () => {
+    var user, evaluator, teamWithoutUser;
+    for (user of teamMembers) {
+      teamWithoutUser = teamMembers.filter((member)=>member.id!=user.id)
+      for (evaluator of teamWithoutUser) {
+        api.createEvaluationRequest({
+          userId: user.id,
+          evaluatorId: evaluator.id,
+          status: 'PENDING',
+        }).catch(({errors})=> {
+          console.log('Failed:')
+          console.log({
+            userId: userContext.id,
+            evaluatorId,
+          })
+          console.log(errors)
+        })
+      }
+    }
+  }
+
   const properties = {
     teamMembers,
     teamSkills,
@@ -173,6 +225,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     deleteMember,
     createSkill,
     navigation,
+    sendTeamEvaluations
   };
   return <UI {...properties} />;
 }

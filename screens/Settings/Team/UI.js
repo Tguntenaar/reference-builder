@@ -15,19 +15,14 @@ import BackButton from '../../../components/BackButton';
 const screen = ({
   teamMembers,
   teamSkills,
-  newUser,
-  setNewUser,
-  newSkill,
-  setNewSkill,
   teamName,
   setTeamName,
-  handlePress,
   createUser,
   updateHeader,
   deactivateSkill,
   deleteMember,
-  createSkill,
   navigation,
+  sendTeamEvaluations,
 }) => {
   // Random array of objects
   const foo = Array.from(Array(3).keys());
@@ -44,7 +39,6 @@ const screen = ({
         flexGrow: 1,
         justifyContent: 'space-between',
       }}
-      // style={styles.safe}
     >
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
@@ -59,7 +53,11 @@ const screen = ({
             value={teamName}
             placeholder="Team name"
           />
-          <NextButton title="Send team evaluations" textSize={14} />
+          <NextButton
+            title="Send team evaluations"
+            textSize={14}
+            onPress={() => sendTeamEvaluations()}
+          />
         </View>
         <View style={styles.middle}>
           {/** SKILLS */}
@@ -67,23 +65,16 @@ const screen = ({
             <Text style={styles.headerTitles}>Skills</Text>
             <TouchableOpacity
               onPress={() => {
-                Alert.prompt(
-                  'Skill Toevoegen',
-                  'Geef de naam een beschrijving van de skill',
-                  [
-                    {
-                      text: 'Ask me later',
-                      onPress: () => console.log('Ask me later pressed'),
-                    },
-                    {
-                      text: 'Cancel',
-                      onPress: () => console.log('Cancel Pressed'),
-                      style: 'cancel',
-                    },
-                    { text: 'OK', onPress: () => console.log('OK Pressed') },
-                  ],
-                  { cancelable: false }
-                );
+                navigation.navigate('Form', {
+                  name: 'Skills toevoegen',
+                  fields: ['name', 'description'],
+                  screen: 'TeamSettingsScreen',
+                  post: 'newSkill',
+                  form: {
+                    name: '',
+                    description: '',
+                  },
+                });
               }}
             >
               <View style={{ flexDirection: 'row' }}>
@@ -98,7 +89,6 @@ const screen = ({
                 <View
                   key={skill.id}
                   style={{
-                    // flexDirection: 'column',
                     paddingTop: 10,
                     paddingBottom: 10,
                   }}
@@ -120,27 +110,6 @@ const screen = ({
               <Text>Start adding skills your team should evaluate</Text>
             )}
           </View>
-
-          {/** 
-            TODO: move skill form
-          <TextInput
-            onChangeText={(text) => setNewSkill({ ...newSkill, name: text })}
-            value={newSkill.name}
-            placeholder="name"
-          />
-
-          <TextInput
-            onChangeText={(text) => setNewSkill({ ...newSkill, description: text })}
-            value={newSkill.description}
-            placeholder="description"
-          /> 
-        
-          <Button title="Submit" onPress={createSkill} />
-        */}
-
-          {/** END NEW SKILL FORM */}
-
-          {/** TEAM MEMBERS */}
           <View
             style={{
               marginTop: 50,
@@ -149,7 +118,21 @@ const screen = ({
             }}
           >
             <Text style={styles.headerTitles}>Members</Text>
-            <TouchableOpacity onPress={handlePress}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Form', {
+                  name: 'Invite members',
+                  fields: ['name', 'jobTitle', 'email'],
+                  screen: 'TeamSettingsScreen',
+                  post: 'newMember',
+                  form: {
+                    name: '',
+                    jobTitle: '',
+                    email: '',
+                  },
+                });
+              }}
+            >
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ color: 'blue' }}> Invite members </Text>
                 <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
@@ -172,7 +155,12 @@ const screen = ({
                       <Text style={styles.name}>{user.name}</Text>
                       <Text style={styles.jobTitle}>{user.jobTitle}</Text>
                     </View>
-                    <NextButton title="Send Evaluation" textSize={14} onPress={() => null} />
+                    <NextButton
+                      title="Send Evaluation"
+                      textSize={14}
+                      size={45}
+                      onPress={() => null}
+                    />
                     <TouchableOpacity onPress={() => deleteMember(teamMemberLinkId)}>
                       <Text style={styles.remove}>Remove</Text>
                     </TouchableOpacity>
@@ -184,29 +172,6 @@ const screen = ({
             )}
             <View style={{ height: 50 }} />
           </View>
-          {/**
-            TODO: move form to proper place
-            <TextInput
-            onChangeText={(text) => setNewUser({ ...newUser, name: text })}
-            value={newUser.name}
-            placeholder="name"
-          />
-
-          <TextInput
-            onChangeText={(text) => setNewUser({ ...newUser, jobTitle: text })}
-            value={newUser.jobTitle}
-            placeholder="jobtitle"
-          />
-
-          <TextInput
-            onChangeText={(text) => setNewUser({ ...newUser, email: text })}
-            value={newUser.email}
-            placeholder="email"
-          />
-
-          <Button title="Submit" onPress={createUser} />
-         */}
-          {/** END NEW USER FORM */}
         </View>
       </View>
     </ScrollView>
@@ -221,20 +186,17 @@ screen.propTypes = {
     jobTitle: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
   }).isRequired,
-  setNewUser: PropTypes.func.isRequired,
   newSkill: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
   }).isRequired,
-  setNewSkill: PropTypes.func.isRequired,
   teamName: PropTypes.string.isRequired,
   setTeamName: PropTypes.func.isRequired,
-  handlePress: PropTypes.func.isRequired,
   createUser: PropTypes.func.isRequired,
   updateHeader: PropTypes.func.isRequired,
   deactivateSkill: PropTypes.func.isRequired,
   deleteMember: PropTypes.func.isRequired,
-  createSkill: PropTypes.func.isRequired,
+  sendTeamEvaluations: PropTypes.func.isRequired,
 };
 
 screen.defaultProps = {};

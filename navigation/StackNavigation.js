@@ -162,7 +162,11 @@ function StackNavigation({ user }) {
         options={{ title: 'Company Settings' }}
       />
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
-      <Stack.Screen name="Form" component={Form} />
+      <Stack.Screen
+        name="Form"
+        component={Form}
+        options={({ route }) => ({ headerShown: false, title: route.params.name })}
+      />
     </Stack.Navigator>
   );
 }

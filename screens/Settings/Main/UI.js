@@ -10,7 +10,7 @@ import { imageEsther } from '../../../constants/Images';
 import styles from './style';
 
 const UI = ({
-  submitProfileInfo,
+  // submitProfileInfo,
   pickImage,
   photo,
   form,
@@ -39,34 +39,22 @@ const UI = ({
         <View style={styles.middle}>
           <View style={styles.names}>
             <View>
-              <TextInput
-                style={[styles.input, styles.inputName]}
-                clearTextOnFocus={false}
-                onChangeText={(text) => setForm({ ...form, username: text })}
-                value={form.username}
-                placeholder="username"
-                ref={inputElement}
-                onSubmitEditing={() => {
-                  secondInputElement.current.focus();
-                }}
-              />
-              <TextInput
-                style={[styles.input, styles.inputJobTitle]}
-                clearTextOnFocus={false}
-                onChangeText={(text) => setForm({ ...form, jobTitle: text })}
-                value={form.jobTitle}
-                placeholder="job title"
-                ref={secondInputElement}
-                onSubmitEditing={() => {
-                  // TODO: Spinning Loading wheel
-                  // Submit
-                  submitProfileInfo();
-                }}
-              />
+              <Text style={[styles.input, styles.inputName]}>{form.username}</Text>
+              <Text style={[styles.input, styles.inputJobTitle]}>{form.jobTitle}</Text>
             </View>
             <TouchableOpacity
               onPress={() => {
-                inputElement.current.focus();
+                // inputElement.current.focus();
+                navigation.navigate('Form', {
+                  name: 'Verander naam',
+                  fields: ['Name', 'Job title'],
+                  screen: 'SettingsScreen',
+                  post: 'post',
+                  form: {
+                    Name: form.username,
+                    'Job title': form.jobTitle,
+                  },
+                });
               }}
             >
               <Text style={styles.edit}>Edit</Text>
@@ -112,7 +100,7 @@ const UI = ({
 };
 
 UI.propTypes = {
-  submitProfileInfo: PropTypes.func.isRequired,
+  // submitProfileInfo: PropTypes.func.isRequired,
   pickImage: PropTypes.func.isRequired,
   photo: PropTypes.any,
   form: PropTypes.shape({ username: PropTypes.string, jobTitle: PropTypes.string }).isRequired,
