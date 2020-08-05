@@ -61,12 +61,7 @@ function sendEmail(record, event, context, callback) {
     }
   });
 }
-/**
- *
- * @param {*} event
- * @param {*} context
- * @param {*} callback
- */
+
 exports.handler = (event, context, callback) => {
   // try {
   // trim down to just "INSERT" events
@@ -94,7 +89,7 @@ exports.handler = (event, context, callback) => {
       // SMS | EMAIL,
       /* more items */
     ],
-    ForceAliasCreation: 'true', // || false,
+    ForceAliasCreation: true, // || false,
     MessageAction: 'RESEND', // RESEND | SUPPRESS,
     // TemporaryPassword: 'STRING_VALUE', auto generates
     UserAttributes: [
@@ -151,7 +146,6 @@ exports.handler = (event, context, callback) => {
       } else {
         console.log('admin create user callback');
         console.log(data);
-        // TODO: Send another email with download links email
         res(data);
       } // successful response
     });

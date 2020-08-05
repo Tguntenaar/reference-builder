@@ -114,12 +114,28 @@
 					]
 				}
 			]
+		},
+		"S3Trigger48a2ce85": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	},
 	"storage": {
 		"profilepictures": {
 			"service": "S3",
-			"providerPlugin": "awscloudformation"
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "S3Trigger48a2ce85",
+					"attributes": [
+						"Name",
+						"Arn",
+						"LambdaExecutionRole"
+					]
+				}
+			]
 		}
 	}
 }
