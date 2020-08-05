@@ -70,10 +70,18 @@ const screen = ({
                   fields: ['name', 'description'],
                   screen: 'TeamSettingsScreen',
                   post: 'newSkill',
-                  form: {
-                    name: '',
-                    description: '',
-                  },
+                  form: [
+                    {
+                      text: 'Name',
+                      key: 'name',
+                      value: '',
+                    },
+                    {
+                      text: 'Description',
+                      key: 'description',
+                      value: '',
+                    },
+                  ],
                 });
               }}
             >
@@ -125,11 +133,23 @@ const screen = ({
                   fields: ['name', 'jobTitle', 'email'],
                   screen: 'TeamSettingsScreen',
                   post: 'newMember',
-                  form: {
-                    name: '',
-                    jobTitle: '',
-                    email: '',
-                  },
+                  form: [
+                    {
+                      text: 'Name',
+                      key: 'name',
+                      value: '',
+                    },
+                    {
+                      text: 'Job title',
+                      key: 'jobTitle',
+                      value: '',
+                    },
+                    {
+                      text: 'E-mail',
+                      key: 'email',
+                      value: '',
+                    },
+                  ],
                 });
               }}
             >

@@ -37,15 +37,6 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     // set avatar
     setAvatar({ uri: url });
   };
-
-  const submitProfileInfo = () => {
-    const updateUserInput = {
-      id: userId,
-      name: username,
-      jobTitle,
-    };
-    api.updateUser(updateUserInput);
-  };
   const pickImage = () => {
     const options = {
       noData: true,
@@ -94,7 +85,9 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
         console.warn('no name or jobtitle');
         return
       }
+      console.log(route.params.post)
       api.updateUser({ id: userId, name, jobTitle });
+      setForm({username: name, jobTitle})
     }
   }, [route.params?.post]);
 

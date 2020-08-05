@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Image, Text, StatusBar, TouchableOpacity } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
 // aws
 import { S3Image } from 'aws-amplify-react-native';
 import NextButton from '../../../components/NextButton';
@@ -20,8 +19,6 @@ const UI = ({
   teamLinks,
   navigation,
 }) => {
-  const inputElement = useRef(null);
-  const secondInputElement = useRef(null);
   return (
     <View style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -47,13 +44,21 @@ const UI = ({
                 // inputElement.current.focus();
                 navigation.navigate('Form', {
                   name: 'Verander naam',
-                  fields: ['Name', 'Job title'],
+
                   screen: 'SettingsScreen',
                   post: 'post',
-                  form: {
-                    Name: form.username,
-                    'Job title': form.jobTitle,
-                  },
+                  form: [
+                    {
+                      text: 'Name',
+                      key: 'name',
+                      value: form.username,
+                    },
+                    {
+                      text: 'Job Title',
+                      key: 'jobTitle',
+                      value: form.jobTitle,
+                    },
+                  ],
                 });
               }}
             >
@@ -65,9 +70,9 @@ const UI = ({
         </View>
         <View style={styles.bottom}>
           {teamLinks.map(function (link) {
-            console.log(link.team);
+            // console.log(link.team);
             return (
-              <View style={styles.card}>
+              <View style={styles.card} key={link.id}>
                 <View style={styles.imageContainer}>
                   <Image
                     style={styles.teamImage}

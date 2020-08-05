@@ -19,18 +19,22 @@ const UI = ({ fields, form, setForm, navigation, route }) => {
         <Text style={styles.pageTitle}>{route.params.name}</Text>
       </View>
       <View style={styles.middle}>
-        {fields.map((input) => {
+        {form.map((input, index) => {
           return (
-            <TextInput
-              key={input}
-              clearTextOnFocus={false}
-              onChangeText={(text) => {
-                setForm({ ...form, [`${input}`]: text });
-              }}
-              style={styles.input}
-              value={form[input]}
-              placeholder={input}
-            />
+            <View key={input.text}>
+              <TextInput
+                clearTextOnFocus={false}
+                onChangeText={(text) => {
+                  // eslint-disable-next-line prefer-const
+                  let tempForm = form.slice();
+                  tempForm[index] = { ...tempForm[index], value: text };
+                  setForm(tempForm);
+                }}
+                style={styles.input}
+                value={form[index].value}
+                placeholder={form[index].text}
+              />
+            </View>
           );
         })}
       </View>
@@ -39,9 +43,11 @@ const UI = ({ fields, form, setForm, navigation, route }) => {
         <NextButton
           title="Submit"
           onPress={() => {
-            // TODO: fill return Obj
             const returnObj = {};
-
+            form.forEach((element) => {
+              returnObj[element.key] = element.value;
+            });
+            console.log(returnObj);
             navigation.navigate(route.params.screen, {
               [`${route.params.post}`]: returnObj,
             });
@@ -63,7 +69,7 @@ UI.propTypes = {
   navigation: PropTypes.object.isRequired,
   fields: PropTypes.arrayOf(PropTypes.string),
   setForm: PropTypes.func,
-  form: PropTypes.object.isRequired,
+  form: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 UI.defaultProps = {

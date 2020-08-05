@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   top: {
     height: 0.2 * height,
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   userInfo: {
+    marginTop: 5,
     width: width - imageSize - 70,
   },
   name: {
