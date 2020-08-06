@@ -2,14 +2,10 @@
 	API_REFERENCEBUILDER_GRAPHQLAPIENDPOINTOUTPUT
 	API_REFERENCEBUILDER_GRAPHQLAPIIDOUTPUT
 	API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT
-	API_REFERENCEBUILDER_TEAMTABLE_ARN
-	API_REFERENCEBUILDER_TEAMTABLE_NAME
-	API_REFERENCEBUILDER_USERTABLE_ARN
-	API_REFERENCEBUILDER_USERTABLE_NAME
 	ENV
 	REGION
-	STORAGE_PROFILEPICTURES_BUCKETNAME
-Amplify Params - DO NOT EDIT *//* Amplify Params - DO NOT EDIT
+Amplify Params - DO NOT EDIT */
+/* Amplify Params - DO NOT EDIT
 You can access the following resource attributes as environment variables from your Lambda function
 var environment = process.env.ENV
 var region = process.env.REGION
@@ -44,6 +40,7 @@ let client = null;
 
 async function storePhotoInfo(item) {
   console.log('storePhotoItem', JSON.stringify(item));
+  // Update User or Team
   const createPhoto = gql`
     mutation CreatePhoto($input: CreatePhotoInput!, $condition: ModelPhotoConditionInput) {
       createPhoto(input: $input, condition: $condition) {
@@ -201,3 +198,13 @@ exports.handler = async (event, context, callback) => {
     callback(err);
   }
 };
+
+// // eslint-disable-next-line
+// exports.handler = function(event, context) {
+//   console.log('Received S3 event:', JSON.stringify(event, null, 2));
+//   // Get the object from the event and show its content type
+//   const bucket = event.Records[0].s3.bucket.name; //eslint-disable-line
+//   const key = event.Records[0].s3.object.key; //eslint-disable-line
+//   console.log(`Bucket: ${bucket}`, `Key: ${key}`);
+//   context.done(null, 'Successfully processed S3 event'); // SUCCESS with message
+// };

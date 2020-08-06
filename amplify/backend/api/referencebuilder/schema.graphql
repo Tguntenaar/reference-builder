@@ -18,6 +18,7 @@ type Team
   @key(name: "TeamsByCompany", fields: ["companyId", "createdAt"]) { # team has many users
   id: ID!
   createdAt: AWSDateTime
+  avatar: S3Object
   name: String!
   admins: [ID!]
   companyId: ID!

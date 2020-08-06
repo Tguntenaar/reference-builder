@@ -1,93 +1,104 @@
 {
-	"auth": {
-		"toptabtestc335db9c": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	},
-	"api": {
-		"referencebuilder": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [
-						{
-							"authenticationType": "AWS_IAM"
-						}
-					],
-					"defaultAuthentication": {
-						"authenticationType": "API_KEY",
-						"apiKeyConfig": {
-							"apiKeyExpirationDays": 180,
-							"description": "newapikey-referencebuilder"
-						}
-					}
-				}
-			}
-		}
-	},
-	"function": {
-		"onCreateUser": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda",
-			"dependsOn": [
-				{
-					"category": "api",
-					"resourceName": "referencebuilder",
-					"attributes": [
-						"GraphQLAPIIdOutput",
-						"GraphQLAPIEndpointOutput"
-					]
-				},
-				{
-					"category": "auth",
-					"resourceName": "toptabtestc335db9c",
-					"attributes": [
-						"UserPoolId"
-					]
-				}
-			]
-		},
-		"aggregateRatings": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda",
-			"dependsOn": [
-				{
-					"category": "api",
-					"resourceName": "referencebuilder",
-					"attributes": [
-						"GraphQLAPIIdOutput",
-						"GraphQLAPIEndpointOutput",
-						"GraphQLAPIKeyOutput"
-					]
-				}
-			]
-		},
-		"S3Trigger48a2ce85": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true
-		}
-	},
-	"storage": {
-		"profilepictures": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "S3Trigger48a2ce85",
-					"attributes": [
-						"Name",
-						"Arn",
-						"LambdaExecutionRole"
-					]
-				}
-			]
-		}
-	}
+    "auth": {
+        "toptabtestc335db9c": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    },
+    "api": {
+        "referencebuilder": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [
+                        {
+                            "authenticationType": "AWS_IAM"
+                        }
+                    ],
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "apiKeyExpirationDays": 180,
+                            "description": "referenceBuilderGraphqlKey"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "function": {
+        "onCreateUser": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "referencebuilder",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput"
+                    ]
+                },
+                {
+                    "category": "auth",
+                    "resourceName": "toptabtestc335db9c",
+                    "attributes": [
+                        "UserPoolId"
+                    ]
+                }
+            ]
+        },
+        "aggregateRatings": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "referencebuilder",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                }
+            ]
+        },
+        "S3Trigger67de4a9a": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "api",
+                    "resourceName": "referencebuilder",
+                    "attributes": [
+                        "GraphQLAPIIdOutput",
+                        "GraphQLAPIEndpointOutput",
+                        "GraphQLAPIKeyOutput"
+                    ]
+                }
+            ]
+        }
+    },
+    "storage": {
+        "profileAndTeamAvatars": {
+            "service": "S3",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "S3Trigger67de4a9a",
+                    "attributes": [
+                        "Name",
+                        "Arn",
+                        "LambdaExecutionRole"
+                    ]
+                }
+            ]
+        }
+    }
 }

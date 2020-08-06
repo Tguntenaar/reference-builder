@@ -1,6 +1,6 @@
 {
     "identityPoolName": "toptabtestc335db9c_identitypool_c335db9c",
-    "allowUnauthenticatedIdentities": true,
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "toptabc335db9c",
     "userPoolName": "toptabtestc335db9c_userpool_c335db9c",
     "autoVerifiedAttributes": [

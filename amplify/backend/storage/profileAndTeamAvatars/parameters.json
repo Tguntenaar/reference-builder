@@ -1,7 +1,7 @@
 {
-    "bucketName": "referencebuilder",
-    "authPolicyName": "s3_amplify_6bf5cff2",
-    "unauthPolicyName": "s3_amplify_6bf5cff2",
+    "bucketName": "reference-builer-avatars-dev",
+    "authPolicyName": "s3_amplify_683a01a2",
+    "unauthPolicyName": "s3_amplify_683a01a2",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },
@@ -9,10 +9,8 @@
         "Ref": "UnauthRoleName"
     },
     "selectedGuestPermissions": [
-        "s3:PutObject",
         "s3:GetObject",
-        "s3:ListBucket",
-        "s3:DeleteObject"
+        "s3:ListBucket"
     ],
     "selectedAuthenticatedPermissions": [
         "s3:PutObject",
@@ -21,17 +19,17 @@
         "s3:DeleteObject"
     ],
     "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:GetObject,s3:DeleteObject",
-    "s3PublicPolicy": "Public_policy_aa8237c9",
+    "s3PublicPolicy": "Public_policy_d2a7fd1d",
     "s3PermissionsAuthenticatedUploads": "s3:PutObject",
-    "s3UploadsPolicy": "Uploads_policy_aa8237c9",
+    "s3UploadsPolicy": "Uploads_policy_d2a7fd1d",
     "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:GetObject,s3:DeleteObject",
-    "s3ProtectedPolicy": "Protected_policy_2fb04e85",
+    "s3ProtectedPolicy": "Protected_policy_d2a7fd1d",
     "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject,s3:DeleteObject",
-    "s3PrivatePolicy": "Private_policy_2fb04e85",
+    "s3PrivatePolicy": "Private_policy_d2a7fd1d",
     "AuthenticatedAllowList": "ALLOW",
-    "s3ReadPolicy": "read_policy_aa8237c9",
-    "s3PermissionsGuestPublic": "s3:PutObject,s3:GetObject,s3:DeleteObject",
-    "s3PermissionsGuestUploads": "s3:PutObject",
-    "GuestAllowList": "ALLOW",
-    "triggerFunction": "S3Trigger48a2ce85"
+    "s3ReadPolicy": "read_policy_d2a7fd1d",
+    "s3PermissionsGuestPublic": "DISALLOW",
+    "s3PermissionsGuestUploads": "DISALLOW",
+    "GuestAllowList": "DISALLOW",
+    "triggerFunction": "S3Trigger67de4a9a"
 }

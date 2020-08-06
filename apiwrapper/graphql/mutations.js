@@ -14,6 +14,11 @@ export const createCompany = /* GraphQL */ `
         items {
           id
           createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
           name
           admins
           companyId
@@ -25,6 +30,11 @@ export const createCompany = /* GraphQL */ `
               items {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -90,6 +100,11 @@ export const createCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -135,6 +150,11 @@ export const createCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -195,6 +215,11 @@ export const updateCompany = /* GraphQL */ `
         items {
           id
           createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
           name
           admins
           companyId
@@ -206,6 +231,11 @@ export const updateCompany = /* GraphQL */ `
               items {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -271,6 +301,11 @@ export const updateCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -316,6 +351,11 @@ export const updateCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -376,6 +416,11 @@ export const deleteCompany = /* GraphQL */ `
         items {
           id
           createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
           name
           admins
           companyId
@@ -387,6 +432,11 @@ export const deleteCompany = /* GraphQL */ `
               items {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -452,6 +502,11 @@ export const deleteCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -497,6 +552,11 @@ export const deleteCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -552,6 +612,11 @@ export const createTeam = /* GraphQL */ `
     createTeam(input: $input, condition: $condition) {
       id
       createdAt
+      avatar {
+        bucket
+        region
+        key
+      }
       name
       admins
       companyId
@@ -563,6 +628,11 @@ export const createTeam = /* GraphQL */ `
           items {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -848,6 +918,11 @@ export const createTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -962,6 +1037,11 @@ export const createTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -1081,6 +1161,11 @@ export const updateTeam = /* GraphQL */ `
     updateTeam(input: $input, condition: $condition) {
       id
       createdAt
+      avatar {
+        bucket
+        region
+        key
+      }
       name
       admins
       companyId
@@ -1092,6 +1177,11 @@ export const updateTeam = /* GraphQL */ `
           items {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -1377,6 +1467,11 @@ export const updateTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -1491,6 +1586,11 @@ export const updateTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -1610,6 +1710,11 @@ export const deleteTeam = /* GraphQL */ `
     deleteTeam(input: $input, condition: $condition) {
       id
       createdAt
+      avatar {
+        bucket
+        region
+        key
+      }
       name
       admins
       companyId
@@ -1621,6 +1726,11 @@ export const deleteTeam = /* GraphQL */ `
           items {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -1906,6 +2016,11 @@ export const deleteTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -2020,6 +2135,11 @@ export const deleteTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -2238,6 +2358,11 @@ export const createTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -3129,6 +3254,11 @@ export const createTeamMemberLink = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -3140,6 +3270,11 @@ export const createTeamMemberLink = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -3281,6 +3416,11 @@ export const createTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -3354,6 +3494,11 @@ export const createTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -3534,6 +3679,11 @@ export const updateTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -4425,6 +4575,11 @@ export const updateTeamMemberLink = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -4436,6 +4591,11 @@ export const updateTeamMemberLink = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -4577,6 +4737,11 @@ export const updateTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -4650,6 +4815,11 @@ export const updateTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -4830,6 +5000,11 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -5721,6 +5896,11 @@ export const deleteTeamMemberLink = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -5732,6 +5912,11 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -5873,6 +6058,11 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -5946,6 +6136,11 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -6225,6 +6420,11 @@ export const createUser = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -8327,6 +8527,11 @@ export const updateUser = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -10429,6 +10634,11 @@ export const deleteUser = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -12432,6 +12642,11 @@ export const createEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -13419,6 +13634,11 @@ export const createEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -14633,6 +14853,11 @@ export const updateEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -15620,6 +15845,11 @@ export const updateEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -16834,6 +17064,11 @@ export const deleteEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -17821,6 +18056,11 @@ export const deleteEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -18990,6 +19230,11 @@ export const createRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -19435,6 +19680,11 @@ export const createRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -20011,6 +20261,11 @@ export const updateRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -20456,6 +20711,11 @@ export const updateRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -21032,6 +21292,11 @@ export const deleteRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -21477,6 +21742,11 @@ export const deleteRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -22097,6 +22367,11 @@ export const createAverageUserRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -23108,6 +23383,11 @@ export const updateAverageUserRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -24119,6 +24399,11 @@ export const deleteAverageUserRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25035,6 +25320,11 @@ export const createAverageTeamRating = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -25046,6 +25336,11 @@ export const createAverageTeamRating = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25187,6 +25482,11 @@ export const createAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25260,6 +25560,11 @@ export const createAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25356,6 +25661,11 @@ export const updateAverageTeamRating = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -25367,6 +25677,11 @@ export const updateAverageTeamRating = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25508,6 +25823,11 @@ export const updateAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25581,6 +25901,11 @@ export const updateAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25677,6 +26002,11 @@ export const deleteAverageTeamRating = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -25688,6 +26018,11 @@ export const deleteAverageTeamRating = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25829,6 +26164,11 @@ export const deleteAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -25902,6 +26242,11 @@ export const deleteAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -26142,6 +26487,11 @@ export const createEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -27129,6 +27479,11 @@ export const createEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -28129,6 +28484,11 @@ export const updateEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -29116,6 +29476,11 @@ export const updateEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -30116,6 +30481,11 @@ export const deleteEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -31103,6 +31473,11 @@ export const deleteEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId

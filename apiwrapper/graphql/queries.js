@@ -11,6 +11,11 @@ export const getCompany = /* GraphQL */ `
         items {
           id
           createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
           name
           admins
           companyId
@@ -22,6 +27,11 @@ export const getCompany = /* GraphQL */ `
               items {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -87,6 +97,11 @@ export const getCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -132,6 +147,11 @@ export const getCompany = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -194,6 +214,11 @@ export const listCompanys = /* GraphQL */ `
           items {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -298,6 +323,11 @@ export const getTeam = /* GraphQL */ `
     getTeam(id: $id) {
       id
       createdAt
+      avatar {
+        bucket
+        region
+        key
+      }
       name
       admins
       companyId
@@ -309,6 +339,11 @@ export const getTeam = /* GraphQL */ `
           items {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -594,6 +629,11 @@ export const getTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -708,6 +748,11 @@ export const getTeam = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -829,6 +874,11 @@ export const listTeams = /* GraphQL */ `
       items {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -840,6 +890,11 @@ export const listTeams = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -981,6 +1036,11 @@ export const listTeams = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -1054,6 +1114,11 @@ export const listTeams = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -1329,6 +1394,11 @@ export const getUser = /* GraphQL */ `
           team {
             id
             createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
             name
             admins
             companyId
@@ -3330,6 +3400,11 @@ export const listUsers = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -4326,6 +4401,11 @@ export const getEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -5313,6 +5393,11 @@ export const getEvaluation = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -6481,6 +6566,11 @@ export const listEvaluations = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -6926,6 +7016,11 @@ export const listEvaluations = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -7487,6 +7582,11 @@ export const getRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -7932,6 +8032,11 @@ export const getRating = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -8996,6 +9101,11 @@ export const getAverageUserRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -9965,6 +10075,11 @@ export const listAverageUserRatings = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -10386,6 +10501,11 @@ export const getAverageTeamRating = /* GraphQL */ `
       team {
         id
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
         name
         admins
         companyId
@@ -10397,6 +10517,11 @@ export const getAverageTeamRating = /* GraphQL */ `
             items {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -10538,6 +10663,11 @@ export const getAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -10611,6 +10741,11 @@ export const getAverageTeamRating = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -10713,6 +10848,11 @@ export const listAverageTeamRatings = /* GraphQL */ `
         team {
           id
           createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
           name
           admins
           companyId
@@ -10724,6 +10864,11 @@ export const listAverageTeamRatings = /* GraphQL */ `
               items {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -10789,6 +10934,11 @@ export const listAverageTeamRatings = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -10834,6 +10984,11 @@ export const listAverageTeamRatings = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -11030,6 +11185,11 @@ export const getEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -12017,6 +12177,11 @@ export const getEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -12975,6 +13140,11 @@ export const listEvaluationRequests = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -13420,6 +13590,11 @@ export const listEvaluationRequests = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -13892,6 +14067,11 @@ export const evaluationsByUser = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId
@@ -14337,6 +14517,11 @@ export const evaluationsByUser = /* GraphQL */ `
               team {
                 id
                 createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
                 name
                 admins
                 companyId

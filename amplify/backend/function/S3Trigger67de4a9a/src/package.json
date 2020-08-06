@@ -1,5 +1,5 @@
 {
-  "name": "s3TriggerResizeToThumbnail",
+  "name": "S3TriggerPhotoToThumbnail",
   "version": "1.0.0",
   "description": "The photo uploads processor",
   "main": "index.js",

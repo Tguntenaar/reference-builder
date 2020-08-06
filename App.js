@@ -3,11 +3,6 @@
  * TODO:
  * Concepts to implement/investigate
  * - useEffect Hook
- * - Context
- * - Redux Store
- * - Presentational vs Container components -> classes -> functions
- * - subscribe to what data?
- * - circle overnemen van Fiverr
  * - team settings screen
  * - user settings screen
  */

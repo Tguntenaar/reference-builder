@@ -1,8 +1,7 @@
 /* Amplify Params - DO NOT EDIT
 	API_REFERENCEBUILDER_GRAPHQLAPIENDPOINTOUTPUT
 	API_REFERENCEBUILDER_GRAPHQLAPIIDOUTPUT
-  API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT
-
+	API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */ /* eslint-disable no-restricted-syntax */
@@ -40,7 +39,7 @@ exports.handler = async (event) => {
       url: process.env.API_URL,
       method: 'post',
       headers: {
-        'x-api-key': process.env.API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT,
+        'x-api-key': '', // process.env.API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT,
       },
       data: {
         query: print(listTodos),

@@ -105,6 +105,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -1092,6 +1097,11 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -2089,6 +2099,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -3076,6 +3091,11 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -4073,6 +4093,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
@@ -5060,6 +5085,11 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
             team {
               id
               createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
               name
               admins
               companyId
