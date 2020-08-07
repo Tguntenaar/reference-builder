@@ -41,7 +41,9 @@ type TeamMemberLink
   team: Team @connection(fields: ["teamId"])
 }
 
-type User @model(subscriptions: null) {
+type User
+  @auth(rules: [{ allow: owner }, { allow: private, provider: iam }])
+  @model(subscriptions: null) {
   # @auth(rules: [
   #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
   #   ])

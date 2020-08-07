@@ -11,7 +11,7 @@ import styles from './style';
 const UI = ({
   // submitProfileInfo,
   pickImage,
-  photo,
+  profilePicture,
   form,
   setForm,
   selectedTeam,
@@ -28,7 +28,7 @@ const UI = ({
             <BackButton onPress={() => navigation.goBack()} />
           </View>
           <Text style={styles.pageTitle}>Settings</Text>
-          <Image style={styles.image} source={(photo && { uri: photo.uri }) || imageEsther} />
+          <Image style={styles.image} source={profilePicture || imageEsther} />
           <TouchableOpacity onPress={pickImage}>
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>
@@ -74,10 +74,8 @@ const UI = ({
             return (
               <View style={styles.card} key={link.id}>
                 <View style={styles.imageContainer}>
-                  <Image
-                    style={styles.teamImage}
-                    source={(photo && { uri: photo.uri }) || imageEsther}
-                  />
+                  <Image style={styles.teamImage} source={imageEsther} />
+                  {/** (photo && { uri: photo.uri, cache: 'force-cache' }) */}
                 </View>
                 <View style={styles.innerCard}>
                   <Text style={styles.teamName}>{link.team.name}</Text>
@@ -107,7 +105,7 @@ const UI = ({
 UI.propTypes = {
   // submitProfileInfo: PropTypes.func.isRequired,
   pickImage: PropTypes.func.isRequired,
-  photo: PropTypes.any,
+  profilePicture: PropTypes.any,
   form: PropTypes.shape({ username: PropTypes.string, jobTitle: PropTypes.string }).isRequired,
   setForm: PropTypes.func.isRequired,
   selectedTeam: PropTypes.string.isRequired,

@@ -18,24 +18,22 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     jobTitle,
     teamsLink: { items: teamLinks },
   } = userContext;
-
-  // const [{ team }] = teamLinks;
-  const team = { name: 'test', id: '0' };
+  const team ={id:'0', 'name':'something'} // TODO: TODO: TODO:
+  const teamId = team.id
+  // const {team: {id: teamId}} = teamLinks[0];
+  // console.log(teamId)
   // console.log(team.name);
   // console.log(teams.items[0].team.name);
 
-  const [photo, setAvatar] = useState();
+  const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
   const [selectedTeam, setSelectedTeam] = useState(team.name);
 
   const getAvatarFromStorage = async () => {
-    // get photo
-    const url = await Storage.get(`${path}/${team.name}${team.id}/avatar${id}.jpeg`).catch(() =>
+    const url = await Storage.get(`${path}/${teamId}/avatar${userId}.jpeg`).catch(() =>
       console.log(`ERROR: Can't get() image`)
     );
-    // console.log({url})
-    // set avatar
-    setAvatar({ uri: url });
+    setAvatar({ uri: url, cache: 'force-cache' });
   };
   const pickImage = () => {
     const options = {
@@ -64,16 +62,17 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
 
       const blob = await response.blob();
 
-      Storage.put(`${path}/${team.name}${team.id}/avatar${id}.jpeg`, blob, {
+      Storage.put(`${path}/${teamId}/avatar${userId}.jpeg`, blob, {
         contentType: 'image/jpeg',
       });
+      console.log('uploaded to storage')
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    // getAvatarFromStorage();
+    getAvatarFromStorage();
   }, []);
 
   useEffect(() => {
@@ -94,7 +93,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
   const properties = {
     // submitProfileInfo,
     pickImage,
-    photo,
+    profilePicture,
     form,
     setForm,
     selectedTeam,

@@ -16,6 +16,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
+import { Asset } from 'expo-asset';
 
 import { NavigationContainer } from '@react-navigation/native';
 // import useLinking from './navigation/useLinking'; TODO: app.json
@@ -49,6 +50,19 @@ const defaultUser = {
     items: [],
   },
 };
+
+function cacheImages(images) {
+  return images.map((image) => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
+    }
+    return Asset.fromModule(image).downloadAsync();
+  });
+}
+
+function cacheFonts(fonts) {
+  return fonts.map((font) => Font.loadAsync(font));
+}
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [user, setUser] = useState(defaultUser);
@@ -104,6 +118,7 @@ function App(props) {
         });
 
         await loadAuth();
+        // TODO: prefetch images
         // await loadUserContext();
       } catch (e) {
         // We might want to provide this error information to an error reporting service
