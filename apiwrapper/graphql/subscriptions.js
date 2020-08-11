@@ -139,6 +139,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -684,6 +685,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -881,6 +883,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -985,6 +988,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              forManager
               active
               createdAt
               updatedAt
@@ -1131,6 +1135,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -1676,6 +1681,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -1873,6 +1879,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -1977,6 +1984,7 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              forManager
               active
               createdAt
               updatedAt
@@ -2133,6 +2141,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -2678,6 +2687,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -2875,6 +2885,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -2979,6 +2990,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              forManager
               active
               createdAt
               updatedAt
@@ -3125,6 +3137,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -3670,6 +3683,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -3867,6 +3881,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -3971,6 +3986,7 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              forManager
               active
               createdAt
               updatedAt
@@ -4127,6 +4143,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -4672,6 +4689,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -4869,6 +4887,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -4973,6 +4992,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              forManager
               active
               createdAt
               updatedAt
@@ -5119,6 +5139,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -5664,6 +5685,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -5861,6 +5883,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                   teamId
                   name
                   description
+                  forManager
                   active
                   createdAt
                   updatedAt
@@ -5965,6 +5988,7 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               teamId
               name
               description
+              forManager
               active
               createdAt
               updatedAt

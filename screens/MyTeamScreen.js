@@ -4,6 +4,7 @@ import TeamMember from '../components/TeamMemberBox';
 import PopUpModal from '../components/Modal';
 import withUser from '../contexts/withUser';
 import api from '../apiwrapper';
+import { width } from '../constants/Utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,13 +16,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 50,
   },
+  text: {
+    fontSize: 20,
+    width: width - 40,
+    padding: 2,
+    fontFamily: 'CooperHewitt-Medium',
+  },
 });
 
 const TeamList = ({ sendEvaluationRequest, teamMembers, team, navigation }) => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
+      <Text style={[styles.text]}>Manager</Text>
+      {teamMembers.map((teamMember) => {
+        if (teamMember.id === '18bf6146-bef5-4b05-a0bd-7aa8b8e4d030') {
+          // FIXME: condition?
+          return (
+            <TeamMember
+              teamMember={teamMember}
+              key={teamMember.id}
+              picture={teamMember.avatar}
+              navigation={navigation}
+              onPress={sendEvaluationRequest}
+              color="rgb(212,214,255)"
+            />
+          );
+        }
+      })}
+      <Text style={[styles.text]}>Members ({teamMembers.length - 1})</Text>
       {teamMembers.length ? (
         teamMembers.map((teamMember) => (
+          // TODO: filter manager
           <TeamMember
             teamMember={teamMember}
             key={teamMember.id}

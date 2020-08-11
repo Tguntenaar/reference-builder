@@ -49,6 +49,19 @@ const style = StyleSheet.create({
     alignItems: 'center',
     // marginBottom: 100,
   },
+  inActive: {
+    marginTop: 10,
+    borderWidth: 1,
+    borderColor: 'rgb(34,34,34)',
+    borderRadius: 20,
+    height: 40,
+    // width: 114,
+    paddingLeft: 10,
+    marginRight: 10,
+    paddingRight: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
 });
 
 export default style;

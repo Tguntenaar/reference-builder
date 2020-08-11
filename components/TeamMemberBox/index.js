@@ -6,19 +6,22 @@ import NextButton from '../NextButton';
 import { imageEsther } from '../../constants/Images';
 import styles from './style';
 
-const TeamMember = ({ teamMember, onPress }) => {
+const TeamMember = ({ teamMember, onPress, color }) => {
   const handlePress = () => {
     onPress(teamMember.id);
   };
+  console.log(teamMember.id);
   return (
-    <View style={styles.Box}>
+    <View style={[styles.Box, { backgroundColor: color }]}>
       <View style={styles.circleBox}>
         <Image style={styles.image} source={imageEsther} />
       </View>
       <View style={styles.textBox}>
         <Text style={styles.title}>{teamMember.name}</Text>
         <Text style={styles.description}>{teamMember.jobTitle}</Text>
-        <NextButton size={45} textSize={15} title="Request evaluation" onPress={handlePress} />
+        {/**
+          <NextButton size={45} textSize={15} title="Request evaluation" onPress={handlePress} />
+        */}
       </View>
     </View>
   );
@@ -30,7 +33,12 @@ TeamMember.propTypes = {
     name: PropTypes.string,
     jobTitle: PropTypes.string,
   }).isRequired,
+  color: PropTypes.string,
   onPress: PropTypes.func.isRequired,
+};
+
+TeamMember.defaultProps = {
+  color: 'rgb(239,244,253)',
 };
 
 export default TeamMember;

@@ -22,6 +22,7 @@ const screen = ({
   deactivateSkill,
   deleteMember,
   navigation,
+  navigateToForm,
   sendTeamEvaluations,
 }) => {
   // Random array of objects
@@ -56,7 +57,7 @@ const screen = ({
           <NextButton
             title="Send team evaluations"
             textSize={14}
-            onPress={() => sendTeamEvaluations()}
+            onPress={() => navigation.navigate('SendRequests')}
           />
         </View>
         <View style={styles.middle}>
@@ -65,24 +66,7 @@ const screen = ({
             <Text style={styles.headerTitles}>Skills</Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Form', {
-                  name: 'Skills toevoegen',
-                  fields: ['name', 'description'],
-                  screen: 'TeamSettingsScreen',
-                  post: 'newSkill',
-                  form: [
-                    {
-                      text: 'Name',
-                      key: 'name',
-                      value: '',
-                    },
-                    {
-                      text: 'Description',
-                      key: 'description',
-                      value: '',
-                    },
-                  ],
-                });
+                navigateToForm();
               }}
             >
               <View style={{ flexDirection: 'row' }}>

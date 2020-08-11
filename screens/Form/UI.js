@@ -1,11 +1,13 @@
 import React from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { Text, View, TextInput, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './style';
 import NextButton from '../../components/NextButton';
 import BackButton from '../../components/BackButton';
 
-const UI = ({ fields, form, setForm, navigation, route }) => {
+const UI = ({ fields, form, setForm, activateType, navigation, route }) => {
+  const a = ['4861079b-92ec-456b-9f47-7bd39eafa184', 2, 3, 4, 5];
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -49,11 +51,30 @@ const UI = ({ fields, form, setForm, navigation, route }) => {
             });
             console.log(returnObj);
             navigation.navigate(route.params.screen, {
+              // dynamic post name
               [`${route.params.post}`]: returnObj,
             });
           }}
         />
       </View>
+      <ScrollView
+        contentContainerStyle={styles.bottom}
+        style={{ flexGrow: 1, backgroundColor: 'red' }}
+      >
+        {a.map((num) => {
+          return (
+            <TouchableOpacity
+              key={num}
+              onPress={() => {
+                activateType(num);
+              }}
+              style={styles.inActive}
+            >
+              <Text> {num} </Text>
+            </TouchableOpacity>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };
@@ -69,6 +90,7 @@ UI.propTypes = {
   navigation: PropTypes.object.isRequired,
   fields: PropTypes.arrayOf(PropTypes.string),
   setForm: PropTypes.func,
+  activateType: PropTypes.func,
   form: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

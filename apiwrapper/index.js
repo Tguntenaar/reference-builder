@@ -58,6 +58,9 @@ const skill = {
   createSkill: (input) => {
     return API.graphql(graphqlOperation(mutations.createSkill, { input }));
   },
+  updateSkill: (input) => {
+    return API.graphql(graphqlOperation(mutations.updateSkill, { input }));
+  },
   deleteSkill: (skillId) => {
     return API.graphql(
       graphqlOperation(mutations.updateSkill, {

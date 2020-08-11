@@ -42,7 +42,7 @@ type TeamMemberLink
 }
 
 type User
-  @auth(rules: [{ allow: owner }, { allow: private, provider: iam }])
+  # @auth(rules: [{ allow: owner }, { allow: private, provider: iam }])
   @model(subscriptions: null) {
   # @auth(rules: [
   #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
@@ -152,6 +152,7 @@ type Skill
   teamId: ID!
   name: String!
   description: String
+  forManager: Boolean
   active: Boolean
 }
 

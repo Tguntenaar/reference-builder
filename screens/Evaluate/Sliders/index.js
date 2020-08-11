@@ -24,9 +24,11 @@ function EvaluateScreen({ route, navigation, userContext }) {
     skills: { items: teamSkills },
   } = team;
   // add grade to every skill
-  const copy = teamSkills.map((skill) => {
-    return { ...skill, grade: 60 };
-  });
+  const copy = teamSkills
+    .filter((skill) => skill.active)
+    .map((skill) => {
+      return { ...skill, grade: 60 };
+    });
 
   const [sliders, setSliders] = useState(copy);
   const [average, setAverage] = useState(6);

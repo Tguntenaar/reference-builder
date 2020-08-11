@@ -17,6 +17,7 @@ import EvaluateScreen from '../screens/Evaluate/Sliders';
 import EvaluateCommentScreen from '../screens/Evaluate/Comment';
 import SettingsScreen from '../screens/Settings/Main';
 import TeamSettingsScreen from '../screens/Settings/Team';
+import SendRequestsScreen from '../screens/Settings/SendRequest';
 import CompanySettingsScreen from '../screens/Settings/Company';
 import ModalScreen from '../screens/ModalScreen';
 import Form from '../screens/Form';
@@ -150,6 +151,13 @@ function StackNavigation({ user }) {
         name="SettingsScreen"
         component={SettingsScreen}
         options={SettingsScreenHeader}
+      />
+      <Stack.Screen
+        name="SendRequests"
+        component={SendRequestsScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <Stack.Screen
         name="TeamSettingsScreen"
