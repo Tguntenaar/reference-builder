@@ -28,25 +28,25 @@ function EvaluateCommentScreen({ navigation, route }) {
       comment: text,
     };
     console.log(rating);
+    console.log(evaluationRequest.evaluator.name);
+    console.log(evaluationRequest.user.name);
+
     const {
       data: {
-        createRating: { id: ratingId },
+        createEvaluation: { id: evaluationId },
       },
-    } = await api.createRating(rating);
+    } = await api.createEvaluation(rating).catch(({ errors }) => console.log(errors));
     console.log('rating succes');
-    console.log(ratingId);
+    console.log(evaluationId);
     // for each skill create evaluation
     sliders.forEach((skill) => {
       const skillEvaluation = {
-        ratingId,
+        evaluationId,
         skillId: skill.id,
         grade: parseInt(skill.grade, 10),
       };
       console.log(skillEvaluation);
-      api
-        .createEvaluation(skillEvaluation)
-        .then(console.log('created evaluation'))
-        .catch(console.log);
+      api.createRating(skillEvaluation).then(console.log('created evaluation')).catch(console.log);
     });
     // TODO:
     // await all createEvaluations

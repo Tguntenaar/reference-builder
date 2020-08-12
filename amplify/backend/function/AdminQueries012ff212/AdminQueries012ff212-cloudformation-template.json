@@ -5,17 +5,9 @@
 		"env": {
 			"Type": "String"
 		},
-		"apireferencebuilderGraphQLAPIIdOutput": {
+		"authtoptabtestc335db9cUserPoolId": {
 			"Type": "String",
-			"Default": "apireferencebuilderGraphQLAPIIdOutput"
-		},
-		"apireferencebuilderGraphQLAPIEndpointOutput": {
-			"Type": "String",
-			"Default": "apireferencebuilderGraphQLAPIEndpointOutput"
-		},
-		"apireferencebuilderGraphQLAPIKeyOutput": {
-			"Type": "String",
-			"Default": "apireferencebuilderGraphQLAPIKeyOutput"
+			"Default": "authtoptabtestc335db9cUserPoolId"
 		}
 	},
 	"Conditions": {
@@ -40,12 +32,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"S3Trigger67de4a9a",
+						"AdminQueries012ff212",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"S3Trigger67de4a9a",
+									"AdminQueries012ff212",
 									"-",
 									{
 										"Ref": "env"
@@ -60,17 +52,9 @@
 						"ENV": {
 							"Ref": "env"
 						},
-						"REGION": {
-							"Ref": "AWS::Region"
-						},
-						"API_REFERENCEBUILDER_GRAPHQLAPIIDOUTPUT": {
-							"Ref": "apireferencebuilderGraphQLAPIIdOutput"
-						},
-						"API_REFERENCEBUILDER_GRAPHQLAPIENDPOINTOUTPUT": {
-							"Ref": "apireferencebuilderGraphQLAPIEndpointOutput"
-						},
-						"API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT": {
-							"Ref": "apireferencebuilderGraphQLAPIKeyOutput"
+						"GROUP": "Admins",
+						"USERPOOL": {
+							"Ref": "authtoptabtestc335db9cUserPoolId"
 						}
 					}
 				},
@@ -82,10 +66,9 @@
 				},
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
-				"Layers": [],
 				"Code": {
 					"S3Bucket": "amplify-toptabtest-dev-111859-deployment",
-					"S3Key": "amplify-builds/S3Trigger67de4a9a-34783675495351694b78-build.zip"
+					"S3Key": "amplify-builds/AdminQueries012ff212-6d754e536e5235536b57-build.zip"
 				}
 			}
 		},
@@ -95,12 +78,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"S3Trigger67de4a9aLambdaRole67de4a9a",
+						"AdminQueries012ff212LambdaRole",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"S3Trigger67de4a9aLambdaRole67de4a9a",
+									"AdminQueries012ff212LambdaRole",
 									"-",
 									{
 										"Ref": "env"
@@ -166,59 +149,40 @@
 									}
 								]
 							}
-						}
-					]
-				}
-			}
-		},
-		"AmplifyResourcesPolicy": {
-			"DependsOn": [
-				"LambdaExecutionRole"
-			],
-			"Type": "AWS::IAM::Policy",
-			"Properties": {
-				"PolicyName": "amplify-lambda-execution-policy",
-				"Roles": [
-					{
-						"Ref": "LambdaExecutionRole"
-					}
-				],
-				"PolicyDocument": {
-					"Version": "2012-10-17",
-					"Statement": [
+						},
 						{
 							"Effect": "Allow",
 							"Action": [
-								"appsync:Create*",
-								"appsync:StartSchemaCreation",
-								"appsync:GraphQL",
-								"appsync:Get*",
-								"appsync:List*",
-								"appsync:Update*",
-								"appsync:Delete*"
+								"cognito-idp:ListUsersInGroup",
+								"cognito-idp:AdminUserGlobalSignOut",
+								"cognito-idp:AdminEnableUser",
+								"cognito-idp:AdminDisableUser",
+								"cognito-idp:AdminRemoveUserFromGroup",
+								"cognito-idp:AdminAddUserToGroup",
+								"cognito-idp:AdminListGroupsForUser",
+								"cognito-idp:AdminGetUser",
+								"cognito-idp:AdminConfirmSignUp",
+								"cognito-idp:ListUsers"
 							],
-							"Resource": [
-								{
-									"Fn::Join": [
-										"",
-										[
-											"arn:aws:appsync:",
-											{
-												"Ref": "AWS::Region"
-											},
-											":",
-											{
-												"Ref": "AWS::AccountId"
-											},
-											":apis/",
-											{
-												"Ref": "apireferencebuilderGraphQLAPIIdOutput"
-											},
-											"/*"
-										]
+							"Resource": {
+								"Fn::Join": [
+									"",
+									[
+										"arn:aws:cognito-idp:",
+										{
+											"Ref": "AWS::Region"
+										},
+										":",
+										{
+											"Ref": "AWS::AccountId"
+										},
+										":userpool/",
+										{
+											"Ref": "authtoptabtestc335db9cUserPoolId"
+										}
 									]
-								}
-							]
+								]
+							}
 						}
 					]
 				}

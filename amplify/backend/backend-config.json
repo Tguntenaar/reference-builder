@@ -4,6 +4,22 @@
             "service": "Cognito",
             "providerPlugin": "awscloudformation",
             "dependsOn": []
+        },
+        "userPoolGroups": {
+            "service": "Cognito-UserPool-Groups",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "toptabtestc335db9c",
+                    "attributes": [
+                        "UserPoolId",
+                        "AppClientIDWeb",
+                        "AppClientID",
+                        "IdentityPoolId"
+                    ]
+                }
+            ]
         }
     },
     "api": {
@@ -26,6 +42,27 @@
                     }
                 }
             }
+        },
+        "AdminQueries": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "toptabtestc335db9c",
+                    "attributes": [
+                        "UserPoolId"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "AdminQueries012ff212",
+                    "attributes": [
+                        "Arn",
+                        "Name"
+                    ]
+                }
+            ]
         }
     },
     "function": {
@@ -79,6 +116,20 @@
                         "GraphQLAPIIdOutput",
                         "GraphQLAPIEndpointOutput",
                         "GraphQLAPIKeyOutput"
+                    ]
+                }
+            ]
+        },
+        "AdminQueries012ff212": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "toptabtestc335db9c",
+                    "attributes": [
+                        "UserPoolId"
                     ]
                 }
             ]
