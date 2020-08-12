@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { View, Image, Text, StatusBar, TouchableOpacity } from 'react-native';
 // aws
 import { S3Image } from 'aws-amplify-react-native';
+import { Feather } from '@expo/vector-icons';
 import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
@@ -19,13 +20,20 @@ const UI = ({
   teamLinks,
   navigation,
 }) => {
+  const admin = true;
   return (
     <View style={styles.safe}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.top}>
           <View style={styles.back}>
-            <BackButton onPress={() => navigation.goBack()} />
+            <BackButton
+              onPress={() =>
+                navigation.navigate('Tabs', {
+                  team: false,
+                })
+              }
+            />
           </View>
           <Text style={styles.pageTitle}>Settings</Text>
           <Image style={styles.image} source={profilePicture || imageEsther} />
@@ -65,8 +73,38 @@ const UI = ({
               <Text style={styles.edit}>Edit</Text>
             </TouchableOpacity>
           </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Text style={styles.teams}>Teams</Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Form', {
+                  name: 'Create team',
+                  fields: ['name'],
+                  screen: 'SettingsScreen',
+                  post: 'newTeam',
+                  form: [
+                    {
+                      text: 'Name',
+                      key: 'name',
+                      value: '',
+                    },
+                  ],
+                });
+              }}
+              style={{
+                flexDirection: 'row',
+              }}
+            >
+              <Text style={{ color: 'blue' }}>Create Team </Text>
 
-          <Text style={styles.teams}>Teams</Text>
+              <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.bottom}>
           {teamLinks.map(function (link) {
@@ -78,20 +116,42 @@ const UI = ({
                   {/** (photo && { uri: photo.uri, cache: 'force-cache' }) */}
                 </View>
                 <View style={styles.innerCard}>
+                  {admin ? (
+                    <Feather
+                      name="settings"
+                      color="gray"
+                      style={styles.teamIcon}
+                      onPress={() => {
+                        navigation.navigate('TeamSettingsScreen', {
+                          ...link.team,
+                        });
+                      }}
+                    />
+                  ) : (
+                    <Feather
+                      name="x-circle"
+                      color="red"
+                      style={styles.teamIcon}
+                      onPress={() => {
+                        // TODO: remove team
+                        // disable team
+                      }}
+                    />
+                  )}
+
                   <Text style={styles.teamName}>{link.team.name}</Text>
                   <NextButton
                     title="View"
                     textSize={14}
                     size={40}
                     onPress={() => {
-                      navigation.navigate('TeamSettingsScreen', {
-                        ...link.team,
+                      navigation.navigate('Tabs', {
+                        team: true,
                       });
+                      // TODO: navigate to team tabs
                     }}
                   />
-                  <TouchableOpacity style={styles.removeTouch} onPress={() => null}>
-                    <Text style={styles.remove}>Remove</Text>
-                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.removeTouch} onPress={() => null} />
                 </View>
               </View>
             );

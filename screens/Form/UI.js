@@ -7,6 +7,7 @@ import NextButton from '../../components/NextButton';
 import BackButton from '../../components/BackButton';
 
 const UI = ({ fields, form, setForm, activateType, navigation, route }) => {
+  const activateSkill = false;
   const a = ['4861079b-92ec-456b-9f47-7bd39eafa184', 2, 3, 4, 5];
   return (
     <View style={styles.container}>
@@ -57,24 +58,26 @@ const UI = ({ fields, form, setForm, activateType, navigation, route }) => {
           }}
         />
       </View>
-      <ScrollView
-        contentContainerStyle={styles.bottom}
-        style={{ flexGrow: 1, backgroundColor: 'red' }}
-      >
-        {a.map((num) => {
-          return (
-            <TouchableOpacity
-              key={num}
-              onPress={() => {
-                activateType(num);
-              }}
-              style={styles.inActive}
-            >
-              <Text> {num} </Text>
-            </TouchableOpacity>
-          );
-        })}
-      </ScrollView>
+      {activateSkill ? (
+        <ScrollView
+          contentContainerStyle={styles.bottom}
+          style={{ flexGrow: 1, backgroundColor: 'red' }}
+        >
+          {a.map((num) => {
+            return (
+              <TouchableOpacity
+                key={num}
+                onPress={() => {
+                  activateType(num);
+                }}
+                style={styles.inActive}
+              >
+                <Text> {num} </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </ScrollView>
+      ) : null}
     </View>
   );
 };

@@ -6,6 +6,7 @@ const imageSize = 88;
 const styles = StyleSheet.create({
   safe: {
     flexGrow: 1,
+    backgroundColor: '#fff',
   },
   container: {
     flex: 1,
@@ -16,7 +17,6 @@ const styles = StyleSheet.create({
   top: {
     height: 0.2 * height,
     marginTop: isIphoneX() ? 30 : 0,
-    // backgroundColor: 'red',
     width,
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,10 +47,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   middle: {
-    // paddingTop: 50,
-    // height: 0.75 * height,
-    // backgroundColor: 'yellow',
     width: width - 40,
+  },
+  managerCard: {
+    backgroundColor: 'rgb(212,214,255)',
   },
   card: {
     backgroundColor: 'rgb(239,244,253)',
@@ -62,10 +62,14 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     height: 155,
   },
+  test: {
+    marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   innerCard: {
     alignItems: 'center',
     width: width - imageSize - 70,
-    // backgroundColor: 'yellow',
   },
   input: {
     height: 40,
@@ -75,6 +79,12 @@ const styles = StyleSheet.create({
   },
   plusIcon: {
     fontSize: 14,
+  },
+  teamIcon: {
+    fontSize: 22,
+    position: 'absolute',
+    right: 1,
+    top: 1,
   },
   userInfo: {
     marginTop: 5,
@@ -87,7 +97,6 @@ const styles = StyleSheet.create({
   },
   jobTitle: {
     fontSize: 14,
-
     fontFamily: 'SourceSansPro-Regular',
   },
   remove: {
@@ -105,24 +114,20 @@ const styles = StyleSheet.create({
     fontFamily: 'CooperHewitt-Bold',
   },
   bottom: {
-    // height: 0.15 * height,
     backgroundColor: 'grey',
     width,
     alignItems: 'center',
   },
   skillsContainer: {
-    // backgroundColor: 'blue',
     width,
     flexWrap: 'wrap',
     flexDirection: 'row',
   },
   skill: {
-    // marginLeft: 10,
     borderWidth: 1,
     borderColor: 'rgb(34,34,34)',
     borderRadius: 20,
     height: 40,
-    // width: 114,
     paddingLeft: 10,
     marginRight: 10,
     paddingRight: 10,
@@ -133,7 +138,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'yellow',
     height: 16,
   },
   skillName: {
@@ -142,13 +146,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   xIcon: {
-    // paddingTop: 3,
     paddingLeft: 2,
     fontSize: 18,
     height: 16,
-    // paddingBottom: 4,
-    // paddingTop: 4,
-    // paddingBottom: 6,
   },
 });
 

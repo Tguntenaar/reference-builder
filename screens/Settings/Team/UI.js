@@ -39,6 +39,7 @@ const screen = ({
       contentContainerStyle={{
         flexGrow: 1,
         justifyContent: 'space-between',
+        backgroundColor: '#fff',
       }}
     >
       <StatusBar barStyle="dark-content" />
@@ -61,16 +62,19 @@ const screen = ({
           />
         </View>
         <View style={styles.middle}>
-          {/** SKILLS */}
+          {/** MANAGER SKILLS */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text style={styles.headerTitles}>Skills</Text>
+            <View>
+              <Text style={styles.subHeader}>Assesment criteria manager</Text>
+              <Text style={styles.headerTitles}>Skills</Text>
+            </View>
             <TouchableOpacity
               onPress={() => {
                 navigateToForm();
               }}
             >
               <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Skills toevoegen </Text>
+                <Text style={{ color: 'blue' }}> Add Skills </Text>
                 <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
               </View>
             </TouchableOpacity>
@@ -102,14 +106,67 @@ const screen = ({
               <Text>Start adding skills your team should evaluate</Text>
             )}
           </View>
-          <View
-            style={{
-              marginTop: 50,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Text style={styles.headerTitles}>Members</Text>
+          <View style={styles.test}>
+            <Text style={styles.headerTitles}>Manager</Text>
+          </View>
+          <View style={[styles.card, styles.managerCard]}>
+            <Image style={styles.image} source={imageEsther} />
+            {/* TODO: teammember image */}
+            <View style={styles.innerCard}>
+              <Feather name="x-circle" color="red" style={styles.teamIcon} />
+
+              <View style={styles.userInfo}>
+                <Text style={styles.name}>Naam van de manager{/** FIXME: */}</Text>
+                <Text style={styles.jobTitle}>Manager</Text>
+              </View>
+            </View>
+          </View>
+          {/** TEAM SKILLS */}
+          <View style={{ marginTop: 30, flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View>
+              <Text style={styles.subHeader}>Assesment criteria team</Text>
+              <Text style={styles.headerTitles}>Skills</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                navigateToForm();
+              }}
+            >
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'blue' }}> Add Skills </Text>
+                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+              </View>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.skillsContainer}>
+            {teamSkills.length ? (
+              teamSkills.map((skill) => (
+                <View
+                  key={skill.id}
+                  style={{
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                  }}
+                >
+                  <View style={styles.skill}>
+                    <View style={styles.innerSkill}>
+                      <Text style={styles.skillName}>{skill.name}</Text>
+                      <Feather
+                        name="x"
+                        color="black"
+                        style={styles.xIcon}
+                        onPress={() => deactivateSkill(skill.id)}
+                      />
+                    </View>
+                  </View>
+                </View>
+              ))
+            ) : (
+              <Text>Start adding skills your team should evaluate</Text>
+            )}
+          </View>
+          <View style={styles.test}>
+            <Text style={styles.headerTitles}>Members ({teamMembers.length})</Text>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('Form', {

@@ -92,11 +92,22 @@ export default StyleSheet.create({
     height: 0.5 * height,
     // backgroundColor: 'yellow',
   },
+  plusIcon: {
+    fontSize: 14,
+  },
+  teamIcon: {
+    fontSize: 22,
+    position: 'absolute',
+    // color: 'gray',
+    top: 10,
+    right: 20,
+  },
   teams: {
     fontFamily: 'CooperHewitt-Medium',
     fontSize: 20,
   },
   innerCard: {
+    // backgroundColor: 'red',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
@@ -120,6 +131,7 @@ export default StyleSheet.create({
     width: width - 40,
     backgroundColor: 'rgb(239,244,253)',
     borderRadius: 7,
+    minHeight: 150,
     // height: 130,
   },
   teamImage: {

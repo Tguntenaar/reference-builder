@@ -90,12 +90,18 @@ function StackNavigation({ user }) {
     ),
   });
 
-  const TabNavigationHeader = ({ navigation }) => ({
+  const TabNavigationHeader = ({ navigation, route }) => ({
     headerTitle: () => (
-      <View style={styles.container}>
+      route.params?.team ? (
+        <View style={styles.container}>
+        <Text style={styles.name}>{"Kitchen"}</Text>
+        <Text style={styles.name}>{"Team"}</Text>
+      </View>
+      ) :
+      (<View style={styles.container}>
         <Text style={styles.jobTitle}>{user.jobTitle}</Text>
         <Text style={styles.name}>{user.name}</Text>
-      </View>
+      </View>)
     ),
     headerStyle: {
       backgroundColor: '#0009EE',
@@ -110,7 +116,7 @@ function StackNavigation({ user }) {
     headerRight: () => (
       <HeaderRightContent
         onPress={() => {
-          navigation.navigate('SettingsScreen');
+          navigation.navigate('SettingsScreen')
         }}
       />
     ),

@@ -72,7 +72,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
   };
 
   useEffect(() => {
-    getAvatarFromStorage();
+    // getAvatarFromStorage();
   }, []);
 
   useEffect(() => {
@@ -89,6 +89,19 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
       setForm({username: name, jobTitle})
     }
   }, [route.params?.post]);
+
+  useEffect(() => {
+    if (route.params?.newTeam) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name } = route.params.newTeam;
+      if (!name) {
+        console.warn("no name for new team");
+        return;
+      }
+      createTeam({name, companyId: team.company.id}); // TODO: team.company.id check
+    }
+  }, [route.params?.newTeam]);
 
   const properties = {
     // submitProfileInfo,

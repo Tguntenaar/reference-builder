@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
  * 2. Data aggregation via lambda function triggered by adding a new Rating
  * 3.
  */
-function RatingTab({ navigation, userContext }) {
+function RatingTab({ navigation, route, userContext }) {
   const { averageRatings } = userContext;
 
   // console.log('Object.keys(userContext)');
