@@ -1,10 +1,14 @@
 [
     {
-        "groupName": "Managers",
+        "groupName": "Admins",
         "precedence": 1
     },
     {
-        "groupName": "Employees",
+        "groupName": "Managers",
         "precedence": 2
+    },
+    {
+        "groupName": "Employees",
+        "precedence": 3
     }
 ]

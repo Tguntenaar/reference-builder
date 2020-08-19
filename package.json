@@ -14,10 +14,24 @@
     "verbose": true,
     "preset": "jest-expo",
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+      "/node_modules/",
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)",
+      "\\.pnp\\.[^\\\/]+$",
+      "<rootDir>/amplify/"
     ],
     "modulePathIgnorePatterns": [
-      "<rootDir>/amplify/#current-cloud-backend"
+      "<rootDir>/amplify/"
+    ],
+    "watchPathIgnorePatterns": [
+      "<rootDir>/amplify/"
+    ],
+    "testIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/amplify/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/amplify/"
     ]
   },
   "dependencies": {

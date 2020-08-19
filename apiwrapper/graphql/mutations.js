@@ -77,6 +77,13 @@ export const createCompany = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -280,6 +287,13 @@ export const updateCompany = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -482,6 +496,13 @@ export const deleteCompany = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -751,6 +772,80 @@ export const createTeam = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -1310,6 +1405,80 @@ export const updateTeam = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -1868,6 +2037,80 @@ export const deleteTeam = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -2304,6 +2547,370 @@ export const createTeamMemberLink = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -2319,6 +2926,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -2467,6 +3097,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -2546,6 +3199,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -2636,6 +3312,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -2715,6 +3414,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -2805,6 +3527,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -2884,6 +3629,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -3003,6 +3771,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -3082,6 +3873,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -3199,6 +4013,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -3382,6 +4219,29 @@ export const createTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -3634,6 +4494,370 @@ export const updateTeamMemberLink = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -3649,6 +4873,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -3797,6 +5044,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -3876,6 +5146,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -3966,6 +5259,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -4045,6 +5361,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -4135,6 +5474,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -4214,6 +5576,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -4333,6 +5718,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -4412,6 +5820,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -4529,6 +5960,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -4712,6 +6166,29 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -4964,6 +6441,370 @@ export const deleteTeamMemberLink = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -4979,6 +6820,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -5127,6 +6991,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -5206,6 +7093,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -5296,6 +7206,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -5375,6 +7308,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -5465,6 +7421,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -5544,6 +7523,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -5663,6 +7665,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -5742,6 +7767,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -5859,6 +7907,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -6042,6 +8113,29 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -6290,6 +8384,893 @@ export const createUser = /* GraphQL */ `
         region
         key
       }
+      activeTeam {
+        id
+        userId
+        teamId
+        user {
+          id
+          createdAt
+          name
+          email
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          teamsLink {
+            items {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              status
+              updatedAt
+            }
+            nextToken
+          }
+          receivedRequests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              status
+              updatedAt
+            }
+            nextToken
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            items {
+              id
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+        }
+        team {
+          id
+          createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
+            teams {
+              items {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          membersLink {
+            items {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          skills {
+            items {
+              id
+              teamId
+              name
+              description
+              forManager
+              active
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            items {
+              id
+              teamId
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       teamsLink {
         items {
           id
@@ -6305,6 +9286,80 @@ export const createUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -6599,6 +9654,80 @@ export const createUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -6782,6 +9911,80 @@ export const createUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -6976,6 +10179,80 @@ export const createUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -7159,6 +10436,80 @@ export const createUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -7353,6 +10704,80 @@ export const createUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -7536,6 +10961,80 @@ export const createUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -7778,6 +11277,80 @@ export const createUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -7961,6 +11534,80 @@ export const createUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -8201,6 +11848,80 @@ export const createUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -8412,6 +12133,893 @@ export const updateUser = /* GraphQL */ `
         region
         key
       }
+      activeTeam {
+        id
+        userId
+        teamId
+        user {
+          id
+          createdAt
+          name
+          email
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          teamsLink {
+            items {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              status
+              updatedAt
+            }
+            nextToken
+          }
+          receivedRequests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              status
+              updatedAt
+            }
+            nextToken
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            items {
+              id
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+        }
+        team {
+          id
+          createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
+            teams {
+              items {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          membersLink {
+            items {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          skills {
+            items {
+              id
+              teamId
+              name
+              description
+              forManager
+              active
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            items {
+              id
+              teamId
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       teamsLink {
         items {
           id
@@ -8427,6 +13035,80 @@ export const updateUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -8721,6 +13403,80 @@ export const updateUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -8904,6 +13660,80 @@ export const updateUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -9098,6 +13928,80 @@ export const updateUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -9281,6 +14185,80 @@ export const updateUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -9475,6 +14453,80 @@ export const updateUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -9658,6 +14710,80 @@ export const updateUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -9900,6 +15026,80 @@ export const updateUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -10083,6 +15283,80 @@ export const updateUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -10323,6 +15597,80 @@ export const updateUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -10534,6 +15882,893 @@ export const deleteUser = /* GraphQL */ `
         region
         key
       }
+      activeTeam {
+        id
+        userId
+        teamId
+        user {
+          id
+          createdAt
+          name
+          email
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
+          teamsLink {
+            items {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              status
+              updatedAt
+            }
+            nextToken
+          }
+          receivedRequests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              status
+              updatedAt
+            }
+            nextToken
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            items {
+              id
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+        }
+        team {
+          id
+          createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
+          name
+          admins
+          companyId
+          company {
+            id
+            name
+            admins
+            teams {
+              items {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              nextToken
+            }
+            createdAt
+            updatedAt
+          }
+          membersLink {
+            items {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          skills {
+            items {
+              id
+              teamId
+              name
+              description
+              forManager
+              active
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          averageRatings {
+            items {
+              id
+              teamId
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
       teamsLink {
         items {
           id
@@ -10549,6 +16784,80 @@ export const deleteUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -10843,6 +17152,80 @@ export const deleteUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -11026,6 +17409,80 @@ export const deleteUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -11220,6 +17677,80 @@ export const deleteUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -11403,6 +17934,80 @@ export const deleteUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -11597,6 +18202,80 @@ export const deleteUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -11780,6 +18459,80 @@ export const deleteUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -12022,6 +18775,80 @@ export const deleteUser = /* GraphQL */ `
               region
               key
             }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
             teamsLink {
               items {
                 id
@@ -12205,6 +19032,80 @@ export const deleteUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -12445,6 +19346,80 @@ export const deleteUser = /* GraphQL */ `
               bucket
               region
               key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
             }
             teamsLink {
               items {
@@ -12660,6 +19635,370 @@ export const createEvaluation = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -12675,6 +20014,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -12823,6 +20185,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -12902,6 +20287,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -12992,6 +20400,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -13071,6 +20502,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -13161,6 +20615,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -13240,6 +20717,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -13359,6 +20859,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -13438,6 +20961,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -13555,6 +21101,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -13656,6 +21225,370 @@ export const createEvaluation = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -13671,6 +21604,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -13819,6 +21775,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -13898,6 +21877,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -13988,6 +21990,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -14067,6 +22092,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -14157,6 +22205,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -14236,6 +22307,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -14355,6 +22449,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -14434,6 +22551,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -14551,6 +22691,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -14659,6 +22822,29 @@ export const createEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -14738,6 +22924,29 @@ export const createEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -14881,6 +23090,370 @@ export const updateEvaluation = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -14896,6 +23469,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -15044,6 +23640,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -15123,6 +23742,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -15213,6 +23855,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -15292,6 +23957,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -15382,6 +24070,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -15461,6 +24172,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -15580,6 +24314,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -15659,6 +24416,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -15776,6 +24556,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -15877,6 +24680,370 @@ export const updateEvaluation = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -15892,6 +25059,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -16040,6 +25230,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -16119,6 +25332,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -16209,6 +25445,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -16288,6 +25547,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -16378,6 +25660,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -16457,6 +25762,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -16576,6 +25904,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -16655,6 +26006,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -16772,6 +26146,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -16880,6 +26277,29 @@ export const updateEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -16959,6 +26379,29 @@ export const updateEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -17102,6 +26545,370 @@ export const deleteEvaluation = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -17117,6 +26924,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -17265,6 +27095,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -17344,6 +27197,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -17434,6 +27310,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -17513,6 +27412,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -17603,6 +27525,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -17682,6 +27627,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -17801,6 +27769,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -17880,6 +27871,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -17997,6 +28011,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -18098,6 +28135,370 @@ export const deleteEvaluation = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -18113,6 +28514,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -18261,6 +28685,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -18340,6 +28787,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -18430,6 +28900,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -18509,6 +29002,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -18599,6 +29115,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -18678,6 +29217,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -18797,6 +29359,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -18876,6 +29461,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -18993,6 +29601,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -19101,6 +29732,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -19180,6 +29834,29 @@ export const deleteEvaluation = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -19326,6 +30003,173 @@ export const createRating = /* GraphQL */ `
             region
             key
           }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           teamsLink {
             items {
               id
@@ -19341,6 +30185,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19412,6 +30263,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -19443,6 +30301,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19485,6 +30350,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -19516,6 +30388,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19558,6 +30437,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -19589,6 +30475,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19642,6 +30535,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -19673,6 +30573,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19724,6 +30631,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19777,6 +30691,173 @@ export const createRating = /* GraphQL */ `
             region
             key
           }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           teamsLink {
             items {
               id
@@ -19792,6 +30873,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19863,6 +30951,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -19894,6 +30989,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -19936,6 +31038,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -19967,6 +31076,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20009,6 +31125,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20040,6 +31163,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20093,6 +31223,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20124,6 +31261,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20175,6 +31319,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20235,6 +31386,13 @@ export const createRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20266,6 +31424,13 @@ export const createRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20361,6 +31526,173 @@ export const updateRating = /* GraphQL */ `
             region
             key
           }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           teamsLink {
             items {
               id
@@ -20376,6 +31708,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20447,6 +31786,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20478,6 +31824,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20520,6 +31873,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20551,6 +31911,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20593,6 +31960,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20624,6 +31998,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20677,6 +32058,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20708,6 +32096,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20759,6 +32154,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20812,6 +32214,173 @@ export const updateRating = /* GraphQL */ `
             region
             key
           }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           teamsLink {
             items {
               id
@@ -20827,6 +32396,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20898,6 +32474,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -20929,6 +32512,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -20971,6 +32561,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21002,6 +32599,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21044,6 +32648,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21075,6 +32686,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21128,6 +32746,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21159,6 +32784,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21210,6 +32842,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21270,6 +32909,13 @@ export const updateRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21301,6 +32947,13 @@ export const updateRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21396,6 +33049,173 @@ export const deleteRating = /* GraphQL */ `
             region
             key
           }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           teamsLink {
             items {
               id
@@ -21411,6 +33231,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21482,6 +33309,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21513,6 +33347,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21555,6 +33396,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21586,6 +33434,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21628,6 +33483,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21659,6 +33521,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21712,6 +33581,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21743,6 +33619,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21794,6 +33677,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21847,6 +33737,173 @@ export const deleteRating = /* GraphQL */ `
             region
             key
           }
+          activeTeam {
+            id
+            userId
+            teamId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+            }
+            createdAt
+            updatedAt
+          }
           teamsLink {
             items {
               id
@@ -21862,6 +33919,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -21933,6 +33997,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -21964,6 +34035,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -22006,6 +34084,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -22037,6 +34122,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -22079,6 +34171,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -22110,6 +34209,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -22163,6 +34269,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -22194,6 +34307,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -22245,6 +34365,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -22305,6 +34432,13 @@ export const deleteRating = /* GraphQL */ `
                   region
                   key
                 }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
                 teamsLink {
                   nextToken
                 }
@@ -22336,6 +34470,13 @@ export const deleteRating = /* GraphQL */ `
                   bucket
                   region
                   key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
                 }
                 teamsLink {
                   nextToken
@@ -22427,6 +34568,370 @@ export const createAverageUserRating = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -22442,6 +34947,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -22590,6 +35118,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -22669,6 +35220,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -22759,6 +35333,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -22838,6 +35435,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -22928,6 +35548,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -23007,6 +35650,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -23126,6 +35792,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -23205,6 +35894,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -23322,6 +36034,29 @@ export const createAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -23448,6 +36183,370 @@ export const updateAverageUserRating = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -23463,6 +36562,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -23611,6 +36733,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -23690,6 +36835,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -23780,6 +36948,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -23859,6 +37050,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -23949,6 +37163,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -24028,6 +37265,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -24147,6 +37407,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -24226,6 +37509,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -24343,6 +37649,29 @@ export const updateAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -24469,6 +37798,370 @@ export const deleteAverageUserRating = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -24484,6 +38177,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -24632,6 +38348,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -24711,6 +38450,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -24801,6 +38563,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -24880,6 +38665,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -24970,6 +38778,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -25049,6 +38880,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -25168,6 +39022,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -25247,6 +39124,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -25364,6 +39264,29 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -25573,6 +39496,29 @@ export const createAverageTeamRating = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -25921,6 +39867,29 @@ export const updateAverageTeamRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -26268,6 +40237,29 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -26583,6 +40575,370 @@ export const createEvaluationRequest = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -26598,6 +40954,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -26746,6 +41125,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -26825,6 +41227,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -26915,6 +41340,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -26994,6 +41442,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -27084,6 +41555,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -27163,6 +41657,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -27282,6 +41799,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -27361,6 +41901,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -27478,6 +42041,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -27579,6 +42165,370 @@ export const createEvaluationRequest = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -27594,6 +42544,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -27742,6 +42715,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -27821,6 +42817,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -27911,6 +42930,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -27990,6 +43032,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -28080,6 +43145,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -28159,6 +43247,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -28278,6 +43389,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -28357,6 +43491,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -28474,6 +43631,29 @@ export const createEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -28588,6 +43768,370 @@ export const updateEvaluationRequest = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -28603,6 +44147,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -28751,6 +44318,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -28830,6 +44420,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -28920,6 +44533,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -28999,6 +44635,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -29089,6 +44748,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -29168,6 +44850,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -29287,6 +44992,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -29366,6 +45094,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -29483,6 +45234,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -29584,6 +45358,370 @@ export const updateEvaluationRequest = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -29599,6 +45737,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -29747,6 +45908,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -29826,6 +46010,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -29916,6 +46123,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -29995,6 +46225,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -30085,6 +46338,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -30164,6 +46440,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -30283,6 +46582,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -30362,6 +46684,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -30479,6 +46824,29 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -30593,6 +46961,370 @@ export const deleteEvaluationRequest = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -30608,6 +47340,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -30756,6 +47511,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -30835,6 +47613,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -30925,6 +47726,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -31004,6 +47828,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -31094,6 +47941,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -31173,6 +48043,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -31292,6 +48185,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -31371,6 +48287,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -31488,6 +48427,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -31589,6 +48551,370 @@ export const deleteEvaluationRequest = /* GraphQL */ `
           region
           key
         }
+        activeTeam {
+          id
+          userId
+          teamId
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                averageRatings {
+                  nextToken
+                }
+                updatedAt
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                status
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
         teamsLink {
           items {
             id
@@ -31604,6 +48930,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -31752,6 +49101,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -31831,6 +49203,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -31921,6 +49316,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -32000,6 +49418,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -32090,6 +49531,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -32169,6 +49633,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -32288,6 +49775,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 region
                 key
               }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
               teamsLink {
                 items {
                   id
@@ -32367,6 +49877,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
@@ -32484,6 +50017,29 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 bucket
                 region
                 key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
               }
               teamsLink {
                 items {
