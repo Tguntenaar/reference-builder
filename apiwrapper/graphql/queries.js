@@ -18,6 +18,7 @@ export const getCompany = /* GraphQL */ `
           }
           name
           admins
+          group
           companyId
           company {
             id
@@ -34,11 +35,13 @@ export const getCompany = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48,13 +51,14 @@ export const getCompany = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               nextToken
             }
+            group
             createdAt
             updatedAt
           }
@@ -63,6 +67,7 @@ export const getCompany = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -78,6 +83,7 @@ export const getCompany = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -96,10 +102,11 @@ export const getCompany = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -111,11 +118,13 @@ export const getCompany = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -125,10 +134,10 @@ export const getCompany = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -143,11 +152,13 @@ export const getCompany = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
             nextToken
           }
+          updatedAt
           averageRatings {
             items {
               id
@@ -162,11 +173,13 @@ export const getCompany = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -176,10 +189,10 @@ export const getCompany = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -189,6 +202,7 @@ export const getCompany = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -199,10 +213,10 @@ export const getCompany = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         nextToken
       }
+      group
       createdAt
       updatedAt
     }
@@ -230,6 +244,7 @@ export const listCompanys = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -241,11 +256,13 @@ export const listCompanys = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -254,12 +271,14 @@ export const listCompanys = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -267,6 +286,7 @@ export const listCompanys = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -283,11 +303,13 @@ export const listCompanys = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -297,6 +319,7 @@ export const listCompanys = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -308,6 +331,7 @@ export const listCompanys = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -318,10 +342,10 @@ export const listCompanys = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           nextToken
         }
+        group
         createdAt
         updatedAt
       }
@@ -341,6 +365,7 @@ export const getTeam = /* GraphQL */ `
       }
       name
       admins
+      group
       companyId
       company {
         id
@@ -357,6 +382,7 @@ export const getTeam = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -368,11 +394,13 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -381,12 +409,14 @@ export const getTeam = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -394,6 +424,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -410,11 +441,13 @@ export const getTeam = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -424,6 +457,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -435,6 +469,7 @@ export const getTeam = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -445,10 +480,10 @@ export const getTeam = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           nextToken
         }
+        group
         createdAt
         updatedAt
       }
@@ -457,6 +492,7 @@ export const getTeam = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -472,6 +508,7 @@ export const getTeam = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -487,6 +524,7 @@ export const getTeam = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -505,10 +543,11 @@ export const getTeam = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -520,11 +559,13 @@ export const getTeam = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -534,10 +575,10 @@ export const getTeam = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -547,12 +588,14 @@ export const getTeam = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -560,6 +603,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -579,6 +623,7 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -588,9 +633,11 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -606,6 +653,7 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -615,9 +663,11 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -633,6 +683,7 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -642,12 +693,14 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -663,6 +716,7 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -672,16 +726,20 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -692,6 +750,7 @@ export const getTeam = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -702,6 +761,7 @@ export const getTeam = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -712,7 +772,6 @@ export const getTeam = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -724,6 +783,7 @@ export const getTeam = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -735,11 +795,13 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -748,12 +810,14 @@ export const getTeam = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -761,6 +825,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -777,11 +842,13 @@ export const getTeam = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -791,6 +858,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -802,6 +870,7 @@ export const getTeam = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -812,7 +881,6 @@ export const getTeam = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -827,11 +895,13 @@ export const getTeam = /* GraphQL */ `
           description
           forManager
           active
+          group
           createdAt
           updatedAt
         }
         nextToken
       }
+      updatedAt
       averageRatings {
         items {
           id
@@ -846,6 +916,7 @@ export const getTeam = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -857,11 +928,13 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -870,12 +943,14 @@ export const getTeam = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -883,6 +958,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -899,11 +975,13 @@ export const getTeam = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -913,6 +991,7 @@ export const getTeam = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -924,6 +1003,7 @@ export const getTeam = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -934,7 +1014,6 @@ export const getTeam = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           skillId
           skill {
@@ -944,6 +1023,7 @@ export const getTeam = /* GraphQL */ `
             description
             forManager
             active
+            group
             createdAt
             updatedAt
           }
@@ -954,7 +1034,6 @@ export const getTeam = /* GraphQL */ `
         }
         nextToken
       }
-      updatedAt
     }
   }
 `;
@@ -975,6 +1054,7 @@ export const listTeams = /* GraphQL */ `
         }
         name
         admins
+        group
         companyId
         company {
           id
@@ -991,6 +1071,7 @@ export const listTeams = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -999,6 +1080,7 @@ export const listTeams = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -1007,6 +1089,7 @@ export const listTeams = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1020,11 +1103,13 @@ export const listTeams = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -1037,10 +1122,10 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             nextToken
           }
+          group
           createdAt
           updatedAt
         }
@@ -1049,6 +1134,7 @@ export const listTeams = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -1064,12 +1150,14 @@ export const listTeams = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -1077,6 +1165,7 @@ export const listTeams = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -1088,6 +1177,7 @@ export const listTeams = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1100,6 +1190,7 @@ export const listTeams = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -1111,6 +1202,7 @@ export const listTeams = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -1122,6 +1214,7 @@ export const listTeams = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -1133,10 +1226,13 @@ export const listTeams = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -1149,7 +1245,6 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -1161,6 +1256,7 @@ export const listTeams = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -1169,6 +1265,7 @@ export const listTeams = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -1177,6 +1274,7 @@ export const listTeams = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1190,11 +1288,13 @@ export const listTeams = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -1207,7 +1307,6 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -1222,11 +1321,13 @@ export const listTeams = /* GraphQL */ `
             description
             forManager
             active
+            group
             createdAt
             updatedAt
           }
           nextToken
         }
+        updatedAt
         averageRatings {
           items {
             id
@@ -1241,6 +1342,7 @@ export const listTeams = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -1249,6 +1351,7 @@ export const listTeams = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -1257,6 +1360,7 @@ export const listTeams = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1270,11 +1374,13 @@ export const listTeams = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -1287,7 +1393,6 @@ export const listTeams = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             skillId
             skill {
@@ -1297,6 +1402,7 @@ export const listTeams = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
@@ -1307,7 +1413,6 @@ export const listTeams = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
       }
       nextToken
     }
@@ -1330,6 +1435,7 @@ export const getUser = /* GraphQL */ `
         id
         userId
         teamId
+        group
         user {
           id
           createdAt
@@ -1345,6 +1451,7 @@ export const getUser = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -1360,12 +1467,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -1373,6 +1482,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -1384,6 +1494,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1396,6 +1507,7 @@ export const getUser = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -1407,6 +1519,7 @@ export const getUser = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -1418,6 +1531,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -1429,10 +1543,13 @@ export const getUser = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -1445,7 +1562,6 @@ export const getUser = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -1457,6 +1573,7 @@ export const getUser = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -1465,6 +1582,7 @@ export const getUser = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -1473,6 +1591,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1486,11 +1605,13 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -1503,7 +1624,6 @@ export const getUser = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -1513,6 +1633,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -1528,6 +1649,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1546,10 +1668,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -1561,11 +1684,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1575,10 +1700,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -1605,6 +1730,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1623,10 +1749,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -1644,6 +1771,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1662,12 +1790,14 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -1692,6 +1822,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1710,10 +1841,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -1731,6 +1863,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1749,12 +1882,14 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -1779,6 +1914,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1797,10 +1933,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -1818,6 +1955,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1836,10 +1974,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -1847,12 +1986,14 @@ export const getUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -1877,6 +2018,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1895,10 +2037,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -1916,6 +2059,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1934,10 +2078,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -1945,16 +2090,20 @@ export const getUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -1974,6 +2123,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -1992,10 +2142,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -2005,6 +2156,7 @@ export const getUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -2015,7 +2167,6 @@ export const getUser = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         team {
           id
@@ -2027,6 +2178,7 @@ export const getUser = /* GraphQL */ `
           }
           name
           admins
+          group
           companyId
           company {
             id
@@ -2043,11 +2195,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2057,13 +2211,14 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               nextToken
             }
+            group
             createdAt
             updatedAt
           }
@@ -2072,6 +2227,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -2087,6 +2243,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2105,10 +2262,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -2120,11 +2278,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2134,10 +2294,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -2152,11 +2312,13 @@ export const getUser = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
             nextToken
           }
+          updatedAt
           averageRatings {
             items {
               id
@@ -2171,11 +2333,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2185,10 +2349,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -2198,6 +2362,7 @@ export const getUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -2208,7 +2373,6 @@ export const getUser = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         createdAt
         updatedAt
@@ -2218,6 +2382,7 @@ export const getUser = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -2233,6 +2398,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -2248,6 +2414,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2266,10 +2433,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -2281,11 +2449,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2295,10 +2465,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -2308,12 +2478,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -2321,6 +2493,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -2340,6 +2513,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -2349,9 +2523,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -2367,6 +2543,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -2376,9 +2553,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -2394,6 +2573,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -2403,12 +2583,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -2424,6 +2606,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -2433,16 +2616,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -2453,6 +2640,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -2463,6 +2651,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2473,7 +2662,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -2485,6 +2673,7 @@ export const getUser = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -2496,11 +2685,13 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -2509,12 +2700,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -2522,6 +2715,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -2538,11 +2732,13 @@ export const getUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -2552,6 +2748,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -2563,6 +2760,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2573,7 +2771,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -2600,6 +2797,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -2615,6 +2813,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2633,10 +2832,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -2648,11 +2848,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2662,10 +2864,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -2675,12 +2877,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -2688,6 +2892,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -2707,6 +2912,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -2716,9 +2922,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -2734,6 +2942,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -2743,9 +2952,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -2761,6 +2972,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -2770,12 +2982,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -2791,6 +3005,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -2800,16 +3015,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -2820,6 +3039,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -2830,6 +3050,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2840,7 +3061,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           userId
           user {
@@ -2858,6 +3078,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -2873,6 +3094,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2891,10 +3113,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -2906,11 +3129,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -2920,10 +3145,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -2933,12 +3158,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -2946,6 +3173,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -2965,6 +3193,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -2974,9 +3203,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -2992,6 +3223,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3001,9 +3233,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3019,6 +3253,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3028,12 +3263,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -3049,6 +3286,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3058,16 +3296,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -3078,6 +3320,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -3088,6 +3331,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3098,9 +3342,9 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           status
+          group
           updatedAt
         }
         nextToken
@@ -3125,6 +3369,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -3140,6 +3385,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3158,10 +3404,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -3173,11 +3420,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3187,10 +3436,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -3200,12 +3449,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -3213,6 +3464,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -3232,6 +3484,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3241,9 +3494,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3259,6 +3514,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3268,9 +3524,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3286,6 +3544,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3295,12 +3554,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -3316,6 +3577,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3325,16 +3587,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -3345,6 +3611,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -3355,6 +3622,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3365,7 +3633,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           userId
           user {
@@ -3383,6 +3650,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -3398,6 +3666,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3416,10 +3685,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -3431,11 +3701,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3445,10 +3717,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -3458,12 +3730,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -3471,6 +3745,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -3490,6 +3765,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3499,9 +3775,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3517,6 +3795,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3526,9 +3805,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3544,6 +3825,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3553,12 +3835,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -3574,6 +3858,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3583,16 +3868,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -3603,6 +3892,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -3613,6 +3903,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3623,9 +3914,9 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           status
+          group
           updatedAt
         }
         nextToken
@@ -3650,6 +3941,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -3665,6 +3957,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3683,10 +3976,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -3698,11 +3992,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3712,10 +4008,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -3725,12 +4021,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -3738,6 +4036,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -3757,6 +4056,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3766,9 +4066,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3784,6 +4086,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -3793,9 +4096,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -3811,6 +4116,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3820,12 +4126,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -3841,6 +4149,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -3850,16 +4159,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -3870,6 +4183,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -3880,6 +4194,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3890,7 +4205,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           authorId
           author {
@@ -3908,6 +4222,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -3923,6 +4238,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3941,10 +4257,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -3956,11 +4273,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3970,10 +4289,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -3983,12 +4302,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -3996,6 +4317,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -4015,6 +4337,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4024,9 +4347,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4042,6 +4367,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4051,9 +4377,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4069,6 +4397,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4078,12 +4407,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -4099,6 +4430,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4108,16 +4440,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -4128,6 +4464,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -4138,6 +4475,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4148,7 +4486,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           ratings {
             items {
@@ -4164,6 +4501,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4173,12 +4511,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               skillId
@@ -4189,16 +4529,19 @@ export const getUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               grade
+              group
               createdAt
               updatedAt
             }
             nextToken
           }
           comment
+          group
           updatedAt
         }
         nextToken
@@ -4223,6 +4566,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -4238,6 +4582,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4256,10 +4601,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -4271,11 +4617,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4285,10 +4633,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -4298,12 +4646,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -4311,6 +4661,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -4330,6 +4681,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4339,9 +4691,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4357,6 +4711,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4366,9 +4721,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4384,6 +4741,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4393,12 +4751,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -4414,6 +4774,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4423,16 +4784,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -4443,6 +4808,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -4453,6 +4819,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4463,7 +4830,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           authorId
           author {
@@ -4481,6 +4847,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -4496,6 +4863,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4514,10 +4882,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -4529,11 +4898,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4543,10 +4914,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -4556,12 +4927,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -4569,6 +4942,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -4588,6 +4962,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4597,9 +4972,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4615,6 +4992,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4624,9 +5002,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4642,6 +5022,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4651,12 +5032,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -4672,6 +5055,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4681,16 +5065,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -4701,6 +5089,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -4711,6 +5100,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4721,7 +5111,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           ratings {
             items {
@@ -4737,6 +5126,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4746,12 +5136,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               skillId
@@ -4762,20 +5154,25 @@ export const getUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               grade
+              group
               createdAt
               updatedAt
             }
             nextToken
           }
           comment
+          group
           updatedAt
         }
         nextToken
       }
+      group
+      updatedAt
       averageRatings {
         items {
           id
@@ -4795,6 +5192,7 @@ export const getUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -4810,6 +5208,7 @@ export const getUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4828,10 +5227,11 @@ export const getUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -4843,11 +5243,13 @@ export const getUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4857,10 +5259,10 @@ export const getUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -4870,12 +5272,14 @@ export const getUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -4883,6 +5287,7 @@ export const getUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -4902,6 +5307,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4911,9 +5317,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4929,6 +5337,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -4938,9 +5347,11 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -4956,6 +5367,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4965,12 +5377,14 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -4986,6 +5400,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -4995,16 +5410,20 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -5015,6 +5434,7 @@ export const getUser = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -5025,6 +5445,7 @@ export const getUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5035,7 +5456,6 @@ export const getUser = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           skillId
           skill {
@@ -5045,6 +5465,7 @@ export const getUser = /* GraphQL */ `
             description
             forManager
             active
+            group
             createdAt
             updatedAt
           }
@@ -5055,7 +5476,6 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
-      updatedAt
     }
   }
 `;
@@ -5081,6 +5501,7 @@ export const listUsers = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -5096,6 +5517,7 @@ export const listUsers = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -5111,6 +5533,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5129,10 +5552,11 @@ export const listUsers = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -5144,11 +5568,13 @@ export const listUsers = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5158,10 +5584,10 @@ export const listUsers = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -5171,12 +5597,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5184,6 +5612,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5203,6 +5632,7 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -5212,9 +5642,11 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -5230,6 +5662,7 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -5239,9 +5672,11 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -5257,6 +5692,7 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -5266,12 +5702,14 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -5287,6 +5725,7 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -5296,16 +5735,20 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -5316,6 +5759,7 @@ export const listUsers = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -5326,6 +5770,7 @@ export const listUsers = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5336,7 +5781,6 @@ export const listUsers = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -5348,6 +5792,7 @@ export const listUsers = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -5359,11 +5804,13 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -5372,12 +5819,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5385,6 +5834,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5401,11 +5851,13 @@ export const listUsers = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -5415,6 +5867,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5426,6 +5879,7 @@ export const listUsers = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5436,7 +5890,6 @@ export const listUsers = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -5446,6 +5899,7 @@ export const listUsers = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -5461,12 +5915,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5474,6 +5930,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5485,6 +5942,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5497,6 +5955,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5508,6 +5967,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5519,6 +5979,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5530,10 +5991,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -5546,7 +6010,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -5558,6 +6021,7 @@ export const listUsers = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -5566,6 +6030,7 @@ export const listUsers = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -5574,6 +6039,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5587,11 +6053,13 @@ export const listUsers = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -5604,7 +6072,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -5631,12 +6098,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5644,6 +6113,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5655,6 +6125,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5667,6 +6138,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5678,6 +6150,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5689,6 +6162,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5700,10 +6174,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -5716,7 +6193,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -5734,12 +6210,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5747,6 +6225,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5758,6 +6237,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5770,6 +6250,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5781,6 +6262,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5792,6 +6274,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5803,10 +6286,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -5819,9 +6305,9 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -5846,12 +6332,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5859,6 +6347,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5870,6 +6359,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5882,6 +6372,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5893,6 +6384,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5904,6 +6396,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5915,10 +6408,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -5931,7 +6427,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -5949,12 +6444,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -5962,6 +6459,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -5973,6 +6471,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5985,6 +6484,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -5996,6 +6496,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6007,6 +6508,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6018,10 +6520,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -6034,9 +6539,9 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -6061,12 +6566,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6074,6 +6581,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -6085,6 +6593,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6097,6 +6606,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6108,6 +6618,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6119,6 +6630,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6130,10 +6642,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -6146,7 +6661,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -6164,12 +6678,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6177,6 +6693,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -6188,6 +6705,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6200,6 +6718,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6211,6 +6730,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6222,6 +6742,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6233,10 +6754,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -6249,7 +6773,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -6261,6 +6784,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -6271,16 +6795,19 @@ export const listUsers = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
@@ -6305,12 +6832,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6318,6 +6847,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -6329,6 +6859,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6341,6 +6872,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6352,6 +6884,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6363,6 +6896,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6374,10 +6908,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -6390,7 +6927,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -6408,12 +6944,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6421,6 +6959,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -6432,6 +6971,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6444,6 +6984,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6455,6 +6996,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6466,6 +7008,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6477,10 +7020,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -6493,7 +7039,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -6505,6 +7050,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -6515,20 +7061,25 @@ export const listUsers = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
         }
+        group
+        updatedAt
         averageRatings {
           items {
             id
@@ -6548,12 +7099,14 @@ export const listUsers = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6561,6 +7114,7 @@ export const listUsers = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -6572,6 +7126,7 @@ export const listUsers = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6584,6 +7139,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6595,6 +7151,7 @@ export const listUsers = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6606,6 +7163,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -6617,10 +7175,13 @@ export const listUsers = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -6633,7 +7194,6 @@ export const listUsers = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             skillId
             skill {
@@ -6643,6 +7203,7 @@ export const listUsers = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
@@ -6653,7 +7214,6 @@ export const listUsers = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
       }
       nextToken
     }
@@ -6680,6 +7240,7 @@ export const getEvaluation = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -6695,6 +7256,7 @@ export const getEvaluation = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -6710,6 +7272,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6728,10 +7291,11 @@ export const getEvaluation = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -6743,11 +7307,13 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6757,10 +7323,10 @@ export const getEvaluation = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -6770,12 +7336,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6783,6 +7351,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -6802,6 +7371,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -6811,9 +7381,11 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -6829,6 +7401,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -6838,9 +7411,11 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -6856,6 +7431,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -6865,12 +7441,14 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -6886,6 +7464,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -6895,16 +7474,20 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -6915,6 +7498,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -6925,6 +7509,7 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6935,7 +7520,6 @@ export const getEvaluation = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -6947,6 +7531,7 @@ export const getEvaluation = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -6958,11 +7543,13 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -6971,12 +7558,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -6984,6 +7573,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7000,11 +7590,13 @@ export const getEvaluation = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -7014,6 +7606,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7025,6 +7618,7 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7035,7 +7629,6 @@ export const getEvaluation = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -7045,6 +7638,7 @@ export const getEvaluation = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -7060,12 +7654,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7073,6 +7669,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7084,6 +7681,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7096,6 +7694,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7107,6 +7706,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7118,6 +7718,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7129,10 +7730,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7145,7 +7749,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -7157,6 +7760,7 @@ export const getEvaluation = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -7165,6 +7769,7 @@ export const getEvaluation = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -7173,6 +7778,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7186,11 +7792,13 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7203,7 +7811,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -7230,12 +7837,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7243,6 +7852,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7254,6 +7864,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7266,6 +7877,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7277,6 +7889,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7288,6 +7901,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7299,10 +7913,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7315,7 +7932,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -7333,12 +7949,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7346,6 +7964,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7357,6 +7976,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7369,6 +7989,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7380,6 +8001,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7391,6 +8013,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7402,10 +8025,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7418,9 +8044,9 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -7445,12 +8071,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7458,6 +8086,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7469,6 +8098,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7481,6 +8111,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7492,6 +8123,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7503,6 +8135,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7514,10 +8147,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7530,7 +8166,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -7548,12 +8183,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7561,6 +8198,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7572,6 +8210,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7584,6 +8223,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7595,6 +8235,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7606,6 +8247,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7617,10 +8259,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7633,9 +8278,9 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -7660,12 +8305,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7673,6 +8320,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7684,6 +8332,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7696,6 +8345,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7707,6 +8357,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7718,6 +8369,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7729,10 +8381,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7745,7 +8400,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -7763,12 +8417,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7776,6 +8432,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7787,6 +8444,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7799,6 +8457,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7810,6 +8469,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7821,6 +8481,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7832,10 +8493,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7848,7 +8512,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -7860,6 +8523,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -7870,16 +8534,19 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
@@ -7904,12 +8571,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -7917,6 +8586,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -7928,6 +8598,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7940,6 +8611,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7951,6 +8623,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7962,6 +8635,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -7973,10 +8647,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -7989,7 +8666,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -8007,12 +8683,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8020,6 +8698,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8031,6 +8710,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8043,6 +8723,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8054,6 +8735,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8065,6 +8747,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8076,10 +8759,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -8092,7 +8778,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -8104,6 +8789,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -8114,20 +8800,25 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
         }
+        group
+        updatedAt
         averageRatings {
           items {
             id
@@ -8147,12 +8838,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8160,6 +8853,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8171,6 +8865,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8183,6 +8878,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8194,6 +8890,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8205,6 +8902,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8216,10 +8914,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -8232,7 +8933,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             skillId
             skill {
@@ -8242,6 +8942,7 @@ export const getEvaluation = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
@@ -8252,7 +8953,6 @@ export const getEvaluation = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
       }
       authorId
       author {
@@ -8270,6 +8970,7 @@ export const getEvaluation = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -8285,6 +8986,7 @@ export const getEvaluation = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -8300,6 +9002,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8318,10 +9021,11 @@ export const getEvaluation = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -8333,11 +9037,13 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8347,10 +9053,10 @@ export const getEvaluation = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -8360,12 +9066,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8373,6 +9081,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8392,6 +9101,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -8401,9 +9111,11 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -8419,6 +9131,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -8428,9 +9141,11 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -8446,6 +9161,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -8455,12 +9171,14 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -8476,6 +9194,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -8485,16 +9204,20 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -8505,6 +9228,7 @@ export const getEvaluation = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -8515,6 +9239,7 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8525,7 +9250,6 @@ export const getEvaluation = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -8537,6 +9261,7 @@ export const getEvaluation = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -8548,11 +9273,13 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -8561,12 +9288,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8574,6 +9303,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8590,11 +9320,13 @@ export const getEvaluation = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -8604,6 +9336,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8615,6 +9348,7 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8625,7 +9359,6 @@ export const getEvaluation = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -8635,6 +9368,7 @@ export const getEvaluation = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -8650,12 +9384,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8663,6 +9399,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8674,6 +9411,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8686,6 +9424,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8697,6 +9436,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8708,6 +9448,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8719,10 +9460,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -8735,7 +9479,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -8747,6 +9490,7 @@ export const getEvaluation = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -8755,6 +9499,7 @@ export const getEvaluation = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -8763,6 +9508,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8776,11 +9522,13 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -8793,7 +9541,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -8820,12 +9567,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8833,6 +9582,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8844,6 +9594,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8856,6 +9607,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8867,6 +9619,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8878,6 +9631,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8889,10 +9643,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -8905,7 +9662,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -8923,12 +9679,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -8936,6 +9694,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -8947,6 +9706,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8959,6 +9719,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8970,6 +9731,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8981,6 +9743,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -8992,10 +9755,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9008,9 +9774,9 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -9035,12 +9801,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9048,6 +9816,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9059,6 +9828,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9071,6 +9841,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9082,6 +9853,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9093,6 +9865,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9104,10 +9877,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9120,7 +9896,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -9138,12 +9913,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9151,6 +9928,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9162,6 +9940,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9174,6 +9953,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9185,6 +9965,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9196,6 +9977,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9207,10 +9989,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9223,9 +10008,9 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -9250,12 +10035,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9263,6 +10050,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9274,6 +10062,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9286,6 +10075,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9297,6 +10087,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9308,6 +10099,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9319,10 +10111,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9335,7 +10130,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -9353,12 +10147,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9366,6 +10162,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9377,6 +10174,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9389,6 +10187,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9400,6 +10199,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9411,6 +10211,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9422,10 +10223,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9438,7 +10242,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -9450,6 +10253,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -9460,16 +10264,19 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
@@ -9494,12 +10301,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9507,6 +10316,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9518,6 +10328,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9530,6 +10341,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9541,6 +10353,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9552,6 +10365,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9563,10 +10377,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9579,7 +10396,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -9597,12 +10413,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9610,6 +10428,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9621,6 +10440,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9633,6 +10453,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9644,6 +10465,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9655,6 +10477,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9666,10 +10489,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9682,7 +10508,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -9694,6 +10519,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -9704,20 +10530,25 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
         }
+        group
+        updatedAt
         averageRatings {
           items {
             id
@@ -9737,12 +10568,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9750,6 +10583,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9761,6 +10595,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9773,6 +10608,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9784,6 +10620,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9795,6 +10632,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9806,10 +10644,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9822,7 +10663,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             skillId
             skill {
@@ -9832,6 +10672,7 @@ export const getEvaluation = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
@@ -9842,7 +10683,6 @@ export const getEvaluation = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
       }
       ratings {
         items {
@@ -9867,12 +10707,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9880,6 +10722,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9891,6 +10734,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9903,6 +10747,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9914,6 +10759,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9925,6 +10771,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -9936,10 +10783,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -9952,7 +10802,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -9970,12 +10819,14 @@ export const getEvaluation = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -9983,6 +10834,7 @@ export const getEvaluation = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -9994,6 +10846,7 @@ export const getEvaluation = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10006,6 +10859,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10017,6 +10871,7 @@ export const getEvaluation = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10028,6 +10883,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10039,10 +10895,13 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -10055,7 +10914,6 @@ export const getEvaluation = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -10067,6 +10925,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -10077,16 +10936,19 @@ export const getEvaluation = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           skillId
@@ -10097,16 +10959,19 @@ export const getEvaluation = /* GraphQL */ `
             description
             forManager
             active
+            group
             createdAt
             updatedAt
           }
           grade
+          group
           createdAt
           updatedAt
         }
         nextToken
       }
       comment
+      group
       updatedAt
     }
   }
@@ -10137,6 +11002,7 @@ export const listEvaluations = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -10152,12 +11018,14 @@ export const listEvaluations = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -10165,6 +11033,7 @@ export const listEvaluations = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -10176,6 +11045,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10188,6 +11058,7 @@ export const listEvaluations = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10199,6 +11070,7 @@ export const listEvaluations = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10210,6 +11082,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10221,10 +11094,13 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -10237,7 +11113,6 @@ export const listEvaluations = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -10249,6 +11124,7 @@ export const listEvaluations = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -10257,6 +11133,7 @@ export const listEvaluations = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -10265,6 +11142,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10278,11 +11156,13 @@ export const listEvaluations = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -10295,7 +11175,6 @@ export const listEvaluations = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -10305,6 +11184,7 @@ export const listEvaluations = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -10320,6 +11200,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10338,10 +11219,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -10353,11 +11235,13 @@ export const listEvaluations = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10367,10 +11251,10 @@ export const listEvaluations = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -10397,6 +11281,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10415,10 +11300,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -10436,6 +11322,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10454,12 +11341,14 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -10484,6 +11373,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10502,10 +11392,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -10523,6 +11414,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10541,12 +11433,14 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -10571,6 +11465,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10589,10 +11484,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -10610,6 +11506,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10628,10 +11525,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -10639,12 +11537,14 @@ export const listEvaluations = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -10669,6 +11569,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10687,10 +11588,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -10708,6 +11610,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10726,10 +11629,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -10737,16 +11641,20 @@ export const listEvaluations = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -10766,6 +11674,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10784,10 +11693,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -10797,6 +11707,7 @@ export const listEvaluations = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -10807,7 +11718,6 @@ export const listEvaluations = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         authorId
         author {
@@ -10825,6 +11735,7 @@ export const listEvaluations = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -10840,12 +11751,14 @@ export const listEvaluations = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -10853,6 +11766,7 @@ export const listEvaluations = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -10864,6 +11778,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10876,6 +11791,7 @@ export const listEvaluations = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10887,6 +11803,7 @@ export const listEvaluations = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10898,6 +11815,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -10909,10 +11827,13 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -10925,7 +11846,6 @@ export const listEvaluations = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -10937,6 +11857,7 @@ export const listEvaluations = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -10945,6 +11866,7 @@ export const listEvaluations = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -10953,6 +11875,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10966,11 +11889,13 @@ export const listEvaluations = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -10983,7 +11908,6 @@ export const listEvaluations = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -10993,6 +11917,7 @@ export const listEvaluations = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -11008,6 +11933,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11026,10 +11952,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -11041,11 +11968,13 @@ export const listEvaluations = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11055,10 +11984,10 @@ export const listEvaluations = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -11085,6 +12014,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11103,10 +12033,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -11124,6 +12055,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11142,12 +12074,14 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -11172,6 +12106,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11190,10 +12125,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -11211,6 +12147,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11229,12 +12166,14 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -11259,6 +12198,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11277,10 +12217,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -11298,6 +12239,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11316,10 +12258,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -11327,12 +12270,14 @@ export const listEvaluations = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -11357,6 +12302,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11375,10 +12321,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -11396,6 +12343,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11414,10 +12362,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -11425,16 +12374,20 @@ export const listEvaluations = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -11454,6 +12407,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11472,10 +12426,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -11485,6 +12440,7 @@ export const listEvaluations = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -11495,7 +12451,6 @@ export const listEvaluations = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         ratings {
           items {
@@ -11520,6 +12475,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11538,10 +12494,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -11559,6 +12516,7 @@ export const listEvaluations = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11577,10 +12535,11 @@ export const listEvaluations = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -11588,12 +12547,14 @@ export const listEvaluations = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             skillId
@@ -11604,16 +12565,19 @@ export const listEvaluations = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
             grade
+            group
             createdAt
             updatedAt
           }
           nextToken
         }
         comment
+        group
         updatedAt
       }
       nextToken
@@ -11644,6 +12608,7 @@ export const getRating = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -11659,12 +12624,14 @@ export const getRating = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -11672,6 +12639,7 @@ export const getRating = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -11683,6 +12651,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11695,6 +12664,7 @@ export const getRating = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -11706,6 +12676,7 @@ export const getRating = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -11717,6 +12688,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -11728,10 +12700,13 @@ export const getRating = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -11744,7 +12719,6 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -11756,6 +12730,7 @@ export const getRating = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -11764,6 +12739,7 @@ export const getRating = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -11772,6 +12748,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11785,11 +12762,13 @@ export const getRating = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -11802,7 +12781,6 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -11812,6 +12790,7 @@ export const getRating = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -11827,6 +12806,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11845,10 +12825,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -11860,11 +12841,13 @@ export const getRating = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11874,10 +12857,10 @@ export const getRating = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -11904,6 +12887,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11922,10 +12906,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -11943,6 +12928,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -11961,12 +12947,14 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -11991,6 +12979,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12009,10 +12998,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -12030,6 +13020,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12048,12 +13039,14 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -12078,6 +13071,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12096,10 +13090,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -12117,6 +13112,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12135,10 +13131,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -12146,12 +13143,14 @@ export const getRating = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -12176,6 +13175,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12194,10 +13194,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -12215,6 +13216,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12233,10 +13235,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -12244,16 +13247,20 @@ export const getRating = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -12273,6 +13280,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12291,10 +13299,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -12304,6 +13313,7 @@ export const getRating = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -12314,7 +13324,6 @@ export const getRating = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         authorId
         author {
@@ -12332,6 +13341,7 @@ export const getRating = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -12347,12 +13357,14 @@ export const getRating = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -12360,6 +13372,7 @@ export const getRating = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -12371,6 +13384,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12383,6 +13397,7 @@ export const getRating = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -12394,6 +13409,7 @@ export const getRating = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -12405,6 +13421,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -12416,10 +13433,13 @@ export const getRating = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -12432,7 +13452,6 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -12444,6 +13463,7 @@ export const getRating = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -12452,6 +13472,7 @@ export const getRating = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -12460,6 +13481,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12473,11 +13495,13 @@ export const getRating = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -12490,7 +13514,6 @@ export const getRating = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -12500,6 +13523,7 @@ export const getRating = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -12515,6 +13539,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12533,10 +13558,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -12548,11 +13574,13 @@ export const getRating = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12562,10 +13590,10 @@ export const getRating = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -12592,6 +13620,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12610,10 +13639,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -12631,6 +13661,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12649,12 +13680,14 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -12679,6 +13712,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12697,10 +13731,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -12718,6 +13753,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12736,12 +13772,14 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -12766,6 +13804,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12784,10 +13823,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -12805,6 +13845,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12823,10 +13864,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -12834,12 +13876,14 @@ export const getRating = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -12864,6 +13908,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12882,10 +13927,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -12903,6 +13949,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12921,10 +13968,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -12932,16 +13980,20 @@ export const getRating = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -12961,6 +14013,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -12979,10 +14032,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -12992,6 +14046,7 @@ export const getRating = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -13002,7 +14057,6 @@ export const getRating = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         ratings {
           items {
@@ -13027,6 +14081,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13045,10 +14100,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -13066,6 +14122,7 @@ export const getRating = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13084,10 +14141,11 @@ export const getRating = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -13095,12 +14153,14 @@ export const getRating = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             skillId
@@ -13111,16 +14171,19 @@ export const getRating = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
             grade
+            group
             createdAt
             updatedAt
           }
           nextToken
         }
         comment
+        group
         updatedAt
       }
       skillId
@@ -13131,10 +14194,12 @@ export const getRating = /* GraphQL */ `
         description
         forManager
         active
+        group
         createdAt
         updatedAt
       }
       grade
+      group
       createdAt
       updatedAt
     }
@@ -13169,6 +14234,7 @@ export const listRatings = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -13184,6 +14250,7 @@ export const listRatings = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13202,10 +14269,11 @@ export const listRatings = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -13217,11 +14285,13 @@ export const listRatings = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13231,10 +14301,10 @@ export const listRatings = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -13244,12 +14314,14 @@ export const listRatings = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -13257,6 +14329,7 @@ export const listRatings = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -13276,6 +14349,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -13285,9 +14359,11 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -13303,6 +14379,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -13312,9 +14389,11 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -13330,6 +14409,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -13339,12 +14419,14 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -13360,6 +14442,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -13369,16 +14452,20 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -13389,6 +14476,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -13399,6 +14487,7 @@ export const listRatings = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13409,7 +14498,6 @@ export const listRatings = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           authorId
           author {
@@ -13427,6 +14515,7 @@ export const listRatings = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -13442,6 +14531,7 @@ export const listRatings = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13460,10 +14550,11 @@ export const listRatings = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -13475,11 +14566,13 @@ export const listRatings = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13489,10 +14582,10 @@ export const listRatings = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -13502,12 +14595,14 @@ export const listRatings = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -13515,6 +14610,7 @@ export const listRatings = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -13534,6 +14630,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -13543,9 +14640,11 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -13561,6 +14660,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -13570,9 +14670,11 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -13588,6 +14690,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -13597,12 +14700,14 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -13618,6 +14723,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -13627,16 +14733,20 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -13647,6 +14757,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -13657,6 +14768,7 @@ export const listRatings = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -13667,7 +14779,6 @@ export const listRatings = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           ratings {
             items {
@@ -13683,6 +14794,7 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -13692,12 +14804,14 @@ export const listRatings = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               skillId
@@ -13708,16 +14822,19 @@ export const listRatings = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               grade
+              group
               createdAt
               updatedAt
             }
             nextToken
           }
           comment
+          group
           updatedAt
         }
         skillId
@@ -13728,2937 +14845,12 @@ export const listRatings = /* GraphQL */ `
           description
           forManager
           active
+          group
           createdAt
           updatedAt
         }
         grade
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getAverageUserRating = /* GraphQL */ `
-  query GetAverageUserRating($id: ID!) {
-    getAverageUserRating(id: $id) {
-      id
-      userId
-      user {
-        id
-        createdAt
-        name
-        email
-        jobTitle
-        avatar {
-          bucket
-          region
-          key
-        }
-        activeTeam {
-          id
-          userId
-          teamId
-          user {
-            id
-            createdAt
-            name
-            email
-            jobTitle
-            avatar {
-              bucket
-              region
-              key
-            }
-            activeTeam {
-              id
-              userId
-              teamId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              team {
-                id
-                createdAt
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              createdAt
-              updatedAt
-            }
-            teamsLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            requests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            receivedRequests {
-              items {
-                id
-                createdAt
-                evaluatorId
-                evaluator {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                status
-                updatedAt
-              }
-              nextToken
-            }
-            evaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                ratings {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            receivedEvaluations {
-              items {
-                id
-                createdAt
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                authorId
-                author {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                ratings {
-                  nextToken
-                }
-                comment
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              items {
-                id
-                userId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                grade
-                timesRated
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          team {
-            id
-            createdAt
-            avatar {
-              bucket
-              region
-              key
-            }
-            name
-            admins
-            companyId
-            company {
-              id
-              name
-              admins
-              teams {
-                items {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                nextToken
-              }
-              createdAt
-              updatedAt
-            }
-            membersLink {
-              items {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            skills {
-              items {
-                id
-                teamId
-                name
-                description
-                forManager
-                active
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            averageRatings {
-              items {
-                id
-                teamId
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                grade
-                timesRated
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            updatedAt
-          }
-          createdAt
-          updatedAt
-        }
-        teamsLink {
-          items {
-            id
-            userId
-            teamId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            team {
-              id
-              createdAt
-              avatar {
-                bucket
-                region
-                key
-              }
-              name
-              admins
-              companyId
-              company {
-                id
-                name
-                admins
-                teams {
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              membersLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              skills {
-                items {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  teamId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        requests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            evaluator {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        receivedRequests {
-          items {
-            id
-            createdAt
-            evaluatorId
-            evaluator {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            status
-            updatedAt
-          }
-          nextToken
-        }
-        evaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          nextToken
-        }
-        receivedEvaluations {
-          items {
-            id
-            createdAt
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            authorId
-            author {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            ratings {
-              items {
-                id
-                evaluationId
-                evaluation {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                skillId
-                skill {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                grade
-                createdAt
-                updatedAt
-              }
-              nextToken
-            }
-            comment
-            updatedAt
-          }
-          nextToken
-        }
-        averageRatings {
-          items {
-            id
-            userId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-              forManager
-              active
-              createdAt
-              updatedAt
-            }
-            grade
-            timesRated
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        updatedAt
-      }
-      skillId
-      skill {
-        id
-        teamId
-        name
-        description
-        forManager
-        active
-        createdAt
-        updatedAt
-      }
-      grade
-      timesRated
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listAverageUserRatings = /* GraphQL */ `
-  query ListAverageUserRatings(
-    $filter: ModelaverageUserRatingFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listAverageUserRatings(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        userId
-        user {
-          id
-          createdAt
-          name
-          email
-          jobTitle
-          avatar {
-            bucket
-            region
-            key
-          }
-          activeTeam {
-            id
-            userId
-            teamId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            team {
-              id
-              createdAt
-              avatar {
-                bucket
-                region
-                key
-              }
-              name
-              admins
-              companyId
-              company {
-                id
-                name
-                admins
-                teams {
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              membersLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              skills {
-                items {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  teamId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
-          teamsLink {
-            items {
-              id
-              userId
-              teamId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              team {
-                id
-                createdAt
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          requests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              evaluator {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              status
-              updatedAt
-            }
-            nextToken
-          }
-          receivedRequests {
-            items {
-              id
-              createdAt
-              evaluatorId
-              evaluator {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              status
-              updatedAt
-            }
-            nextToken
-          }
-          evaluations {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              ratings {
-                items {
-                  id
-                  evaluationId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          receivedEvaluations {
-            items {
-              id
-              createdAt
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              authorId
-              author {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              ratings {
-                items {
-                  id
-                  evaluationId
-                  skillId
-                  grade
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              comment
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            items {
-              id
-              userId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                forManager
-                active
-                createdAt
-                updatedAt
-              }
-              grade
-              timesRated
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          updatedAt
-        }
-        skillId
-        skill {
-          id
-          teamId
-          name
-          description
-          forManager
-          active
-          createdAt
-          updatedAt
-        }
-        grade
-        timesRated
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getAverageTeamRating = /* GraphQL */ `
-  query GetAverageTeamRating($id: ID!) {
-    getAverageTeamRating(id: $id) {
-      id
-      teamId
-      team {
-        id
-        createdAt
-        avatar {
-          bucket
-          region
-          key
-        }
-        name
-        admins
-        companyId
-        company {
-          id
-          name
-          admins
-          teams {
-            items {
-              id
-              createdAt
-              avatar {
-                bucket
-                region
-                key
-              }
-              name
-              admins
-              companyId
-              company {
-                id
-                name
-                admins
-                teams {
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              membersLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              skills {
-                items {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  teamId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            nextToken
-          }
-          createdAt
-          updatedAt
-        }
-        membersLink {
-          items {
-            id
-            userId
-            teamId
-            user {
-              id
-              createdAt
-              name
-              email
-              jobTitle
-              avatar {
-                bucket
-                region
-                key
-              }
-              activeTeam {
-                id
-                userId
-                teamId
-                user {
-                  id
-                  createdAt
-                  name
-                  email
-                  jobTitle
-                  updatedAt
-                }
-                team {
-                  id
-                  createdAt
-                  name
-                  admins
-                  companyId
-                  updatedAt
-                }
-                createdAt
-                updatedAt
-              }
-              teamsLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              requests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedRequests {
-                items {
-                  id
-                  createdAt
-                  evaluatorId
-                  userId
-                  status
-                  updatedAt
-                }
-                nextToken
-              }
-              evaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              receivedEvaluations {
-                items {
-                  id
-                  createdAt
-                  userId
-                  authorId
-                  comment
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  userId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            team {
-              id
-              createdAt
-              avatar {
-                bucket
-                region
-                key
-              }
-              name
-              admins
-              companyId
-              company {
-                id
-                name
-                admins
-                teams {
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              membersLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              skills {
-                items {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  teamId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        skills {
-          items {
-            id
-            teamId
-            name
-            description
-            forManager
-            active
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        averageRatings {
-          items {
-            id
-            teamId
-            team {
-              id
-              createdAt
-              avatar {
-                bucket
-                region
-                key
-              }
-              name
-              admins
-              companyId
-              company {
-                id
-                name
-                admins
-                teams {
-                  nextToken
-                }
-                createdAt
-                updatedAt
-              }
-              membersLink {
-                items {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              skills {
-                items {
-                  id
-                  teamId
-                  name
-                  description
-                  forManager
-                  active
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              averageRatings {
-                items {
-                  id
-                  teamId
-                  skillId
-                  grade
-                  timesRated
-                  createdAt
-                  updatedAt
-                }
-                nextToken
-              }
-              updatedAt
-            }
-            skillId
-            skill {
-              id
-              teamId
-              name
-              description
-              forManager
-              active
-              createdAt
-              updatedAt
-            }
-            grade
-            timesRated
-            createdAt
-            updatedAt
-          }
-          nextToken
-        }
-        updatedAt
-      }
-      skillId
-      skill {
-        id
-        teamId
-        name
-        description
-        forManager
-        active
-        createdAt
-        updatedAt
-      }
-      grade
-      timesRated
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listAverageTeamRatings = /* GraphQL */ `
-  query ListAverageTeamRatings(
-    $filter: ModelaverageTeamRatingFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listAverageTeamRatings(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        teamId
-        team {
-          id
-          createdAt
-          avatar {
-            bucket
-            region
-            key
-          }
-          name
-          admins
-          companyId
-          company {
-            id
-            name
-            admins
-            teams {
-              items {
-                id
-                createdAt
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              nextToken
-            }
-            createdAt
-            updatedAt
-          }
-          membersLink {
-            items {
-              id
-              userId
-              teamId
-              user {
-                id
-                createdAt
-                name
-                email
-                jobTitle
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                activeTeam {
-                  id
-                  userId
-                  teamId
-                  createdAt
-                  updatedAt
-                }
-                teamsLink {
-                  nextToken
-                }
-                requests {
-                  nextToken
-                }
-                receivedRequests {
-                  nextToken
-                }
-                evaluations {
-                  nextToken
-                }
-                receivedEvaluations {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              team {
-                id
-                createdAt
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          skills {
-            items {
-              id
-              teamId
-              name
-              description
-              forManager
-              active
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          averageRatings {
-            items {
-              id
-              teamId
-              team {
-                id
-                createdAt
-                avatar {
-                  bucket
-                  region
-                  key
-                }
-                name
-                admins
-                companyId
-                company {
-                  id
-                  name
-                  admins
-                  createdAt
-                  updatedAt
-                }
-                membersLink {
-                  nextToken
-                }
-                skills {
-                  nextToken
-                }
-                averageRatings {
-                  nextToken
-                }
-                updatedAt
-              }
-              skillId
-              skill {
-                id
-                teamId
-                name
-                description
-                forManager
-                active
-                createdAt
-                updatedAt
-              }
-              grade
-              timesRated
-              createdAt
-              updatedAt
-            }
-            nextToken
-          }
-          updatedAt
-        }
-        skillId
-        skill {
-          id
-          teamId
-          name
-          description
-          forManager
-          active
-          createdAt
-          updatedAt
-        }
-        grade
-        timesRated
+        group
         createdAt
         updatedAt
       }
@@ -16675,6 +14867,7 @@ export const getSkill = /* GraphQL */ `
       description
       forManager
       active
+      group
       createdAt
       updatedAt
     }
@@ -16694,6 +14887,7 @@ export const listSkills = /* GraphQL */ `
         description
         forManager
         active
+        group
         createdAt
         updatedAt
       }
@@ -16722,6 +14916,7 @@ export const getEvaluationRequest = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -16737,6 +14932,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -16752,6 +14948,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -16770,10 +14967,11 @@ export const getEvaluationRequest = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -16785,11 +14983,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -16799,10 +14999,10 @@ export const getEvaluationRequest = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -16812,12 +15012,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -16825,6 +15027,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -16844,6 +15047,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -16853,9 +15057,11 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -16871,6 +15077,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -16880,9 +15087,11 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -16898,6 +15107,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -16907,12 +15117,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -16928,6 +15140,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -16937,16 +15150,20 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -16957,6 +15174,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -16967,6 +15185,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -16977,7 +15196,6 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -16989,6 +15207,7 @@ export const getEvaluationRequest = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -17000,11 +15219,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -17013,12 +15234,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17026,6 +15249,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17042,11 +15266,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -17056,6 +15282,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17067,6 +15294,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17077,7 +15305,6 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -17087,6 +15314,7 @@ export const getEvaluationRequest = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -17102,12 +15330,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17115,6 +15345,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17126,6 +15357,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17138,6 +15370,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17149,6 +15382,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17160,6 +15394,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17171,10 +15406,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17187,7 +15425,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -17199,6 +15436,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -17207,6 +15445,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -17215,6 +15454,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17228,11 +15468,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17245,7 +15487,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -17272,12 +15513,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17285,6 +15528,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17296,6 +15540,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17308,6 +15553,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17319,6 +15565,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17330,6 +15577,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17341,10 +15589,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17357,7 +15608,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -17375,12 +15625,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17388,6 +15640,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17399,6 +15652,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17411,6 +15665,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17422,6 +15677,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17433,6 +15689,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17444,10 +15701,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17460,9 +15720,9 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -17487,12 +15747,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17500,6 +15762,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17511,6 +15774,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17523,6 +15787,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17534,6 +15799,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17545,6 +15811,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17556,10 +15823,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17572,7 +15842,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -17590,12 +15859,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17603,6 +15874,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17614,6 +15886,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17626,6 +15899,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17637,6 +15911,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17648,6 +15923,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17659,10 +15935,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17675,9 +15954,9 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -17702,12 +15981,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17715,6 +15996,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17726,6 +16008,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17738,6 +16021,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17749,6 +16033,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17760,6 +16045,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17771,10 +16057,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17787,7 +16076,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -17805,12 +16093,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17818,6 +16108,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17829,6 +16120,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17841,6 +16133,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17852,6 +16145,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17863,6 +16157,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17874,10 +16169,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -17890,7 +16188,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -17902,6 +16199,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -17912,16 +16210,19 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
@@ -17946,12 +16247,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -17959,6 +16262,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -17970,6 +16274,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -17982,6 +16287,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -17993,6 +16299,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18004,6 +16311,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18015,10 +16323,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -18031,7 +16342,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -18049,12 +16359,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18062,6 +16374,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18073,6 +16386,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18085,6 +16399,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18096,6 +16411,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18107,6 +16423,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18118,10 +16435,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -18134,7 +16454,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -18146,6 +16465,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -18156,20 +16476,25 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
         }
+        group
+        updatedAt
         averageRatings {
           items {
             id
@@ -18189,12 +16514,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18202,6 +16529,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18213,6 +16541,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18225,6 +16554,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18236,6 +16566,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18247,6 +16578,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18258,10 +16590,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -18274,7 +16609,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             skillId
             skill {
@@ -18284,6 +16618,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
@@ -18294,7 +16629,6 @@ export const getEvaluationRequest = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
       }
       userId
       user {
@@ -18312,6 +16646,7 @@ export const getEvaluationRequest = /* GraphQL */ `
           id
           userId
           teamId
+          group
           user {
             id
             createdAt
@@ -18327,6 +16662,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -18342,6 +16678,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18360,10 +16697,11 @@ export const getEvaluationRequest = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -18375,11 +16713,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18389,10 +16729,10 @@ export const getEvaluationRequest = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -18402,12 +16742,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18415,6 +16757,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18434,6 +16777,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -18443,9 +16787,11 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -18461,6 +16807,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 userId
@@ -18470,9 +16817,11 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 status
+                group
                 updatedAt
               }
               nextToken
@@ -18488,6 +16837,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -18497,12 +16847,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
@@ -18518,6 +16870,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 authorId
@@ -18527,16 +16880,20 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 ratings {
                   nextToken
                 }
                 comment
+                group
                 updatedAt
               }
               nextToken
             }
+            group
+            updatedAt
             averageRatings {
               items {
                 id
@@ -18547,6 +16904,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 skillId
@@ -18557,6 +16915,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18567,7 +16926,6 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           team {
             id
@@ -18579,6 +16937,7 @@ export const getEvaluationRequest = /* GraphQL */ `
             }
             name
             admins
+            group
             companyId
             company {
               id
@@ -18590,11 +16949,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
                 nextToken
               }
+              group
               createdAt
               updatedAt
             }
@@ -18603,12 +16964,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18616,6 +16979,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18632,11 +16996,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
+            updatedAt
             averageRatings {
               items {
                 id
@@ -18646,6 +17012,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18657,6 +17024,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18667,7 +17035,6 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               nextToken
             }
-            updatedAt
           }
           createdAt
           updatedAt
@@ -18677,6 +17044,7 @@ export const getEvaluationRequest = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -18692,12 +17060,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18705,6 +17075,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18716,6 +17087,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18728,6 +17100,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18739,6 +17112,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18750,6 +17124,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18761,10 +17136,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -18777,7 +17155,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -18789,6 +17166,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -18797,6 +17175,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -18805,6 +17184,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18818,11 +17198,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -18835,7 +17217,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -18862,12 +17243,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18875,6 +17258,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18886,6 +17270,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -18898,6 +17283,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18909,6 +17295,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18920,6 +17307,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -18931,10 +17319,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -18947,7 +17338,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -18965,12 +17355,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -18978,6 +17370,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -18989,6 +17382,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19001,6 +17395,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19012,6 +17407,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19023,6 +17419,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19034,10 +17431,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19050,9 +17450,9 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -19077,12 +17477,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19090,6 +17492,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19101,6 +17504,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19113,6 +17517,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19124,6 +17529,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19135,6 +17541,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19146,10 +17553,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19162,7 +17572,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             userId
             user {
@@ -19180,12 +17589,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19193,6 +17604,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19204,6 +17616,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19216,6 +17629,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19227,6 +17641,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19238,6 +17653,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19249,10 +17665,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19265,9 +17684,9 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             status
+            group
             updatedAt
           }
           nextToken
@@ -19292,12 +17711,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19305,6 +17726,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19316,6 +17738,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19328,6 +17751,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19339,6 +17763,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19350,6 +17775,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19361,10 +17787,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19377,7 +17806,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -19395,12 +17823,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19408,6 +17838,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19419,6 +17850,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19431,6 +17863,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19442,6 +17875,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19453,6 +17887,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19464,10 +17899,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19480,7 +17918,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -19492,6 +17929,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -19502,16 +17940,19 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
@@ -19536,12 +17977,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19549,6 +17992,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19560,6 +18004,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19572,6 +18017,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19583,6 +18029,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19594,6 +18041,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19605,10 +18053,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19621,7 +18072,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             authorId
             author {
@@ -19639,12 +18089,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19652,6 +18104,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19663,6 +18116,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19675,6 +18129,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19686,6 +18141,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19697,6 +18153,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19708,10 +18165,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19724,7 +18184,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             ratings {
               items {
@@ -19736,6 +18195,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 skillId
@@ -19746,20 +18206,25 @@ export const getEvaluationRequest = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 grade
+                group
                 createdAt
                 updatedAt
               }
               nextToken
             }
             comment
+            group
             updatedAt
           }
           nextToken
         }
+        group
+        updatedAt
         averageRatings {
           items {
             id
@@ -19779,12 +18244,14 @@ export const getEvaluationRequest = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19792,6 +18259,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19803,6 +18271,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19815,6 +18284,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19826,6 +18296,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19837,6 +18308,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19848,10 +18320,13 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -19864,7 +18339,6 @@ export const getEvaluationRequest = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             skillId
             skill {
@@ -19874,6 +18348,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
@@ -19884,9 +18359,9 @@ export const getEvaluationRequest = /* GraphQL */ `
           }
           nextToken
         }
-        updatedAt
       }
       status
+      group
       updatedAt
     }
   }
@@ -19921,6 +18396,7 @@ export const listEvaluationRequests = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -19936,12 +18412,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -19949,6 +18427,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -19960,6 +18439,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19972,6 +18452,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19983,6 +18464,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -19994,6 +18476,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -20005,10 +18488,13 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -20021,7 +18507,6 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -20033,6 +18518,7 @@ export const listEvaluationRequests = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -20041,6 +18527,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -20049,6 +18536,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20062,11 +18550,13 @@ export const listEvaluationRequests = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -20079,7 +18569,6 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -20089,6 +18578,7 @@ export const listEvaluationRequests = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -20104,6 +18594,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20122,10 +18613,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -20137,11 +18629,13 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20151,10 +18645,10 @@ export const listEvaluationRequests = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -20181,6 +18675,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20199,10 +18694,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -20220,6 +18716,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20238,12 +18735,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -20268,6 +18767,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20286,10 +18786,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -20307,6 +18808,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20325,12 +18827,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -20355,6 +18859,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20373,10 +18878,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -20394,6 +18900,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20412,10 +18919,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -20423,12 +18931,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -20453,6 +18963,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20471,10 +18982,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -20492,6 +19004,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20510,10 +19023,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -20521,16 +19035,20 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -20550,6 +19068,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20568,10 +19087,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -20581,6 +19101,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -20591,7 +19112,6 @@ export const listEvaluationRequests = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         userId
         user {
@@ -20609,6 +19129,7 @@ export const listEvaluationRequests = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -20624,12 +19145,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -20637,6 +19160,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -20648,6 +19172,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20660,6 +19185,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -20671,6 +19197,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -20682,6 +19209,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -20693,10 +19221,13 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -20709,7 +19240,6 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -20721,6 +19251,7 @@ export const listEvaluationRequests = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -20729,6 +19260,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -20737,6 +19269,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20750,11 +19283,13 @@ export const listEvaluationRequests = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -20767,7 +19302,6 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -20777,6 +19311,7 @@ export const listEvaluationRequests = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -20792,6 +19327,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20810,10 +19346,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -20825,11 +19362,13 @@ export const listEvaluationRequests = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20839,10 +19378,10 @@ export const listEvaluationRequests = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -20869,6 +19408,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20887,10 +19427,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -20908,6 +19449,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20926,12 +19468,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -20956,6 +19500,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -20974,10 +19519,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -20995,6 +19541,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21013,12 +19560,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -21043,6 +19592,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21061,10 +19611,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -21082,6 +19633,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21100,10 +19652,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -21111,12 +19664,14 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -21141,6 +19696,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21159,10 +19715,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -21180,6 +19737,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21198,10 +19756,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -21209,16 +19768,20 @@ export const listEvaluationRequests = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -21238,6 +19801,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21256,10 +19820,11 @@ export const listEvaluationRequests = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -21269,6 +19834,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -21279,9 +19845,9 @@ export const listEvaluationRequests = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         status
+        group
         updatedAt
       }
       nextToken
@@ -21324,6 +19890,7 @@ export const evaluationsByUser = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -21339,12 +19906,14 @@ export const evaluationsByUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -21352,6 +19921,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -21363,6 +19933,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21375,6 +19946,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -21386,6 +19958,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -21397,6 +19970,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -21408,10 +19982,13 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -21424,7 +20001,6 @@ export const evaluationsByUser = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -21436,6 +20012,7 @@ export const evaluationsByUser = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -21444,6 +20021,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -21452,6 +20030,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21465,11 +20044,13 @@ export const evaluationsByUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -21482,7 +20063,6 @@ export const evaluationsByUser = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -21492,6 +20072,7 @@ export const evaluationsByUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -21507,6 +20088,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21525,10 +20107,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -21540,11 +20123,13 @@ export const evaluationsByUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21554,10 +20139,10 @@ export const evaluationsByUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -21584,6 +20169,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21602,10 +20188,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -21623,6 +20210,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21641,12 +20229,14 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -21671,6 +20261,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21689,10 +20280,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -21710,6 +20302,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21728,12 +20321,14 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -21758,6 +20353,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21776,10 +20372,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -21797,6 +20394,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21815,10 +20413,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -21826,12 +20425,14 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -21856,6 +20457,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21874,10 +20476,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -21895,6 +20498,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21913,10 +20517,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -21924,16 +20529,20 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -21953,6 +20562,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -21971,10 +20581,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -21984,6 +20595,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -21994,7 +20606,6 @@ export const evaluationsByUser = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         authorId
         author {
@@ -22012,6 +20623,7 @@ export const evaluationsByUser = /* GraphQL */ `
             id
             userId
             teamId
+            group
             user {
               id
               createdAt
@@ -22027,12 +20639,14 @@ export const evaluationsByUser = /* GraphQL */ `
                 id
                 userId
                 teamId
+                group
                 user {
                   id
                   createdAt
                   name
                   email
                   jobTitle
+                  group
                   updatedAt
                 }
                 team {
@@ -22040,6 +20654,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   createdAt
                   name
                   admins
+                  group
                   companyId
                   updatedAt
                 }
@@ -22051,6 +20666,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22063,6 +20679,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -22074,6 +20691,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluatorId
                   userId
                   status
+                  group
                   updatedAt
                 }
                 nextToken
@@ -22085,6 +20703,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
@@ -22096,10 +20715,13 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   authorId
                   comment
+                  group
                   updatedAt
                 }
                 nextToken
               }
+              group
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -22112,7 +20734,6 @@ export const evaluationsByUser = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             team {
               id
@@ -22124,6 +20745,7 @@ export const evaluationsByUser = /* GraphQL */ `
               }
               name
               admins
+              group
               companyId
               company {
                 id
@@ -22132,6 +20754,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 teams {
                   nextToken
                 }
+                group
                 createdAt
                 updatedAt
               }
@@ -22140,6 +20763,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22153,11 +20777,13 @@ export const evaluationsByUser = /* GraphQL */ `
                   description
                   forManager
                   active
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
+              updatedAt
               averageRatings {
                 items {
                   id
@@ -22170,7 +20796,6 @@ export const evaluationsByUser = /* GraphQL */ `
                 }
                 nextToken
               }
-              updatedAt
             }
             createdAt
             updatedAt
@@ -22180,6 +20805,7 @@ export const evaluationsByUser = /* GraphQL */ `
               id
               userId
               teamId
+              group
               user {
                 id
                 createdAt
@@ -22195,6 +20821,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22213,10 +20840,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               team {
                 id
@@ -22228,11 +20856,13 @@ export const evaluationsByUser = /* GraphQL */ `
                 }
                 name
                 admins
+                group
                 companyId
                 company {
                   id
                   name
                   admins
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22242,10 +20872,10 @@ export const evaluationsByUser = /* GraphQL */ `
                 skills {
                   nextToken
                 }
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               createdAt
               updatedAt
@@ -22272,6 +20902,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22290,10 +20921,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -22311,6 +20943,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22329,12 +20962,14 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -22359,6 +20994,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22377,10 +21013,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               userId
               user {
@@ -22398,6 +21035,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22416,12 +21054,14 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               status
+              group
               updatedAt
             }
             nextToken
@@ -22446,6 +21086,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22464,10 +21105,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -22485,6 +21127,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22503,10 +21146,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -22514,12 +21158,14 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
@@ -22544,6 +21190,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22562,10 +21209,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -22583,6 +21231,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22601,10 +21250,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -22612,16 +21262,20 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             nextToken
           }
+          group
+          updatedAt
           averageRatings {
             items {
               id
@@ -22641,6 +21295,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22659,10 +21314,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               skillId
               skill {
@@ -22672,6 +21328,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 description
                 forManager
                 active
+                group
                 createdAt
                 updatedAt
               }
@@ -22682,7 +21339,6 @@ export const evaluationsByUser = /* GraphQL */ `
             }
             nextToken
           }
-          updatedAt
         }
         ratings {
           items {
@@ -22707,6 +21363,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22725,10 +21382,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               authorId
               author {
@@ -22746,6 +21404,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   id
                   userId
                   teamId
+                  group
                   createdAt
                   updatedAt
                 }
@@ -22764,10 +21423,11 @@ export const evaluationsByUser = /* GraphQL */ `
                 receivedEvaluations {
                   nextToken
                 }
+                group
+                updatedAt
                 averageRatings {
                   nextToken
                 }
-                updatedAt
               }
               ratings {
                 items {
@@ -22775,12 +21435,14 @@ export const evaluationsByUser = /* GraphQL */ `
                   evaluationId
                   skillId
                   grade
+                  group
                   createdAt
                   updatedAt
                 }
                 nextToken
               }
               comment
+              group
               updatedAt
             }
             skillId
@@ -22791,16 +21453,3174 @@ export const evaluationsByUser = /* GraphQL */ `
               description
               forManager
               active
+              group
               createdAt
               updatedAt
             }
             grade
+            group
             createdAt
             updatedAt
           }
           nextToken
         }
         comment
+        group
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getAverageUserRating = /* GraphQL */ `
+  query GetAverageUserRating($id: ID!) {
+    getAverageUserRating(id: $id) {
+      id
+      userId
+      user {
+        id
+        createdAt
+        name
+        email
+        jobTitle
+        avatar {
+          bucket
+          region
+          key
+        }
+        activeTeam {
+          id
+          userId
+          teamId
+          group
+          user {
+            id
+            createdAt
+            name
+            email
+            jobTitle
+            avatar {
+              bucket
+              region
+              key
+            }
+            activeTeam {
+              id
+              userId
+              teamId
+              group
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                group
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  group
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              createdAt
+              updatedAt
+            }
+            teamsLink {
+              items {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            requests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                status
+                group
+                updatedAt
+              }
+              nextToken
+            }
+            receivedRequests {
+              items {
+                id
+                createdAt
+                evaluatorId
+                evaluator {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                status
+                group
+                updatedAt
+              }
+              nextToken
+            }
+            evaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                group
+                updatedAt
+              }
+              nextToken
+            }
+            receivedEvaluations {
+              items {
+                id
+                createdAt
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                authorId
+                author {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                ratings {
+                  nextToken
+                }
+                comment
+                group
+                updatedAt
+              }
+              nextToken
+            }
+            group
+            updatedAt
+            averageRatings {
+              items {
+                id
+                userId
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+          }
+          team {
+            id
+            createdAt
+            avatar {
+              bucket
+              region
+              key
+            }
+            name
+            admins
+            group
+            companyId
+            company {
+              id
+              name
+              admins
+              teams {
+                items {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              createdAt
+              updatedAt
+            }
+            membersLink {
+              items {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            skills {
+              items {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                group
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            updatedAt
+            averageRatings {
+              items {
+                id
+                teamId
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                grade
+                timesRated
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+          }
+          createdAt
+          updatedAt
+        }
+        teamsLink {
+          items {
+            id
+            userId
+            teamId
+            group
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              group
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                group
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        requests {
+          items {
+            id
+            createdAt
+            evaluatorId
+            evaluator {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            status
+            group
+            updatedAt
+          }
+          nextToken
+        }
+        receivedRequests {
+          items {
+            id
+            createdAt
+            evaluatorId
+            evaluator {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            status
+            group
+            updatedAt
+          }
+          nextToken
+        }
+        evaluations {
+          items {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                grade
+                group
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            group
+            updatedAt
+          }
+          nextToken
+        }
+        receivedEvaluations {
+          items {
+            id
+            createdAt
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            authorId
+            author {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            ratings {
+              items {
+                id
+                evaluationId
+                evaluation {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                skillId
+                skill {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                grade
+                group
+                createdAt
+                updatedAt
+              }
+              nextToken
+            }
+            comment
+            group
+            updatedAt
+          }
+          nextToken
+        }
+        group
+        updatedAt
+        averageRatings {
+          items {
+            id
+            userId
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              forManager
+              active
+              group
+              createdAt
+              updatedAt
+            }
+            grade
+            timesRated
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }
+      skillId
+      skill {
+        id
+        teamId
+        name
+        description
+        forManager
+        active
+        group
+        createdAt
+        updatedAt
+      }
+      grade
+      timesRated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAverageUserRatings = /* GraphQL */ `
+  query ListAverageUserRatings(
+    $filter: ModelaverageUserRatingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAverageUserRatings(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        userId
+        user {
+          id
+          createdAt
+          name
+          email
+          jobTitle
+          avatar {
+            bucket
+            region
+            key
+          }
+          activeTeam {
+            id
+            userId
+            teamId
+            group
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              group
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                group
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            createdAt
+            updatedAt
+          }
+          teamsLink {
+            items {
+              id
+              userId
+              teamId
+              group
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                group
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  group
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          requests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              status
+              group
+              updatedAt
+            }
+            nextToken
+          }
+          receivedRequests {
+            items {
+              id
+              createdAt
+              evaluatorId
+              evaluator {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              status
+              group
+              updatedAt
+            }
+            nextToken
+          }
+          evaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              group
+              updatedAt
+            }
+            nextToken
+          }
+          receivedEvaluations {
+            items {
+              id
+              createdAt
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              authorId
+              author {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              ratings {
+                items {
+                  id
+                  evaluationId
+                  skillId
+                  grade
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              comment
+              group
+              updatedAt
+            }
+            nextToken
+          }
+          group
+          updatedAt
+          averageRatings {
+            items {
+              id
+              userId
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                group
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+        }
+        skillId
+        skill {
+          id
+          teamId
+          name
+          description
+          forManager
+          active
+          group
+          createdAt
+          updatedAt
+        }
+        grade
+        timesRated
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getAverageTeamRating = /* GraphQL */ `
+  query GetAverageTeamRating($id: ID!) {
+    getAverageTeamRating(id: $id) {
+      id
+      teamId
+      team {
+        id
+        createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
+        name
+        admins
+        group
+        companyId
+        company {
+          id
+          name
+          admins
+          teams {
+            items {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              group
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                group
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            nextToken
+          }
+          group
+          createdAt
+          updatedAt
+        }
+        membersLink {
+          items {
+            id
+            userId
+            teamId
+            group
+            user {
+              id
+              createdAt
+              name
+              email
+              jobTitle
+              avatar {
+                bucket
+                region
+                key
+              }
+              activeTeam {
+                id
+                userId
+                teamId
+                group
+                user {
+                  id
+                  createdAt
+                  name
+                  email
+                  jobTitle
+                  group
+                  updatedAt
+                }
+                team {
+                  id
+                  createdAt
+                  name
+                  admins
+                  group
+                  companyId
+                  updatedAt
+                }
+                createdAt
+                updatedAt
+              }
+              teamsLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              requests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedRequests {
+                items {
+                  id
+                  createdAt
+                  evaluatorId
+                  userId
+                  status
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              evaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              receivedEvaluations {
+                items {
+                  id
+                  createdAt
+                  userId
+                  authorId
+                  comment
+                  group
+                  updatedAt
+                }
+                nextToken
+              }
+              group
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  userId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              group
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                group
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        skills {
+          items {
+            id
+            teamId
+            name
+            description
+            forManager
+            active
+            group
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        updatedAt
+        averageRatings {
+          items {
+            id
+            teamId
+            team {
+              id
+              createdAt
+              avatar {
+                bucket
+                region
+                key
+              }
+              name
+              admins
+              group
+              companyId
+              company {
+                id
+                name
+                admins
+                teams {
+                  nextToken
+                }
+                group
+                createdAt
+                updatedAt
+              }
+              membersLink {
+                items {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              skills {
+                items {
+                  id
+                  teamId
+                  name
+                  description
+                  forManager
+                  active
+                  group
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+              updatedAt
+              averageRatings {
+                items {
+                  id
+                  teamId
+                  skillId
+                  grade
+                  timesRated
+                  createdAt
+                  updatedAt
+                }
+                nextToken
+              }
+            }
+            skillId
+            skill {
+              id
+              teamId
+              name
+              description
+              forManager
+              active
+              group
+              createdAt
+              updatedAt
+            }
+            grade
+            timesRated
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+      }
+      skillId
+      skill {
+        id
+        teamId
+        name
+        description
+        forManager
+        active
+        group
+        createdAt
+        updatedAt
+      }
+      grade
+      timesRated
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAverageTeamRatings = /* GraphQL */ `
+  query ListAverageTeamRatings(
+    $filter: ModelaverageTeamRatingFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAverageTeamRatings(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        teamId
+        team {
+          id
+          createdAt
+          avatar {
+            bucket
+            region
+            key
+          }
+          name
+          admins
+          group
+          companyId
+          company {
+            id
+            name
+            admins
+            teams {
+              items {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                group
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  group
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              nextToken
+            }
+            group
+            createdAt
+            updatedAt
+          }
+          membersLink {
+            items {
+              id
+              userId
+              teamId
+              group
+              user {
+                id
+                createdAt
+                name
+                email
+                jobTitle
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                activeTeam {
+                  id
+                  userId
+                  teamId
+                  group
+                  createdAt
+                  updatedAt
+                }
+                teamsLink {
+                  nextToken
+                }
+                requests {
+                  nextToken
+                }
+                receivedRequests {
+                  nextToken
+                }
+                evaluations {
+                  nextToken
+                }
+                receivedEvaluations {
+                  nextToken
+                }
+                group
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                group
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  group
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          skills {
+            items {
+              id
+              teamId
+              name
+              description
+              forManager
+              active
+              group
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+          updatedAt
+          averageRatings {
+            items {
+              id
+              teamId
+              team {
+                id
+                createdAt
+                avatar {
+                  bucket
+                  region
+                  key
+                }
+                name
+                admins
+                group
+                companyId
+                company {
+                  id
+                  name
+                  admins
+                  group
+                  createdAt
+                  updatedAt
+                }
+                membersLink {
+                  nextToken
+                }
+                skills {
+                  nextToken
+                }
+                updatedAt
+                averageRatings {
+                  nextToken
+                }
+              }
+              skillId
+              skill {
+                id
+                teamId
+                name
+                description
+                forManager
+                active
+                group
+                createdAt
+                updatedAt
+              }
+              grade
+              timesRated
+              createdAt
+              updatedAt
+            }
+            nextToken
+          }
+        }
+        skillId
+        skill {
+          id
+          teamId
+          name
+          description
+          forManager
+          active
+          group
+          createdAt
+          updatedAt
+        }
+        grade
+        timesRated
+        createdAt
         updatedAt
       }
       nextToken

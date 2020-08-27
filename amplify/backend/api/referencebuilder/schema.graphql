@@ -2,25 +2,52 @@
 # auth
 # user groups admin
 
-type Company @model(subscriptions: null) {
+type Company
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      # Defaults to use the "owner" field.
+      { allow: owner }
+      # Authorize the update mutation and both queries.
+      # { allow: owner, ownerField: "editors", operations: [update] }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # { allow: groups, groups: ["Managers", "Employees"], operations: [read] }
+      # Each record may specify which groups may read them. (Bijvoorbeeld een company als groep)
+      # { allow: groups, groupsField: "groupsCanAccess", operations: [read] }
+
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  ) {
   id: ID!
   name: String!
   admins: [ID!]
   teams: [Team!] @connection(keyName: "TeamsByCompany", fields: ["id"]) # has many
+  group: String!
 }
 
 type Team
   @model(subscriptions: null)
-  # @auth(rules: [
-  #   {allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
-  #   # {allow: groups, groupsField: "members", operations: [ read ]}
-  # ])
+  @auth(
+    rules: [
+      { allow: owner }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # { allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
+      # {allow: groups, groupsField: "members", operations: [ read ]}
+
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  )
   @key(name: "TeamsByCompany", fields: ["companyId", "createdAt"]) { # team has many users
   id: ID!
   createdAt: AWSDateTime
   avatar: S3Object
   name: String!
   admins: [ID!]
+  group: String
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
   membersLink: [TeamMemberLink!]
@@ -31,22 +58,43 @@ type Team
 }
 
 type TeamMemberLink
+  @auth(
+    rules: [
+      # implicit store of owner
+      { allow: owner, operations: [create] }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  )
   @model(queries: null, subscriptions: null)
   @key(name: "teamsByUser", fields: ["userId", "teamId"])
   @key(name: "usersByTeam", fields: ["teamId", "userId"]) {
   id: ID!
   userId: ID!
   teamId: ID!
+  group: String
   user: User @connection(fields: ["userId"])
   team: Team @connection(fields: ["teamId"])
 }
 
 type User
   # @auth(rules: [{ allow: owner }, { allow: private, provider: iam }])
-  @model(subscriptions: null) {
   # @auth(rules: [
   #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
   #   ])
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      # implicit store of owner
+      { allow: owner, operations: [create] }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  ) {
   id: ID!
   createdAt: AWSDateTime
   # presentation
@@ -71,6 +119,7 @@ type User
     @connection(keyName: "evaluationsByUser", fields: ["id"]) # has many
   averageRatings: [averageUserRating]
     @connection(keyName: "averageRatingsByUser", fields: ["id"]) # has many
+  group: String
 }
 
 type S3Object {
@@ -82,9 +131,16 @@ type S3Object {
 # all ratings/skill and a comment
 type Evaluation
   @model(subscriptions: null)
-  # @auth(rules: [
-  #   {allow: owner, operations: [ update, delete ]}
-  #   ])
+  @auth(
+    rules: [
+      # Only the owner can update and delete
+      { allow: owner, operations: [create, update, delete] }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  )
   @key(
     name: "evaluationsByUser"
     fields: ["userId", "createdAt"]
@@ -102,10 +158,21 @@ type Evaluation
   # content
   ratings: [Rating!] @connection(keyName: "ratingsByEvaluation", fields: ["id"]) # has many
   comment: String
+  group: String
 }
 
 # per skill rating
 type Rating
+  @auth(
+    rules: [
+      # Only the owner can update and delete
+      { allow: owner, operations: [create, update, delete] }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  )
   @model(subscriptions: null)
   @key(name: "ratingsByEvaluation", fields: ["evaluationId"]) # Evaluation has many ratings
   @key(name: "ratingsBySkill", fields: ["skillId"]) { # TODO: misschien overbodig
@@ -116,10 +183,21 @@ type Rating
   skill: Skill! @connection(fields: ["skillId"]) # has one
   grade: Int
   # comment: String
+  group: String
 }
 
 # on create skill create average from every user in team
 type averageUserRating
+  @auth(
+    rules: [
+      # Implicit store of owner
+      { allow: owner, operations: [create] }
+      # Admin users can access any operation.
+      { allow: groups, groups: ["Admins"], operations: [create] }
+      # Lambda function
+      { allow: private, provider: iam }
+    ]
+  )
   @model(subscriptions: null)
   @key(name: "averageRatingsByUser", fields: ["userId", "skillId"]) {
   # Team or Skill
@@ -134,6 +212,15 @@ type averageUserRating
 
 # on create skill create average
 type averageTeamRating
+  # TODO: iam role
+  @auth(
+    rules: [
+      # implicit store of owner
+      { allow: owner }
+      # Lambda function
+      { allow: private, provider: iam }
+    ]
+  )
   @model(subscriptions: null)
   @key(name: "averageRatingsByTeam", fields: ["teamId", "skillId"]) {
   # Team or Skill
@@ -147,6 +234,14 @@ type averageTeamRating
 }
 
 type Skill
+  @auth(
+    rules: [
+      # implicit store of owner
+      { allow: groups, groups: ["Admins", "Managers"], operations: [create] }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  )
   @model(subscriptions: null)
   @key(name: "skillsByTeam", fields: ["teamId"]) { # team has many skills
   id: ID!
@@ -155,11 +250,20 @@ type Skill
   description: String
   forManager: Boolean
   active: Boolean
+  group: String
 }
 
 # TODO: binnen een team alleen zichtbaar?
 type EvaluationRequest  # message
   @model
+  @auth(
+    rules: [
+      # implicit store of owner
+      { allow: owner, operations: [create] }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+    ]
+  )
   # @auth(rules: [
   #   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
   # ])
@@ -175,6 +279,7 @@ type EvaluationRequest  # message
   userId: ID!
   user: User! @connection(fields: ["userId"]) # belongs to
   status: EvaluationStatus!
+  group: String
 }
 
 enum EvaluationStatus {

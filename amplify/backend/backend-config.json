@@ -30,14 +30,20 @@
                 "authConfig": {
                     "additionalAuthenticationProviders": [
                         {
+                            "authenticationType": "API_KEY",
+                            "apiKeyConfig": {
+                                "apiKeyExpirationDays": 180,
+                                "description": "apikeyforlambda"
+                            }
+                        },
+                        {
                             "authenticationType": "AWS_IAM"
                         }
                     ],
                     "defaultAuthentication": {
-                        "authenticationType": "API_KEY",
-                        "apiKeyConfig": {
-                            "apiKeyExpirationDays": 180,
-                            "description": "referenceBuilderGraphqlKey"
+                        "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+                        "userPoolConfig": {
+                            "userPoolId": "authtoptabtestc335db9c"
                         }
                     }
                 }

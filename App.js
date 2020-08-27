@@ -73,10 +73,10 @@ function App(props) {
 
   const loadAuth = async () => {
     const {
-      attributes: { sub },
+      attributes: { sub: userID },
     } = await Auth.currentAuthenticatedUser().catch(console.log);
-    console.log(sub);
-    const result = await api.getUser(sub); // DEBUG: .catch(({ errors }) => console.log(errors));
+    console.log(userID);
+    const result = await api.getUser(userID); // DEBUG: .catch(({ errors }) => console.log(errors));
     // console.log({ result });
     if (result.errors || !result.data) {
       // FIXME: Cant getUser
