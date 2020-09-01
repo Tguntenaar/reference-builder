@@ -6,18 +6,12 @@ type Company
   @model(subscriptions: null)
   @auth(
     rules: [
-      # Defaults to use the "owner" field.
+      # implicit store of owner
       { allow: owner }
-      # Authorize the update mutation and both queries.
-      # { allow: owner, ownerField: "editors", operations: [update] }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
-      # { allow: groups, groups: ["Managers", "Employees"], operations: [read] }
-      # Each record may specify which groups may read them. (Bijvoorbeeld een company als groep)
-      # { allow: groups, groupsField: "groupsCanAccess", operations: [read] }
-
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   ) {
   id: ID!
@@ -31,14 +25,12 @@ type Team
   @model(subscriptions: null)
   @auth(
     rules: [
+      # implicit store of owner
       { allow: owner }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
-      # { allow: owner, ownerField: "adminId", operations: [ create, update ]} # only admin can edit
-      # {allow: groups, groupsField: "members", operations: [ read ]}
-
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @key(name: "TeamsByCompany", fields: ["companyId", "createdAt"]) { # team has many users
@@ -48,6 +40,7 @@ type Team
   name: String!
   admins: [ID!]
   group: String
+  active: Boolean
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
   membersLink: [TeamMemberLink!]
@@ -61,11 +54,11 @@ type TeamMemberLink
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner, operations: [create] }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
+      { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @model(queries: null, subscriptions: null)
@@ -80,19 +73,15 @@ type TeamMemberLink
 }
 
 type User
-  # @auth(rules: [{ allow: owner }, { allow: private, provider: iam }])
-  # @auth(rules: [
-  #   { allow: owner, ownerField: "id", operations: [create, update, delete]}
-  #   ])
   @model(subscriptions: null)
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner, operations: [create] }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
+      { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   ) {
   id: ID!
@@ -112,7 +101,6 @@ type User
   receivedRequests: [EvaluationRequest]
     @connection(keyName: "evaluationRequestsByEvaluator", fields: ["id"]) # has many
   # evaluations
-  # TODO: fixme het is niet echt many to many want het is 2 to many maar mis wel beter
   evaluations: [Evaluation]
     @connection(keyName: "evaluationsByEvaluator", fields: ["id"]) # has many
   receivedEvaluations: [Evaluation]
@@ -133,12 +121,12 @@ type Evaluation
   @model(subscriptions: null)
   @auth(
     rules: [
-      # Only the owner can update and delete
-      { allow: owner, operations: [create, update, delete] }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
+      # implicit store of owner
+      { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @key(
@@ -165,17 +153,17 @@ type Evaluation
 type Rating
   @auth(
     rules: [
-      # Only the owner can update and delete
-      { allow: owner, operations: [create, update, delete] }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
+      # implicit store of owner
+      { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @model(subscriptions: null)
   @key(name: "ratingsByEvaluation", fields: ["evaluationId"]) # Evaluation has many ratings
-  @key(name: "ratingsBySkill", fields: ["skillId"]) { # TODO: misschien overbodig
+  @key(name: "ratingsBySkill", fields: ["skillId"]) {
   id: ID!
   evaluationId: ID!
   evaluation: Evaluation! @connection(fields: ["evaluationId"]) # has one
@@ -190,12 +178,12 @@ type Rating
 type averageUserRating
   @auth(
     rules: [
-      # Implicit store of owner
-      { allow: owner, operations: [create] }
-      # Admin users can access any operation.
-      { allow: groups, groups: ["Admins"], operations: [create] }
-      # Lambda function
-      { allow: private, provider: iam }
+      # implicit store of owner
+      { allow: owner }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @model(subscriptions: null)
@@ -212,13 +200,14 @@ type averageUserRating
 
 # on create skill create average
 type averageTeamRating
-  # TODO: iam role
   @auth(
     rules: [
       # implicit store of owner
       { allow: owner }
-      # Lambda function
-      { allow: private, provider: iam }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @model(subscriptions: null)
@@ -231,15 +220,18 @@ type averageTeamRating
   skill: Skill! @connection(fields: ["skillId"]) # has one
   grade: Int!
   timesRated: Int!
+  group: String
 }
 
 type Skill
   @auth(
     rules: [
       # implicit store of owner
-      { allow: groups, groups: ["Admins", "Managers"], operations: [create] }
+      { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
   @model(subscriptions: null)
@@ -253,20 +245,18 @@ type Skill
   group: String
 }
 
-# TODO: binnen een team alleen zichtbaar?
-type EvaluationRequest  # message
+type EvaluationRequest
   @model
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner, operations: [create] }
+      { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
     ]
   )
-  # @auth(rules: [
-  #   { allow: owner, ownerField: "evaluatorId", operations: [ create, delete ]},
-  # ])
   @key(
     name: "evaluationRequestsByEvaluator"
     fields: ["evaluatorId", "createdAt"]

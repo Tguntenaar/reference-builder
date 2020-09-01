@@ -10,7 +10,7 @@ const axios = require('axios');
 const gql = require('graphql-tag');
 const graphql = require('graphql');
 
-const documentClient = new AWS.DynamoDB.DocumentClient();
+// const documentClient = new AWS.DynamoDB.DocumentClient();
 
 const { print } = graphql;
 
@@ -24,6 +24,49 @@ const listTodos = gql`
     }
   }
 `;
+
+const getAverages = gql`
+  query getAverages {
+    listUsers {
+      items {
+        id
+        name
+      }
+    }
+  }
+`;
+
+const updateUserAverage = gql`
+  query updateUserAverage {
+    listUsers {
+      items {
+        id
+        name
+      }
+    }
+  }
+`;
+
+const updateTeamAverage = gql`
+  query updateTeamAverage {
+    listUsers {
+      items {
+        id
+        name
+      }
+    }
+  }
+`;
+
+/**
+ * TODO:
+ * Je krijgt een event binnen
+ * Als event een update event is dus geen INSERT of REMOVE
+ * Haal het gemiddelde op van de user en van zijn team
+ * update beide gemiddeldes
+ *
+ * batch size 1
+ */
 
 exports.handler = async (event) => {
   console.log(JSON.stringify(event, null, 2));
@@ -39,7 +82,7 @@ exports.handler = async (event) => {
       url: process.env.API_URL,
       method: 'post',
       headers: {
-        'x-api-key': '', // process.env.API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT,
+        'x-api-key': process.env.API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT,
       },
       data: {
         query: print(listTodos),
