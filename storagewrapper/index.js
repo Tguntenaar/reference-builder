@@ -1,3 +1,9 @@
+/**
+ * TODO:
+ * nog niet getest
+ * nog niet gebruikt
+ * niet af!!!
+ */
 import { Storage } from 'aws-amplify';
 
 const path = 'avatars';

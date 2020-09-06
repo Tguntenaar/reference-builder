@@ -7,7 +7,7 @@ type Company
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -26,7 +26,7 @@ type Team
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -54,7 +54,7 @@ type TeamMemberLink
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -77,7 +77,7 @@ type User
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -91,7 +91,7 @@ type User
   email: String
   jobTitle: String
   avatar: S3Object
-  activeTeam: TeamMemberLink
+  activeTeam: ID
   # dashboard
   teamsLink: [TeamMemberLink!]
     @connection(keyName: "teamsByUser", fields: ["id"]) # many to many
@@ -122,7 +122,7 @@ type Evaluation
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -154,7 +154,7 @@ type Rating
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -179,7 +179,7 @@ type averageUserRating
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -203,7 +203,7 @@ type averageTeamRating
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -227,7 +227,7 @@ type Skill
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
@@ -250,7 +250,7 @@ type EvaluationRequest
   @auth(
     rules: [
       # implicit store of owner
-      { allow: owner }
+      # { allow: owner }
       # Dynamic group authorization with a single group
       { allow: groups, groupsField: "group" }
       # Allow for API key
