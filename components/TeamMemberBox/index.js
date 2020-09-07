@@ -6,10 +6,7 @@ import NextButton from '../NextButton';
 import { imageEsther } from '../../constants/Images';
 import styles from './style';
 
-const TeamMember = ({ teamMember, onPress, color }) => {
-  const handlePress = () => {
-    onPress(teamMember.id);
-  };
+const TeamMember = ({ teamMember, color }) => {
   console.log(teamMember.id);
   return (
     <View style={[styles.Box, { backgroundColor: color }]}>
@@ -34,7 +31,7 @@ TeamMember.propTypes = {
     jobTitle: PropTypes.string,
   }).isRequired,
   color: PropTypes.string,
-  onPress: PropTypes.func.isRequired,
+  // onPress: PropTypes.func.isRequired,
 };
 
 TeamMember.defaultProps = {

@@ -91,7 +91,8 @@ type User
   email: String
   jobTitle: String
   avatar: S3Object
-  activeTeam: ID
+  activeTeamID: ID!
+  activeTeam: TeamMemberLink @connection(fields: ["activeTeamID"]) # has one
   # dashboard
   teamsLink: [TeamMemberLink!]
     @connection(keyName: "teamsByUser", fields: ["id"]) # many to many

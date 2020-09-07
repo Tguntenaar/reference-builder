@@ -17,10 +17,11 @@ const UI = ({
   setForm,
   selectedTeam,
   setSelectedTeam,
-  teamLinks,
+  teamsLink,
   navigation,
+  isAdmin,
+  isManager,
 }) => {
-  const admin = true;
   return (
     <View style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -80,35 +81,36 @@ const UI = ({
             }}
           >
             <Text style={styles.teams}>Teams</Text>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('Form', {
-                  name: 'Create team',
-                  fields: ['name'],
-                  screen: 'SettingsScreen',
-                  post: 'newTeam',
-                  form: [
-                    {
-                      text: 'Name',
-                      key: 'name',
-                      value: '',
-                    },
-                  ],
-                });
-              }}
-              style={{
-                flexDirection: 'row',
-              }}
-            >
-              <Text style={{ color: 'blue' }}>Create Team </Text>
+            {isAdmin ? (
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Form', {
+                    name: 'Create team',
+                    fields: ['name'],
+                    screen: 'SettingsScreen',
+                    post: 'newTeam',
+                    form: [
+                      {
+                        text: 'Name',
+                        key: 'name',
+                        value: '',
+                      },
+                    ],
+                  });
+                }}
+                style={{
+                  flexDirection: 'row',
+                }}
+              >
+                <Text style={{ color: 'blue' }}>Create Team </Text>
 
-              <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
-            </TouchableOpacity>
+                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+              </TouchableOpacity>
+            ) : null}
           </View>
         </View>
         <View style={styles.bottom}>
-          {teamLinks.map(function (link) {
-            // console.log(link.team);
+          {teamsLink.items.map((link) => {
             return (
               <View style={styles.card} key={link.id}>
                 <View style={styles.imageContainer}>
@@ -116,7 +118,7 @@ const UI = ({
                   {/** (photo && { uri: photo.uri, cache: 'force-cache' }) */}
                 </View>
                 <View style={styles.innerCard}>
-                  {admin ? (
+                  {isAdmin || isManager ? (
                     <Feather
                       name="settings"
                       color="gray"
@@ -170,7 +172,9 @@ UI.propTypes = {
   setForm: PropTypes.func.isRequired,
   selectedTeam: PropTypes.string.isRequired,
   setSelectedTeam: PropTypes.func.isRequired,
-  teamLinks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  teamsLink: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
 };
 
 export default UI;

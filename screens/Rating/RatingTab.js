@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, StatusBar, Text } from 'react-native';
+import { StyleSheet, ScrollView, StatusBar, Text, RefreshControl } from 'react-native';
 import RatingBox from '../../components/RatingBox';
 import withUser from '../../contexts/withUser';
 
@@ -28,11 +28,6 @@ const styles = StyleSheet.create({
 function RatingTab({ navigation, route, userContext }) {
   const { averageRatings } = userContext;
 
-  // console.log('Object.keys(userContext)');
-  // console.log(Object.keys(userContext));
-  // console.log('averageRatings.items.length');
-  // console.log(averageRatings.items.length);
-
   averageRatings.items =
     averageRatings.items && averageRatings.items.length
       ? averageRatings.items
@@ -47,12 +42,17 @@ function RatingTab({ navigation, route, userContext }) {
             },
           },
         ];
-  // console.log(evaluations);
 
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <ScrollView style={styles.container} contentContainerStyle={styles.scroll}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.scroll}
+        refreshControl={
+          <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
+        }
+      >
         {averageRatings.items.length ? (
           averageRatings.items.map((averageRating) => {
             return (

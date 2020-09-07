@@ -4,7 +4,6 @@ import * as ImagePicker from 'expo-image-picker';
 // AWS
 import { Storage } from 'aws-amplify';
 
-//
 import Screen from './UI';
 import api from '../../../apiwrapper';
 import withUser from '../../../contexts/withUser';
@@ -16,15 +15,15 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     id: userId,
     name: username,
     jobTitle,
-    teamsLink: { items: teamLinks },
+    teamsLink,
+    activeTeam: team,
   } = userContext;
-  const team ={id:'0', 'name':'something'} // TODO: TODO: TODO:
-  const teamId = team.id
-  // const {team: {id: teamId}} = teamLinks[0];
-  // console.log(teamId)
-  // console.log(team.name);
-  // console.log(teams.items[0].team.name);
-
+  // const team = activeTeam;
+    // teamsLink.items
+    // .filter(({ team }) => team.id === activeTeam)
+    // .map((link)=>link.team)[0];
+  console.log(team)
+  const teamId = team.id;
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
   const [selectedTeam, setSelectedTeam] = useState(team.name);
@@ -35,6 +34,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     );
     setAvatar({ uri: url, cache: 'force-cache' });
   };
+
   const pickImage = () => {
     const options = {
       noData: true,
@@ -111,8 +111,10 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     setForm,
     selectedTeam,
     setSelectedTeam,
-    teamLinks,
+    teamsLink,
     navigation,
+    isAdmin: userContext.isAdmin,
+    isManager: userContext.isManager,
   };
   return <Screen {...properties} />;
 };
