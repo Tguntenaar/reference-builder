@@ -11,9 +11,10 @@ import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
 import CommentInput from '../../../components/CommentInput';
 import api from '../../../apiwrapper';
+import withUser from '../../../contexts/withUser';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
-function EvaluateCommentScreen({ navigation, route }) {
+function EvaluateCommentScreen({ userContext, navigation, route }) {
   const [text, setText] = useState('');
   const [status, setStatus] = useState({ loading: false, errored: false });
   const { username, average, sliders, evaluationRequest } = route.params;
@@ -26,6 +27,7 @@ function EvaluateCommentScreen({ navigation, route }) {
       userId: evaluationRequest.user.id,
       authorId: evaluationRequest.evaluator.id,
       comment: text,
+      group: userContext.group,
     };
     console.log(rating);
     console.log(evaluationRequest.evaluator.name);
@@ -111,4 +113,4 @@ EvaluateCommentScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
 };
 
-export default EvaluateCommentScreen;
+export default withUser(EvaluateCommentScreen);

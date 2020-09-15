@@ -111,6 +111,7 @@ const UI = ({
         </View>
         <View style={styles.bottom}>
           {teamsLink.items.map((link) => {
+            console.log({ link });
             return (
               <View style={styles.card} key={link.id}>
                 <View style={styles.imageContainer}>
@@ -125,7 +126,7 @@ const UI = ({
                       style={styles.teamIcon}
                       onPress={() => {
                         navigation.navigate('TeamSettingsScreen', {
-                          ...link.team,
+                          team: link.team,
                         });
                       }}
                     />
@@ -137,6 +138,7 @@ const UI = ({
                       onPress={() => {
                         // TODO: remove team
                         // disable team
+                        console.log('clicked remove team');
                       }}
                     />
                   )}

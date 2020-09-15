@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, Text, StatusBar, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  StatusBar,
+  ScrollView,
+  TouchableOpacity,
+  RefreshControl,
+} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { width } from '../../../constants/Utils';
@@ -13,6 +21,7 @@ import styles from './style';
 import BackButton from '../../../components/BackButton';
 
 const screen = ({
+  teamManagers,
   teamMembers,
   teamSkills,
   teamName,
@@ -24,6 +33,7 @@ const screen = ({
   navigation,
   navigateToForm,
   sendTeamEvaluations,
+  userContext,
 }) => {
   // Random array of objects
   const foo = Array.from(Array(3).keys());
@@ -41,6 +51,9 @@ const screen = ({
         justifyContent: 'space-between',
         backgroundColor: '#fff',
       }}
+      refreshControl={
+        <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
+      }
     >
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
@@ -70,7 +83,7 @@ const screen = ({
             </View>
             <TouchableOpacity
               onPress={() => {
-                navigateToForm();
+                navigateToForm(true);
               }}
             >
               <View style={{ flexDirection: 'row' }}>
@@ -80,47 +93,71 @@ const screen = ({
             </TouchableOpacity>
           </View>
           <View style={styles.skillsContainer}>
-            {teamSkills.length ? (
-              teamSkills.map((skill) => (
+            {
+              /** MANAGER SKILLS */
+              teamSkills.filter((skill) => skill.forManager).length ? (
+                teamSkills
+                  .filter((skill) => skill.forManager)
+                  .map((skill) => (
+                    <View
+                      key={skill.id}
+                      style={{
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                      }}
+                    >
+                      <View style={styles.skill}>
+                        <View style={styles.innerSkill}>
+                          <Text style={styles.skillName}>{skill.name}</Text>
+                          <Feather
+                            name="x"
+                            color="black"
+                            style={styles.xIcon}
+                            onPress={() => deactivateSkill(skill.id)}
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  ))
+              ) : (
                 <View
-                  key={skill.id}
                   style={{
                     paddingTop: 10,
                     paddingBottom: 10,
                   }}
                 >
-                  <View style={styles.skill}>
+                  <TouchableOpacity onPress={() => navigateToForm(true)} style={styles.skill}>
                     <View style={styles.innerSkill}>
-                      <Text style={styles.skillName}>{skill.name}</Text>
-                      <Feather
-                        name="x"
-                        color="black"
-                        style={styles.xIcon}
-                        onPress={() => deactivateSkill(skill.id)}
-                      />
+                      <Text style={styles.skillName}>Add Skills</Text>
+                      <Feather name="plus-circle" color="black" style={styles.plusIcon} />
                     </View>
+                  </TouchableOpacity>
+                </View>
+              )
+            }
+          </View>
+
+          <View style={styles.test}>
+            <Text style={styles.headerTitles}>Managers ({teamManagers.length})</Text>
+          </View>
+          {teamManagers.map(({ user: manager }) => {
+            console.log({ manager });
+            return (
+              <View key={manager.id} style={[styles.card, styles.managerCard]}>
+                <Image style={styles.image} source={imageEsther} />
+                {/* TODO: teammember image */}
+                <View style={styles.innerCard}>
+                  <Feather name="x-circle" color="red" style={styles.teamIcon} />
+
+                  <View style={styles.userInfo}>
+                    <Text style={styles.name}>{manager.name}</Text>
+                    <Text style={styles.jobTitle}>{manager.jobTitle}</Text>
                   </View>
                 </View>
-              ))
-            ) : (
-              <Text>Start adding skills your team should evaluate</Text>
-            )}
-          </View>
-          <View style={styles.test}>
-            <Text style={styles.headerTitles}>Manager</Text>
-          </View>
-          <View style={[styles.card, styles.managerCard]}>
-            <Image style={styles.image} source={imageEsther} />
-            {/* TODO: teammember image */}
-            <View style={styles.innerCard}>
-              <Feather name="x-circle" color="red" style={styles.teamIcon} />
-
-              <View style={styles.userInfo}>
-                <Text style={styles.name}>Naam van de manager{/** FIXME: */}</Text>
-                <Text style={styles.jobTitle}>Manager</Text>
               </View>
-            </View>
-          </View>
+            );
+          })}
+
           {/** TEAM SKILLS */}
           <View style={{ marginTop: 30, flexDirection: 'row', justifyContent: 'space-between' }}>
             <View>
@@ -129,7 +166,7 @@ const screen = ({
             </View>
             <TouchableOpacity
               onPress={() => {
-                navigateToForm();
+                navigateToForm(false);
               }}
             >
               <View style={{ flexDirection: 'row' }}>
@@ -139,31 +176,48 @@ const screen = ({
             </TouchableOpacity>
           </View>
           <View style={styles.skillsContainer}>
-            {teamSkills.length ? (
-              teamSkills.map((skill) => (
+            {
+              /** Non manager skills */
+              teamSkills.filter((skill) => !skill.forManager).length ? (
+                teamSkills
+                  .filter((skill) => !skill.forManager)
+                  .map((skill) => (
+                    <View
+                      key={skill.id}
+                      style={{
+                        paddingTop: 10,
+                        paddingBottom: 10,
+                      }}
+                    >
+                      <View style={styles.skill}>
+                        <View style={styles.innerSkill}>
+                          <Text style={styles.skillName}>{skill.name}</Text>
+                          <Feather
+                            name="x"
+                            color="black"
+                            style={styles.xIcon}
+                            onPress={() => deactivateSkill(skill.id)}
+                          />
+                        </View>
+                      </View>
+                    </View>
+                  ))
+              ) : (
                 <View
-                  key={skill.id}
                   style={{
                     paddingTop: 10,
                     paddingBottom: 10,
                   }}
                 >
-                  <View style={styles.skill}>
+                  <TouchableOpacity onPress={() => navigateToForm(false)} style={styles.skill}>
                     <View style={styles.innerSkill}>
-                      <Text style={styles.skillName}>{skill.name}</Text>
-                      <Feather
-                        name="x"
-                        color="black"
-                        style={styles.xIcon}
-                        onPress={() => deactivateSkill(skill.id)}
-                      />
+                      <Text style={styles.skillName}>Add Skills</Text>
+                      <Feather name="plus-circle" color="black" style={styles.plusIcon} />
                     </View>
-                  </View>
+                  </TouchableOpacity>
                 </View>
-              ))
-            ) : (
-              <Text>Start adding skills your team should evaluate</Text>
-            )}
+              )
+            }
           </View>
           <View style={styles.test}>
             <Text style={styles.headerTitles}>Members ({teamMembers.length})</Text>

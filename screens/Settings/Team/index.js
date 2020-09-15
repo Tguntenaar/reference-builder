@@ -6,12 +6,20 @@ import withUser from "../../../contexts/withUser";
 import api from "../../../apiwrapper";
 import UI from "./UI";
 import { updateSkill } from "../../../apiwrapper/graphql/mutations";
-
+/**
+ * 
+ * @param {} param0 
+ * 
+ * TODO:
+ * 
+ * 
+ * split managers en employess net als in team screen
+ * create different skills inside team (boolean in skill)
+ * 
+ */
 function TeamSettingsScreen({ userContext, route, navigation }) {
   console.log("TeamSettingsScreen");
-  // TODO: const { team } = route.params;
-  const { team } = userContext.teamsLink.items[0];
-  console.log(route.params);
+  const { team } = route.params;
   // const { teams: [ team ] } = userContext
   // const {
   //   teams: {
@@ -61,6 +69,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         name,
         jobTitle,
         email,
+        group: userContext.group,
       })
       .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
 
@@ -87,12 +96,12 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   };
 
-  const navigateToForm = () => {
+  const navigateToForm = (forManager) => {
     navigation.navigate("Form", {
       name: "Skills toevoegen",
       fields: ["name", "description"],
       screen: "TeamSettingsScreen",
-      post: "newSkill",
+      post: forManager? "newManagerSkill":"newSkill",
       update: "activateSkillId",
       form: [
         {
@@ -134,6 +143,19 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     };
     activateSkill();
   }, [route.params?.activateSkillId]); // TODO: kan nu maar 1 keer skill verwijderen en heractiveren
+  // TODO: 2x useEffect bijna hetzelfde dat is niet DRY
+  useEffect(() => {
+    if (route.params?.newManagerSkill) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, description } = route.params.newManagerSkill;
+      if (!name || !description) {
+        console.warn("no name or description for new skill");
+        return;
+      }
+      createSkill(name, description, true);
+    }
+  }, [route.params?.newManagerSkill]);
 
   useEffect(() => {
     if (route.params?.newSkill) {
@@ -144,7 +166,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         console.warn("no name or description for new skill");
         return;
       }
-      createSkill(name, description);
+      createSkill(name, description, false);
     }
   }, [route.params?.newSkill]);
 
@@ -164,7 +186,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   }, [route.params?.newMember]);
 
   // TODO: validation
-  const createSkill = async (skillName, skillDescription) => {
+  const createSkill = async (skillName, skillDescription, forManager) => {
     const {
       data: { createSkill: createdSkill },
     } = await api
@@ -173,6 +195,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         name: skillName.replace(/./, (m) => m.toUpperCase()), // First letter uppercase
         description: skillDescription,
         active: true,
+        group: userContext.group,
+        forManager
       })
       .catch(({ errors }) => {
         console.log(errors);
@@ -185,6 +209,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       .createTeamAverage({
         skillId: createdSkill.id,
         userId: userContext.id,
+        group: userContext.group,
       })
       .catch(({ errors }) => {
         console.log("error creating team average");
@@ -194,6 +219,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       .createUserAverage({
         skillId: createdSkill.id,
         teamId: team.id,
+        group: userContext.group,
       })
       .catch(({ errors }) => {
         console.log("error creating user average");
@@ -250,6 +276,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
             userId: user.id,
             evaluatorId: evaluator.id,
             status: "PENDING",
+            group: userContext.group,
+
           })
           .catch(({ errors }) => {
             console.log("Failed:");
@@ -262,8 +290,9 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       }
     }
   };
-
+  const teamManagers = teamMembers;
   const properties = {
+    teamManagers,
     teamMembers,
     teamSkills,
     newUser,
@@ -280,6 +309,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     navigation,
     navigateToForm,
     sendTeamEvaluations,
+    userContext
   };
   return <UI {...properties} />;
 }

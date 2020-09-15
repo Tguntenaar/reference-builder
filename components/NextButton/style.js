@@ -15,3 +15,5 @@ const styles = StyleSheet.create({
     padding: 1,
   },
 });
+
+export default styles;
