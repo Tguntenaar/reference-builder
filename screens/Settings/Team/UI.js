@@ -141,7 +141,6 @@ const screen = ({
             <Text style={styles.headerTitles}>Managers ({teamManagers.length})</Text>
           </View>
           {teamManagers.map(({ user: manager }) => {
-            console.log({ manager });
             return (
               <View key={manager.id} style={[styles.card, styles.managerCard]}>
                 <Image style={styles.image} source={imageEsther} />

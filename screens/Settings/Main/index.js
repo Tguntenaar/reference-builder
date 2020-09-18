@@ -16,18 +16,18 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     name: username,
     jobTitle,
     teamsLink,
-    activeTeam: team,
+    activeTeam: teamLink,
   } = userContext;
   // const team = activeTeam;
     // teamsLink.items
     // .filter(({ team }) => team.id === activeTeam)
     // .map((link)=>link.team)[0];
-  console.log(team)
-  const teamId = team.id;
+  console.log(teamLink.team)
+  const teamId = teamLink.team.id;
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
-  const [selectedTeam, setSelectedTeam] = useState(team.name);
-
+  const [selectedTeam, setSelectedTeam] = useState(teamLink.team.name);
+  
   const getAvatarFromStorage = async () => {
     const url = await Storage.get(`${path}/${teamId}/avatar${userId}.jpeg`).catch(() =>
       console.log(`ERROR: Can't get() image`)
@@ -99,7 +99,20 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
         console.warn("no name for new team");
         return;
       }
-      createTeam({name, companyId: team.company.id}); // TODO: team.company.id check
+      console.log(teamLink.team)
+      api.createTeam({
+        name,
+        companyId: teamLink.team.company.id,
+        group: userContext.group,
+        active: true,
+        admins: [userContext.id]
+      }).then((response)=> {
+        api.createTeamMemberLink({
+          teamId: response.data.createTeam.id,
+          userId: userContext.id,
+          group: userContext.group,
+        });
+      })
     }
   }, [route.params?.newTeam]);
 

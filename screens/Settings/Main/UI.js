@@ -111,7 +111,7 @@ const UI = ({
         </View>
         <View style={styles.bottom}>
           {teamsLink.items.map((link) => {
-            console.log({ link });
+            // console.log({ link });
             return (
               <View style={styles.card} key={link.id}>
                 <View style={styles.imageContainer}>
@@ -130,18 +130,7 @@ const UI = ({
                         });
                       }}
                     />
-                  ) : (
-                    <Feather
-                      name="x-circle"
-                      color="red"
-                      style={styles.teamIcon}
-                      onPress={() => {
-                        // TODO: remove team
-                        // disable team
-                        console.log('clicked remove team');
-                      }}
-                    />
-                  )}
+                  ) : null}
 
                   <Text style={styles.teamName}>{link.team.name}</Text>
                   <NextButton

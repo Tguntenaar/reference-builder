@@ -20,23 +20,10 @@ import { updateSkill } from "../../../apiwrapper/graphql/mutations";
 function TeamSettingsScreen({ userContext, route, navigation }) {
   console.log("TeamSettingsScreen");
   const { team } = route.params;
-  // const { teams: [ team ] } = userContext
-  // const {
-  //   teams: {
-  //     items: [
-  //       {
-  //         name: initialTeamName,
-  //         company: { name: initialCompanyName },
-  //         members: { items: initialTeamMembers },
-  //         skills: { items: initialTeamSkills },
-  //       }
-  //     ],
-  //   },
-  // } = userContext;
 
   const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
   const [teamSkills, setTeamSkills] = useState(
-    team.skills.items.filter((skill) => skill.active)
+    team.skills.items //.filter((skill) => skill.active)
   );
   const [newUser, setNewUser] = useState({ name: "", jobTitle: "", email: "" });
   const [newSkill, setNewSkill] = useState({ name: "", description: "" });
@@ -253,9 +240,15 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
 
   const deactivateSkill = async (id) => {
     setTeamSkills(teamSkills.filter((skill) => id !== skill.id));
-    const {
-      data: { updateSkill: result },
-    } = await api.updateSkill({ id, active: false }).catch(console.log);
+    // const {
+    //   data: { updateSkill: result },
+    // } = await api.updateSkill({ id, active: false }).catch(console.log);
+    await api.deleteSkill({id})
+    .then((response) => {
+      console.log('gelukt');
+    }).catch((error)=> {
+      console.log('gevaald');
+    });
   };
 
   const deleteMember = async (teamMemberLinkId) => {

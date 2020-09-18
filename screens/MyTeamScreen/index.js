@@ -5,19 +5,15 @@ import withUser from '../../contexts/withUser';
 import styles from './style';
 
 function MyTeamScreen({ navigation, userContext }) {
-  let team;
   const {
     teamsLink: { items: teamMemberLinks },
-    activeTeamID: activeTeam, // FIXME:
+    activeTeam: activeTeamLink,
   } = userContext;
-  if (!teamMemberLinks.length) {
-    team = false;
-  } else if (teamMemberLinks.length === 1) {
-    team = teamMemberLinks[0].team;
-  } else {
-    team = teamMemberLinks.filter((item) => item.team.id === activeTeam);
-  }
 
+  const { team } = activeTeamLink;
+  const {
+    membersLink: { items: membersLink },
+  } = team;
   return (
     <>
       <ScrollView
@@ -31,7 +27,7 @@ function MyTeamScreen({ navigation, userContext }) {
           <>
             <Text style={[styles.text]}>Managers</Text>
 
-            {teamMemberLinks.map((teamMemberLink) => {
+            {membersLink.map((teamMemberLink) => {
               const { admins } = team;
               const {
                 user: { id, avatar },
@@ -48,11 +44,9 @@ function MyTeamScreen({ navigation, userContext }) {
                 );
               }
             })}
-            <Text style={[styles.text]}>
-              Members ({teamMemberLinks.length - team.admins.length})
-            </Text>
-            {teamMemberLinks.length ? (
-              teamMemberLinks.map((teamMemberLink) => {
+            <Text style={[styles.text]}>Members ({membersLink.length - team.admins.length})</Text>
+            {membersLink.length ? (
+              membersLink.map((teamMemberLink) => {
                 const { admins } = team;
                 const {
                   user: { id, avatar },
