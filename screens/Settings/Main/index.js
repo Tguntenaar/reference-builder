@@ -22,7 +22,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     // teamsLink.items
     // .filter(({ team }) => team.id === activeTeam)
     // .map((link)=>link.team)[0];
-  console.log(teamLink.team)
+  // console.log(teamLink.team)
   const teamId = teamLink.team.id;
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });

@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     height: 155,
   },
-  test: {
+  row: {
     marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',

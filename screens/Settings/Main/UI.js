@@ -52,8 +52,7 @@ const UI = ({
               onPress={() => {
                 // inputElement.current.focus();
                 navigation.navigate('Form', {
-                  name: 'Verander naam',
-
+                  name: 'Change name',
                   screen: 'SettingsScreen',
                   post: 'post',
                   form: [
@@ -86,9 +85,9 @@ const UI = ({
                 onPress={() => {
                   navigation.navigate('Form', {
                     name: 'Create team',
-                    fields: ['name'],
                     screen: 'SettingsScreen',
                     post: 'newTeam',
+                    list: [],
                     form: [
                       {
                         text: 'Name',

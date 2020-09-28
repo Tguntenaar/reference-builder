@@ -119,8 +119,10 @@ function CompanySettingsScreen({ userContext }) {
   const deleteMember = async (teamMemberLinkId) => {
     setTeamMembers(teamMembers.filter((user) => teamMemberLinkId !== user.id));
     const {
-      data: { deleteTeamMemberLink: result },
-    } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
+      data: { updateTeamMemberLink: result },
+    } = await api.updateTeamMemberLink({ id: teamMemberLinkId, active: false }).catch(console.log);
+    console.log('updateTeamMemberLink result:');
+    console.log(result);
   };
   const props = {
     teams,

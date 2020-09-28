@@ -70,6 +70,7 @@ type TeamMemberLink
   group: String
   user: User @connection(fields: ["userId"])
   team: Team @connection(fields: ["teamId"])
+  active: Boolean
 }
 
 type User

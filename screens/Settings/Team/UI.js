@@ -26,24 +26,17 @@ const screen = ({
   teamSkills,
   teamName,
   setTeamName,
-  createUser,
   updateHeader,
   deactivateSkill,
   deleteMember,
   navigation,
-  navigateToForm,
+  navigateToSkillForm,
   sendTeamEvaluations,
   userContext,
+  addManager,
+  addMember,
+  admins,
 }) => {
-  // Random array of objects
-  const foo = Array.from(Array(3).keys());
-  const TeamSkills = foo.map((item, index) => {
-    return {
-      id: index,
-      name: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 7),
-    };
-  });
-  console.log(teamSkills);
   return (
     <ScrollView
       contentContainerStyle={{
@@ -65,13 +58,9 @@ const screen = ({
             style={[styles.input, styles.pageTitle]}
             clearTextOnFocus={false}
             onChangeText={(text) => setTeamName(text)}
+            onEndEditing={() => updateHeader()}
             value={teamName}
             placeholder="Team name"
-          />
-          <NextButton
-            title="Send team evaluations"
-            textSize={14}
-            onPress={() => navigation.navigate('SendRequests')}
           />
         </View>
         <View style={styles.middle}>
@@ -83,7 +72,7 @@ const screen = ({
             </View>
             <TouchableOpacity
               onPress={() => {
-                navigateToForm(true);
+                navigateToSkillForm(true);
               }}
             >
               <View style={{ flexDirection: 'row' }}>
@@ -109,12 +98,14 @@ const screen = ({
                       <View style={styles.skill}>
                         <View style={styles.innerSkill}>
                           <Text style={styles.skillName}>{skill.name}</Text>
-                          <Feather
-                            name="x"
-                            color="black"
-                            style={styles.xIcon}
-                            onPress={() => deactivateSkill(skill.id)}
-                          />
+                          {userContext.isAdmin ? (
+                            <Feather
+                              name="x"
+                              color="black"
+                              style={styles.xIcon}
+                              onPress={() => deactivateSkill(skill.id)}
+                            />
+                          ) : null}
                         </View>
                       </View>
                     </View>
@@ -126,7 +117,7 @@ const screen = ({
                     paddingBottom: 10,
                   }}
                 >
-                  <TouchableOpacity onPress={() => navigateToForm(true)} style={styles.skill}>
+                  <TouchableOpacity onPress={() => navigateToSkillForm(true)} style={styles.skill}>
                     <View style={styles.innerSkill}>
                       <Text style={styles.skillName}>Add Skills</Text>
                       <Feather name="plus-circle" color="black" style={styles.plusIcon} />
@@ -137,8 +128,18 @@ const screen = ({
             }
           </View>
 
-          <View style={styles.test}>
+          <View style={styles.row}>
             <Text style={styles.headerTitles}>Managers ({teamManagers.length})</Text>
+            <TouchableOpacity
+              onPress={() => {
+                addManager();
+              }}
+            >
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ color: 'blue' }}> Add Manager </Text>
+                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+              </View>
+            </TouchableOpacity>
           </View>
           {teamManagers.map(({ user: manager }) => {
             return (
@@ -146,11 +147,18 @@ const screen = ({
                 <Image style={styles.image} source={imageEsther} />
                 {/* TODO: teammember image */}
                 <View style={styles.innerCard}>
-                  <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                  {userContext.isAdmin ? (
+                    <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                  ) : null}
 
                   <View style={styles.userInfo}>
                     <Text style={styles.name}>{manager.name}</Text>
                     <Text style={styles.jobTitle}>{manager.jobTitle}</Text>
+                    <NextButton
+                      title="Request evaluations"
+                      textSize={14}
+                      onPress={() => navigation.navigate('SendRequests')}
+                    />
                   </View>
                 </View>
               </View>
@@ -165,7 +173,7 @@ const screen = ({
             </View>
             <TouchableOpacity
               onPress={() => {
-                navigateToForm(false);
+                navigateToSkillForm(false);
               }}
             >
               <View style={{ flexDirection: 'row' }}>
@@ -191,12 +199,14 @@ const screen = ({
                       <View style={styles.skill}>
                         <View style={styles.innerSkill}>
                           <Text style={styles.skillName}>{skill.name}</Text>
-                          <Feather
-                            name="x"
-                            color="black"
-                            style={styles.xIcon}
-                            onPress={() => deactivateSkill(skill.id)}
-                          />
+                          {userContext.isAdmin ? (
+                            <Feather
+                              name="x"
+                              color="black"
+                              style={styles.xIcon}
+                              onPress={() => deactivateSkill(skill.id)}
+                            />
+                          ) : null}
                         </View>
                       </View>
                     </View>
@@ -208,7 +218,7 @@ const screen = ({
                     paddingBottom: 10,
                   }}
                 >
-                  <TouchableOpacity onPress={() => navigateToForm(false)} style={styles.skill}>
+                  <TouchableOpacity onPress={() => navigateToSkillForm(false)} style={styles.skill}>
                     <View style={styles.innerSkill}>
                       <Text style={styles.skillName}>Add Skills</Text>
                       <Feather name="plus-circle" color="black" style={styles.plusIcon} />
@@ -218,37 +228,17 @@ const screen = ({
               )
             }
           </View>
-          <View style={styles.test}>
-            <Text style={styles.headerTitles}>Members ({teamMembers.length})</Text>
+          <View style={styles.row}>
+            <Text style={styles.headerTitles}>
+              Members ({teamMembers.filter((tm) => !admins.includes(tm.user.id)).length})
+            </Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Form', {
-                  name: 'Invite members',
-                  fields: ['name', 'jobTitle', 'email'],
-                  screen: 'TeamSettingsScreen',
-                  post: 'newMember',
-                  form: [
-                    {
-                      text: 'Name',
-                      key: 'name',
-                      value: '',
-                    },
-                    {
-                      text: 'Job title',
-                      key: 'jobTitle',
-                      value: '',
-                    },
-                    {
-                      text: 'E-mail',
-                      key: 'email',
-                      value: '',
-                    },
-                  ],
-                });
+                addMember();
               }}
             >
               <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Invite members </Text>
+                <Text style={{ color: 'blue' }}> Add members </Text>
                 <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
               </View>
             </TouchableOpacity>
@@ -259,28 +249,43 @@ const screen = ({
               width,
             }}
           >
-            {teamMembers.length ? (
-              teamMembers.map(({ id: teamMemberLinkId, user }) => (
-                <View key={teamMemberLinkId} style={styles.card}>
-                  <Image style={styles.image} source={imageEsther} />
-                  {/* TODO: teammember image */}
-                  <View style={styles.innerCard}>
-                    <View style={styles.userInfo}>
-                      <Text style={styles.name}>{user.name}</Text>
-                      <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+            {teamMembers.filter((tm) => !admins.includes(tm.user.id)).length ? (
+              teamMembers
+                .filter((tm) => !admins.includes(tm.user.id))
+                .map(({ id: teamMemberLinkId, user }) => (
+                  <View key={teamMemberLinkId} style={styles.card}>
+                    <Image style={styles.image} source={imageEsther} />
+                    {/* TODO: teammember image */}
+                    <View style={styles.innerCard}>
+                      <View style={styles.userInfo}>
+                        <Text style={styles.name}>{user.name}</Text>
+                        <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+                      </View>
+                      <TouchableOpacity
+                        onPress={() => {
+                          deleteMember(teamMemberLinkId);
+                        }}
+                        style={styles.teamIcon}
+                      >
+                        <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                      </TouchableOpacity>
+                      {userContext.isManager ? (
+                        <NextButton
+                          title="Evaluate"
+                          textSize={14}
+                          size={45}
+                          onPress={() =>
+                            navigation.navigate('EvaluateScreen', {
+                              evaluationRequest: {
+                                user,
+                              },
+                            })
+                          }
+                        />
+                      ) : null}
                     </View>
-                    <NextButton
-                      title="Send Evaluation"
-                      textSize={14}
-                      size={45}
-                      onPress={() => null}
-                    />
-                    <TouchableOpacity onPress={() => deleteMember(teamMemberLinkId)}>
-                      <Text style={styles.remove}>Remove</Text>
-                    </TouchableOpacity>
                   </View>
-                </View>
-              ))
+                ))
             ) : (
               <Text>Start adding Team Members</Text>
             )}
@@ -306,11 +311,13 @@ screen.propTypes = {
   }).isRequired,
   teamName: PropTypes.string.isRequired,
   setTeamName: PropTypes.func.isRequired,
-  createUser: PropTypes.func.isRequired,
   updateHeader: PropTypes.func.isRequired,
   deactivateSkill: PropTypes.func.isRequired,
   deleteMember: PropTypes.func.isRequired,
+  addManager: PropTypes.func.isRequired,
+  addMember: PropTypes.func.isRequired,
   sendTeamEvaluations: PropTypes.func.isRequired,
+  admins: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 screen.defaultProps = {};

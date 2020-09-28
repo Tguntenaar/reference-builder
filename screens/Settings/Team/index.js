@@ -45,9 +45,103 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       }
     })();
   }, []);
+  // TODO: 2x useEffect bijna hetzelfde dat is niet DRY
+  useEffect(() => {
+    if (route.params?.newManagerSkill) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, description } = route.params.newManagerSkill;
+      if (!name || !description) {
+        console.warn("no name or description for new skill");
+        return;
+      }
+      createSkill(name, description, true);
+    }
+  }, [route.params?.newManagerSkill]);
 
+  // newSkill
+  useEffect(() => {
+    if (route.params?.newSkill) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, description } = route.params.newSkill;
+      if (!name || !description) {
+        console.warn("no name or description for new skill");
+        return;
+      }
+      createSkill(name, description, false);
+    }
+  }, [route.params?.newSkill]);
+
+  // ActivateSkill
+  useEffect(() => {
+    const activateSkill = async () => {
+      if (route.params?.activateSkillId) {
+        // Post updated, do something with `route.params.post`
+        // For example, send the post to the server
+        const { data: updateSkill } = await api
+          .updateSkill({
+            id: route.params.activateSkillId,
+            active: true,
+          })
+          .catch(({ errors }) => console.log(errors));
+        // console.log(updateSkill);
+        setTeamSkills(
+          team.skills.items.map((item) => {
+            if (item.id == updateSkill.id) {
+              item.active = true;
+            }
+            return item;
+          })
+        );
+      }
+    };
+    activateSkill();
+  }, [route.params?.activateSkillId]); // TODO: kan nu maar 1 keer skill verwijderen en heractiveren
+  
+  // newMember
+  useEffect(() => {
+    // console.log("run effect");
+    if (route.params?.newMember) {
+      console.log("creating new user");
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { name, jobTitle, email } = route.params.newMember;
+      if (!name || !jobTitle || !email) {
+        console.warn("no name | jobTitle | email for new member");
+        return;
+      }
+      inviteUser(name, jobTitle, email).catch((error)=> {
+        console.log("CAN't create a user ");
+      });
+    }
+  }, [route.params?.newMember]);
+
+  // newManager
+  useEffect(() => {
+    if (route.params?.newManager) {
+      // Post updated, do something with `route.params.post`
+      // For example, send the post to the server
+      const { id } = route.params.newManager;
+      api.updateTeam({
+        teamId: team.id,
+        admins: [...team.admins, id]
+      }).then(()=> {
+        console.log('succes');
+      }).catch(console.log)
+      
+    }
+  }, [route.params?.newManager]);
+
+   // Activate Member/Manager
+   useEffect(() => {
+    if (route.params?.activateMember) {
+      activateOldMember(route.params.activateMember);
+    }
+  }, [route.params?.activateMember]);
+  
   // Add a User to your team TODO: validation
-  const createUser = async (name, jobTitle, email) => {
+  const inviteUser = async (name, jobTitle, email) => {
     // TODO: invite email create user in UserPool
     const {
       data: { createUser: createdUser },
@@ -57,6 +151,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         jobTitle,
         email,
         group: userContext.group,
+        activeTeamID: team.id,
       })
       .catch((error) => console.log(`ERROR ${error.errors[0].message}`));
 
@@ -66,6 +161,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       .createTeamMemberLink({
         userId: createdUser.id,
         teamId: team.id,
+        group: userContext.group,
       })
       .catch(({ errors }) => {
         console.log(errors);
@@ -83,13 +179,13 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   };
 
-  const navigateToForm = (forManager) => {
-    navigation.navigate("Form", {
-      name: "Skills toevoegen",
-      fields: ["name", "description"],
+  const navigateToSkillForm = (forManager) => {
+    navigation.navigate('Form', {
+      name: "Add skills",
       screen: "TeamSettingsScreen",
       post: forManager? "newManagerSkill":"newSkill",
       update: "activateSkillId",
+      list: [], // TODO: all inactive skills
       form: [
         {
           text: "Name",
@@ -105,72 +201,49 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     });
   };
 
-  // ActivateSkill
-  useEffect(() => {
-    const activateSkill = async () => {
-      if (route.params?.activateSkillId) {
-        // Post updated, do something with `route.params.post`
-        // For example, send the post to the server
-        const { data: updateSkill } = await api
-          .updateSkill({
-            id: route.params.activateSkillId,
-            active: true,
-          })
-          .catch(({ errors }) => console.log(errors));
-        console.log(updateSkill);
-        setTeamSkills(
-          team.skills.items.map((item) => {
-            if (item.id == updateSkill.id) {
-              item.active = true;
-            }
-            return item;
-          })
-        );
-      }
-    };
-    activateSkill();
-  }, [route.params?.activateSkillId]); // TODO: kan nu maar 1 keer skill verwijderen en heractiveren
-  // TODO: 2x useEffect bijna hetzelfde dat is niet DRY
-  useEffect(() => {
-    if (route.params?.newManagerSkill) {
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
-      const { name, description } = route.params.newManagerSkill;
-      if (!name || !description) {
-        console.warn("no name or description for new skill");
-        return;
-      }
-      createSkill(name, description, true);
-    }
-  }, [route.params?.newManagerSkill]);
+  const activateOldMember = async (id) => {
+    await api.updateTeamMemberLink({id, active: true}).catch((error)=> {
+      console.log("ERROR in activateoldmemember");
+      console.log(error);
+    })
+  };
+  
+  const addManager = () => {
+    navigation.navigate('Form', {
+      name: "Choose manager",
+      screen: "TeamSettingsScreen",
+      post: "newManager",
+      update: "activateSkillId",
+      list: teamMembers, // Members
+      form: [],
+    });
+  }
 
-  useEffect(() => {
-    if (route.params?.newSkill) {
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
-      const { name, description } = route.params.newSkill;
-      if (!name || !description) {
-        console.warn("no name or description for new skill");
-        return;
-      }
-      createSkill(name, description, false);
-    }
-  }, [route.params?.newSkill]);
-
-  useEffect(() => {
-    console.log("run effect");
-    if (route.params?.newMember) {
-      console.log("creating new user");
-      // Post updated, do something with `route.params.post`
-      // For example, send the post to the server
-      const { name, jobTitle, email } = route.params.newMember;
-      if (!name || !jobTitle || !email) {
-        console.warn("no name | jobTitle | email for new member");
-        return;
-      }
-      createUser(name, jobTitle, email);
-    }
-  }, [route.params?.newMember]);
+  const addMember = () => {
+    navigation.navigate('Form', {
+      name: 'Add members',
+      screen: 'TeamSettingsScreen',
+      post: 'newMember',
+      list: [], // TODO: inactive teammemberlinks
+      form: [
+        {
+          text: 'Name',
+          key: 'name',
+          value: '',
+        },
+        {
+          text: 'Job title',
+          key: 'jobTitle',
+          value: '',
+        },
+        {
+          text: 'E-mail',
+          key: 'email',
+          value: '',
+        },
+      ],
+    });
+  }
 
   // TODO: validation
   const createSkill = async (skillName, skillDescription, forManager) => {
@@ -189,9 +262,9 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         console.log(errors);
       });
 
-    console.log(createdSkill.id);
-    console.log(team.id);
-    console.log(userContext.id);
+    // console.log(createdSkill.id);
+    // console.log(team.id);
+    // console.log(userContext.id);
     const p1 = api
       .createTeamAverage({
         skillId: createdSkill.id,
@@ -254,9 +327,9 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   const deleteMember = async (teamMemberLinkId) => {
     setTeamMembers(teamMembers.filter((user) => teamMemberLinkId !== user.id));
     const {
-      data: { deleteTeamMemberLink: result },
-    } = await api.deleteTeamMemberLink(teamMemberLinkId).catch(console.log);
-    // console.log(result);
+      data: { updateTeamMemberLink: result },
+    } = await api.updateTeamMemberLink({id: teamMemberLinkId, active: false}).catch(console.log);
+    console.log(result);
   };
 
   const sendTeamEvaluations = async () => {
@@ -283,7 +356,11 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       }
     }
   };
-  const teamManagers = teamMembers;
+
+  const teamManagers = teamMembers.filter((tm)=>team.admins.includes(tm.user.id));
+
+  console.log(teamMembers);
+
   const properties = {
     teamManagers,
     teamMembers,
@@ -294,15 +371,17 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     setNewSkill,
     teamName,
     setTeamName,
-    createUser,
     updateHeader,
     deactivateSkill,
     deleteMember,
     createSkill,
     navigation,
-    navigateToForm,
+    navigateToSkillForm,
     sendTeamEvaluations,
-    userContext
+    userContext,
+    addManager,
+    addMember,
+    admins: team.admins,
   };
   return <UI {...properties} />;
 }

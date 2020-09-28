@@ -20,10 +20,13 @@ const userTeamLink = {
   createTeamMemberLink: (input) => {
     return API.graphql(graphqlOperation(mutations.createTeamMemberLink, { input }));
   },
-  deleteTeamMemberLink: (id) => {
+  updateTeamMemberLink: (input) => {
+    return API.graphql(graphqlOperation(mutations.updateTeamMemberLink, { input }));
+  },
+  deleteTeamMemberLink: (input) => {
     return API.graphql(
       graphqlOperation(mutations.deleteTeamMemberLink, {
-        input: { id },
+        input,
       })
     );
   },
