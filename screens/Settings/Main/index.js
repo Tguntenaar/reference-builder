@@ -118,6 +118,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
 
   const properties = {
     // submitProfileInfo,
+    userContext,
     pickImage,
     profilePicture,
     form,

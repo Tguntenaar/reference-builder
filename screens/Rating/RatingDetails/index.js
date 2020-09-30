@@ -22,7 +22,7 @@ function RatingSkillDetails({ navigation, route }) {
       <View style={styles.container}>
         <View style={styles.top}>
           <Circle color="rgba(239,244,253,0.5)" />
-          <BackButton onPress={() => navigation.navigate('RatingsDetailsScreen')} />
+          <BackButton onPress={() => navigation.goBack()} />
           <View style={styles.header}>
             <Image style={styles.image} source={imageEsther} />
             <Text style={styles.name}>{evaluation.author.name}</Text>

@@ -278,7 +278,12 @@ const screen = ({
                             navigation.navigate('EvaluateScreen', {
                               evaluationRequest: {
                                 user,
+                                evaluator: {
+                                  id: userContext.id,
+                                  name: userContext.name,
+                                },
                               },
+                              manager: false, // starts evaluation of non managers
                             })
                           }
                         />

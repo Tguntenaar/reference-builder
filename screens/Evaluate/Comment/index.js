@@ -46,13 +46,14 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
         evaluationId,
         skillId: skill.id,
         grade: parseInt(skill.grade, 10),
+        group: userContext.group,
       };
       console.log(skillEvaluation);
       api.createRating(skillEvaluation).then(console.log('created evaluation')).catch(console.log);
     });
     // TODO:
-    // await all createEvaluations
-    // if no error deleteEvaluationRequest
+    // await all createRatings
+    // if no error and !manager deleteEvaluationRequest
     // else get all created evaluations via getRating en delete ze 1 voor 1
     // await api.deleteEvaluationRequest(evaluationRequest.id);
     navigation.navigate('Tabs');
@@ -74,7 +75,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           <View style={styles.top}>
             <BackButton
               color={{ backgroundColor: '#fff', iconColor: 'rgb(44,44,44)' }}
-              onPress={() => navigation.navigate('EvaluateScreen')}
+              onPress={() => navigation.goBack()}
             />
             <View styles={styles.header}>
               <Text style={[styles.text, styles.header, { fontSize: 26 }]}>{username}</Text>
@@ -111,6 +112,9 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
 EvaluateCommentScreen.propTypes = {
   route: PropTypes.object.isRequired,
   navigation: PropTypes.object.isRequired,
+  userContext: PropTypes.shape({
+    group: PropTypes.string.isRequired,
+  }),
 };
 
 export default withUser(EvaluateCommentScreen);

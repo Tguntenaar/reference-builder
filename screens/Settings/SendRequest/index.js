@@ -43,7 +43,7 @@ function sendEvaluationRequests({ navigation, route }) {
           <View style={styles.top}>
             <BackButton
               color={{ backgroundColor: '#fff', iconColor: 'rgb(44,44,44)' }}
-              onPress={() => navigation.navigate('TeamSettingsScreen')}
+              onPress={() => navigation.goBack()}
             />
             <View styles={styles.header}>
               <Text style={[styles.text, styles.header, styles.grade]}>Ask for Evaluation</Text>

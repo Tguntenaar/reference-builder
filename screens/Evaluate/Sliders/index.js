@@ -11,7 +11,7 @@ import withUser from '../../../contexts/withUser';
 
 // TODO: Performance van sliders..
 function EvaluateScreen({ route, navigation, userContext }) {
-  const { evaluationRequest } = route.params;
+  const { evaluationRequest, manager } = route.params;
   const { user } = evaluationRequest;
   // get the team
   const {
@@ -24,8 +24,9 @@ function EvaluateScreen({ route, navigation, userContext }) {
     skills: { items: teamSkills },
   } = team;
   // add grade to every skill
+  console.log('manager', manager);
   const copy = teamSkills
-    .filter((skill) => skill.active)
+    .filter((skill) => skill.active && skill.forManager === manager)
     .map((skill) => {
       return { ...skill, grade: 60 };
     });
@@ -58,7 +59,7 @@ function EvaluateScreen({ route, navigation, userContext }) {
           {/* A JSX comment  TODO: circle */}
           <Circle color="rgba(239,244,253,0.5)" />
 
-          <BackButton style={styles.back} onPress={() => navigation.navigate('Tabs')} />
+          <BackButton style={styles.back} onPress={() => navigation.goBack()} />
           <View style={styles.header}>
             <Text style={styles.headerTitle}>{user.name}</Text>
             <Text style={styles.headerDescription}>
@@ -97,6 +98,7 @@ EvaluateScreen.propTypes = {
       evaluationRequest: PropTypes.shape({
         user: PropTypes.object,
       }),
+      manager: PropTypes.bool.isRequired,
     }),
   }).isRequired,
   navigation: PropTypes.shape({

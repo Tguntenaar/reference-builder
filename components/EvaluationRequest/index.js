@@ -30,6 +30,7 @@ const EvaluationRequest = ({ request, navigation }) => {
           onPress={() =>
             navigation.navigate('EvaluateScreen', {
               evaluationRequest: request,
+              manager: true, // Starts evaluation of manager
             })
           }
         />

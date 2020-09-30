@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Image, Text, StatusBar, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+  ScrollView,
+  RefreshControl,
+} from 'react-native';
 // aws
-import { S3Image } from 'aws-amplify-react-native';
 import { Feather } from '@expo/vector-icons';
 import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
@@ -11,6 +18,7 @@ import styles from './style';
 
 const UI = ({
   // submitProfileInfo,
+  userContext,
   pickImage,
   profilePicture,
   form,
@@ -108,7 +116,17 @@ const UI = ({
             ) : null}
           </View>
         </View>
-        <View style={styles.bottom}>
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: 'space-between',
+            backgroundColor: '#fff',
+          }}
+          refreshControl={
+            <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
+          }
+          style={styles.bottom}
+        >
           {teamsLink.items.map((link) => {
             // console.log({ link });
             return (
@@ -148,7 +166,7 @@ const UI = ({
               </View>
             );
           })}
-        </View>
+        </ScrollView>
       </View>
     </View>
   );

@@ -71,7 +71,7 @@ function RatingChart({ navigation, route, userContext }) {
               <BackButton
                 color={{ backgroundColor: '#fff', iconColor: 'rgb(44,44,44)' }}
                 size={25}
-                onPress={() => navigation.navigate('Tabs')}
+                onPress={() => navigation.goBack()}
               />
               <Feather
                 name="settings"
