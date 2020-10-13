@@ -30,6 +30,7 @@ const UI = ({
   isAdmin,
   isManager,
 }) => {
+  // console.log(teamsLink.length);
   return (
     <View style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -119,7 +120,7 @@ const UI = ({
         <ScrollView
           contentContainerStyle={{
             flexGrow: 1,
-            justifyContent: 'space-between',
+            // justifyContent: 'space-between',
             backgroundColor: '#fff',
           }}
           refreshControl={
@@ -129,6 +130,7 @@ const UI = ({
         >
           {teamsLink.items.map((link) => {
             // console.log({ link });
+
             return (
               <View style={styles.card} key={link.id}>
                 <View style={styles.imageContainer}>

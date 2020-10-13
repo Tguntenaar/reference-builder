@@ -66,8 +66,9 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
           contentContainerStyle={styles.bottom}
           style={{ flexGrow: 1, backgroundColor: 'red' }}
         >
-          <Text>Or Activate old skill</Text>
-          {route.params.list.map(({ id, name }) => {
+          <Text>{/**Choose or Activate*/}</Text>
+          {/** Clickable Bubbles */}
+          {route.params.list.map(({ id, user }) => {
             return (
               <TouchableOpacity
                 key={id}
@@ -77,8 +78,7 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
                 style={styles.inActive}
               >
                 <Text>
-                  {' '}
-                  {name} {id}{' '}
+                  {user.name}
                 </Text>
               </TouchableOpacity>
             );

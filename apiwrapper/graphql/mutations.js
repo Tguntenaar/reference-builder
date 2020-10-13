@@ -77,6 +77,7 @@ export const createCompany = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -130,6 +131,7 @@ export const createCompany = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -307,6 +309,7 @@ export const updateCompany = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -360,6 +363,7 @@ export const updateCompany = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -537,6 +541,7 @@ export const deleteCompany = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -590,6 +595,7 @@ export const deleteCompany = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -759,6 +765,7 @@ export const createTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -842,6 +849,7 @@ export const createTeam = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -885,6 +893,7 @@ export const createTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -978,6 +987,7 @@ export const createTeam = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -1031,6 +1041,7 @@ export const createTeam = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1060,6 +1071,7 @@ export const createTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1307,6 +1319,7 @@ export const createTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1480,6 +1493,7 @@ export const updateTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1563,6 +1577,7 @@ export const updateTeam = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -1606,6 +1621,7 @@ export const updateTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1699,6 +1715,7 @@ export const updateTeam = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -1752,6 +1769,7 @@ export const updateTeam = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1781,6 +1799,7 @@ export const updateTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2028,6 +2047,7 @@ export const updateTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2201,6 +2221,7 @@ export const deleteTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2284,6 +2305,7 @@ export const deleteTeam = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -2327,6 +2349,7 @@ export const deleteTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2420,6 +2443,7 @@ export const deleteTeam = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -2473,6 +2497,7 @@ export const deleteTeam = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2502,6 +2527,7 @@ export const deleteTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2749,6 +2775,7 @@ export const deleteTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2864,6 +2891,7 @@ export const createTeamMemberLink = /* GraphQL */ `
       userId
       teamId
       group
+      active
       createdAt
       updatedAt
       team {
@@ -2919,6 +2947,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2961,6 +2990,7 @@ export const createTeamMemberLink = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -2994,6 +3024,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3046,6 +3077,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3075,6 +3107,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3185,6 +3218,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3266,6 +3300,7 @@ export const createTeamMemberLink = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -3309,6 +3344,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3402,6 +3438,7 @@ export const createTeamMemberLink = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -3455,6 +3492,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3484,6 +3522,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3684,6 +3723,7 @@ export const createTeamMemberLink = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -3717,6 +3757,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3769,6 +3810,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3798,6 +3840,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3895,6 +3938,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3924,6 +3968,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4009,6 +4054,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4038,6 +4084,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4167,6 +4214,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4196,6 +4244,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4281,6 +4330,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4310,6 +4360,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4439,6 +4490,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4468,6 +4520,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4576,6 +4629,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4605,6 +4659,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4690,6 +4745,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4719,6 +4775,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4816,6 +4873,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4845,6 +4903,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4930,6 +4989,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4959,6 +5019,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5042,6 +5103,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
       userId
       teamId
       group
+      active
       createdAt
       updatedAt
       team {
@@ -5097,6 +5159,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5139,6 +5202,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -5172,6 +5236,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5224,6 +5289,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -5253,6 +5319,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5363,6 +5430,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5444,6 +5512,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -5487,6 +5556,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -5580,6 +5650,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -5633,6 +5704,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5662,6 +5734,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -5862,6 +5935,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -5895,6 +5969,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5947,6 +6022,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -5976,6 +6052,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6073,6 +6150,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6102,6 +6180,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6187,6 +6266,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6216,6 +6296,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6345,6 +6426,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6374,6 +6456,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6459,6 +6542,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6488,6 +6572,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6617,6 +6702,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6646,6 +6732,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6754,6 +6841,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6783,6 +6871,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6868,6 +6957,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6897,6 +6987,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6994,6 +7085,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7023,6 +7115,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7108,6 +7201,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7137,6 +7231,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7220,6 +7315,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
       userId
       teamId
       group
+      active
       createdAt
       updatedAt
       team {
@@ -7275,6 +7371,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7317,6 +7414,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -7350,6 +7448,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7402,6 +7501,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7431,6 +7531,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7541,6 +7642,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7622,6 +7724,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -7665,6 +7768,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7758,6 +7862,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -7811,6 +7916,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7840,6 +7946,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8040,6 +8147,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -8073,6 +8181,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8125,6 +8234,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8154,6 +8264,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8251,6 +8362,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8280,6 +8392,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8365,6 +8478,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8394,6 +8508,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8523,6 +8638,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8552,6 +8668,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8637,6 +8754,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8666,6 +8784,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8795,6 +8914,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8824,6 +8944,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8932,6 +9053,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8961,6 +9083,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9046,6 +9169,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9075,6 +9199,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9172,6 +9297,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9201,6 +9327,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9286,6 +9413,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9315,6 +9443,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9412,6 +9541,7 @@ export const createUser = /* GraphQL */ `
         userId
         teamId
         group
+        active
         createdAt
         updatedAt
         team {
@@ -9477,6 +9607,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -9530,6 +9661,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9645,6 +9777,7 @@ export const createUser = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -9678,6 +9811,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9730,6 +9864,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9759,6 +9894,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9832,6 +9968,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -9885,6 +10022,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9938,6 +10076,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9979,6 +10118,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10044,6 +10184,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10085,6 +10226,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10150,6 +10292,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10214,6 +10357,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10255,6 +10399,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10308,6 +10453,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10349,6 +10495,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10382,6 +10529,7 @@ export const createUser = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -10425,6 +10573,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10518,6 +10667,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -10571,6 +10721,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10600,6 +10751,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10824,6 +10976,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -10877,6 +11030,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10906,6 +11060,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11118,6 +11273,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -11171,6 +11327,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11200,6 +11357,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11479,6 +11637,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -11532,6 +11691,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11561,6 +11721,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11773,6 +11934,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -11826,6 +11988,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11855,6 +12018,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12134,6 +12298,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -12187,6 +12352,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12216,6 +12382,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12451,6 +12618,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -12504,6 +12672,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12533,6 +12702,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12745,6 +12915,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -12798,6 +12969,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12827,6 +12999,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -13051,6 +13224,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -13104,6 +13278,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13133,6 +13308,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -13345,6 +13521,7 @@ export const createUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -13398,6 +13575,7 @@ export const createUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13427,6 +13605,7 @@ export const createUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -13650,6 +13829,7 @@ export const updateUser = /* GraphQL */ `
         userId
         teamId
         group
+        active
         createdAt
         updatedAt
         team {
@@ -13715,6 +13895,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -13768,6 +13949,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13883,6 +14065,7 @@ export const updateUser = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -13916,6 +14099,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13968,6 +14152,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -13997,6 +14182,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14070,6 +14256,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -14123,6 +14310,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14176,6 +14364,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14217,6 +14406,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14282,6 +14472,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14323,6 +14514,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14388,6 +14580,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14452,6 +14645,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14493,6 +14687,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14546,6 +14741,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14587,6 +14783,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14620,6 +14817,7 @@ export const updateUser = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -14663,6 +14861,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -14756,6 +14955,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -14809,6 +15009,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14838,6 +15039,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -15062,6 +15264,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -15115,6 +15318,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15144,6 +15348,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -15356,6 +15561,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -15409,6 +15615,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15438,6 +15645,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -15717,6 +15925,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -15770,6 +15979,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15799,6 +16009,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -16011,6 +16222,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -16064,6 +16276,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16093,6 +16306,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -16372,6 +16586,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -16425,6 +16640,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16454,6 +16670,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -16689,6 +16906,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -16742,6 +16960,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16771,6 +16990,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -16983,6 +17203,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -17036,6 +17257,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17065,6 +17287,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17289,6 +17512,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -17342,6 +17566,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17371,6 +17596,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17583,6 +17809,7 @@ export const updateUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -17636,6 +17863,7 @@ export const updateUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17665,6 +17893,7 @@ export const updateUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17888,6 +18117,7 @@ export const deleteUser = /* GraphQL */ `
         userId
         teamId
         group
+        active
         createdAt
         updatedAt
         team {
@@ -17953,6 +18183,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -18006,6 +18237,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18121,6 +18353,7 @@ export const deleteUser = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -18154,6 +18387,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18206,6 +18440,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18235,6 +18470,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18308,6 +18544,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -18361,6 +18598,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18414,6 +18652,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18455,6 +18694,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18520,6 +18760,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18561,6 +18802,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18626,6 +18868,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18690,6 +18933,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18731,6 +18975,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18784,6 +19029,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18825,6 +19071,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18858,6 +19105,7 @@ export const deleteUser = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -18901,6 +19149,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18994,6 +19243,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -19047,6 +19297,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19076,6 +19327,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -19300,6 +19552,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -19353,6 +19606,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19382,6 +19636,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -19594,6 +19849,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -19647,6 +19903,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19676,6 +19933,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -19955,6 +20213,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -20008,6 +20267,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20037,6 +20297,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20249,6 +20510,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -20302,6 +20564,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20331,6 +20594,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20610,6 +20874,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -20663,6 +20928,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20692,6 +20958,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20927,6 +21194,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -20980,6 +21248,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21009,6 +21278,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21221,6 +21491,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -21274,6 +21545,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21303,6 +21575,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21527,6 +21800,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -21580,6 +21854,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21609,6 +21884,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21821,6 +22097,7 @@ export const deleteUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -21874,6 +22151,7 @@ export const deleteUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21903,6 +22181,7 @@ export const deleteUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22134,6 +22413,7 @@ export const createEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -22177,6 +22457,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22270,6 +22551,7 @@ export const createEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -22323,6 +22605,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22352,6 +22635,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22552,6 +22836,7 @@ export const createEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -22585,6 +22870,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22637,6 +22923,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22666,6 +22953,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22763,6 +23051,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22792,6 +23081,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22877,6 +23167,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22906,6 +23197,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23035,6 +23327,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23064,6 +23357,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23149,6 +23443,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23178,6 +23473,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23307,6 +23603,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23336,6 +23633,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23444,6 +23742,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23473,6 +23772,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23558,6 +23858,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23587,6 +23888,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23684,6 +23986,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23713,6 +24016,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23798,6 +24102,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23827,6 +24132,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23916,6 +24222,7 @@ export const createEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -23959,6 +24266,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24052,6 +24360,7 @@ export const createEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -24105,6 +24414,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24134,6 +24444,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24334,6 +24645,7 @@ export const createEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -24367,6 +24679,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24419,6 +24732,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24448,6 +24762,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24545,6 +24860,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24574,6 +24890,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24659,6 +24976,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24688,6 +25006,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24817,6 +25136,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24846,6 +25166,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24931,6 +25252,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24960,6 +25282,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25089,6 +25412,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25118,6 +25442,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25226,6 +25551,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25255,6 +25581,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25340,6 +25667,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25369,6 +25697,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25466,6 +25795,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25495,6 +25825,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25580,6 +25911,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25609,6 +25941,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25715,6 +26048,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25744,6 +26078,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25829,6 +26164,7 @@ export const createEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -25858,6 +26194,7 @@ export const createEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -26006,6 +26343,7 @@ export const updateEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -26049,6 +26387,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -26142,6 +26481,7 @@ export const updateEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -26195,6 +26535,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -26224,6 +26565,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -26424,6 +26766,7 @@ export const updateEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -26457,6 +26800,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -26509,6 +26853,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -26538,6 +26883,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -26635,6 +26981,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -26664,6 +27011,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -26749,6 +27097,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -26778,6 +27127,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -26907,6 +27257,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -26936,6 +27287,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27021,6 +27373,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27050,6 +27403,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27179,6 +27533,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27208,6 +27563,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27316,6 +27672,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27345,6 +27702,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27430,6 +27788,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27459,6 +27818,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27556,6 +27916,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27585,6 +27946,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27670,6 +28032,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27699,6 +28062,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -27788,6 +28152,7 @@ export const updateEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -27831,6 +28196,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -27924,6 +28290,7 @@ export const updateEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -27977,6 +28344,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28006,6 +28374,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28206,6 +28575,7 @@ export const updateEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -28239,6 +28609,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28291,6 +28662,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28320,6 +28692,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28417,6 +28790,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28446,6 +28820,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28531,6 +28906,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28560,6 +28936,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28689,6 +29066,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28718,6 +29096,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28803,6 +29182,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28832,6 +29212,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -28961,6 +29342,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -28990,6 +29372,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29098,6 +29481,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -29127,6 +29511,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29212,6 +29597,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -29241,6 +29627,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29338,6 +29725,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -29367,6 +29755,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29452,6 +29841,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -29481,6 +29871,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29587,6 +29978,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -29616,6 +30008,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29701,6 +30094,7 @@ export const updateEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -29730,6 +30124,7 @@ export const updateEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -29878,6 +30273,7 @@ export const deleteEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -29921,6 +30317,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30014,6 +30411,7 @@ export const deleteEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -30067,6 +30465,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -30096,6 +30495,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30296,6 +30696,7 @@ export const deleteEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -30329,6 +30730,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -30381,6 +30783,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30410,6 +30813,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -30507,6 +30911,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30536,6 +30941,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -30621,6 +31027,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30650,6 +31057,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -30779,6 +31187,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30808,6 +31217,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -30893,6 +31303,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -30922,6 +31333,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31051,6 +31463,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -31080,6 +31493,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31188,6 +31602,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -31217,6 +31632,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31302,6 +31718,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -31331,6 +31748,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31428,6 +31846,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -31457,6 +31876,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31542,6 +31962,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -31571,6 +31992,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31660,6 +32082,7 @@ export const deleteEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -31703,6 +32126,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -31796,6 +32220,7 @@ export const deleteEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -31849,6 +32274,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -31878,6 +32304,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32078,6 +32505,7 @@ export const deleteEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -32111,6 +32539,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32163,6 +32592,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32192,6 +32622,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32289,6 +32720,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32318,6 +32750,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32403,6 +32836,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32432,6 +32866,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32561,6 +32996,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32590,6 +33026,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32675,6 +33112,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32704,6 +33142,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32833,6 +33272,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32862,6 +33302,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -32970,6 +33411,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -32999,6 +33441,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33084,6 +33527,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -33113,6 +33557,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33210,6 +33655,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -33239,6 +33685,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33324,6 +33771,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -33353,6 +33801,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33459,6 +33908,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -33488,6 +33938,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33573,6 +34024,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -33602,6 +34054,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33758,6 +34211,7 @@ export const createRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -33791,6 +34245,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33843,6 +34298,7 @@ export const createRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -33872,6 +34328,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -33945,6 +34402,7 @@ export const createRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -33998,6 +34456,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34051,6 +34510,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34092,6 +34552,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34157,6 +34618,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34198,6 +34660,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34263,6 +34726,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34327,6 +34791,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34368,6 +34833,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34421,6 +34887,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34462,6 +34929,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34507,6 +34975,7 @@ export const createRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -34540,6 +35009,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34592,6 +35062,7 @@ export const createRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -34621,6 +35092,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34694,6 +35166,7 @@ export const createRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -34747,6 +35220,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34800,6 +35274,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34841,6 +35316,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34906,6 +35382,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -34947,6 +35424,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35012,6 +35490,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35076,6 +35555,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35117,6 +35597,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35170,6 +35651,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35211,6 +35693,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35273,6 +35756,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35314,6 +35798,7 @@ export const createRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35418,6 +35903,7 @@ export const updateRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -35451,6 +35937,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35503,6 +35990,7 @@ export const updateRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -35532,6 +36020,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35605,6 +36094,7 @@ export const updateRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -35658,6 +36148,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35711,6 +36202,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35752,6 +36244,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35817,6 +36310,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35858,6 +36352,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35923,6 +36418,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -35987,6 +36483,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36028,6 +36525,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36081,6 +36579,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36122,6 +36621,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36167,6 +36667,7 @@ export const updateRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -36200,6 +36701,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36252,6 +36754,7 @@ export const updateRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -36281,6 +36784,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36354,6 +36858,7 @@ export const updateRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -36407,6 +36912,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36460,6 +36966,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36501,6 +37008,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36566,6 +37074,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36607,6 +37116,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36672,6 +37182,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36736,6 +37247,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36777,6 +37289,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36830,6 +37343,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36871,6 +37385,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36933,6 +37448,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -36974,6 +37490,7 @@ export const updateRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37078,6 +37595,7 @@ export const deleteRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -37111,6 +37629,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37163,6 +37682,7 @@ export const deleteRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -37192,6 +37712,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37265,6 +37786,7 @@ export const deleteRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -37318,6 +37840,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37371,6 +37894,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37412,6 +37936,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37477,6 +38002,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37518,6 +38044,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37583,6 +38110,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37647,6 +38175,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37688,6 +38217,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37741,6 +38271,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37782,6 +38313,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37827,6 +38359,7 @@ export const deleteRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -37860,6 +38393,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -37912,6 +38446,7 @@ export const deleteRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -37941,6 +38476,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38014,6 +38550,7 @@ export const deleteRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -38067,6 +38604,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38120,6 +38658,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38161,6 +38700,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38226,6 +38766,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38267,6 +38808,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38332,6 +38874,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38396,6 +38939,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38437,6 +38981,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38490,6 +39035,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38531,6 +39077,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38593,6 +39140,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38634,6 +39182,7 @@ export const deleteRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38730,6 +39279,7 @@ export const createAverageUserRating = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -38773,6 +39323,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -38866,6 +39417,7 @@ export const createAverageUserRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -38919,6 +39471,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -38948,6 +39501,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39148,6 +39702,7 @@ export const createAverageUserRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -39181,6 +39736,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -39233,6 +39789,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39262,6 +39819,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -39359,6 +39917,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39388,6 +39947,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -39473,6 +40033,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39502,6 +40063,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -39631,6 +40193,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39660,6 +40223,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -39745,6 +40309,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39774,6 +40339,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -39903,6 +40469,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -39932,6 +40499,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -40040,6 +40608,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -40069,6 +40638,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -40154,6 +40724,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -40183,6 +40754,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -40280,6 +40852,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -40309,6 +40882,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -40394,6 +40968,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -40423,6 +40998,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -40539,6 +41115,7 @@ export const updateAverageUserRating = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -40582,6 +41159,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -40675,6 +41253,7 @@ export const updateAverageUserRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -40728,6 +41307,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -40757,6 +41337,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -40957,6 +41538,7 @@ export const updateAverageUserRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -40990,6 +41572,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41042,6 +41625,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41071,6 +41655,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41168,6 +41753,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41197,6 +41783,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41282,6 +41869,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41311,6 +41899,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41440,6 +42029,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41469,6 +42059,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41554,6 +42145,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41583,6 +42175,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41712,6 +42305,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41741,6 +42335,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41849,6 +42444,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41878,6 +42474,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -41963,6 +42560,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -41992,6 +42590,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -42089,6 +42688,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -42118,6 +42718,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -42203,6 +42804,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -42232,6 +42834,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -42348,6 +42951,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -42391,6 +42995,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -42484,6 +43089,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -42537,6 +43143,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -42566,6 +43173,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -42766,6 +43374,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -42799,6 +43408,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -42851,6 +43461,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -42880,6 +43491,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -42977,6 +43589,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43006,6 +43619,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43091,6 +43705,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43120,6 +43735,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43249,6 +43865,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43278,6 +43895,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43363,6 +43981,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43392,6 +44011,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43521,6 +44141,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43550,6 +44171,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43658,6 +44280,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43687,6 +44310,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43772,6 +44396,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43801,6 +44426,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -43898,6 +44524,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -43927,6 +44554,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44012,6 +44640,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -44041,6 +44670,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44192,6 +44822,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44234,6 +44865,7 @@ export const createAverageTeamRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -44267,6 +44899,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44319,6 +44952,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -44348,6 +44982,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44458,6 +45093,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44601,6 +45237,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44643,6 +45280,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -44676,6 +45314,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44728,6 +45367,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -44757,6 +45397,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -44867,6 +45508,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45010,6 +45652,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45052,6 +45695,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -45085,6 +45729,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45137,6 +45782,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -45166,6 +45812,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45276,6 +45923,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45438,6 +46086,7 @@ export const createEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -45481,6 +46130,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -45574,6 +46224,7 @@ export const createEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -45627,6 +46278,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45656,6 +46308,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -45856,6 +46509,7 @@ export const createEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -45889,6 +46543,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -45941,6 +46596,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -45970,6 +46626,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46067,6 +46724,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46096,6 +46754,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46181,6 +46840,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46210,6 +46870,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46339,6 +47000,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46368,6 +47030,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46453,6 +47116,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46482,6 +47146,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46611,6 +47276,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46640,6 +47306,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46748,6 +47415,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46777,6 +47445,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46862,6 +47531,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -46891,6 +47561,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -46988,6 +47659,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47017,6 +47689,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -47102,6 +47775,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47131,6 +47805,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -47220,6 +47895,7 @@ export const createEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -47263,6 +47939,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47356,6 +48033,7 @@ export const createEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -47409,6 +48087,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -47438,6 +48117,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47638,6 +48318,7 @@ export const createEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -47671,6 +48352,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -47723,6 +48405,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47752,6 +48435,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -47849,6 +48533,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47878,6 +48563,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -47963,6 +48649,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -47992,6 +48679,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48121,6 +48809,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48150,6 +48839,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48235,6 +48925,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48264,6 +48955,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48393,6 +49085,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48422,6 +49115,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48530,6 +49224,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48559,6 +49254,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48644,6 +49340,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48673,6 +49370,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48770,6 +49468,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48799,6 +49498,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -48884,6 +49584,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -48913,6 +49614,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -49018,6 +49720,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -49061,6 +49764,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -49154,6 +49858,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -49207,6 +49912,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -49236,6 +49942,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -49436,6 +50143,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -49469,6 +50177,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -49521,6 +50230,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -49550,6 +50260,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -49647,6 +50358,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -49676,6 +50388,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -49761,6 +50474,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -49790,6 +50504,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -49919,6 +50634,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -49948,6 +50664,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50033,6 +50750,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50062,6 +50780,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50191,6 +50910,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50220,6 +50940,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50328,6 +51049,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50357,6 +51079,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50442,6 +51165,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50471,6 +51195,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50568,6 +51293,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50597,6 +51323,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50682,6 +51409,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50711,6 +51439,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -50800,6 +51529,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -50843,6 +51573,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -50936,6 +51667,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -50989,6 +51721,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51018,6 +51751,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -51218,6 +51952,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -51251,6 +51986,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51303,6 +52039,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -51332,6 +52069,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51429,6 +52167,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -51458,6 +52197,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51543,6 +52283,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -51572,6 +52313,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51701,6 +52443,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -51730,6 +52473,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51815,6 +52559,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -51844,6 +52589,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -51973,6 +52719,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -52002,6 +52749,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -52110,6 +52858,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -52139,6 +52888,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -52224,6 +52974,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -52253,6 +53004,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -52350,6 +53102,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -52379,6 +53132,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -52464,6 +53218,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -52493,6 +53248,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -52598,6 +53354,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -52641,6 +53398,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -52734,6 +53492,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -52787,6 +53546,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -52816,6 +53576,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53016,6 +53777,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -53049,6 +53811,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53101,6 +53864,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53130,6 +53894,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53227,6 +53992,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53256,6 +54022,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53341,6 +54108,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53370,6 +54138,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53499,6 +54268,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53528,6 +54298,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53613,6 +54384,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53642,6 +54414,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53771,6 +54544,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53800,6 +54574,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -53908,6 +54683,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -53937,6 +54713,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -54022,6 +54799,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -54051,6 +54829,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -54148,6 +54927,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -54177,6 +54957,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -54262,6 +55043,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -54291,6 +55073,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -54380,6 +55163,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -54423,6 +55207,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -54516,6 +55301,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -54569,6 +55355,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -54598,6 +55385,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -54798,6 +55586,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -54831,6 +55620,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -54883,6 +55673,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -54912,6 +55703,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55009,6 +55801,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55038,6 +55831,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55123,6 +55917,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55152,6 +55947,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55281,6 +56077,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55310,6 +56107,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55395,6 +56193,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55424,6 +56223,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55553,6 +56353,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55582,6 +56383,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55690,6 +56492,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55719,6 +56522,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55804,6 +56608,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55833,6 +56638,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -55930,6 +56736,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -55959,6 +56766,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -56044,6 +56852,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -56073,6 +56882,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }

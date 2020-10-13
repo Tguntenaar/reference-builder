@@ -57,6 +57,7 @@ export const listCompanys = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -211,6 +212,7 @@ export const getCompany = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -264,6 +266,7 @@ export const getCompany = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -425,6 +428,7 @@ export const listTeams = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -467,6 +471,7 @@ export const listTeams = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -500,6 +505,7 @@ export const listTeams = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -552,6 +558,7 @@ export const listTeams = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -581,6 +588,7 @@ export const listTeams = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -691,6 +699,7 @@ export const listTeams = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -822,6 +831,7 @@ export const getTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -905,6 +915,7 @@ export const getTeam = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -948,6 +959,7 @@ export const getTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1041,6 +1053,7 @@ export const getTeam = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -1094,6 +1107,7 @@ export const getTeam = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1123,6 +1137,7 @@ export const getTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1370,6 +1385,7 @@ export const getTeam = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1501,6 +1517,7 @@ export const listUsers = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -1544,6 +1561,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1637,6 +1655,7 @@ export const listUsers = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -1690,6 +1709,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -1719,6 +1739,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -1919,6 +1940,7 @@ export const listUsers = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -1952,6 +1974,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2004,6 +2027,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2033,6 +2057,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2130,6 +2155,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2159,6 +2185,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2244,6 +2271,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2273,6 +2301,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2402,6 +2431,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2431,6 +2461,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2516,6 +2547,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2545,6 +2577,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2674,6 +2707,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2703,6 +2737,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2811,6 +2846,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2840,6 +2876,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -2925,6 +2962,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -2954,6 +2992,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3051,6 +3090,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3080,6 +3120,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3165,6 +3206,7 @@ export const listUsers = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3194,6 +3236,7 @@ export const listUsers = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3289,6 +3332,7 @@ export const getUser = /* GraphQL */ `
         userId
         teamId
         group
+        active
         createdAt
         updatedAt
         team {
@@ -3354,6 +3398,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -3407,6 +3452,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3522,6 +3568,7 @@ export const getUser = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -3555,6 +3602,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3607,6 +3655,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -3636,6 +3685,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3709,6 +3759,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -3762,6 +3813,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3815,6 +3867,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3856,6 +3909,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3921,6 +3975,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -3962,6 +4017,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4027,6 +4083,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4091,6 +4148,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4132,6 +4190,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4185,6 +4244,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4226,6 +4286,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4259,6 +4320,7 @@ export const getUser = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -4302,6 +4364,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4395,6 +4458,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -4448,6 +4512,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4477,6 +4542,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4701,6 +4767,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -4754,6 +4821,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -4783,6 +4851,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -4995,6 +5064,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -5048,6 +5118,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5077,6 +5148,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -5356,6 +5428,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -5409,6 +5482,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5438,6 +5512,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -5650,6 +5725,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -5703,6 +5779,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -5732,6 +5809,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6011,6 +6089,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -6064,6 +6143,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6093,6 +6173,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6328,6 +6409,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -6381,6 +6463,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6410,6 +6493,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6622,6 +6706,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -6675,6 +6760,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -6704,6 +6790,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -6928,6 +7015,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -6981,6 +7069,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7010,6 +7099,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7222,6 +7312,7 @@ export const getUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -7275,6 +7366,7 @@ export const getUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7304,6 +7396,7 @@ export const getUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7537,6 +7630,7 @@ export const listEvaluations = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -7570,6 +7664,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7622,6 +7717,7 @@ export const listEvaluations = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -7651,6 +7747,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7724,6 +7821,7 @@ export const listEvaluations = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -7777,6 +7875,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7830,6 +7929,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7871,6 +7971,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7936,6 +8037,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -7977,6 +8079,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8042,6 +8145,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8106,6 +8210,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8147,6 +8252,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8200,6 +8306,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8241,6 +8348,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8286,6 +8394,7 @@ export const listEvaluations = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -8319,6 +8428,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8371,6 +8481,7 @@ export const listEvaluations = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -8400,6 +8511,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8473,6 +8585,7 @@ export const listEvaluations = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -8526,6 +8639,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8579,6 +8693,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8620,6 +8735,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8685,6 +8801,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8726,6 +8843,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8791,6 +8909,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8855,6 +8974,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8896,6 +9016,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8949,6 +9070,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -8990,6 +9112,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9052,6 +9175,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9093,6 +9217,7 @@ export const listEvaluations = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9176,6 +9301,7 @@ export const getEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -9219,6 +9345,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9312,6 +9439,7 @@ export const getEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -9365,6 +9493,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9394,6 +9523,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9594,6 +9724,7 @@ export const getEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -9627,6 +9758,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9679,6 +9811,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9708,6 +9841,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9805,6 +9939,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9834,6 +9969,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -9919,6 +10055,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -9948,6 +10085,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10077,6 +10215,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10106,6 +10245,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10191,6 +10331,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10220,6 +10361,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10349,6 +10491,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10378,6 +10521,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10486,6 +10630,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10515,6 +10660,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10600,6 +10746,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10629,6 +10776,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10726,6 +10874,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10755,6 +10904,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10840,6 +10990,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -10869,6 +11020,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -10958,6 +11110,7 @@ export const getEvaluation = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -11001,6 +11154,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11094,6 +11248,7 @@ export const getEvaluation = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -11147,6 +11302,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11176,6 +11332,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11376,6 +11533,7 @@ export const getEvaluation = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -11409,6 +11567,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11461,6 +11620,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11490,6 +11650,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11587,6 +11748,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11616,6 +11778,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11701,6 +11864,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11730,6 +11894,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11859,6 +12024,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -11888,6 +12054,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -11973,6 +12140,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12002,6 +12170,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12131,6 +12300,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12160,6 +12330,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12268,6 +12439,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12297,6 +12469,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12382,6 +12555,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12411,6 +12585,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12508,6 +12683,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12537,6 +12713,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12622,6 +12799,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12651,6 +12829,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12757,6 +12936,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12786,6 +12966,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -12871,6 +13052,7 @@ export const getEvaluation = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -12900,6 +13082,7 @@ export const getEvaluation = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13060,6 +13243,7 @@ export const evaluationsByUser = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -13093,6 +13277,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13145,6 +13330,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -13174,6 +13360,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13247,6 +13434,7 @@ export const evaluationsByUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -13300,6 +13488,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13353,6 +13542,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13394,6 +13584,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13459,6 +13650,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13500,6 +13692,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13565,6 +13758,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13629,6 +13823,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13670,6 +13865,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13723,6 +13919,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13764,6 +13961,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13809,6 +14007,7 @@ export const evaluationsByUser = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -13842,6 +14041,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13894,6 +14094,7 @@ export const evaluationsByUser = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -13923,6 +14124,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -13996,6 +14198,7 @@ export const evaluationsByUser = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -14049,6 +14252,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14102,6 +14306,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14143,6 +14348,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14208,6 +14414,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14249,6 +14456,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14314,6 +14522,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14378,6 +14587,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14419,6 +14629,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14472,6 +14683,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14513,6 +14725,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14575,6 +14788,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14616,6 +14830,7 @@ export const evaluationsByUser = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14707,6 +14922,7 @@ export const getRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -14740,6 +14956,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14792,6 +15009,7 @@ export const getRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -14821,6 +15039,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -14894,6 +15113,7 @@ export const getRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -14947,6 +15167,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15000,6 +15221,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15041,6 +15263,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15106,6 +15329,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15147,6 +15371,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15212,6 +15437,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15276,6 +15502,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15317,6 +15544,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15370,6 +15598,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15411,6 +15640,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15456,6 +15686,7 @@ export const getRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -15489,6 +15720,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15541,6 +15773,7 @@ export const getRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -15570,6 +15803,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15643,6 +15877,7 @@ export const getRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -15696,6 +15931,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15749,6 +15985,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15790,6 +16027,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15855,6 +16093,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15896,6 +16135,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -15961,6 +16201,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16025,6 +16266,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16066,6 +16308,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16119,6 +16362,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16160,6 +16404,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16222,6 +16467,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16263,6 +16509,7 @@ export const getRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16369,6 +16616,7 @@ export const listRatings = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -16422,6 +16670,7 @@ export const listRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16451,6 +16700,7 @@ export const listRatings = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -16663,6 +16913,7 @@ export const listRatings = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -16716,6 +16967,7 @@ export const listRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -16745,6 +16997,7 @@ export const listRatings = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17039,6 +17292,7 @@ export const getAverageUserRating = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -17082,6 +17336,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17175,6 +17430,7 @@ export const getAverageUserRating = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -17228,6 +17484,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17257,6 +17514,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17457,6 +17715,7 @@ export const getAverageUserRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -17490,6 +17749,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17542,6 +17802,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17571,6 +17832,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17668,6 +17930,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17697,6 +17960,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17782,6 +18046,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17811,6 +18076,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -17940,6 +18206,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -17969,6 +18236,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18054,6 +18322,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18083,6 +18352,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18212,6 +18482,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18241,6 +18512,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18349,6 +18621,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18378,6 +18651,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18463,6 +18737,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18492,6 +18767,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18589,6 +18865,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18618,6 +18895,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18703,6 +18981,7 @@ export const getAverageUserRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18732,6 +19011,7 @@ export const getAverageUserRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18854,6 +19134,7 @@ export const listAverageUserRatings = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -18887,6 +19168,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -18939,6 +19221,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -18968,6 +19251,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19041,6 +19325,7 @@ export const listAverageUserRatings = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -19094,6 +19379,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19147,6 +19433,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19188,6 +19475,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19253,6 +19541,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19294,6 +19583,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19359,6 +19649,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19423,6 +19714,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19464,6 +19756,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19517,6 +19810,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19558,6 +19852,7 @@ export const listAverageUserRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19664,6 +19959,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19706,6 +20002,7 @@ export const getAverageTeamRating = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -19739,6 +20036,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19791,6 +20089,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -19820,6 +20119,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -19930,6 +20230,7 @@ export const getAverageTeamRating = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20089,6 +20390,7 @@ export const listAverageTeamRatings = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -20142,6 +20444,7 @@ export const listAverageTeamRatings = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20320,6 +20623,7 @@ export const getEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -20363,6 +20667,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20456,6 +20761,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -20509,6 +20815,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20538,6 +20845,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20738,6 +21046,7 @@ export const getEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -20771,6 +21080,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20823,6 +21133,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20852,6 +21163,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -20949,6 +21261,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -20978,6 +21291,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21063,6 +21377,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21092,6 +21407,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21221,6 +21537,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21250,6 +21567,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21335,6 +21653,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21364,6 +21683,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21493,6 +21813,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21522,6 +21843,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21630,6 +21952,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21659,6 +21982,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21744,6 +22068,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21773,6 +22098,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21870,6 +22196,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -21899,6 +22226,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -21984,6 +22312,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22013,6 +22342,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22102,6 +22432,7 @@ export const getEvaluationRequest = /* GraphQL */ `
           userId
           teamId
           group
+          active
           createdAt
           updatedAt
           team {
@@ -22145,6 +22476,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22238,6 +22570,7 @@ export const getEvaluationRequest = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -22291,6 +22624,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22320,6 +22654,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22520,6 +22855,7 @@ export const getEvaluationRequest = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -22553,6 +22889,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22605,6 +22942,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22634,6 +22972,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22731,6 +23070,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22760,6 +23100,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -22845,6 +23186,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -22874,6 +23216,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23003,6 +23346,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23032,6 +23376,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23117,6 +23462,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23146,6 +23492,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23275,6 +23622,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23304,6 +23652,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23412,6 +23761,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23441,6 +23791,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23526,6 +23877,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23555,6 +23907,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23652,6 +24005,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23681,6 +24035,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23766,6 +24121,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -23795,6 +24151,7 @@ export const getEvaluationRequest = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23906,6 +24263,7 @@ export const listEvaluationRequests = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -23939,6 +24297,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -23991,6 +24350,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24020,6 +24380,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24093,6 +24454,7 @@ export const listEvaluationRequests = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -24146,6 +24508,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24199,6 +24562,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24240,6 +24604,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24305,6 +24670,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24346,6 +24712,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24411,6 +24778,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24475,6 +24843,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24516,6 +24885,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24569,6 +24939,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24610,6 +24981,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24655,6 +25027,7 @@ export const listEvaluationRequests = /* GraphQL */ `
             userId
             teamId
             group
+            active
             createdAt
             updatedAt
             team {
@@ -24688,6 +25061,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24740,6 +25114,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                 userId
                 teamId
                 group
+                active
                 createdAt
                 updatedAt
                 team {
@@ -24769,6 +25144,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24842,6 +25218,7 @@ export const listEvaluationRequests = /* GraphQL */ `
               userId
               teamId
               group
+              active
               createdAt
               updatedAt
               team {
@@ -24895,6 +25272,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24948,6 +25326,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -24989,6 +25368,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25054,6 +25434,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25095,6 +25476,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25160,6 +25542,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25224,6 +25607,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25265,6 +25649,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25318,6 +25703,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }
@@ -25359,6 +25745,7 @@ export const listEvaluationRequests = /* GraphQL */ `
                   userId
                   teamId
                   group
+                  active
                   createdAt
                   updatedAt
                 }

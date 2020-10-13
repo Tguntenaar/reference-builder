@@ -37,6 +37,7 @@ const screen = ({
   addMember,
   admins,
 }) => {
+  console.log(teamManagers);
   return (
     <ScrollView
       contentContainerStyle={{
@@ -147,9 +148,12 @@ const screen = ({
                 <Image style={styles.image} source={imageEsther} />
                 {/* TODO: teammember image */}
                 <View style={styles.innerCard}>
-                  {userContext.isAdmin ? (
-                    <Feather name="x-circle" color="red" style={styles.teamIcon} />
-                  ) : null}
+                  {
+                    // Don't show the icon of the first manager.
+                    userContext.isAdmin && userContext.id !== teamManagers[0].user.id ? (
+                      <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                    ) : null
+                  }
 
                   <View style={styles.userInfo}>
                     <Text style={styles.name}>{manager.name}</Text>

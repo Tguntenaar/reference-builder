@@ -18,6 +18,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     teamsLink,
     activeTeam: teamLink,
   } = userContext;
+  // console.log(teamsLink);
   // const team = activeTeam;
     // teamsLink.items
     // .filter(({ team }) => team.id === activeTeam)

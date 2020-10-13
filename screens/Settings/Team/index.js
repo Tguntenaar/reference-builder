@@ -210,12 +210,12 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   
   const addManager = () => {
     navigation.navigate('Form', {
-      name: "Choose manager",
-      screen: "TeamSettingsScreen",
-      post: "newManager",
-      update: "activateSkillId",
-      list: teamMembers, // Members
-      form: [],
+      name: "Choose manager", // Title of page
+      screen: "TeamSettingsScreen", // page to return to
+      post: "newManager", // When submitted
+      update: "newManager", // When try to activate
+      list: teamMembers.filter((memberLink) => !memberLink.active), // List to activate 
+      form: [], // Fields of the form { text, key, value }
     });
   }
 
@@ -224,7 +224,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       name: 'Add members',
       screen: 'TeamSettingsScreen',
       post: 'newMember',
-      list: [], // TODO: inactive teammemberlinks
+      list: teamMembers.filter((memberLink) => memberLink.active), // TODO: inactive teammemberlinks
       form: [
         {
           text: 'Name',

@@ -11,9 +11,10 @@ function MyTeamScreen({ navigation, userContext }) {
   } = userContext;
 
   const { team } = activeTeamLink;
-  const {
+  let {
     membersLink: { items: membersLink },
   } = team;
+  membersLink = membersLink.filter((link) => !link.active);
   return (
     <>
       <ScrollView
