@@ -5,6 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './style';
 import NextButton from '../../components/NextButton';
 import BackButton from '../../components/BackButton';
+import { Feather } from '@expo/vector-icons';
+
 
 const UI = ({ form, setForm, activateType, navigation, route }) => {
   return (
@@ -64,11 +66,11 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
       {route.params?.list.length ? (
         <ScrollView
           contentContainerStyle={styles.bottom}
-          style={{ flexGrow: 1, backgroundColor: 'red' }}
+          style={{ flexGrow: 1 }}
         >
           <Text>{/**Choose or Activate*/}</Text>
           {/** Clickable Bubbles */}
-          {route.params.list.map(({ id, user }) => {
+          {route.params.list.map(({ id, name }) => {
             return (
               <TouchableOpacity
                 key={id}
@@ -78,8 +80,14 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
                 style={styles.inActive}
               >
                 <Text>
-                  {user.name}
+                  {name}
                 </Text>
+                <Feather
+                  name="plus-circle"
+                  color="black"
+                  style={{fontSize: 16, marginLeft: 5}}
+                  onPress={() => null}
+                />
               </TouchableOpacity>
             );
           })}

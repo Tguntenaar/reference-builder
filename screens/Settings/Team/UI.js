@@ -37,7 +37,6 @@ const screen = ({
   addMember,
   admins,
 }) => {
-  console.log(teamManagers);
   return (
     <ScrollView
       contentContainerStyle={{
@@ -85,9 +84,9 @@ const screen = ({
           <View style={styles.skillsContainer}>
             {
               /** MANAGER SKILLS */
-              teamSkills.filter((skill) => skill.forManager).length ? (
+              teamSkills.filter((skill) => skill.forManager && skill.active).length ? (
                 teamSkills
-                  .filter((skill) => skill.forManager)
+                  .filter((skill) => skill.forManager && skill.active)
                   .map((skill) => (
                     <View
                       key={skill.id}
@@ -189,9 +188,9 @@ const screen = ({
           <View style={styles.skillsContainer}>
             {
               /** Non manager skills */
-              teamSkills.filter((skill) => !skill.forManager).length ? (
+              teamSkills.filter((skill) => !skill.forManager && skill.active).length ? (
                 teamSkills
-                  .filter((skill) => !skill.forManager)
+                  .filter((skill) => !skill.forManager && skill.active)
                   .map((skill) => (
                     <View
                       key={skill.id}

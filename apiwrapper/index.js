@@ -39,9 +39,9 @@ const skill = {
   updateSkill: (input) => {
     return API.graphql(graphqlOperation(mutations.updateSkill, { input }));
   },
-  deleteSkill: (input) => {
-    return API.graphql(graphqlOperation(mutations.deleteSkill, { input }));
-  },
+  // deleteSkill: (input) => {
+  //   return API.graphql(graphqlOperation(mutations.deleteSkill, { input }));
+  // },
 };
 
 const average = {

@@ -50,6 +50,7 @@ const style = StyleSheet.create({
     // marginBottom: 100,
   },
   inActive: {
+    flexDirection: 'row',
     marginTop: 10,
     borderWidth: 1,
     borderColor: 'rgb(34,34,34)',
@@ -59,6 +60,7 @@ const style = StyleSheet.create({
     paddingLeft: 10,
     marginRight: 10,
     paddingRight: 10,
+    paddingTop: 10,
     alignContent: 'center',
     justifyContent: 'center',
   },

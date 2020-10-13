@@ -18,13 +18,20 @@ import { updateSkill } from "../../../apiwrapper/graphql/mutations";
  * 
  */
 function TeamSettingsScreen({ userContext, route, navigation }) {
-  console.log("TeamSettingsScreen");
-  const { team } = route.params;
-
+  /** het team word meegegeven
+   * maar als de usercontext dan refresht
+   * refresht de pagina niet
+   * dus met het meegegeven team id moet je het team uit de usercontext halen
+   */
+  // console.log("TeamSettingsScreen");
+  const { team : { id: teamId } } = route.params;
+  const { teamsLink: { items: links } } = userContext;
+  // console.log(links.length);
+  const team = links.filter((link)=> link.team.id === teamId)[0].team;
+  // console.log(team);
+  
   const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
-  const [teamSkills, setTeamSkills] = useState(
-    team.skills.items //.filter((skill) => skill.active)
-  );
+  const [teamSkills, setTeamSkills] = useState(team.skills.items);
   const [newUser, setNewUser] = useState({ name: "", jobTitle: "", email: "" });
   const [newSkill, setNewSkill] = useState({ name: "", description: "" });
   const [teamName, setTeamName] = useState(team.name);
@@ -75,16 +82,21 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
 
   // ActivateSkill
   useEffect(() => {
+    // console.log('hello');
     const activateSkill = async () => {
       if (route.params?.activateSkillId) {
         // Post updated, do something with `route.params.post`
         // For example, send the post to the server
-        const { data: updateSkill } = await api
+        console.log('activating skill..');
+        const { data: { updateSkill } } = await api
           .updateSkill({
             id: route.params.activateSkillId,
             active: true,
           })
+          
           .catch(({ errors }) => console.log(errors));
+        // console.log(updateSkill);
+        // console.log('Object.keys(updateSkill)');
         // console.log(updateSkill);
         setTeamSkills(
           team.skills.items.map((item) => {
@@ -94,6 +106,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
             return item;
           })
         );
+        // console.log('updated...');
       }
     };
     activateSkill();
@@ -183,9 +196,10 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     navigation.navigate('Form', {
       name: "Add skills",
       screen: "TeamSettingsScreen",
-      post: forManager? "newManagerSkill":"newSkill",
+      post: forManager ? "newManagerSkill":"newSkill",
       update: "activateSkillId",
-      list: [], // TODO: all inactive skills
+      list: teamSkills.filter((skill) => !skill.active && 
+      (forManager ? skill.forManager: !skill.forManager)),
       form: [
         {
           text: "Name",
@@ -312,11 +326,16 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   };
 
   const deactivateSkill = async (id) => {
-    setTeamSkills(teamSkills.filter((skill) => id !== skill.id));
+    setTeamSkills(teamSkills.map((skill) => { 
+      if (id === skill.id) {
+        skill.active = false;
+      }
+      return skill 
+    }));
     // const {
     //   data: { updateSkill: result },
     // } = await api.updateSkill({ id, active: false }).catch(console.log);
-    await api.deleteSkill({id})
+    await api.updateSkill({id, active: false})
     .then((response) => {
       console.log('gelukt');
     }).catch((error)=> {
