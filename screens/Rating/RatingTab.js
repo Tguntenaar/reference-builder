@@ -26,7 +26,10 @@ const styles = StyleSheet.create({
  * 3.
  */
 function RatingTab({ navigation, route, userContext }) {
-  const { averageRatings } = userContext;
+  const {
+    averageRatings,
+    receivedEvaluations: { items: receivedEvaluations },
+  } = userContext;
 
   averageRatings.items =
     averageRatings.items && averageRatings.items.length
@@ -42,6 +45,7 @@ function RatingTab({ navigation, route, userContext }) {
             },
           },
         ];
+  console.log(Object.keys(receivedEvaluations));
 
   return (
     <>

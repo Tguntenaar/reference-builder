@@ -70,7 +70,7 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
         >
           <Text>{/**Choose or Activate*/}</Text>
           {/** Clickable Bubbles */}
-          {route.params.list.map(({ id, name }) => {
+          {route.params.list.map(({ id, name, user }) => {
             return (
               <TouchableOpacity
                 key={id}
@@ -80,7 +80,7 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
                 style={styles.inActive}
               >
                 <Text>
-                  {name}
+                  {name ? name: user.name}
                 </Text>
                 <Feather
                   name="plus-circle"

@@ -82,7 +82,6 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
 
   // ActivateSkill
   useEffect(() => {
-    // console.log('hello');
     const activateSkill = async () => {
       if (route.params?.activateSkillId) {
         // Post updated, do something with `route.params.post`
@@ -95,9 +94,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
           })
           
           .catch(({ errors }) => console.log(errors));
-        // console.log(updateSkill);
-        // console.log('Object.keys(updateSkill)');
-        // console.log(updateSkill);
+        
         setTeamSkills(
           team.skills.items.map((item) => {
             if (item.id == updateSkill.id) {
@@ -106,11 +103,10 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
             return item;
           })
         );
-        // console.log('updated...');
       }
     };
     activateSkill();
-  }, [route.params?.activateSkillId]); // TODO: kan nu maar 1 keer skill verwijderen en heractiveren
+  }, [route.params?.activateSkillId]);
   
   // newMember
   useEffect(() => {
@@ -216,10 +212,11 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   };
 
   const activateOldMember = async (id) => {
-    await api.updateTeamMemberLink({id, active: true}).catch((error)=> {
+    const result = await api.updateTeamMemberLink({id, active: true}).catch((error)=> {
       console.log("ERROR in activateoldmemember");
       console.log(error);
-    })
+    });
+    console.log({result});
   };
   
   const addManager = () => {
@@ -228,7 +225,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       screen: "TeamSettingsScreen", // page to return to
       post: "newManager", // When submitted
       update: "newManager", // When try to activate
-      list: teamMembers.filter((memberLink) => !memberLink.active), // List to activate 
+      // TODO: (tm)=>team.admins.includes(tm.user.id)
+      list: teamMembers.filter((link) => !team.admins.includes(link?.user?.id) && link.active), // List to activate 
       form: [], // Fields of the form { text, key, value }
     });
   }
@@ -238,7 +236,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       name: 'Add members',
       screen: 'TeamSettingsScreen',
       post: 'newMember',
-      list: teamMembers.filter((memberLink) => memberLink.active), // TODO: inactive teammemberlinks
+      update:'activateMember',
+      list: teamMembers.filter((link) => !link.active), // TODO: inactive teammemberlinks
       form: [
         {
           text: 'Name',
@@ -343,7 +342,21 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     });
   };
 
-  const deleteMember = async (teamMemberLinkId) => {
+  const deleteMember = (user_id, teammemberLinkid) => {
+    api.deleteTeamMemberLink({id: teammemberLinkid}).then((response)=> {
+      
+      if (user_id) {
+        api.deleteUser({id: user_id}).then((response)=>{
+          console.log('gelukt')
+          setTeamMembers(teamMembers.filter((link)=>link.id !== teammemberLinkid))
+        }).catch((error)=> {
+          console.log(error);
+        });
+      }
+    }).catch(console.log);
+  }
+
+  const deactivateMember = async (teamMemberLinkId) => {
     setTeamMembers(teamMembers.filter((user) => teamMemberLinkId !== user.id));
     const {
       data: { updateTeamMemberLink: result },
@@ -376,7 +389,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   };
 
-  const teamManagers = teamMembers.filter((tm)=>team.admins.includes(tm.user.id));
+  const teamManagers = teamMembers.filter((link)=>team.admins.includes(link?.user?.id));
 
   console.log(teamMembers);
 
@@ -393,6 +406,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     updateHeader,
     deactivateSkill,
     deleteMember,
+    deactivateMember,
     createSkill,
     navigation,
     navigateToSkillForm,

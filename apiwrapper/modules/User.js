@@ -56,7 +56,7 @@ export default {
   updateUser: (input) => {
     return API.graphql(graphqlOperation(mutations.updateUser, { input }));
   },
-  deleteUser: (id) => {
-    return API.graphql(graphqlOperation(mutations.deleteUser, { input: { id } }));
+  deleteUser: (input) => {
+    return API.graphql(graphqlOperation(mutations.deleteUser, { input }));
   },
 };

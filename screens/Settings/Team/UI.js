@@ -29,6 +29,7 @@ const screen = ({
   updateHeader,
   deactivateSkill,
   deleteMember,
+  deactivateMember,
   navigation,
   navigateToSkillForm,
   sendTeamEvaluations,
@@ -233,7 +234,7 @@ const screen = ({
           </View>
           <View style={styles.row}>
             <Text style={styles.headerTitles}>
-              Members ({teamMembers.filter((tm) => !admins.includes(tm.user.id)).length})
+              Members ({teamMembers.filter((link) => !admins.includes(link?.user?.id)).length})
             </Text>
             <TouchableOpacity
               onPress={() => {
@@ -252,21 +253,32 @@ const screen = ({
               width,
             }}
           >
-            {teamMembers.filter((tm) => !admins.includes(tm.user.id)).length ? (
+            {teamMembers.filter((link) => !admins.includes(link?.user?.id)).length ? (
               teamMembers
-                .filter((tm) => !admins.includes(tm.user.id))
+                .filter((link) => !admins.includes(link?.user?.id))
                 .map(({ id: teamMemberLinkId, user }) => (
                   <View key={teamMemberLinkId} style={styles.card}>
                     <Image style={styles.image} source={imageEsther} />
                     {/* TODO: teammember image */}
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>
-                        <Text style={styles.name}>{user.name}</Text>
-                        <Text style={styles.jobTitle}>{user.jobTitle}</Text>
+                        <Text style={styles.name}>{user?.name}</Text>
+                        <Text style={styles.jobTitle}>{user?.jobTitle}</Text>
                       </View>
+                      {
+                        userContext.isAdmin?
+                        <TouchableOpacity
+                        onPress={() => {
+                          deleteMember(user?.id, teamMemberLinkId);
+                        }}
+                        style={styles.trashIcon}
+                      >
+                        <Feather name="trash-2" color="red" style={styles.trashIcon} />
+                      </TouchableOpacity>:null
+                      }
                       <TouchableOpacity
                         onPress={() => {
-                          deleteMember(teamMemberLinkId);
+                          deactivateMember(teamMemberLinkId); 
                         }}
                         style={styles.teamIcon}
                       >

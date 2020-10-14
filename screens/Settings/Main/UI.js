@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 // aws
 import { Feather } from '@expo/vector-icons';
+import { Auth } from 'aws-amplify';
 import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
@@ -50,6 +51,14 @@ const UI = ({
           <TouchableOpacity onPress={pickImage}>
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>
+          <Feather
+            name="log-out"
+            color="black"
+            style={styles.plusIcon}
+            onPress={() => {
+              Auth.signOut();
+            }}
+          />
         </View>
         <View style={styles.middle}>
           <View style={styles.names}>

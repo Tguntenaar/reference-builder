@@ -14,7 +14,7 @@ function MyTeamScreen({ navigation, userContext }) {
   let {
     membersLink: { items: membersLink },
   } = team;
-  membersLink = membersLink.filter((link) => !link.active);
+  membersLink = membersLink.filter((link) => link.active);
   return (
     <>
       <ScrollView
@@ -30,38 +30,41 @@ function MyTeamScreen({ navigation, userContext }) {
 
             {membersLink.map((teamMemberLink) => {
               const { admins } = team;
-              const {
-                user: { id, avatar },
-              } = teamMemberLink;
-              if (admins.includes(teamMemberLink.user.id)) {
+              // const {
+              //   user: { id, avatar },
+              // } = teamMemberLink;
+              if (teamMemberLink.user !== null && admins.includes(teamMemberLink.user.id)) {
                 return (
                   <TeamMember
                     teamMember={teamMemberLink.user}
-                    key={id}
-                    picture={avatar}
+                    key={teamMemberLink.user.id}
+                    picture={teamMemberLink.user.avatar}
                     navigation={navigation}
                     color="rgb(212,214,255)"
                   />
                 );
               }
+              return null;
             })}
             <Text style={[styles.text]}>Members ({membersLink.length - team.admins.length})</Text>
             {membersLink.length ? (
               membersLink.map((teamMemberLink) => {
                 const { admins } = team;
-                const {
-                  user: { id, avatar },
-                } = teamMemberLink;
+                // const {
+                //   user: { id, avatar },
+                // } = teamMemberLink;
+                console.log(teamMemberLink.user.name);
                 if (!admins.includes(teamMemberLink.user.id)) {
                   return (
                     <TeamMember
                       teamMember={teamMemberLink.user}
-                      key={id}
-                      picture={avatar}
+                      key={teamMemberLink.user.id}
+                      picture={teamMemberLink.user.avatar}
                       navigation={navigation}
                     />
                   );
                 }
+                return null;
               })
             ) : (
               <Text style={{ paddingLeft: 20, paddingRight: 20 }}>

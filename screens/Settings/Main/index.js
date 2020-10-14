@@ -100,7 +100,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
         console.warn("no name for new team");
         return;
       }
-      console.log(teamLink.team)
+      // console.log(teamLink.team)
       api.createTeam({
         name,
         companyId: teamLink.team.company.id,

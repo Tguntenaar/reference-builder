@@ -86,6 +86,12 @@ const styles = StyleSheet.create({
     right: 1,
     top: 1,
   },
+  trashIcon: {
+    fontSize: 22,
+    position: 'absolute',
+    right: 15,
+    top: 1,
+  },
   userInfo: {
     marginTop: 5,
     width: width - imageSize - 70,
