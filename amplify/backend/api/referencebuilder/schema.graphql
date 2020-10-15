@@ -50,6 +50,7 @@ type Team
     @connection(keyName: "averageRatingsByTeam", fields: ["id"]) #has many
 }
 
+# TODO: list team member links en check of elke een group heeft
 type TeamMemberLink
   @auth(
     rules: [
@@ -61,7 +62,7 @@ type TeamMemberLink
       { allow: public }
     ]
   )
-  @model(queries: null, subscriptions: null)
+  @model(subscriptions: null)
   @key(name: "teamsByUser", fields: ["userId", "teamId"])
   @key(name: "usersByTeam", fields: ["teamId", "userId"]) {
   id: ID!
@@ -92,6 +93,7 @@ type User
   email: String
   jobTitle: String
   avatar: S3Object
+  # TODO: active team id is niet het team id maar de team link id
   activeTeamID: ID!
   activeTeam: TeamMemberLink @connection(fields: ["activeTeamID"]) # has one
   # dashboard

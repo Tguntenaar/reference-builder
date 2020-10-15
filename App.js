@@ -77,8 +77,12 @@ function App(props) {
     const {
       attributes: { sub: userID },
     } = await Auth.currentAuthenticatedUser().catch(console.log);
+    // Auth.signOut();
+    console.log('userID');
     console.log(userID);
+    // api.getUser(userID).then()
     const result = await api.getUser(userID); // DEBUG: .catch(({ errors }) => console.log(errors));
+    // console.log('{ result }');
     // console.log({ result });
     if (result.errors || !result.data) {
       // FIXME: Cant getUser

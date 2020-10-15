@@ -18,14 +18,17 @@ function sendEvaluationRequests({ navigation, route }) {
     {
       id: '1',
       active: true,
+      name: 'Thomas',
     },
     {
       id: '2',
       active: true,
+      name: 'Olivier',
     },
     {
       id: '31',
       active: true,
+      name: 'Boris',
     },
   ]);
   const [status, setStatus] = useState({ loading: false, errored: false });
@@ -52,25 +55,28 @@ function sendEvaluationRequests({ navigation, route }) {
           <ScrollView style={styles.middle} contentContainerStyle={styles.scroll}>
             {select.map((person) => {
               return (
-                <TouchableOpacity
-                  key={person.id}
-                  style={[
-                    styles.imageContainer,
-                    { backgroundColor: person.active ? 'rgb(0,255,49)' : 'transparent' },
-                  ]}
-                  onPress={() => {
-                    const temp = select.slice();
-                    temp.map((p2) => {
-                      if (p2.id === person.id) {
-                        p2.active = !p2.active;
-                      }
-                      return p2;
-                    });
-                    setSelect(temp);
-                  }}
-                >
-                  <Image style={styles.image} source={imageEsther} />
-                </TouchableOpacity>
+                <View key={person.id}>
+                  <Text style={{ fontSize: 20, color: 'white' }}>{person.name}</Text>
+                  <TouchableOpacity
+                    key={person.id}
+                    style={[
+                      styles.imageContainer,
+                      { backgroundColor: person.active ? 'rgb(0,255,49)' : 'transparent' },
+                    ]}
+                    onPress={() => {
+                      const temp = select.slice();
+                      temp.map((p2) => {
+                        if (p2.id === person.id) {
+                          p2.active = !p2.active;
+                        }
+                        return p2;
+                      });
+                      setSelect(temp);
+                    }}
+                  >
+                    <Image style={styles.image} source={imageEsther} />
+                  </TouchableOpacity>
+                </View>
               );
             })}
           </ScrollView>

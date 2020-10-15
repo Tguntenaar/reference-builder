@@ -18,6 +18,36 @@ const styles = StyleSheet.create({
     // flexGrow: 1,
   },
 });
+
+function getAverages(receivedEvaluations) {
+  /**
+   * MAP EVALUATIONS NAAR ARRAY VAN RATINGS
+   * MAP DAARNA REDUCE ALLE RATINGS MET DEZELFDE SKILL ID
+   */
+  const allRatings = receivedEvaluations.map((evaluation) => evaluation.ratings.items).flat();
+
+  return allRatings.reduce((final, data) => {
+    const isAlready = final.find((value) => {
+      return value.skillId === data.skillId;
+    });
+
+    if (!isAlready) {
+      final.push(data);
+      return final;
+    }
+
+    const index = final.indexOf(isAlready);
+    const newGrade = parseFloat(final[index].grade) + parseFloat(data.grade);
+    const newRating = {
+      ...isAlready,
+      grade: newGrade,
+    };
+    return {
+      ...final,
+      [index]: newRating,
+    };
+  }, []);
+}
 /**
  * TODO:
  * Ratings Schermen
@@ -30,6 +60,8 @@ function RatingTab({ navigation, route, userContext }) {
     averageRatings,
     receivedEvaluations: { items: receivedEvaluations },
   } = userContext;
+
+  averageRatings.items = getAverages(receivedEvaluations);
 
   averageRatings.items =
     averageRatings.items && averageRatings.items.length
@@ -45,7 +77,6 @@ function RatingTab({ navigation, route, userContext }) {
             },
           },
         ];
-  console.log(Object.keys(receivedEvaluations));
 
   return (
     <>

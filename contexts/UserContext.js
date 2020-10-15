@@ -45,15 +45,15 @@ const isAdmin = (userContext) => {
 
 const UserContextProvider = (props) => {
   const [refreshing, setRefreshing] = React.useState(false);
-  const [user, setUser] = useState({ ...props.user, isAdmin: false, isManager: true }); // FIXME: isAdmin isManager funcitons
+  const [user, setUser] = useState({ ...props.user }); // FIXME: isAdmin isManager functions
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     // console.log(user);
     api
       .getUser(user.id)
       .then((result) => {
-        // console.log(result.data.getUser.receivedRequests.items.length);
-        setUser({ ...result.data.getUser, isAdmin: true, isManager: true }); // FIXME:
+        console.log(Object.keys(result.data.getUser));
+        setUser({ ...result.data.getUser }); // FIXME:
         setRefreshing(false);
       })
       .catch((err) => {
@@ -63,7 +63,9 @@ const UserContextProvider = (props) => {
   }, [refreshing]);
 
   return (
-    <UserContext.Provider value={{ ...user, refreshing, onRefresh }}>
+    <UserContext.Provider
+      value={{ ...user, refreshing, onRefresh, isAdmin: true, isManager: true }}
+    >
       {props.children}
     </UserContext.Provider>
   );
