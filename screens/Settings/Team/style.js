@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
-
   edit: {
     color: 'blue',
     fontSize: 20,
@@ -85,6 +84,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 1,
     top: 1,
+    zIndex: 2,
   },
   trashIcon: {
     fontSize: 22,

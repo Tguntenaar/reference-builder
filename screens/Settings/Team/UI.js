@@ -37,6 +37,7 @@ const screen = ({
   addManager,
   addMember,
   admins,
+  removeAdmin
 }) => {
   return (
     <ScrollView
@@ -150,8 +151,10 @@ const screen = ({
                 <View style={styles.innerCard}>
                   {
                     // Don't show the icon of the first manager.
-                    userContext.isAdmin && userContext.id !== teamManagers[0].user.id ? (
-                      <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                    userContext.isAdmin && userContext.id !== manager.id ? (
+                      <TouchableOpacity onPress={() => {removeAdmin(manager.id)}} style={styles.teamIcon} >
+                        <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                      </TouchableOpacity>
                     ) : null
                   }
 
@@ -161,7 +164,9 @@ const screen = ({
                     <NextButton
                       title="Request evaluations"
                       textSize={14}
-                      onPress={() => navigation.navigate('SendRequests')}
+                      onPress={() => navigation.navigate('SendRequests', {
+                        members: teamMembers.filter((link) => !admins.includes(link?.user?.id))
+                      })}
                     />
                   </View>
                 </View>

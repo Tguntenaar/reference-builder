@@ -40,7 +40,7 @@ type Team
   name: String!
   admins: [ID!]
   group: String
-  active: Boolean
+  active: Boolean # TODO: moet deze wel gebruikt worden?
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
   membersLink: [TeamMemberLink!]

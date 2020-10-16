@@ -10,6 +10,7 @@ export default {
     return API.graphql(graphqlOperation(mutations.deleteTeam, { input: { id: teamId } }));
   },
   updateTeam: (input) => {
+    console.log({ input });
     return API.graphql(graphqlOperation(mutations.updateTeam, { input }));
   },
 };

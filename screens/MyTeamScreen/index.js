@@ -53,7 +53,7 @@ function MyTeamScreen({ navigation, userContext }) {
                 // const {
                 //   user: { id, avatar },
                 // } = teamMemberLink;
-                console.log(teamMemberLink.user.name);
+                // console.log(teamMemberLink.user.name);
                 if (!admins.includes(teamMemberLink.user.id)) {
                   return (
                     <TeamMember

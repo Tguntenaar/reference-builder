@@ -9,28 +9,16 @@ import styles from './style';
 
 import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
-import api from '../../../apiwrapper';
 import { imageEsther } from '../../../constants/Images';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function sendEvaluationRequests({ navigation, route }) {
-  const [select, setSelect] = useState([
-    {
-      id: '1',
-      active: true,
-      name: 'Thomas',
-    },
-    {
-      id: '2',
-      active: true,
-      name: 'Olivier',
-    },
-    {
-      id: '31',
-      active: true,
-      name: 'Boris',
-    },
-  ]);
+  const [select, setSelect] = useState(
+    route.params.members.map((link) => {
+      return { ...link, sendRequest: true };
+    })
+  );
+
   const [status, setStatus] = useState({ loading: false, errored: false });
 
   return (
@@ -53,23 +41,27 @@ function sendEvaluationRequests({ navigation, route }) {
             </View>
           </View>
           <ScrollView style={styles.middle} contentContainerStyle={styles.scroll}>
-            {select.map((person) => {
+            {select.map((link) => {
               return (
-                <View key={person.id}>
-                  <Text style={{ fontSize: 20, color: 'white' }}>{person.name}</Text>
+                <View key={link.id}>
+                  <Text style={{ fontSize: 20, color: 'white' }}>{link.user.name}</Text>
                   <TouchableOpacity
-                    key={person.id}
+                    key={link.id}
                     style={[
                       styles.imageContainer,
-                      { backgroundColor: person.active ? 'rgb(0,255,49)' : 'transparent' },
+                      { backgroundColor: link.sendRequest ? 'rgb(0,255,49)' : 'transparent' },
                     ]}
                     onPress={() => {
                       const temp = select.slice();
-                      temp.map((p2) => {
-                        if (p2.id === person.id) {
-                          p2.active = !p2.active;
+                      temp.map((link2) => {
+                        if (link2.id === link.id) {
+                          link2.sendRequest = !link2.sendRequest;
+                          // return {
+                          //   ...link2,
+                          //   sendRequest: !link2.sendRequest,
+                          // }
                         }
-                        return p2;
+                        return link2;
                       });
                       setSelect(temp);
                     }}
@@ -82,7 +74,7 @@ function sendEvaluationRequests({ navigation, route }) {
           </ScrollView>
           <View style={styles.bottom}>
             <Text style={styles.selected}>
-              {select.filter((person) => person.active).length} selected
+              {select.filter((link) => link.sendRequest).length} selected
             </Text>
             <NextButton
               title="Send invite"

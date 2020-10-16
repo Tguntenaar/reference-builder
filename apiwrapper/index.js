@@ -18,7 +18,9 @@ const company = {
 
 const userTeamLink = {
   createTeamMemberLink: (input) => {
-    return API.graphql(graphqlOperation(mutations.createTeamMemberLink, { input }));
+    return API.graphql(
+      graphqlOperation(mutations.createTeamMemberLink, { input: { ...input, active: true } })
+    );
   },
   updateTeamMemberLink: (input) => {
     return API.graphql(graphqlOperation(mutations.updateTeamMemberLink, { input }));
@@ -26,11 +28,41 @@ const userTeamLink = {
   deleteTeamMemberLink: (input) => {
     return API.graphql(graphqlOperation(mutations.deleteTeamMemberLink, { input }));
   },
+  fixNullValuesTeamLink: () => {
+    API.graphql(graphqlOperation(queries.listTeamMemberLinks))
+      .then((response) => {
+        const links = response.data.listTeamMemberLinks.items;
+        for (const link of links) {
+          if (link.active === null) {
+            console.log('found null value');
+
+            API.graphql(
+              graphqlOperation(mutations.updateTeamMemberLink, {
+                id: link.id,
+                active: true,
+              })
+            )
+              .then((response) => {
+                console.log('succesfully updated to active');
+              })
+              .catch((error) => {
+                console.log(`%c CANT update`, 'color:red');
+                console.log(error);
+              });
+          }
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
 
 const skill = {
   createSkill: (input) => {
-    return API.graphql(graphqlOperation(mutations.createSkill, { input }));
+    return API.graphql(
+      graphqlOperation(mutations.createSkill, { input: { ...input, active: true } })
+    );
   },
   updateSkill: (input) => {
     return API.graphql(graphqlOperation(mutations.updateSkill, { input }));

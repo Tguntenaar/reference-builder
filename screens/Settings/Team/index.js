@@ -11,7 +11,7 @@ import { updateSkill } from "../../../apiwrapper/graphql/mutations";
  * @param {} param0 
  * 
  * TODO:
- * 
+ * MANAGERS TOEVOEGEN EN VERWIJDEREN MOET SOEPELER GAAN
  * 
  * split managers en employess net als in team screen
  * create different skills inside team (boolean in skill)
@@ -23,14 +23,17 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
    * refresht de pagina niet
    * dus met het meegegeven team id moet je het team uit de usercontext halen
    */
-  // console.log("TeamSettingsScreen");
+  console.log("TeamSettingsScreen");
   const { team : { id: teamId } } = route.params;
   const { teamsLink: { items: links } } = userContext;
-  // console.log(links.length);
   const team = links.filter((link)=> link.team.id === teamId)[0].team;
-  // console.log(team);
-  
   const [teamMembers, setTeamMembers] = useState(team.membersLink.items);
+  // console.log('teamMembers.map((link)=>link.user.id)');
+  // console.log(teamMembers.map((link)=>link.user.id));
+  // console.log('team.admins');
+  // console.log(team.admins);
+  // console.log(teamMembers.filter((link)=>team.admins.includes(link?.user?.id)));
+  const [teamManagers, setTeamManagers] = useState(teamMembers.filter((link)=>team.admins.includes(link?.user?.id)));
   const [teamSkills, setTeamSkills] = useState(team.skills.items);
   const [newUser, setNewUser] = useState({ name: "", jobTitle: "", email: "" });
   const [newSkill, setNewSkill] = useState({ name: "", description: "" });
@@ -131,16 +134,41 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     if (route.params?.newManager) {
       // Post updated, do something with `route.params.post`
       // For example, send the post to the server
-      const { id } = route.params.newManager;
+      const [{user:{id:newManagerID}}] = teamMembers.filter((link)=>link.id === route.params.newManager);
+      const newManagers = Array.from(new Set([...team.admins, newManagerID]));
       api.updateTeam({
-        teamId: team.id,
-        admins: [...team.admins, id]
-      }).then(()=> {
-        console.log('succes');
+        id: team.id,
+        admins: newManagers
+      }).then((response)=> {
+        // TODO: update team admins eerst :)
+        setTeamManagers(teamMembers.filter((link)=>newManagers.includes(link?.user?.id)));
+        setTeamMembers(teamMembers.filter((link)=>!newManagers.includes(link?.user?.id)));
       }).catch(console.log)
       
     }
   }, [route.params?.newManager]);
+
+    // Ask for Evaluation Request
+    useEffect(() => {
+      if (route.params?.select) {
+        for (const { sendRequest, user: { id: userId } } of route.params.select) {
+          if (sendRequest) {
+            const evaluationRequest = {
+              evaluatorId: userContext.id,
+              userId,
+              group: userContext.group,
+              status: "PENDING",
+            };
+            api.createEvaluationRequest(evaluationRequest).then(()=> {
+              console.log('succes');
+            }).catch((error)=> {
+              console.log('Errored with', evaluationRequest);
+              console.log({evaluationRequest})
+            });
+          }
+        }
+      }
+    }, [route.params?.select]);
 
    // Activate Member/Manager
    useEffect(() => {
@@ -229,6 +257,17 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       list: teamMembers.filter((link) => !team.admins.includes(link?.user?.id) && link.active), // List to activate 
       form: [], // Fields of the form { text, key, value }
     });
+  }
+
+  const removeAdmin = (adminID) => {
+    const newAdmins = team.admins.filter((id) => adminID !== id);
+    api.updateTeam({
+      id: team.id,
+      admins: newAdmins
+    }).then((response)=> {
+      setTeamManagers(teamMembers.filter((link) => newAdmins.includes(link?.user?.id)));
+      setTeamMembers(teamMembers.filter((link) => !newAdmins.includes(link?.user?.id)));
+    })
   }
 
   const addMember = () => {
@@ -389,9 +428,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   };
 
-  const teamManagers = teamMembers.filter((link)=>team.admins.includes(link?.user?.id));
-
-  console.log(teamMembers);
+  // console.log(teamMembers);
 
   const properties = {
     teamManagers,
@@ -415,6 +452,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     addManager,
     addMember,
     admins: team.admins,
+    removeAdmin
   };
   return <UI {...properties} />;
 }

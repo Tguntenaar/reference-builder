@@ -52,7 +52,7 @@ const UserContextProvider = (props) => {
     api
       .getUser(user.id)
       .then((result) => {
-        console.log(Object.keys(result.data.getUser));
+        // console.log(Object.keys(result.data.getUser));
         setUser({ ...result.data.getUser }); // FIXME:
         setRefreshing(false);
       })
