@@ -37,7 +37,7 @@ const screen = ({
   addManager,
   addMember,
   admins,
-  removeAdmin
+  removeManager
 }) => {
   return (
     <ScrollView
@@ -86,6 +86,7 @@ const screen = ({
           <View style={styles.skillsContainer}>
             {
               /** MANAGER SKILLS */
+              
               teamSkills.filter((skill) => skill.forManager && skill.active).length ? (
                 teamSkills
                   .filter((skill) => skill.forManager && skill.active)
@@ -152,7 +153,9 @@ const screen = ({
                   {
                     // Don't show the icon of the first manager.
                     userContext.isAdmin && userContext.id !== manager.id ? (
-                      <TouchableOpacity onPress={() => {removeAdmin(manager.id)}} style={styles.teamIcon} >
+                      <TouchableOpacity onPress={() => {
+                        removeManager(manager.id);
+                      }} style={styles.teamIcon} >
                         <Feather name="x-circle" color="red" style={styles.teamIcon} />
                       </TouchableOpacity>
                     ) : null
@@ -161,13 +164,34 @@ const screen = ({
                   <View style={styles.userInfo}>
                     <Text style={styles.name}>{manager.name}</Text>
                     <Text style={styles.jobTitle}>{manager.jobTitle}</Text>
-                    <NextButton
-                      title="Request evaluations"
-                      textSize={14}
-                      onPress={() => navigation.navigate('SendRequests', {
-                        members: teamMembers.filter((link) => !admins.includes(link?.user?.id))
-                      })}
-                    />
+                    { 
+                      userContext.id === manager.id ?
+                        <NextButton
+                          title="Request evaluations"
+                          textSize={14}
+                          onPress={() => navigation.navigate('SendRequests', {
+                            members: teamMembers
+                          })}
+                        />
+                      :
+                      <NextButton
+                          title="Evaluate"
+                          textSize={14}
+                          size={45}
+                          onPress={() =>
+                            navigation.navigate('EvaluateScreen', {
+                              evaluationRequest: {
+                                user: manager,
+                                evaluator: {
+                                  id: userContext.id,
+                                  name: userContext.name,
+                                },
+                              },
+                              manager: true, // starts evaluation of non managers
+                            })
+                          }
+                        />
+                    }
                   </View>
                 </View>
               </View>
@@ -239,7 +263,7 @@ const screen = ({
           </View>
           <View style={styles.row}>
             <Text style={styles.headerTitles}>
-              Members ({teamMembers.filter((link) => !admins.includes(link?.user?.id)).length})
+              Members ({teamMembers.length})
             </Text>
             <TouchableOpacity
               onPress={() => {
@@ -258,10 +282,8 @@ const screen = ({
               width,
             }}
           >
-            {teamMembers.filter((link) => !admins.includes(link?.user?.id)).length ? (
-              teamMembers
-                .filter((link) => !admins.includes(link?.user?.id))
-                .map(({ id: teamMemberLinkId, user }) => (
+            {teamMembers.length ? (
+              teamMembers.map(({ id: teamMemberLinkId, user }) => (
                   <View key={teamMemberLinkId} style={styles.card}>
                     <Image style={styles.image} source={imageEsther} />
                     {/* TODO: teammember image */}
@@ -324,16 +346,7 @@ const screen = ({
 
 screen.propTypes = {
   teamMembers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  teamSkills: PropTypes.arrayOf(PropTypes.object).isRequired,
-  newUser: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    jobTitle: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-  }).isRequired,
-  newSkill: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
+  teamSkills: PropTypes.arrayOf(PropTypes.object).isRequired, 
   teamName: PropTypes.string.isRequired,
   setTeamName: PropTypes.func.isRequired,
   updateHeader: PropTypes.func.isRequired,

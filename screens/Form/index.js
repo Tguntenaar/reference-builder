@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import UI from './UI';
-import api from '../../apiwrapper';
+
+/**
+ navigation.navigate('Form', {
+      name: "Title", // Title of page
+      screen: "TeamSettingsScreen", // page to return to
+      post: "newManager", // When submitted the useEffect it activates
+      form: [], // Fields of the form array of objects { text, key, value }
+      update: "newManager", // When clicked on item to activate the useEffect
+      list: [Items], // List of items to activate 
+    });
+ */
 
 const index = ({ navigation, route }) => {
   const [form, setForm] = useState(route.params.form);
