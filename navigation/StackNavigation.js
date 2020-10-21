@@ -13,7 +13,7 @@ import TabNavigation from './TabNavigation';
 // Screens
 import RatingsDetailsScreen from '../screens/Rating/RatingChart';
 import DetailedRatingScreen from '../screens/Rating/RatingDetails';
-import EvaluateScreen from '../screens/Evaluate/Sliders';
+import EvaluateSliders from '../screens/Evaluate/Sliders';
 import EvaluateCommentScreen from '../screens/Evaluate/Comment';
 import SettingsScreen from '../screens/Settings/Main';
 import TeamSettingsScreen from '../screens/Settings/Team';
@@ -148,8 +148,8 @@ function StackNavigation({ user }) {
         }}
       />
       <Stack.Screen
-        name="EvaluateScreen"
-        component={EvaluateScreen}
+        name="EvaluateSliders"
+        component={EvaluateSliders}
         options={{
           headerShown: false,
         }}

@@ -10,7 +10,7 @@ import Circle from '../../../components/Circle';
 import withUser from '../../../contexts/withUser';
 
 // TODO: Performance van sliders..
-function EvaluateScreen({ route, navigation, userContext }) {
+const EvaluateSliders = ({ route, navigation, userContext }) => {
   const { evaluationRequest, manager } = route.params;
   const { user } = evaluationRequest;
   // get the team
@@ -90,9 +90,9 @@ function EvaluateScreen({ route, navigation, userContext }) {
       </View>
     </SafeAreaView>
   );
-}
+};
 
-EvaluateScreen.propTypes = {
+EvaluateSliders.propTypes = {
   route: PropTypes.shape({
     params: PropTypes.shape({
       evaluationRequest: PropTypes.shape({
@@ -107,4 +107,4 @@ EvaluateScreen.propTypes = {
   userContext: PropTypes.object.isRequired,
 };
 
-export default withUser(EvaluateScreen);
+export default withUser(EvaluateSliders);

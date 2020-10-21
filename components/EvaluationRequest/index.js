@@ -28,7 +28,7 @@ const EvaluationRequest = ({ request, navigation }) => {
           textSize={15}
           title="Evaluate"
           onPress={() =>
-            navigation.navigate('EvaluateScreen', {
+            navigation.navigate('EvaluateSliders', {
               evaluationRequest: request,
               manager: true, // Starts evaluation of manager
             })

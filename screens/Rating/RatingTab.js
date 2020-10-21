@@ -60,7 +60,6 @@ function RatingTab({ navigation, route, userContext }) {
     averageRatings,
     receivedEvaluations: { items: receivedEvaluations },
   } = userContext;
-
   averageRatings.items = getAverages(receivedEvaluations);
 
   averageRatings.items =

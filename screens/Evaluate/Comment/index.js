@@ -23,43 +23,61 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
   };
   const uploadEvaluation = async () => {
     setStatus({ ...status, loading: true });
-    const rating = {
+
+    const evaluation = {
       userId: evaluationRequest.user.id,
       authorId: evaluationRequest.evaluator.id,
       comment: text,
       group: userContext.group,
     };
-    console.log(rating);
-    console.log(evaluationRequest.evaluator.name);
-    console.log(evaluationRequest.user.name);
+    console.log({ evaluation });
 
     const {
       data: {
         createEvaluation: { id: evaluationId },
       },
-    } = await api.createEvaluation(rating).catch(({ errors }) => console.log(errors));
-    console.log('rating succes');
-    console.log(evaluationId);
+      errors,
+    } = await api.createEvaluation(evaluation);
+    // .catch(({ data, errors }) => { });
+    if (errors) {
+      console.log('error in evaluate/comment/index.js');
+
+      api
+        .deleteEvaluation({
+          id: evaluationId,
+        })
+        .then(() => {
+          console.log('deleted');
+        })
+        .catch(() => {
+          console.log("couldn't delete");
+        });
+    }
     // for each skill create evaluation
     sliders.forEach((skill) => {
-      const skillEvaluation = {
+      const rating = {
         evaluationId,
         skillId: skill.id,
         grade: parseInt(skill.grade, 10),
         group: userContext.group,
       };
-      console.log(skillEvaluation);
-      api.createRating(skillEvaluation).then(console.log('created evaluation')).catch(console.log);
+      console.log({ rating });
+      //   console.log({ rating });
+      //   // api
+      //   //   .createRating(rating)
+      //   //   .then(() => {
+      //   //     console.log('created rating');
+      //   //   })
+      //   //   .catch(console.log);
     });
     // TODO:
     // await all createRatings
     // if no error and !manager deleteEvaluationRequest
     // else get all created evaluations via getRating en delete ze 1 voor 1
     // await api.deleteEvaluationRequest(evaluationRequest.id);
-    navigation.navigate('Tabs');
+    // navigation.navigate('Tabs');
     // setStatus({ ...status, errored: true });
     setStatus({ ...status, loading: false });
-    return Promise.resolve('done');
   };
 
   return (

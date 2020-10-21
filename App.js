@@ -27,6 +27,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { onCreateEvaluationRequest } from './apiwrapper/graphql/subscriptions';
+import { listEvaluations } from './apiwrapper/graphql/queries';
 
 // PREBUILT UI
 // Load/fetch ratings evaluations and team members
@@ -40,18 +41,18 @@ Amplify.configure({ ...awsconfig, Analytics: { disabled: true } });
 global.Buffer = global.Buffer || require('buffer').Buffer; //
 
 const defaultUser = {
-  name: 'Thomas Guntenaar',
-  jobTitle: 'App creator',
-  receivedRequests: [],
-  teamsLink: {
-    items: [
-      { team: { membersLink: { items: [] }, skills: [], company: { teams: { items: [] } } } },
-    ],
-  },
-  averageRatings: {
-    items: [],
-  },
-};
+  // name: 'Thomas Guntenaar',
+  // jobTitle: 'App creator',
+  // receivedRequests: [],
+  // teamsLink: {
+  //   items: [
+  //     { team: { membersLink: { items: [] }, skills: [], company: { teams: { items: [] } } } },
+  //   ],
+  // },
+  // averageRatings: {
+  //   items: [],
+  // },
+}; // TODO:
 
 function cacheImages(images) {
   return images.map((image) => {
@@ -78,21 +79,27 @@ function App(props) {
       attributes: { sub: userID },
     } = await Auth.currentAuthenticatedUser().catch(console.log);
     // Auth.signOut();
+    // api.cleanUpEvaluations();
 
-    const result = await api.getUser(userID); // DEBUG: .catch(({ errors }) => console.log(errors));
+    const result = await api
+      .getUser(userID)
+      .then(({ data: { getUser } }) => {
+        setUser(getUser);
+      })
+      .catch(({ data: { getUser }, errors }) => {
+        console.log('ERRORS in App.js');
+        // console.log(errors.map((error) => error.message));
+        setUser(getUser);
+      });
 
-    if (result.errors || !result.data) {
-      // FIXME: Cant getUser
-      // if user deleted route to other screen
-      // if status do this
-      // errors = result.errors.map((error) => error.message);
-      console.log('Ohjee er zitten errors in');
-    } else {
-      const {
-        data: { getUser: userData },
-      } = result;
-      setUser(userData);
-    }
+    // const {
+    //   data: { getUser: userData },
+    //   errors,
+    // } = result;
+
+    // console.log(errors.map((error) => error.message));
+
+    // setUser(userData);
   };
 
   // Data fetching, setting up a subscription are both examples of side effects

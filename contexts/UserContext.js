@@ -2,10 +2,7 @@ import React, { createContext, useState } from 'react';
 import api from '../apiwrapper';
 
 // default value
-const defaultUser = {
-  name: 'Thomas Guntenaar',
-  jobTitle: 'developer',
-};
+const defaultUser = {}; // TODO:
 
 export const UserContext = createContext(defaultUser);
 
@@ -52,6 +49,7 @@ const UserContextProvider = (props) => {
     api
       .getUser(user.id)
       .then((result) => {
+        // console.log('Usercontext');
         // console.log(Object.keys(result.data.getUser));
         setUser({ ...result.data.getUser }); // FIXME:
         setRefreshing(false);

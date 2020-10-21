@@ -179,7 +179,7 @@ const screen = ({
                           textSize={14}
                           size={45}
                           onPress={() =>
-                            navigation.navigate('EvaluateScreen', {
+                            navigation.navigate('EvaluateSliders', {
                               evaluationRequest: {
                                 user: manager,
                                 evaluator: {
@@ -290,7 +290,7 @@ const screen = ({
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>
                         <Text style={styles.name}>{user?.name}</Text>
-                        <Text style={styles.jobTitle}>{user?.jobTitle}</Text>
+                        <Text style={styles.jobTitle}>{user?.id /** TODO: jobTitle */}</Text>
                       </View>
                       {
                         userContext.isAdmin?
@@ -317,7 +317,8 @@ const screen = ({
                           textSize={14}
                           size={45}
                           onPress={() =>
-                            navigation.navigate('EvaluateScreen', {
+                            
+                            navigation.navigate('EvaluateSliders', {
                               evaluationRequest: {
                                 user,
                                 evaluator: {
