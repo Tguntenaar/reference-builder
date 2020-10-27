@@ -83,7 +83,7 @@ function TopTabNavigator({ route }) {
       }
       
       <Tab.Screen
-        name="My team"
+        name="MyTeamScreen"
         component={TeamTab}
         options={{
           tabBarLabel: ({ tintColor, focused }) => (

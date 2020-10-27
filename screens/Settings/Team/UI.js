@@ -290,7 +290,7 @@ const screen = ({
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>
                         <Text style={styles.name}>{user?.name}</Text>
-                        <Text style={styles.jobTitle}>{user?.id /** TODO: jobTitle */}</Text>
+                        <Text style={styles.jobTitle}>{user?.jobTitle}</Text>
                       </View>
                       {
                         userContext.isAdmin?

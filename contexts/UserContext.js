@@ -2,42 +2,32 @@ import React, { createContext, useState } from 'react';
 import api from '../apiwrapper';
 
 // default value
-const defaultUser = {}; // TODO:
+const defaultUser = {};
 
 export const UserContext = createContext(defaultUser);
 
-const getActiveTeam = (userContext) => {
-  let usersActiveTeam;
-  const {
-    activeTeamID: activeTeam, // FIXME: also updateUser on line 20 and 30
-    teamsLink,
-  } = userContext;
-  if (activeTeam) {
-    if (teamsLink.items.length) {
-      return teamsLink.items.filter(({ team }) => team.id === activeTeam);
-    }
-    api.updateUser({
-      id: userContext.id,
-      activeTeamID: null,
-    });
-  } else if (teamsLink.items.length) {
-    usersActiveTeam = teamsLink.items[0].team;
-    api.updateUser({
-      id: userContext.id,
-      activeTeamID: usersActiveTeam.id,
-    });
+const getActiveTeamLink = (userContext) => {
+  const { activeTeamID: activeTeamLinkID, teamsLink } = userContext;
+  if (activeTeamLinkID) {
+    return userContext.activeTeam;
   }
-  return usersActiveTeam;
+  const newActiveTeamLinkID = teamsLink.items[0].id;
+  api.updateUser({
+    id: userContext.id,
+    activeTeamID: newActiveTeamLinkID,
+  });
+
+  return teamsLink.items[0];
 };
 
 const isManager = (userContext) => {
-  const activeTeam = getActiveTeam(userContext);
-  return activeTeam.admins.includes(userContext.id);
+  const activeTeamLink = getActiveTeamLink(userContext);
+  return activeTeamLink.team.admins.includes(userContext.id);
 };
 
 const isAdmin = (userContext) => {
-  const activeTeam = getActiveTeam(userContext);
-  return activeTeam.company.admins.includes(userContext.id);
+  const activeTeamLink = getActiveTeamLink(userContext);
+  return activeTeamLink.team.company.admins.includes(userContext.id);
 };
 
 const UserContextProvider = (props) => {
@@ -59,10 +49,16 @@ const UserContextProvider = (props) => {
         console.log(err);
       });
   }, [refreshing]);
-
+  console.log('isAdmin:', isAdmin(user), 'isMangager: ', isManager(user));
   return (
     <UserContext.Provider
-      value={{ ...user, refreshing, onRefresh, isAdmin: true, isManager: true }}
+      value={{
+        ...user,
+        refreshing,
+        onRefresh,
+        isAdmin: isAdmin(user),
+        isManager: isManager(user),
+      }}
     >
       {props.children}
     </UserContext.Provider>

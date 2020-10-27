@@ -100,8 +100,8 @@ function StackNavigation({ user }) {
       headerTitle: () => (
         route.params?.team ? (
           <View style={styles.container}>
-          <Text style={styles.name}>{"Kitchen"}</Text>
-          <Text style={styles.name}>{"Team"}</Text>
+          <Text style={styles.name}>{route.params.team.name}</Text>
+         {/** <Text style={styles.name}>{"Team"}</Text>*/}
         </View>
         ) :
         (<View style={styles.container}>

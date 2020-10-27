@@ -4,13 +4,19 @@ import TeamMember from '../../components/TeamMemberBox';
 import withUser from '../../contexts/withUser';
 import styles from './style';
 
-function MyTeamScreen({ navigation, userContext }) {
+function MyTeamScreen({ navigation, userContext, route }) {
   const {
     teamsLink: { items: teamMemberLinks },
     activeTeam: activeTeamLink,
   } = userContext;
-
-  const { team } = activeTeamLink;
+  let team;
+  // console.log('route.params', route.params);
+  if (route?.params?.team) {
+    // console.log("route.params.team;", Object.route.params.team);
+    team = route.params.team;
+  } else {
+    team = activeTeamLink.team;
+  }
   let {
     membersLink: { items: membersLink },
   } = team;
@@ -30,9 +36,7 @@ function MyTeamScreen({ navigation, userContext }) {
 
             {membersLink.map((teamMemberLink) => {
               const { admins } = team;
-              // const {
-              //   user: { id, avatar },
-              // } = teamMemberLink;
+
               if (teamMemberLink.user !== null && admins.includes(teamMemberLink.user.id)) {
                 return (
                   <TeamMember
@@ -50,10 +54,7 @@ function MyTeamScreen({ navigation, userContext }) {
             {membersLink.length ? (
               membersLink.map((teamMemberLink) => {
                 const { admins } = team;
-                // const {
-                //   user: { id, avatar },
-                // } = teamMemberLink;
-                // console.log(teamMemberLink.user.name);
+
                 if (!admins.includes(teamMemberLink.user.id)) {
                   return (
                     <TeamMember

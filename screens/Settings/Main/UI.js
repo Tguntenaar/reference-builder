@@ -167,9 +167,12 @@ const UI = ({
                     size={40}
                     onPress={() => {
                       navigation.navigate('Tabs', {
-                        team: true,
+                        team: link.team, // route.params in Tabnavigation.js
+                        screen: 'MyTeamScreen',
+                        params: {
+                          team: link.team, // route.params in MyTeamScreen.js
+                        },
                       });
-                      // TODO: navigate to team tabs
                     }}
                   />
                   <TouchableOpacity style={styles.removeTouch} onPress={() => null} />
