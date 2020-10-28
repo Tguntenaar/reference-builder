@@ -227,6 +227,14 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         console.log(errors);
       });
 
+    // TODO: Add to Group kan beter in de back end gebeuren bij 
+    // console.log('started addToGroup function: ', name, userContext.group);
+    // const result = await api.addToGroup(name, userContext.group).catch((error) => {
+    //   console.log("Can't add to Group");
+    //   console.log(error);
+    // })
+    // console.log('SUCCES', result);
+
     if (!createTeamMemberLink.errors) {
       setTeamMembers([
         ...teamMembers,

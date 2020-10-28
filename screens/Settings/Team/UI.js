@@ -271,7 +271,7 @@ const screen = ({
               }}
             >
               <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Add members </Text>
+                <Text style={{ color: 'blue' }}> Add Members </Text>
                 <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
               </View>
             </TouchableOpacity>

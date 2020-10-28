@@ -90,7 +90,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-toptabtest-dev-111859-deployment",
-					"S3Key": "amplify-builds/aggregateRatings-7837727348412b512b2f-build.zip"
+					"S3Key": "amplify-builds/aggregateRatings-546a686f454c6c616a41-build.zip"
 				}
 			}
 		},

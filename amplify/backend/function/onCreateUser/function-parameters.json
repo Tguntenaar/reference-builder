@@ -1,14 +1,3 @@
 {
-  "mutableParametersState": {
-    "permissions": {
-      "auth": {
-        "toptabtestc335db9c": [
-          "create",
-          "read",
-          "update"
-        ]
-      }
-    }
-  },
   "lambdaLayers": []
 }

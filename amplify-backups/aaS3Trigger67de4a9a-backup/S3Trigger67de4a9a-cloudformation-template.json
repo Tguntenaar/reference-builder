@@ -5,9 +5,17 @@
     "env": {
       "Type": "String"
     },
-    "authtoptabtestc335db9cUserPoolId": {
+    "apireferencebuilderGraphQLAPIIdOutput": {
       "Type": "String",
-      "Default": "authtoptabtestc335db9cUserPoolId"
+      "Default": "apireferencebuilderGraphQLAPIIdOutput"
+    },
+    "apireferencebuilderGraphQLAPIEndpointOutput": {
+      "Type": "String",
+      "Default": "apireferencebuilderGraphQLAPIEndpointOutput"
+    },
+    "apireferencebuilderGraphQLAPIKeyOutput": {
+      "Type": "String",
+      "Default": "apireferencebuilderGraphQLAPIKeyOutput"
     }
   },
   "Conditions": {
@@ -32,12 +40,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "AdminQueries012ff212",
+            "S3Trigger67de4a9a",
             {
               "Fn::Join": [
                 "",
                 [
-                  "AdminQueries012ff212",
+                  "S3Trigger67de4a9a",
                   "-",
                   {
                     "Ref": "env"
@@ -52,9 +60,17 @@
             "ENV": {
               "Ref": "env"
             },
-            "GROUP": "Admins",
-            "USERPOOL": {
-              "Ref": "authtoptabtestc335db9cUserPoolId"
+            "REGION": {
+              "Ref": "AWS::Region"
+            },
+            "API_REFERENCEBUILDER_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apireferencebuilderGraphQLAPIIdOutput"
+            },
+            "API_REFERENCEBUILDER_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apireferencebuilderGraphQLAPIEndpointOutput"
+            },
+            "API_REFERENCEBUILDER_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apireferencebuilderGraphQLAPIKeyOutput"
             }
           }
         },
@@ -66,9 +82,10 @@
         },
         "Runtime": "nodejs10.x",
         "Timeout": "25",
+        "Layers": [],
         "Code": {
           "S3Bucket": "amplify-toptabtest-dev-111859-deployment",
-          "S3Key": "amplify-builds/AdminQueries012ff212-6d754e536e5235536b57-build.zip"
+          "S3Key": "amplify-builds/S3Trigger67de4a9a-34783675495351694b78-build.zip"
         }
       }
     },
@@ -78,12 +95,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "AdminQueries012ff212LambdaRole",
+            "S3Trigger67de4a9aLambdaRole67de4a9a",
             {
               "Fn::Join": [
                 "",
                 [
-                  "AdminQueries012ff212LambdaRole",
+                  "S3Trigger67de4a9aLambdaRole67de4a9a",
                   "-",
                   {
                     "Ref": "env"
@@ -149,40 +166,59 @@
                   }
                 ]
               }
-            },
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
             {
               "Effect": "Allow",
               "Action": [
-                "cognito-idp:ListUsersInGroup",
-                "cognito-idp:AdminUserGlobalSignOut",
-                "cognito-idp:AdminEnableUser",
-                "cognito-idp:AdminDisableUser",
-                "cognito-idp:AdminRemoveUserFromGroup",
-                "cognito-idp:AdminAddUserToGroup",
-                "cognito-idp:AdminListGroupsForUser",
-                "cognito-idp:AdminGetUser",
-                "cognito-idp:AdminConfirmSignUp",
-                "cognito-idp:ListUsers"
+                "appsync:Create*",
+                "appsync:StartSchemaCreation",
+                "appsync:GraphQL",
+                "appsync:Get*",
+                "appsync:List*",
+                "appsync:Update*",
+                "appsync:Delete*"
               ],
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:aws:cognito-idp:",
-                    {
-                      "Ref": "AWS::Region"
-                    },
-                    ":",
-                    {
-                      "Ref": "AWS::AccountId"
-                    },
-                    ":userpool/",
-                    {
-                      "Ref": "authtoptabtestc335db9cUserPoolId"
-                    }
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apireferencebuilderGraphQLAPIIdOutput"
+                      },
+                      "/*"
+                    ]
                   ]
-                ]
-              }
+                }
+              ]
             }
           ]
         }

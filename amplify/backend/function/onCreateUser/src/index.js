@@ -12,6 +12,12 @@
 // Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
+/**
+ * TODO:
+ * 1. create a user
+ * 2. place user in group
+ * 3. send a email to this user
+ */
 // TODO:
 // Admin create user
 // https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html
@@ -63,92 +69,114 @@ function sendEmail(record, event, context, callback) {
 }
 
 exports.handler = (event, context, callback) => {
-  // try {
-  // trim down to just "INSERT" events
-  // const insertRecords = event.Records.filter((record) => record.eventName === 'INSERT');
+  try {
+    // trim down to just "INSERT" events
+    const insertRecords = event.Records.filter((record) => record.eventName === 'INSERT');
 
-  // // Unmarshall records them to plain JSON objects
-  // const unmarshalledRecords = insertRecords.map((record) =>
-  //   aws.DynamoDB.Converter.unmarshall(record.dynamodb.NewImage)
-  // );
+    // Unmarshall records them to plain JSON objects
+    const unmarshalledRecords = insertRecords.map((record) =>
+      aws.DynamoDB.Converter.unmarshall(record.dynamodb.NewImage)
+    );
 
-  // // eslint-disable-next-line no-restricted-syntax
-  // for (const record of unmarshalledRecords) {
-  //   console.log('Unmarshalled record!');
-  //   console.log(JSON.stringify(record));
+    // eslint-disable-next-line no-restricted-syntax
+    for (const record of unmarshalledRecords) {
+      console.log('Unmarshalled record!');
+      console.log(JSON.stringify(record));
 
-  const params = {
-    UserPoolId: 'us-west-2_NOUaoo6CH' /* required */,
-    Username: 'thomasguntenaar@gmail.com' /* record.email required */,
-    ClientMetadata: {
-      // '<StringType>': 'STRING_VALUE',
-      /* '<StringType>': ... */
-    },
-    DesiredDeliveryMediums: [
-      'EMAIL',
-      // SMS | EMAIL,
-      /* more items */
-    ],
-    ForceAliasCreation: true, // || false,
-    MessageAction: 'RESEND', // RESEND | SUPPRESS,
-    // TemporaryPassword: 'STRING_VALUE', auto generates
-    UserAttributes: [
-      {
-        Name: 'email' /* required */,
-        Value: 'thomasguntenaar@gmail.com', // record.email,
-      },
-      {
-        Name: 'email_verified',
-        Value: 'True',
-      },
-      /* more items */
-    ],
-    ValidationData: [
-      // {
-      //   Name: record.name /* required */,
-      //   // Value: 'STRING_VALUE',
-      // },
-      /* more items */
-    ],
-  };
-  console.log('admincreateuser action');
-  // const result = cognitoidentityserviceprovider.adminCreateUser(params, function (err, data) {
-  //   if (err) {
-  //     console.log(err, err.stack);
-  //     // an error occurred
-  //   } else {
-  //     console.log('admin create user callback');
-  //     console.log(data);
-  //   } // successful response
-  // });
-  console.log('result');
-  // console.log(result);
-  console.log('admincreateuser voorbij');
-  // signUp(record)
-  // .then(function () {
-  //   console.log('signed up now sending email');
-  // sendEmail(record, event, context, callback);
+      const createUserParams = {
+        UserPoolId: 'us-west-2_NOUaoo6CH' /* required */,
+        Username: record.email /* record.email required */,
+        ClientMetadata: {
+          // '<StringType>': 'STRING_VALUE',
+          /* '<StringType>': ... */
+        },
+        DesiredDeliveryMediums: [
+          'EMAIL',
+          // SMS | EMAIL,
+          /* more items */
+        ],
+        ForceAliasCreation: true, // || false,
+        MessageAction: 'RESEND', // RESEND | SUPPRESS,
+        // TemporaryPassword: 'STRING_VALUE', auto generates
+        UserAttributes: [
+          {
+            Name: 'email' /* required */,
+            Value: record.email, // record.email,
+          },
+          {
+            Name: 'email_verified',
+            Value: 'True',
+          },
+          /* more items */
+        ],
+        ValidationData: [
+          // {
+          //   Name: record.name /* required */,
+          //   // Value: 'STRING_VALUE',
+          // },
+          /* more items */
+        ],
+      };
 
-  // .catch(function (err) {
-  //   console.log(err);
-  // });
-  // }
-  // } catch (error) {
-  //   console.log(error);
-  // }
-
-  return new Promise((res, rej) => {
-    cognitoidentityserviceprovider.adminCreateUser(params, function (err, data) {
+      const addToGroupParams = {
+        GroupName: 'jaaf', // 'STRING_VALUE', /* required */
+        UserPoolId: 'us-west-2_NOUaoo6CH', // 'STRING_VALUE', /* required */
+        Username: 'thomasguntenaar@gmail.com', // 'STRING_VALUE' /* required */
+      };
+      /**
+     * SECOND ARGUMENT from admincreateuser , function (err, data) {
       if (err) {
         console.log(err, err.stack);
-        rej(err);
         // an error occurred
       } else {
         console.log('admin create user callback');
         console.log(data);
-        res(data);
       } // successful response
-    });
-  });
-  // resolve('Successfully processed DynamoDB record!');
+    }
+     */
+      const result = await cognitoidentityserviceprovider
+        .adminCreateUser(createUserParams)
+        .promise();
+      console.log(result);
+      const addedToGroup = await cognitoidentityserviceprovider
+        .adminAddUserToGroup(addToGroupParams)
+        .promise();
+      console.log(addedToGroup);
+
+      sendEmail(record, event, context, callback);
+
+      // signUp(record)
+      // .then(function () {
+      //   console.log('signed up now sending email');
+      // sendEmail(record, event, context, callback);
+
+      // .catch(function (err) {
+      //   console.log(err);
+      // });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  // TODO: adminAddUserToGroup
+  /**
+   {
+      "GroupName": "string",
+      "Username": "string",
+      "UserPoolId": "string"
+     }
+   */
+  // return new Promise((res, rej) => {
+  // cognitoidentityserviceprovider.adminCreateUser(createUserParams, function (err, data) {
+  //   if (err) {
+  //     console.log(err, err.stack);
+  //     rej(err);
+  //     // an error occurred
+  //   } else {
+  //     console.log('admin create user callback');
+  //     console.log(data);
+  //     res(data);
+  //   } // successful response
+  // });
+  // });
 };
