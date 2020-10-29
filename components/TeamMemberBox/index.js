@@ -1,21 +1,30 @@
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import { Feather } from '@expo/vector-icons';
 import NextButton from '../NextButton';
+
 // Constants
 import { imageEsther } from '../../constants/Images';
 import styles from './style';
 
-const TeamMember = ({ teamMember, color }) => {
-  console.log(teamMember.id);
+const TeamMember = ({ teamMember, color, onPress }) => {
   return (
     <View style={[styles.Box, { backgroundColor: color }]}>
       <View style={styles.circleBox}>
         <Image style={styles.image} source={imageEsther} />
       </View>
-      <View style={styles.textBox}>
-        <Text style={styles.title}>{teamMember.name}</Text>
-        <Text style={styles.description}>{teamMember.jobTitle}</Text>
+      <View style={styles.textBox2}>
+        <View style={styles.textBox}>
+          <Text style={styles.title}>{teamMember.name}</Text>
+          <Text style={styles.description}>{teamMember.jobTitle}</Text>
+        </View>
+        {onPress ? (
+          <TouchableOpacity onPress={onPress}>
+            <Feather name="play" color="blue" style={styles.playIcon} />
+          </TouchableOpacity>
+        ) : null}
+
         {/**
           <NextButton size={45} textSize={15} title="Request evaluation" onPress={handlePress} />
         */}
@@ -31,7 +40,7 @@ TeamMember.propTypes = {
     jobTitle: PropTypes.string,
   }).isRequired,
   color: PropTypes.string,
-  // onPress: PropTypes.func.isRequired,
+  onPress: PropTypes.func,
 };
 
 TeamMember.defaultProps = {

@@ -38,7 +38,6 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       },
       errors,
     } = await api.createEvaluation(evaluation);
-    // .catch(({ data, errors }) => { });
     if (errors) {
       console.log('error in evaluate/comment/index.js');
 
@@ -61,21 +60,23 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
         grade: parseInt(skill.grade, 10),
         group: userContext.group,
       };
-      console.log({ rating });
-      //   console.log({ rating });
-      //   // api
-      //   //   .createRating(rating)
-      //   //   .then(() => {
-      //   //     console.log('created rating');
-      //   //   })
-      //   //   .catch(console.log);
+      console.log({rating})
+      api
+        .createRating(rating)
+        .then(() => {
+          console.log('created rating');
+        })
+        .catch(console.log);
     });
     // TODO:
     // await all createRatings
     // if no error and !manager deleteEvaluationRequest
     // else get all created evaluations via getRating en delete ze 1 voor 1
     // await api.deleteEvaluationRequest(evaluationRequest.id);
-    // navigation.navigate('Tabs');
+    if (evaluationRequest?.id) {
+      await api.deleteEvaluationRequest(evaluationRequest.id);
+    }
+    navigation.push('Tabs');
     // setStatus({ ...status, errored: true });
     setStatus({ ...status, loading: false });
   };

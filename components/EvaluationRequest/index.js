@@ -14,7 +14,7 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
     const due = new Date(new Date(createdAt).getTime() + 1000 * 3600 * 24 * 7); // plus one week
     return `${due.getDate()}-${due.getMonth()}-${due.getFullYear()}`;
   })(request.createdAt);
-  const deleteRequestButton = true; // TODO: global delete button
+  const deleteRequestButton = false; // TODO: global delete button
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>

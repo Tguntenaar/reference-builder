@@ -19,6 +19,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
+    width: 200,
+    overflow: 'hidden',
+  },
+  playIcon: {
+    fontSize: 20,
+    right: 20,
+  },
+  textBox2: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   title: {
     fontFamily: 'CooperHewitt-Heavy',

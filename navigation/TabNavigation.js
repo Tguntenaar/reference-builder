@@ -11,7 +11,16 @@ import { width } from '../constants/Utils';
 const Tab = createMaterialTopTabNavigator();
 
 function TopTabNavigator({ route }) {
-
+  // viewUser - Shows the tab navigator as if a manager looks at a employee 
+  const viewUser = route.params?.personalRatings !== undefined;
+  const indicatorStyle = viewUser ? {
+    backgroundColor: '#fff',
+    marginLeft: 35,
+  } : {
+    backgroundColor: '#fff',
+    width: 30,
+    marginLeft: 35,
+  }
   return (
     <Tab.Navigator
       initialRouteName="My Ratings"
@@ -31,13 +40,10 @@ function TopTabNavigator({ route }) {
           borderBottomLeftRadius: 40,
           paddingBottom: 5,
         },
-        indicatorStyle: {
-          backgroundColor: '#fff',
-          width: 30,
-          marginLeft: 35,
-        },
+        indicatorStyle: indicatorStyle,
       }}
-    >
+    > 
+      {/** TODO: Style aanpassen */}
       <Tab.Screen
         name="My Ratings"
         component={RatingTab}
@@ -48,19 +54,20 @@ function TopTabNavigator({ route }) {
                 fontWeight: focused ? 'bold' : null,
                 color: focused ? '#fff' : 'rgba(255,255,255,0.7)',
                 fontSize: focused ? 16 : 14,
-                textAlign: 'center',
-                width: width / 3.5,
+                textAlign: viewUser? 'left': 'center',
+                paddingLeft: viewUser ? 40 : 0,
+                width: viewUser ? width : width / 3.5,
                 fontFamily: focused ? 'CooperHewitt-Heavy' : 'CooperHewitt-Medium',
               }}
             >
               {' '}
-              My Ratings
+              {route.params?.personalRatings === undefined ? "My Ratings": "Ratings" }
             </Text>
           ),
         }}
       />
       {
-        !route.params?.team ? (<Tab.Screen
+        !route.params?.team && route.params?.personalRatings === undefined ? (<Tab.Screen
           name="Evaluations"
           component={EvaluationRequestsTab}
           options={{
@@ -81,27 +88,29 @@ function TopTabNavigator({ route }) {
           }}
         />) : null
       }
-      
-      <Tab.Screen
-        name="MyTeamScreen"
-        component={TeamTab}
-        options={{
-          tabBarLabel: ({ tintColor, focused }) => (
-            <Text
-              style={{
-                fontWeight: focused ? 'bold' : null,
-                color: focused ? '#fff' : 'rgba(255,255,255,0.7)',
-                fontSize: focused ? 16 : 14,
-                textAlign: 'center',
-                width: width / 3.5,
-                fontFamily: focused ? 'CooperHewitt-Heavy' : 'CooperHewitt-Medium',
-              }}
-            >
-            { route.params?.team ? "Team" : "My Team"}
-            </Text>
-          ),
-        }}
-      />
+      {
+        route.params?.personalRatings === undefined ?
+        (<Tab.Screen
+          name="MyTeamScreen"
+          component={TeamTab}
+          options={{
+            tabBarLabel: ({ tintColor, focused }) => (
+              <Text
+                style={{
+                  fontWeight: focused ? 'bold' : null,
+                  color: focused ? '#fff' : 'rgba(255,255,255,0.7)',
+                  fontSize: focused ? 16 : 14,
+                  textAlign: 'center',
+                  width: width / 3.5,
+                  fontFamily: focused ? 'CooperHewitt-Heavy' : 'CooperHewitt-Medium',
+                }}
+              >
+              { route.params?.team ? "Team" : "My Team"}
+              </Text>
+            ),
+          }}
+        />) : null
+      }
     </Tab.Navigator>
   );
 }

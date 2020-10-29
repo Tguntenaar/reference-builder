@@ -54,7 +54,17 @@ function MyTeamScreen({ navigation, userContext, route }) {
             {membersLink.length ? (
               membersLink.map((teamMemberLink) => {
                 const { admins } = team;
-
+                const onPress = userContext.isAdmin || userContext.isManager ? () => {
+                  console.log('navigate to Tabs');
+                  console.log('receivedEvaluations:', teamMemberLink.user.receivedEvaluations);
+                  navigation.push('Tabs', {
+                    personalRatings: teamMemberLink.user, 
+                    screen: 'My Ratings',
+                    params: {
+                      personalRatings: teamMemberLink.user, // TODO: averageRatings of receivedEvaluations
+                    }
+                  })
+                } : null;
                 if (!admins.includes(teamMemberLink.user.id)) {
                   return (
                     <TeamMember
@@ -62,6 +72,7 @@ function MyTeamScreen({ navigation, userContext, route }) {
                       key={teamMemberLink.user.id}
                       picture={teamMemberLink.user.avatar}
                       navigation={navigation}
+                      onPress={onPress}
                     />
                   );
                 }

@@ -24,7 +24,6 @@ const EvaluateSliders = ({ route, navigation, userContext }) => {
     skills: { items: teamSkills },
   } = team;
   // add grade to every skill
-  console.log('manager', manager);
   const copy = teamSkills
     .filter((skill) => skill.active && skill.forManager === manager)
     .map((skill) => {
