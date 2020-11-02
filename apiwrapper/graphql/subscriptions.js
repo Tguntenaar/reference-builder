@@ -52,6 +52,18 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -475,6 +487,18 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -1861,6 +1885,18 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -2284,6 +2320,18 @@ export const onCreateEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -3683,6 +3731,18 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -4106,6 +4166,18 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -5492,6 +5564,18 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -5915,6 +5999,18 @@ export const onUpdateEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -7314,6 +7410,18 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -7737,6 +7845,18 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -9123,6 +9243,18 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -9546,6 +9678,18 @@ export const onDeleteEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {

@@ -43,8 +43,12 @@ function getAverages(receivedEvaluations) {
    * MAP EVALUATIONS NAAR ARRAY VAN RATINGS
    * MAP DAARNA REDUCE ALLE RATINGS MET DEZELFDE SKILL ID
    */
+  
+  // console.log('receivedEvaluations');
+  // console.log(receivedEvaluations);
   const allRatings = receivedEvaluations
-    .map((evaluation) => evaluation.ratings.items)
+    .filter((evaluation) => evaluation?.ratings?.items) // Only evaluations that have ratings.
+    .map((evaluation) => evaluation.ratings.items )
     .flat();
 
   return allRatings.reduce((final, data) => {
@@ -81,50 +85,58 @@ function RatingTab({ navigation, route, userContext }) {
     averageRatings: { items: averageRatingsContext },
     receivedEvaluations: { items: receivedEvaluations },
   } = userContext;
+  const template = [
+    {
+      id: "averageRatingId",
+      grade: 8.4,
+      skill: {
+        id: "skillId",
+        name: "Template Fake Skill",
+        description: "lorem ipsum",
+      },
+    },
+  ];
+  // TODO: Remove dit zodra het werkt
   averageRatingsContext =
   averageRatingsContext && averageRatingsContext.length
     ? averageRatingsContext
-    : [
-        {
-          id: "averageRatingId",
-          grade: 8.4,
-          skill: {
-            id: "skillId",
-            name: "Template",
-            description: "lorem ipsum",
-          },
-        },
-      ];
+    : template;
+  // TODO: Remove dit zodra het werkt
+  receivedEvaluations =
+  receivedEvaluations && receivedEvaluations.length
+    ? receivedEvaluations
+    : [{ratings:{items: template}}]; // list of evaluations
   
+  
+  const user = route.params?.personalRatings;
+  const viewUser = user !== undefined;
+  // If route params set use those ratings FIXME: deze rating moet je dus ophalen
   receivedEvaluations = viewUser
     ? route.params?.personalRatings.receivedEvaluations.items
     : receivedEvaluations;
-  
-  // setAverageRatings( averageRatingsContext ); FIXME: future implementation
-  // setAverageRatings( getAverages(receivedEvaluations) );
 
-  // If route params set use those ratings
   /**
    * TODO: personalRatings is a user object
    * use user.id to get the full user object inclusief  'receivedEvaluations'
    *
-   * TODO: same for team
+   * TODO: same for team view
    */
-  const user = route.params?.personalRatings;
-  const viewUser = user !== undefined;
+  
   const [loadingUser, setLoadingUser] = useState(viewUser);
   const [averageRatings, setAverageRatings] = useState(getAverages(receivedEvaluations)) // TODO: use averageRatingsContext
-
+  console.log('averageRatings');
+  console.log(averageRatings);
   useEffect(() => {
     if (route.params?.personalRatings) {
       // effect
       api.getUser(user.id)
       .then((result) => {
         const { data: { getUser: { 
-          averageRatings: { items }, // TODO: use averageRatings or receivedEvaluations
+          averageRatings: { items }, // TODO: use averageRatings or getAverages(receivedEvaluations)
           receivedEvaluations: { items: receivedEvaluations }
         }}} = result;
-        setAverageRatings(receivedEvaluations);
+        // 
+        setAverageRatings(getAverages(receivedEvaluations));
         setLoadingUser(false);
       })
       .catch((error) => {

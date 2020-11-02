@@ -3,22 +3,14 @@ import { Text, StyleSheet, View, TouchableOpacity, Platform } from 'react-native
 import { Feather } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 import { width } from '../constants/Utils';
+import Colors from '../constants/Colors';
 
 const RatingBox = ({ rating, onSeeDetails }) => {
   const { grade } = rating;
   const skillName = rating.skill.name;
   const skillDescription = rating.skill.description;
 
-  const gradeColor = ((gradeString) => {
-    const number = parseInt(gradeString, 10);
-    if (number < 4.5) {
-      return '#ff100a';
-    }
-    if (number < 6.5) {
-      return 'rgb(255,171,10)';
-    }
-    return '#3fc380';
-  })(grade);
+  const gradeColor = Colors.gradeToColor(grade);
 
   return (
     <View style={styles.Box}>

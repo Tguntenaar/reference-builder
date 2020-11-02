@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 import BackButton from '../../../components/BackButton';
 import Circle from '../../../components/Circle';
@@ -11,6 +11,7 @@ import Chart from '../../../components/Chart';
 import styles from './style';
 import api from '../../../apiwrapper';
 import withUser from '../../../contexts/withUser';
+import Colors from '../../../constants/Colors';
 
 function RatingChart({ navigation, route, userContext }) {
   const {
@@ -40,30 +41,34 @@ function RatingChart({ navigation, route, userContext }) {
   ]);
 
   useEffect(() => {
-    const getEvaluations = async () => {
+    // const getEvaluations =
+    (async () => {
       // TODO: get all evaluations per skill per user
       console.log('Retrieving all ratings per skill..');
-      const userId = userContext.id;
-      const result = await api.getEvaluationsByUser(userId).catch(({ errors }) => {
+      const result = await api.getEvaluationsByUser(userContext.id).catch(({ errors }) => {
         console.log(errors);
       });
-      // console.log(result);
+      console.log({ result });
       if (result.errors || !result.data) {
         console.log('Errors happened');
-      } else {
+      } else if (result.data.evaluationsByUser.items.length) {
         setEvaluations(result.data.evaluationsByUser.items);
+      } else {
+        console.log('no evaluations found');
       }
-    };
-    getEvaluations();
-    return () => {
-      // no cleanup
-    };
+    })();
+    // getEvaluations();
+    // return () => {
+    //   // no cleanup
+    // };
   }, []);
   // filter evaluations die de juiste skill hebben gerate
+  const gradeColor = Colors.gradeToColor(route.params.rating.grade);
   return (
     <>
       <SafeAreaView style={styles.safe} />
-      <View style={styles.container} contentContainerStyle={styles.scroll}>
+      <SafeAreaView style={styles.safe2}>
+        {/* <View style={styles.container}> */}
         <View style={styles.top}>
           <LinearGradient colors={['rgb(10,185,255)', 'rgb(10,19,255)']} style={styles.header}>
             <Circle />
@@ -77,7 +82,7 @@ function RatingChart({ navigation, route, userContext }) {
                 name="settings"
                 color="#fff"
                 onPress={() => {
-                  navigation.navigate('SettingsScreen');
+                  navigation.navigate('TestScreen');
                 }}
                 style={styles.settingsIcon}
               />
@@ -88,7 +93,7 @@ function RatingChart({ navigation, route, userContext }) {
                   colors={['rgba(10,185,255, 0.99)', 'rgb(10,19,255)']}
                   style={styles.mediumRing}
                 >
-                  <View style={styles.smallRing}>
+                  <View style={[styles.smallRing, { backgroundColor: gradeColor }]}>
                     <Text style={styles.grade}>{route.params.rating.grade}</Text>
                   </View>
                 </LinearGradient>
@@ -100,7 +105,6 @@ function RatingChart({ navigation, route, userContext }) {
             </View>
           </LinearGradient>
         </View>
-
         <View style={styles.middle}>
           <View style={styles.chart}>
             <Chart />
@@ -130,8 +134,8 @@ function RatingChart({ navigation, route, userContext }) {
             })}
           </ScrollView>
         </View>
-      </View>
-      <SafeAreaView style={styles.safe2} />
+        {/* </View> */}
+      </SafeAreaView>
     </>
   );
 }

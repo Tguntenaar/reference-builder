@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Text, View, StatusBar } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Text, View, StatusBar, SafeAreaView } from 'react-native';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 import styles from './style';
 import NextButton from '../../../components/NextButton';

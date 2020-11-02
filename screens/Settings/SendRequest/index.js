@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { Text, View, StatusBar, Image } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {
+  Text,
+  View,
+  StatusBar,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
+// import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';

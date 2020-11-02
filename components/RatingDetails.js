@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+// import { LinearGradient } from 'expo-linear-gradient';
+
 // Constants
 import { imageEsther } from '../constants/Images';
+import Colors from '../constants/Colors';
 
 const RatingDetails = ({ onViewDetails, evaluation }) => {
   console.log(evaluation);
+  const color = Colors.gradeToColor(evaluation.ratings.items[0].grade);
   return (
     <View style={styles.container}>
       <View style={styles.left}>
@@ -17,14 +20,15 @@ const RatingDetails = ({ onViewDetails, evaluation }) => {
             <Text style={styles.name}>{evaluation.author.name}</Text>
             <Text style={styles.jobTitle}>{evaluation.author.jobTitle}</Text>
           </View>
-          <LinearGradient
+          <View style={[styles.gradeBox, { backgroundColor: color }]}>
+            <Text style={styles.grade}>{evaluation.ratings.items[0].grade}</Text>
+          </View>
+          {/** <LinearGradient
             colors={['rgb(10,185,255)', 'rgb(10,19,255)']}
             style={styles.gradeBox}
             start={{ x: 1, y: 1 }}
             end={{ x: 0, y: 0.5 }}
-          >
-            <Text style={styles.grade}>{evaluation.ratings.items[0].grade}</Text>
-          </LinearGradient>
+          >  </LinearGradient> */}
         </View>
 
         <Text style={styles.description}>{evaluation.comment}</Text>
@@ -86,6 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: 20,
     borderRadius: 2,
+    backgroundColor: 'black',
   },
   grade: {
     color: '#fff',

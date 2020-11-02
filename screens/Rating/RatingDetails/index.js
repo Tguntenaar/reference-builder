@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View, StatusBar, Image } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Text, View, StatusBar, Image, SafeAreaView, ScrollView } from 'react-native';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import { ScrollView } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 
 /** Components */

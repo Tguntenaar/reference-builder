@@ -19,6 +19,29 @@ type Company
   admins: [ID!]
   teams: [Team!] @connection(keyName: "TeamsByCompany", fields: ["id"]) # has many
   group: String!
+  colors: Colors
+}
+
+type Colors
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      # implicit store of owner
+      # { allow: owner }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
+    ]
+  ) {
+  id: ID!
+  primary: String!
+  secondary: String!
+  rating1: String!
+  rating2: String!
+  rating3: String!
+  gradientStart: String!
+  gradientEnd: String!
 }
 
 type Team

@@ -21,6 +21,7 @@ import SendRequestsScreen from '../screens/Settings/SendRequest';
 import CompanySettingsScreen from '../screens/Settings/Company';
 import ModalScreen from '../screens/ModalScreen';
 import Form from '../screens/Form';
+import TestScreen from '../screens/Test';
 
 // Constants
 import { imageEsther } from '../constants/Images';
@@ -192,6 +193,7 @@ function StackNavigation({ user }) {
         options={{ title: 'Company Settings' }}
       />
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
+      <Stack.Screen name="TestScreen" component={TestScreen}  options={{headerShown:false}}/>
       <Stack.Screen
         name="Form"
         component={Form}

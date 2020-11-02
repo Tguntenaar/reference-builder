@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, StatusBar } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
+import { Text, View, StatusBar, SafeAreaView, ScrollView } from 'react-native';
+// import { ScrollView } from 'react-native-gesture-handler';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
 import styles from './style';

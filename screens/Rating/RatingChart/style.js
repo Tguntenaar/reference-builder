@@ -8,13 +8,13 @@ const bigRingSize = circleSize + 20;
 const styles = StyleSheet.create({
   safe: {
     flex: 0,
-    paddingTop: isIphoneX() ? 0 : 20,
-    backgroundColor: 'rgb(10,185,255)',
+    backgroundColor: 'red', // 'rgb(10,185,255)',
   },
   safe2: {
-    flex: 0,
-    backgroundColor: '#fff',
-    paddingTop: 0,
+    flex: 1,
+    backgroundColor: '#fff', // '#fff',
+    // paddingTop: 0,
+    top: 0,
   },
   container: {
     flex: 1,
@@ -22,17 +22,19 @@ const styles = StyleSheet.create({
     width,
   },
   top: {
-    flex: 0.25,
+    flex: 0.3,
     backgroundColor: 'rgb(10,19,255)',
+    // backgroundColor: 'red',
   },
   header: {
     flex: 1,
   },
   middle: {
     width,
-    flex: 0.25,
+    flex: 0.3,
     top: -0.04 * height,
     alignSelf: 'center',
+    backgroundColor: 'yellow',
   },
   chart: {
     alignSelf: 'center',
@@ -45,7 +47,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   bottom: {
-    flex: 0.45,
+    flex: 0.5,
+    backgroundColor: 'red',
   },
   scroll: {
     alignItems: 'center',
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   grade: {
-    color: 'black',
+    color: 'white',
     fontSize: 25,
     fontFamily: 'CooperHewitt-Heavy',
     paddingTop: 2,

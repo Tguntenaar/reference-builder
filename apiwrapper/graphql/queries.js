@@ -13,6 +13,18 @@ export const listCompanys = /* GraphQL */ `
         name
         admins
         group
+        colors {
+          id
+          primary
+          secondary
+          rating1
+          rating2
+          rating3
+          gradientStart
+          gradientEnd
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
         teams {
@@ -35,6 +47,18 @@ export const listCompanys = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -146,6 +170,18 @@ export const getCompany = /* GraphQL */ `
       name
       admins
       group
+      colors {
+        id
+        primary
+        secondary
+        rating1
+        rating2
+        rating3
+        gradientStart
+        gradientEnd
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
       teams {
@@ -168,6 +204,18 @@ export const getCompany = /* GraphQL */ `
             name
             admins
             group
+            colors {
+              id
+              primary
+              secondary
+              rating1
+              rating2
+              rating3
+              gradientStart
+              gradientEnd
+              createdAt
+              updatedAt
+            }
             createdAt
             updatedAt
             teams {
@@ -368,6 +416,45 @@ export const getCompany = /* GraphQL */ `
     }
   }
 `;
+export const getColors = /* GraphQL */ `
+  query GetColors($id: ID!) {
+    getColors(id: $id) {
+      id
+      primary
+      secondary
+      rating1
+      rating2
+      rating3
+      gradientStart
+      gradientEnd
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listColorss = /* GraphQL */ `
+  query ListColorss(
+    $filter: ModelColorsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listColorss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        primary
+        secondary
+        rating1
+        rating2
+        rating3
+        gradientStart
+        gradientEnd
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const listTeams = /* GraphQL */ `
   query ListTeams(
     $filter: ModelTeamFilterInput
@@ -394,6 +481,18 @@ export const listTeams = /* GraphQL */ `
           name
           admins
           group
+          colors {
+            id
+            primary
+            secondary
+            rating1
+            rating2
+            rating3
+            gradientStart
+            gradientEnd
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
           teams {
@@ -416,6 +515,18 @@ export const listTeams = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -493,6 +604,18 @@ export const listTeams = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -687,6 +810,18 @@ export const listTeams = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -787,6 +922,18 @@ export const getTeam = /* GraphQL */ `
         name
         admins
         group
+        colors {
+          id
+          primary
+          secondary
+          rating1
+          rating2
+          rating3
+          gradientStart
+          gradientEnd
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
         teams {
@@ -809,6 +956,18 @@ export const getTeam = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -937,6 +1096,18 @@ export const getTeam = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -1363,6 +1534,18 @@ export const getTeam = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -1520,6 +1703,18 @@ export const getTeamMemberLink = /* GraphQL */ `
           name
           admins
           group
+          colors {
+            id
+            primary
+            secondary
+            rating1
+            rating2
+            rating3
+            gradientStart
+            gradientEnd
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
           teams {
@@ -1542,6 +1737,18 @@ export const getTeamMemberLink = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -1619,6 +1826,18 @@ export const getTeamMemberLink = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -1813,6 +2032,18 @@ export const getTeamMemberLink = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -1929,6 +2160,18 @@ export const getTeamMemberLink = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -2352,6 +2595,18 @@ export const getTeamMemberLink = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -3734,6 +3989,18 @@ export const listTeamMemberLinks = /* GraphQL */ `
             name
             admins
             group
+            colors {
+              id
+              primary
+              secondary
+              rating1
+              rating2
+              rating3
+              gradientStart
+              gradientEnd
+              createdAt
+              updatedAt
+            }
             createdAt
             updatedAt
             teams {
@@ -3970,6 +4237,18 @@ export const listTeamMemberLinks = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -4746,6 +5025,18 @@ export const listUsers = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -5169,6 +5460,18 @@ export const listUsers = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -6561,6 +6864,18 @@ export const getUser = /* GraphQL */ `
             name
             admins
             group
+            colors {
+              id
+              primary
+              secondary
+              rating1
+              rating2
+              rating3
+              gradientStart
+              gradientEnd
+              createdAt
+              updatedAt
+            }
             createdAt
             updatedAt
             teams {
@@ -6797,6 +7112,18 @@ export const getUser = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -7549,6 +7876,18 @@ export const getUser = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -10859,6 +11198,18 @@ export const listEvaluations = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -11623,6 +11974,18 @@ export const listEvaluations = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -12530,6 +12893,18 @@ export const getEvaluation = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -12953,6 +13328,18 @@ export const getEvaluation = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -14339,6 +14726,18 @@ export const getEvaluation = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -14762,6 +15161,18 @@ export const getEvaluation = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -16472,6 +16883,18 @@ export const evaluationsByUser = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -17236,6 +17659,18 @@ export const evaluationsByUser = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -18151,6 +18586,18 @@ export const getRating = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -18915,6 +19362,18 @@ export const getRating = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -20521,6 +20980,18 @@ export const getAverageUserRating = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -20944,6 +21415,18 @@ export const getAverageUserRating = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -22363,6 +22846,18 @@ export const listAverageUserRatings = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -23132,6 +23627,18 @@ export const getAverageTeamRating = /* GraphQL */ `
           name
           admins
           group
+          colors {
+            id
+            primary
+            secondary
+            rating1
+            rating2
+            rating3
+            gradientStart
+            gradientEnd
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
           teams {
@@ -23154,6 +23661,18 @@ export const getAverageTeamRating = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -23231,6 +23750,18 @@ export const getAverageTeamRating = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -23425,6 +23956,18 @@ export const getAverageTeamRating = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -23553,6 +24096,18 @@ export const listAverageTeamRatings = /* GraphQL */ `
             name
             admins
             group
+            colors {
+              id
+              primary
+              secondary
+              rating1
+              rating2
+              rating3
+              gradientStart
+              gradientEnd
+              createdAt
+              updatedAt
+            }
             createdAt
             updatedAt
             teams {
@@ -23852,6 +24407,18 @@ export const getEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -24275,6 +24842,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -25661,6 +26240,18 @@ export const getEvaluationRequest = /* GraphQL */ `
               name
               admins
               group
+              colors {
+                id
+                primary
+                secondary
+                rating1
+                rating2
+                rating3
+                gradientStart
+                gradientEnd
+                createdAt
+                updatedAt
+              }
               createdAt
               updatedAt
               teams {
@@ -26084,6 +26675,18 @@ export const getEvaluationRequest = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -27492,6 +28095,18 @@ export const listEvaluationRequests = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
@@ -28256,6 +28871,18 @@ export const listEvaluationRequests = /* GraphQL */ `
                 name
                 admins
                 group
+                colors {
+                  id
+                  primary
+                  secondary
+                  rating1
+                  rating2
+                  rating3
+                  gradientStart
+                  gradientEnd
+                  createdAt
+                  updatedAt
+                }
                 createdAt
                 updatedAt
                 teams {
