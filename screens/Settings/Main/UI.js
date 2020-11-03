@@ -38,13 +38,7 @@ const UI = ({
       <View style={styles.container}>
         <View style={styles.top}>
           <View style={styles.back}>
-            <BackButton
-              onPress={() =>
-                navigation.navigate('Tabs', {
-                  team: false,
-                })
-              }
-            />
+            <BackButton onPress={() => navigation.goBack()} />
           </View>
           <Text style={styles.pageTitle}>Settings</Text>
           <Image style={styles.image} source={profilePicture || imageEsther} />
@@ -166,9 +160,9 @@ const UI = ({
                     textSize={14}
                     size={40}
                     onPress={() => {
-                      navigation.navigate('Tabs', {
+                      navigation.push('Tabs', {
                         team: link.team, // route.params in Tabnavigation.js
-                        screen: 'MyTeamScreen',
+                        screen: 'My Ratings',
                         params: {
                           team: link.team, // route.params in MyTeamScreen.js
                         },

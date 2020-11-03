@@ -3,14 +3,16 @@ import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
 
 export default {
+  getTeam: (id) => {
+    return API.graphql(graphqlOperation(queries.getTeam, { input: { id } }));
+  },
   createTeam: (input) => {
     return API.graphql(graphqlOperation(mutations.createTeam, { input }));
   },
-  deleteTeam: (teamId) => {
-    return API.graphql(graphqlOperation(mutations.deleteTeam, { input: { id: teamId } }));
+  deleteTeam: (input) => {
+    return API.graphql(graphqlOperation(mutations.deleteTeam, { input }));
   },
   updateTeam: (input) => {
-    console.log({ input });
     return API.graphql(graphqlOperation(mutations.updateTeam, { input }));
   },
 };

@@ -2,18 +2,20 @@ import React from 'react';
 import { ScrollView, Text, RefreshControl } from 'react-native';
 import TeamMember from '../../components/TeamMemberBox';
 import withUser from '../../contexts/withUser';
+import withTabContext from '../../contexts/TabContext';
+
 import styles from './style';
 
-function MyTeamScreen({ navigation, userContext, route }) {
+function MyTeamScreen({ navigation, userContext, tabContext, route }) {
   const {
     teamsLink: { items: teamMemberLinks },
     activeTeam: activeTeamLink,
   } = userContext;
   let team;
   // console.log('route.params', route.params);
-  if (route?.params?.team) {
+  if (tabContext.type === 'team') {
     // console.log("route.params.team;", Object.route.params.team);
-    team = route.params.team;
+    team = tabContext.value;
   } else {
     team = activeTeamLink.team;
   }
@@ -54,17 +56,23 @@ function MyTeamScreen({ navigation, userContext, route }) {
             {membersLink.length ? (
               membersLink.map((teamMemberLink) => {
                 const { admins } = team;
-                const onPress = userContext.isAdmin || userContext.isManager ? () => {
-                  console.log('navigate to Tabs');
-                  console.log('receivedEvaluations:', teamMemberLink.user.receivedEvaluations);
-                  navigation.push('Tabs', {
-                    personalRatings: teamMemberLink.user, 
-                    screen: 'My Ratings',
-                    params: {
-                      personalRatings: teamMemberLink.user, // TODO: averageRatings of receivedEvaluations
-                    }
-                  })
-                } : null;
+                const onPress =
+                  userContext.isAdmin || userContext.isManager
+                    ? () => {
+                        console.log('navigate to Tabs');
+                        console.log(
+                          'receivedEvaluations:',
+                          teamMemberLink.user.receivedEvaluations
+                        );
+                        navigation.push('Tabs', {
+                          personalRatings: teamMemberLink.user,
+                          screen: 'My Ratings',
+                          params: {
+                            personalRatings: teamMemberLink.user, // TODO: averageRatings of receivedEvaluations
+                          },
+                        });
+                      }
+                    : null;
                 if (!admins.includes(teamMemberLink.user.id)) {
                   return (
                     <TeamMember
@@ -93,4 +101,4 @@ function MyTeamScreen({ navigation, userContext, route }) {
   );
 }
 
-export default withUser(MyTeamScreen);
+export default withUser(withTabContext(MyTeamScreen));

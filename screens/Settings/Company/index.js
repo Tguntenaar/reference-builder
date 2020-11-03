@@ -109,11 +109,12 @@ function CompanySettingsScreen({ userContext }) {
     }
   };
 
+  // TODO: deactivate and reactivate team
   const removeTeam = async (teamId) => {
     setTeams(teams.filter((team) => teamId !== team.id));
     const {
       data: { deleteTeam: result },
-    } = await api.deleteTeam(teamId).catch(console.log);
+    } = await api.deleteTeam({ id: teamId }).catch(console.log);
   };
 
   const deleteMember = async (teamMemberLinkId) => {

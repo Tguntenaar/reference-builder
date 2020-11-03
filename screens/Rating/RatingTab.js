@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import RatingBox from "../../components/RatingBox";
 import withUser from "../../contexts/withUser";
+import withTabContext from "../../contexts/TabContext";
 import NextButton from "../../components/NextButton";
 import { width } from "../../constants/Utils";
 import api from '../../apiwrapper';
@@ -80,11 +81,13 @@ function getAverages(receivedEvaluations) {
  * 2. Data aggregation via lambda function triggered by adding a new Rating
  * 3.
  */
-function RatingTab({ navigation, route, userContext }) {
+function RatingTab({ navigation, route, userContext, tabContext }) {
   let {
     averageRatings: { items: averageRatingsContext },
     receivedEvaluations: { items: receivedEvaluations },
   } = userContext;
+// TODO: getTeam and what if no averages? create average same for getUser
+
   const template = [
     {
       id: "averageRatingId",
@@ -105,15 +108,15 @@ function RatingTab({ navigation, route, userContext }) {
   receivedEvaluations =
   receivedEvaluations && receivedEvaluations.length
     ? receivedEvaluations
-    : [{ratings:{items: template}}]; // list of evaluations
+    : [{ ratings: { items: template }}]; // list of evaluations
   
   
   const user = route.params?.personalRatings;
-  const viewUser = user !== undefined;
+  const viewPersonalRatings = user !== undefined;
   // If route params set use those ratings FIXME: deze rating moet je dus ophalen
-  receivedEvaluations = viewUser
-    ? route.params?.personalRatings.receivedEvaluations.items
-    : receivedEvaluations;
+  // receivedEvaluations = viewPersonalRatings
+  //   ? route.params?.personalRatings.receivedEvaluations.items
+  //   : receivedEvaluations;
 
   /**
    * TODO: personalRatings is a user object
@@ -122,12 +125,11 @@ function RatingTab({ navigation, route, userContext }) {
    * TODO: same for team view
    */
   
-  const [loadingUser, setLoadingUser] = useState(viewUser);
+  const [loadingRatings, setloadingRatings] = useState(viewPersonalRatings);
   const [averageRatings, setAverageRatings] = useState(getAverages(receivedEvaluations)) // TODO: use averageRatingsContext
-  console.log('averageRatings');
-  console.log(averageRatings);
+  // Load the personal ratings
   useEffect(() => {
-    if (route.params?.personalRatings) {
+    if (tabContext.type === 'personal') {
       // effect
       api.getUser(user.id)
       .then((result) => {
@@ -137,7 +139,7 @@ function RatingTab({ navigation, route, userContext }) {
         }}} = result;
         // 
         setAverageRatings(getAverages(receivedEvaluations));
-        setLoadingUser(false);
+        setloadingRatings(false);
       })
       .catch((error) => {
         console.log(error);
@@ -146,7 +148,30 @@ function RatingTab({ navigation, route, userContext }) {
     return () => {
       // cleanup
     }
-  }, [user]);
+  }, [tabContext.value]);
+
+  // Load the team
+  useEffect(() => {
+    if (tabContext.type === 'team') {
+      // effect
+      const team = tabContext.value;
+      api.getTeam(team.id)
+      .then((result) => {
+        const { data: { getTeam: { 
+          averageRatings: { items }, // TODO: use averageRatings or getAverages(receivedEvaluations)
+          // receivedEvaluations: { items: receivedEvaluations }
+        }}} = result;
+        setAverageRatings(items);
+        setloadingRatings(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+    return () => {
+      // cleanup
+    }
+  }, [tabContext.value]);
 
   return (
     <>
@@ -154,7 +179,7 @@ function RatingTab({ navigation, route, userContext }) {
       <ScrollView
         style={styles.container}
         contentContainerStyle={{
-          marginTop: viewUser ? 0 : 50,
+          marginTop: viewPersonalRatings ? 0 : 50,
           ...styles.scroll,
         }}
         refreshControl={
@@ -164,7 +189,7 @@ function RatingTab({ navigation, route, userContext }) {
           />
         }
       >
-        {viewUser ? (
+        {viewPersonalRatings ? (
           <View style={styles.buttonContainer}>
             <NextButton
               size={40}
@@ -185,7 +210,7 @@ function RatingTab({ navigation, route, userContext }) {
             />
           </View>
         ) : null}
-        {loadingUser ? (
+        {loadingRatings ? (
           <View>
             <Text>Loading...</Text>
           </View>
@@ -212,4 +237,4 @@ function RatingTab({ navigation, route, userContext }) {
   );
 }
 
-export default withUser(RatingTab);
+export default withUser(withTabContext(RatingTab));

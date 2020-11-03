@@ -8,7 +8,7 @@ const bigRingSize = circleSize + 20;
 const styles = StyleSheet.create({
   safe: {
     flex: 0,
-    backgroundColor: 'red', // 'rgb(10,185,255)',
+    backgroundColor: 'rgb(10,185,255)',
   },
   safe2: {
     flex: 1,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width,
   },
   top: {
-    flex: 0.3,
+    flex: 0.25,
     backgroundColor: 'rgb(10,19,255)',
     // backgroundColor: 'red',
   },
@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
   },
   middle: {
     width,
-    flex: 0.3,
+    flex: 0.25,
     top: -0.04 * height,
     alignSelf: 'center',
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
   },
   chart: {
     alignSelf: 'center',
@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
   },
   bottom: {
     flex: 0.5,
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
   scroll: {
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     flexGrow: 1,
   },
   bigRing: {

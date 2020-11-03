@@ -4,7 +4,7 @@ import React from 'react';
 import { UserContext } from './UserContext';
 
 const withUser = (Component) => {
-  class withUser extends React.Component {
+  class withUserComponent extends React.Component {
     render() {
       return (
         <UserContext.Consumer>
@@ -17,7 +17,7 @@ const withUser = (Component) => {
     }
   }
 
-  return withUser;
+  return withUserComponent;
 };
 
 export default withUser;
