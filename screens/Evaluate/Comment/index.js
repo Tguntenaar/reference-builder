@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Text, View, StatusBar, SafeAreaView, ScrollView } from 'react-native';
-// import { ScrollView } from 'react-native-gesture-handler';
-// import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
 import styles from './style';
@@ -20,6 +18,15 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
   const handleText = (txt) => {
     setText(txt);
   };
+
+  const syncRatingAverages = async () => {
+    /** For every skill in a team create teamAverage. Starting at 0 */
+    /** When creating a user -> create user averages
+     *  When creating a rating -> update user averages & update team averages
+     *  When creating a skill -> create team averages
+    */
+  }
+
   const uploadEvaluation = async () => {
     setStatus({ ...status, loading: true });
 
@@ -66,6 +73,11 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           console.log('created rating');
         })
         .catch(console.log);
+      // TODO: TODO: TODO: TODO: 
+      // Voor elke rating create of update averages
+      // Get Team Average ophalen of het is er al
+      // Get User Average ophalen of het is er al
+      // update of create
     });
     // TODO:
     // await all createRatings

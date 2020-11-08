@@ -86,8 +86,15 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     averageRatings: { items: averageRatingsContext },
     receivedEvaluations: { items: receivedEvaluations },
   } = userContext;
-// TODO: getTeam and what if no averages? create average same for getUser
 
+  /**
+   * 1. Als skills.length > averagerRatings.length create average Ratings
+   * 2. on create Rating -> create averages or update averages.
+   * 3. Iets van syncing tussen 
+   */
+// TODO: getTeam and what if no averages? create average same for getUser
+// TODO: setUser en teamaverages vanuit app. (niet mooi maar werkt wel voor nu)
+// TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:
   const template = [
     {
       id: "averageRatingId",
@@ -138,7 +145,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           receivedEvaluations: { items: receivedEvaluations }
         }}} = result;
         // 
-        setAverageRatings(getAverages(receivedEvaluations));
+        setAverageRatings(items); // getAverages(receivedEvaluations)
         setloadingRatings(false);
       })
       .catch((error) => {
@@ -155,6 +162,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     if (tabContext.type === 'team') {
       // effect
       const team = tabContext.value;
+      console.log("teamid = ", team.id)
       api.getTeam(team.id)
       .then((result) => {
         const { data: { getTeam: { 
@@ -168,9 +176,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
         console.log(error);
       });
     }
-    return () => {
-      // cleanup
-    }
+    
   }, [tabContext.value]);
 
   return (
@@ -230,7 +236,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
             );
           })
         ) : (
-          <Text>You dont have been rated yet </Text>
+          <Text>{/** TODO: show skills */}You dont have been rated yet </Text>
         )}
       </ScrollView>
     </>

@@ -46,16 +46,6 @@ function CompanySettingsScreen({ userContext }) {
       })
       .catch(({ errors }) => console.log(`Error creating user ${errors[0].message}`));
 
-    // TODO: create average user for every skill in active team + error handling
-    // TODO: active team
-    // TODO: promise all ofso
-    const promises = team.skills.items.map((skill) => {
-      return api.createUserAverage({
-        userId: userContext.id,
-        skillId: skill.id,
-      });
-    });
-
     const teamLink = await api
       .createTeamMemberLink({
         userId: createdUser.id,
@@ -64,9 +54,20 @@ function CompanySettingsScreen({ userContext }) {
       .catch(console.log);
 
     if (!teamLink.errors) {
+      // update UI
       setTeamMembers([...teamMembers, { ...teamLink, user: createdUser }]);
       setNewUser({ name: '', jobTitle: '', email: '' });
     }
+
+    const promises = team.skills.items.map((skill) => {
+      return api.createUserAverage({
+        userId: userContext.id,
+        skillId: skill.id,
+      });
+    });
+    Promise.all(promises).catch(() => {
+      console.log("couldn't create user averages");
+    });
   };
 
   // TODO: validation

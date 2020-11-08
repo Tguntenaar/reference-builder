@@ -75,6 +75,7 @@ const skill = {
 const average = {
   /**
    * Gets called every time create Skill is called
+   * Or every time a user is created { for every skill create user averages }
    * @param {skillId, userId}
    */
   createUserAverage: (ids) => {
@@ -88,6 +89,20 @@ const average = {
     return API.graphql(
       graphqlOperation(mutations.deleteAverageUserRating, {
         input: { id },
+      })
+    );
+  },
+  updateUserAverage: (input) => {
+    return API.graphql(
+      graphqlOperation(mutations.updateAverageUserRating, {
+        input,
+      })
+    );
+  },
+  getUserAverage: (input) => {
+    return API.graphql(
+      graphqlOperation(queries.averageRatingsByUser, {
+        input,
       })
     );
   },
@@ -106,6 +121,20 @@ const average = {
     return API.graphql(
       graphqlOperation(mutations.deleteAverageTeamRating, {
         input: { id },
+      })
+    );
+  },
+  updateTeamAverage: (input) => {
+    return API.graphql(
+      graphqlOperation(mutations.updateAverageTeamRating, {
+        input,
+      })
+    );
+  },
+  getTeamAverage: (input) => {
+    return API.graphql(
+      graphqlOperation(queries.averageRatingsByTeam, {
+        input,
       })
     );
   },

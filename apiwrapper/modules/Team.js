@@ -4,7 +4,7 @@ import * as queries from '../graphql/queries';
 
 export default {
   getTeam: (id) => {
-    return API.graphql(graphqlOperation(queries.getTeam, { input: { id } }));
+    return API.graphql(graphqlOperation(queries.getTeam, { id }));
   },
   createTeam: (input) => {
     return API.graphql(graphqlOperation(mutations.createTeam, { input }));

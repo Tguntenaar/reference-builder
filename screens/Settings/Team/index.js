@@ -242,6 +242,16 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         { ...createTeamMemberLink, user: createdUser },
       ]);
     }
+
+    const promises = team.skills.items.map((skill) => {
+      return api.createUserAverage({
+        userId: userContext.id,
+        skillId: skill.id,
+      });
+    });
+    Promise.all(promises).catch(() => {
+      console.log("couldn't create user averages");
+    });
   };
 
   const navigateToSkillForm = (forManager) => {
