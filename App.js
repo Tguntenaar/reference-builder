@@ -126,7 +126,6 @@ function App(props) {
 
         await loadAuth();
         // TODO: prefetch images
-        // await loadUserContext();
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         // console.log(e);

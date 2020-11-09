@@ -80,21 +80,20 @@ function getAverages(receivedEvaluations) {
  * 1. Data access patterns fixen get ratings by user / skill
  * 2. Data aggregation via lambda function triggered by adding a new Rating
  * 3.
+ *   
+ * 1. Als skills.length > averagerRatings.length create average Ratings
+ * 2. on create Rating -> create averages or update averages.
+ * 3. Iets van syncing tussen 
+  
+  getTeam and what if no averages? create average same for getUser
+  setUser en teamaverages vanuit app. (niet mooi maar werkt wel voor nu)
  */
 function RatingTab({ navigation, route, userContext, tabContext }) {
   let {
-    averageRatings: { items: averageRatingsContext },
+    averageRatings: { items: averageUserRatings },
     receivedEvaluations: { items: receivedEvaluations },
   } = userContext;
 
-  /**
-   * 1. Als skills.length > averagerRatings.length create average Ratings
-   * 2. on create Rating -> create averages or update averages.
-   * 3. Iets van syncing tussen 
-   */
-// TODO: getTeam and what if no averages? create average same for getUser
-// TODO: setUser en teamaverages vanuit app. (niet mooi maar werkt wel voor nu)
-// TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:TODO:
   const template = [
     {
       id: "averageRatingId",
@@ -107,9 +106,9 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     },
   ];
   // TODO: Remove dit zodra het werkt
-  averageRatingsContext =
-  averageRatingsContext && averageRatingsContext.length
-    ? averageRatingsContext
+  averageUserRatings =
+  averageUserRatings && averageUserRatings.length
+    ? averageUserRatings
     : template;
   // TODO: Remove dit zodra het werkt
   receivedEvaluations =
@@ -118,22 +117,12 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     : [{ ratings: { items: template }}]; // list of evaluations
   
   
-  const user = route.params?.personalRatings;
-  const viewPersonalRatings = user !== undefined;
-  // If route params set use those ratings FIXME: deze rating moet je dus ophalen
-  // receivedEvaluations = viewPersonalRatings
-  //   ? route.params?.personalRatings.receivedEvaluations.items
-  //   : receivedEvaluations;
-
-  /**
-   * TODO: personalRatings is a user object
-   * use user.id to get the full user object inclusief  'receivedEvaluations'
-   *
-   * TODO: same for team view
-   */
+  const user = route.params?.otherUserRatings;
+  const viewOtherUserRatings = user !== undefined;
   
-  const [loadingRatings, setloadingRatings] = useState(viewPersonalRatings);
-  const [averageRatings, setAverageRatings] = useState(getAverages(receivedEvaluations)) // TODO: use averageRatingsContext
+  const [loadingRatings, setloadingRatings] = useState(viewOtherUserRatings);
+  const [averageRatings, setAverageRatings] = useState(getAverages(receivedEvaluations));
+  
   // Load the personal ratings
   useEffect(() => {
     if (tabContext.type === 'personal') {
@@ -185,7 +174,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
       <ScrollView
         style={styles.container}
         contentContainerStyle={{
-          marginTop: viewPersonalRatings ? 0 : 50,
+          marginTop: viewOtherUserRatings ? 0 : 50,
           ...styles.scroll,
         }}
         refreshControl={
@@ -195,7 +184,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           />
         }
       >
-        {viewPersonalRatings ? (
+        {viewOtherUserRatings ? (
           <View style={styles.buttonContainer}>
             <NextButton
               size={40}
@@ -204,7 +193,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
               onPress={() =>
                 navigation.navigate("EvaluateSliders", {
                   evaluationRequest: {
-                    user: route.params?.personalRatings,
+                    user: route.params?.otherUserRatings,
                     evaluator: {
                       id: userContext.id,
                       name: userContext.name,

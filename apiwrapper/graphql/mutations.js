@@ -13,6 +13,7 @@ export const createCompany = /* GraphQL */ `
       group
       colors {
         id
+        group
         primary
         secondary
         rating1
@@ -47,6 +48,7 @@ export const createCompany = /* GraphQL */ `
             group
             colors {
               id
+              group
               primary
               secondary
               rating1
@@ -269,6 +271,7 @@ export const updateCompany = /* GraphQL */ `
       group
       colors {
         id
+        group
         primary
         secondary
         rating1
@@ -303,6 +306,7 @@ export const updateCompany = /* GraphQL */ `
             group
             colors {
               id
+              group
               primary
               secondary
               rating1
@@ -525,6 +529,7 @@ export const deleteCompany = /* GraphQL */ `
       group
       colors {
         id
+        group
         primary
         secondary
         rating1
@@ -559,6 +564,7 @@ export const deleteCompany = /* GraphQL */ `
             group
             colors {
               id
+              group
               primary
               secondary
               rating1
@@ -776,6 +782,7 @@ export const createColors = /* GraphQL */ `
   ) {
     createColors(input: $input, condition: $condition) {
       id
+      group
       primary
       secondary
       rating1
@@ -795,6 +802,7 @@ export const updateColors = /* GraphQL */ `
   ) {
     updateColors(input: $input, condition: $condition) {
       id
+      group
       primary
       secondary
       rating1
@@ -814,6 +822,7 @@ export const deleteColors = /* GraphQL */ `
   ) {
     deleteColors(input: $input, condition: $condition) {
       id
+      group
       primary
       secondary
       rating1
@@ -852,6 +861,7 @@ export const createTeam = /* GraphQL */ `
         group
         colors {
           id
+          group
           primary
           secondary
           rating1
@@ -886,6 +896,7 @@ export const createTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -1026,6 +1037,7 @@ export const createTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -1339,6 +1351,7 @@ export const createTeam = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -1464,6 +1477,7 @@ export const createTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -1628,6 +1642,7 @@ export const updateTeam = /* GraphQL */ `
         group
         colors {
           id
+          group
           primary
           secondary
           rating1
@@ -1662,6 +1677,7 @@ export const updateTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -1802,6 +1818,7 @@ export const updateTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -2115,6 +2132,7 @@ export const updateTeam = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -2240,6 +2258,7 @@ export const updateTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -2404,6 +2423,7 @@ export const deleteTeam = /* GraphQL */ `
         group
         colors {
           id
+          group
           primary
           secondary
           rating1
@@ -2438,6 +2458,7 @@ export const deleteTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -2578,6 +2599,7 @@ export const deleteTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -2891,6 +2913,7 @@ export const deleteTeam = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -3016,6 +3039,7 @@ export const deleteTeam = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -3188,6 +3212,7 @@ export const createTeamMemberLink = /* GraphQL */ `
           group
           colors {
             id
+            group
             primary
             secondary
             rating1
@@ -3222,6 +3247,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -3311,6 +3337,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -3453,6 +3480,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -3517,6 +3545,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -3645,6 +3674,7 @@ export const createTeamMemberLink = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -3958,6 +3988,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -4080,6 +4111,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -4222,6 +4254,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4350,6 +4383,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4466,6 +4500,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4626,6 +4661,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4742,6 +4778,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -4814,6 +4851,7 @@ export const createTeamMemberLink = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -4902,6 +4940,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5041,6 +5080,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5157,6 +5197,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5285,6 +5326,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5401,6 +5443,7 @@ export const createTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5472,6 +5515,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
           group
           colors {
             id
+            group
             primary
             secondary
             rating1
@@ -5506,6 +5550,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -5595,6 +5640,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -5737,6 +5783,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -5801,6 +5848,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -5929,6 +5977,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -6242,6 +6291,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -6364,6 +6414,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -6506,6 +6557,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6634,6 +6686,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6750,6 +6803,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -6910,6 +6964,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7026,6 +7081,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7098,6 +7154,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -7186,6 +7243,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7325,6 +7383,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7441,6 +7500,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7569,6 +7629,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7685,6 +7746,7 @@ export const updateTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -7756,6 +7818,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
           group
           colors {
             id
+            group
             primary
             secondary
             rating1
@@ -7790,6 +7853,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -7879,6 +7943,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -8021,6 +8086,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8085,6 +8151,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -8213,6 +8280,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -8526,6 +8594,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -8648,6 +8717,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -8790,6 +8860,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -8918,6 +8989,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9034,6 +9106,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9194,6 +9267,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9310,6 +9384,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9382,6 +9457,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -9470,6 +9546,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9609,6 +9686,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9725,6 +9803,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9853,6 +9932,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -9969,6 +10049,7 @@ export const deleteTeamMemberLink = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10054,6 +10135,7 @@ export const createUser = /* GraphQL */ `
             group
             colors {
               id
+              group
               primary
               secondary
               rating1
@@ -10302,6 +10384,7 @@ export const createUser = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -10444,6 +10527,7 @@ export const createUser = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -10784,6 +10868,7 @@ export const createUser = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -11066,6 +11151,7 @@ export const createUser = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -11379,6 +11465,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -11688,6 +11775,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -11985,6 +12073,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -12349,6 +12438,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -12646,6 +12736,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -12802,6 +12893,7 @@ export const createUser = /* GraphQL */ `
           skillId
           grade
           timesRated
+          group
           createdAt
           updatedAt
           user {
@@ -13010,6 +13102,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -13330,6 +13423,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -13627,6 +13721,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -13936,6 +14031,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -14233,6 +14329,7 @@ export const createUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -14378,6 +14475,7 @@ export const updateUser = /* GraphQL */ `
             group
             colors {
               id
+              group
               primary
               secondary
               rating1
@@ -14626,6 +14724,7 @@ export const updateUser = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -14768,6 +14867,7 @@ export const updateUser = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -15108,6 +15208,7 @@ export const updateUser = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -15390,6 +15491,7 @@ export const updateUser = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -15703,6 +15805,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -16012,6 +16115,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -16309,6 +16413,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -16673,6 +16778,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -16970,6 +17076,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -17126,6 +17233,7 @@ export const updateUser = /* GraphQL */ `
           skillId
           grade
           timesRated
+          group
           createdAt
           updatedAt
           user {
@@ -17334,6 +17442,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -17654,6 +17763,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -17951,6 +18061,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -18260,6 +18371,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -18557,6 +18669,7 @@ export const updateUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -18702,6 +18815,7 @@ export const deleteUser = /* GraphQL */ `
             group
             colors {
               id
+              group
               primary
               secondary
               rating1
@@ -18950,6 +19064,7 @@ export const deleteUser = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -19092,6 +19207,7 @@ export const deleteUser = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -19432,6 +19548,7 @@ export const deleteUser = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -19714,6 +19831,7 @@ export const deleteUser = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -20027,6 +20145,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -20336,6 +20455,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -20633,6 +20753,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -20997,6 +21118,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -21294,6 +21416,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -21450,6 +21573,7 @@ export const deleteUser = /* GraphQL */ `
           skillId
           grade
           timesRated
+          group
           createdAt
           updatedAt
           user {
@@ -21658,6 +21782,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -21978,6 +22103,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -22275,6 +22401,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -22584,6 +22711,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -22881,6 +23009,7 @@ export const deleteUser = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -23034,6 +23163,7 @@ export const createEvaluation = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -23347,6 +23477,7 @@ export const createEvaluation = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -23469,6 +23600,7 @@ export const createEvaluation = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -23611,6 +23743,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -23739,6 +23872,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -23855,6 +23989,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24015,6 +24150,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24131,6 +24267,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24203,6 +24340,7 @@ export const createEvaluation = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -24291,6 +24429,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24430,6 +24569,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24546,6 +24686,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24674,6 +24815,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24790,6 +24932,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -24867,6 +25010,7 @@ export const createEvaluation = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -25180,6 +25324,7 @@ export const createEvaluation = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -25302,6 +25447,7 @@ export const createEvaluation = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -25444,6 +25590,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -25572,6 +25719,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -25688,6 +25836,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -25848,6 +25997,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -25964,6 +26114,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26036,6 +26187,7 @@ export const createEvaluation = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -26124,6 +26276,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26263,6 +26416,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26379,6 +26533,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26507,6 +26662,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26623,6 +26779,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26760,6 +26917,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -26876,6 +27034,7 @@ export const createEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -27012,6 +27171,7 @@ export const updateEvaluation = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -27325,6 +27485,7 @@ export const updateEvaluation = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -27447,6 +27608,7 @@ export const updateEvaluation = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -27589,6 +27751,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -27717,6 +27880,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -27833,6 +27997,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -27993,6 +28158,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28109,6 +28275,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28181,6 +28348,7 @@ export const updateEvaluation = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -28269,6 +28437,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28408,6 +28577,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28524,6 +28694,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28652,6 +28823,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28768,6 +28940,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -28845,6 +29018,7 @@ export const updateEvaluation = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -29158,6 +29332,7 @@ export const updateEvaluation = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -29280,6 +29455,7 @@ export const updateEvaluation = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -29422,6 +29598,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -29550,6 +29727,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -29666,6 +29844,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -29826,6 +30005,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -29942,6 +30122,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30014,6 +30195,7 @@ export const updateEvaluation = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -30102,6 +30284,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30241,6 +30424,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30357,6 +30541,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30485,6 +30670,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30601,6 +30787,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30738,6 +30925,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30854,6 +31042,7 @@ export const updateEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -30990,6 +31179,7 @@ export const deleteEvaluation = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -31303,6 +31493,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -31425,6 +31616,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -31567,6 +31759,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -31695,6 +31888,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -31811,6 +32005,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -31971,6 +32166,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32087,6 +32283,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32159,6 +32356,7 @@ export const deleteEvaluation = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -32247,6 +32445,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32386,6 +32585,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32502,6 +32702,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32630,6 +32831,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32746,6 +32948,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -32823,6 +33026,7 @@ export const deleteEvaluation = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -33136,6 +33340,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -33258,6 +33463,7 @@ export const deleteEvaluation = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -33400,6 +33606,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -33528,6 +33735,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -33644,6 +33852,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -33804,6 +34013,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -33920,6 +34130,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -33992,6 +34203,7 @@ export const deleteEvaluation = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -34080,6 +34292,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34219,6 +34432,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34335,6 +34549,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34463,6 +34678,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34579,6 +34795,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34716,6 +34933,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34832,6 +35050,7 @@ export const deleteEvaluation = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -34976,6 +35195,7 @@ export const createRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -35118,6 +35338,7 @@ export const createRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -35458,6 +35679,7 @@ export const createRating = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -35752,6 +35974,7 @@ export const createRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -35894,6 +36117,7 @@ export const createRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -36234,6 +36458,7 @@ export const createRating = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -36692,6 +36917,7 @@ export const updateRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -36834,6 +37060,7 @@ export const updateRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -37174,6 +37401,7 @@ export const updateRating = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -37468,6 +37696,7 @@ export const updateRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -37610,6 +37839,7 @@ export const updateRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -37950,6 +38180,7 @@ export const updateRating = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -38408,6 +38639,7 @@ export const deleteRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -38550,6 +38782,7 @@ export const deleteRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -38890,6 +39123,7 @@ export const deleteRating = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -39184,6 +39418,7 @@ export const deleteRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -39326,6 +39561,7 @@ export const deleteRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -39666,6 +39902,7 @@ export const deleteRating = /* GraphQL */ `
               skillId
               grade
               timesRated
+              group
               createdAt
               updatedAt
               user {
@@ -40071,6 +40308,7 @@ export const createAverageUserRating = /* GraphQL */ `
       skillId
       grade
       timesRated
+      group
       createdAt
       updatedAt
       user {
@@ -40116,6 +40354,7 @@ export const createAverageUserRating = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -40429,6 +40668,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -40551,6 +40791,7 @@ export const createAverageUserRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -40693,6 +40934,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -40821,6 +41063,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -40937,6 +41180,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41097,6 +41341,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41213,6 +41458,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41285,6 +41531,7 @@ export const createAverageUserRating = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -41373,6 +41620,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41512,6 +41760,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41628,6 +41877,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41756,6 +42006,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41872,6 +42123,7 @@ export const createAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -41931,6 +42183,7 @@ export const updateAverageUserRating = /* GraphQL */ `
       skillId
       grade
       timesRated
+      group
       createdAt
       updatedAt
       user {
@@ -41976,6 +42229,7 @@ export const updateAverageUserRating = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -42289,6 +42543,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -42411,6 +42666,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -42553,6 +42809,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -42681,6 +42938,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -42797,6 +43055,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -42957,6 +43216,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43073,6 +43333,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43145,6 +43406,7 @@ export const updateAverageUserRating = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -43233,6 +43495,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43372,6 +43635,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43488,6 +43752,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43616,6 +43881,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43732,6 +43998,7 @@ export const updateAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -43791,6 +44058,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
       skillId
       grade
       timesRated
+      group
       createdAt
       updatedAt
       user {
@@ -43836,6 +44104,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -44149,6 +44418,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -44271,6 +44541,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -44413,6 +44684,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -44541,6 +44813,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -44657,6 +44930,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -44817,6 +45091,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -44933,6 +45208,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -45005,6 +45281,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -45093,6 +45370,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -45232,6 +45510,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -45348,6 +45627,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -45476,6 +45756,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -45592,6 +45873,7 @@ export const deleteAverageUserRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -45675,6 +45957,7 @@ export const createAverageTeamRating = /* GraphQL */ `
           group
           colors {
             id
+            group
             primary
             secondary
             rating1
@@ -45709,6 +45992,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -45798,6 +46082,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -45940,6 +46225,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -46004,6 +46290,7 @@ export const createAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -46138,6 +46425,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
           group
           colors {
             id
+            group
             primary
             secondary
             rating1
@@ -46172,6 +46460,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -46261,6 +46550,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -46403,6 +46693,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -46467,6 +46758,7 @@ export const updateAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -46601,6 +46893,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
           group
           colors {
             id
+            group
             primary
             secondary
             rating1
@@ -46635,6 +46928,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -46724,6 +47018,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -46866,6 +47161,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -46930,6 +47226,7 @@ export const deleteAverageTeamRating = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -47139,6 +47436,7 @@ export const createEvaluationRequest = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -47452,6 +47750,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -47574,6 +47873,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -47716,6 +48016,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -47844,6 +48145,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -47960,6 +48262,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48120,6 +48423,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48236,6 +48540,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48308,6 +48613,7 @@ export const createEvaluationRequest = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -48396,6 +48702,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48535,6 +48842,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48651,6 +48959,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48779,6 +49088,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48895,6 +49205,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -48972,6 +49283,7 @@ export const createEvaluationRequest = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -49285,6 +49597,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -49407,6 +49720,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -49549,6 +49863,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -49677,6 +49992,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -49793,6 +50109,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -49953,6 +50270,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50069,6 +50387,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50141,6 +50460,7 @@ export const createEvaluationRequest = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -50229,6 +50549,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50368,6 +50689,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50484,6 +50806,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50612,6 +50935,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50728,6 +51052,7 @@ export const createEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -50821,6 +51146,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -51134,6 +51460,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -51256,6 +51583,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -51398,6 +51726,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -51526,6 +51855,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -51642,6 +51972,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -51802,6 +52133,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -51918,6 +52250,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -51990,6 +52323,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -52078,6 +52412,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -52217,6 +52552,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -52333,6 +52669,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -52461,6 +52798,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -52577,6 +52915,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -52654,6 +52993,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -52967,6 +53307,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -53089,6 +53430,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -53231,6 +53573,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -53359,6 +53702,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -53475,6 +53819,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -53635,6 +53980,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -53751,6 +54097,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -53823,6 +54170,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -53911,6 +54259,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -54050,6 +54399,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -54166,6 +54516,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -54294,6 +54645,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -54410,6 +54762,7 @@ export const updateEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -54503,6 +54856,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -54816,6 +55170,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -54938,6 +55293,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -55080,6 +55436,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -55208,6 +55565,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -55324,6 +55682,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -55484,6 +55843,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -55600,6 +55960,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -55672,6 +56033,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -55760,6 +56122,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -55899,6 +56262,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -56015,6 +56379,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -56143,6 +56508,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -56259,6 +56625,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -56336,6 +56703,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
               group
               colors {
                 id
+                group
                 primary
                 secondary
                 rating1
@@ -56649,6 +57017,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 skillId
                 grade
                 timesRated
+                group
                 createdAt
                 updatedAt
                 user {
@@ -56771,6 +57140,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                 group
                 colors {
                   id
+                  group
                   primary
                   secondary
                   rating1
@@ -56913,6 +57283,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57041,6 +57412,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57157,6 +57529,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57317,6 +57690,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57433,6 +57807,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57505,6 +57880,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
             skillId
             grade
             timesRated
+            group
             createdAt
             updatedAt
             user {
@@ -57593,6 +57969,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57732,6 +58109,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57848,6 +58226,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -57976,6 +58355,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }
@@ -58092,6 +58472,7 @@ export const deleteEvaluationRequest = /* GraphQL */ `
                   skillId
                   grade
                   timesRated
+                  group
                   createdAt
                   updatedAt
                 }

@@ -3,11 +3,11 @@ import React, { createContext } from 'react';
 export const TabContext = createContext({});
 
 export const TabContextProvider = (props) => {
-  // console.log('personalRatings, team');
-  // console.log(typeof personalRatings, typeof team);
-  const { personalRatings, team } = props;
-  const value = personalRatings !== undefined ? personalRatings : team || null;
-  const type = personalRatings !== undefined ? 'personal' : team ? 'team' : 'standard';
+  // console.log('otherUserRatings, team');
+  // console.log(typeof otherUserRatings, typeof team);
+  const { otherUserRatings, team } = props;
+  const value = otherUserRatings !== undefined ? otherUserRatings : team || null;
+  const type = otherUserRatings !== undefined ? 'personal' : team ? 'team' : 'standard';
   return <TabContext.Provider value={{ type, value }}>{props.children}</TabContext.Provider>;
 };
 

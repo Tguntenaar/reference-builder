@@ -104,9 +104,9 @@ function StackNavigation({ user }) {
           <Text style={styles.name}>{route.params.team.name}</Text>
         </View>
         ) :
-        route.params?.personalRatings !== undefined  ? 
+        route.params?.otherUserRatings !== undefined  ? 
         (<View style={styles.container}>
-          <Text style={styles.name}>{route.params?.personalRatings.name}</Text>
+          <Text style={styles.name}>{route.params?.otherUserRatings.name}</Text>
         </View>) 
           :
         (<View style={styles.container}>

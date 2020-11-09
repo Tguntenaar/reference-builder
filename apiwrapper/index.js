@@ -100,6 +100,7 @@ const average = {
     );
   },
   getUserAverage: (input) => {
+    /** { userId[, skillId] } = input  */
     return API.graphql(
       graphqlOperation(queries.averageRatingsByUser, {
         input,
@@ -132,6 +133,7 @@ const average = {
     );
   },
   getTeamAverage: (input) => {
+    /** { teamId[, skillId] } = input  */
     return API.graphql(
       graphqlOperation(queries.averageRatingsByTeam, {
         input,

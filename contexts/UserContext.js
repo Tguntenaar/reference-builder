@@ -32,7 +32,7 @@ const isAdmin = (userContext) => {
 
 const UserContextProvider = (props) => {
   const [refreshing, setRefreshing] = React.useState(false);
-  const [user, setUser] = useState({ ...props.user }); // FIXME: isAdmin isManager functions
+  const [user, setUser] = useState({ ...props.user });
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     // console.log(user);
@@ -41,7 +41,7 @@ const UserContextProvider = (props) => {
       .then((result) => {
         // console.log('Usercontext');
         // console.log(Object.keys(result.data.getUser));
-        setUser({ ...result.data.getUser }); // FIXME:
+        setUser({ ...result.data.getUser });
         setRefreshing(false);
       })
       .catch((err) => {

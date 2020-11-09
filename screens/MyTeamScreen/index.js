@@ -65,10 +65,10 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
                           teamMemberLink.user.receivedEvaluations
                         );
                         navigation.push('Tabs', {
-                          personalRatings: teamMemberLink.user,
+                          otherUserRatings: teamMemberLink.user,
                           screen: 'My Ratings',
                           params: {
-                            personalRatings: teamMemberLink.user, // TODO: averageRatings of receivedEvaluations
+                            otherUserRatings: teamMemberLink.user, // TODO: averageRatings of receivedEvaluations
                           },
                         });
                       }

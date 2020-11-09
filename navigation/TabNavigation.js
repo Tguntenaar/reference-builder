@@ -16,7 +16,7 @@ function TopTabNavigator({ route }) {
   console.log('route.params?.team', typeof route.params?.team);
   console.log('route.params?.personRatings', typeof route.params?.personRatings);
   // viewPersonal - Shows the tab navigator as if a manager looks at a employee
-  const viewPersonal = route.params?.personalRatings !== undefined;
+  const viewPersonal = route.params?.otherUserRatings !== undefined;
   const indicatorStyle = viewPersonal
     ? {
         backgroundColor: "#fff",
@@ -29,7 +29,7 @@ function TopTabNavigator({ route }) {
       };
   
   return (
-    <TabContextProvider personalRatings={route.params?.personalRatings} team={route.params?.team} >
+    <TabContextProvider otherUserRatings={route.params?.otherUserRatings} team={route.params?.team} >
       <Tab.Navigator
         initialRouteName="My Ratings"
         initialLayout={{ width }}
@@ -71,7 +71,7 @@ function TopTabNavigator({ route }) {
                 }}
               >
                 {" "}
-                {route.params?.personalRatings === undefined &&
+                {route.params?.otherUserRatings === undefined &&
                 !route.params?.team
                   ? "My Ratings"
                   : "Ratings"}
@@ -79,7 +79,7 @@ function TopTabNavigator({ route }) {
             ),
           }}
         />
-        {!route.params?.team && route.params?.personalRatings === undefined ? (
+        {!route.params?.team && route.params?.otherUserRatings === undefined ? (
           <Tab.Screen
             name="Evaluations"
             component={EvaluationRequestsTab}
@@ -103,7 +103,7 @@ function TopTabNavigator({ route }) {
             }}
           />
         ) : null}
-        {route.params?.personalRatings === undefined ? (
+        {route.params?.otherUserRatings === undefined ? (
           <Tab.Screen
             name="MyTeamScreen"
             component={TeamTab}

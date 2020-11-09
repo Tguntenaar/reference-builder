@@ -55,6 +55,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     })();
   }, []);
   
+  // new ManagerSkill
   useEffect(() => {
     if (route.params?.newManagerSkill) {
       // Post updated, do something with `route.params.post`
@@ -152,8 +153,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   }, [route.params?.newManager]);
 
-    // Ask for Evaluation Request
-    useEffect(() => {
+  // Ask for Evaluation Request
+  useEffect(() => {
       if (route.params?.select) {
         for (const { sendRequest, user: { id: userId } } of route.params.select) {
           if (sendRequest) {
@@ -174,8 +175,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       }
     }, [route.params?.select]);
 
-   // Activate Member/Manager
-   useEffect(() => {
+  // Activate Member/Manager
+  useEffect(() => {
     if (route.params?.activateMember) {
       const memberLinkID = route.params.activateMember;
       setTeamMembers(
@@ -352,28 +353,16 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     // console.log(createdSkill.id);
     // console.log(team.id);
     // console.log(userContext.id);
-    const p1 = api
+    const p1 = await api
       .createTeamAverage({
         skillId: createdSkill.id,
-        userId: userContext.id,
+        teamId: team.id,
         group: userContext.group,
       })
       .catch(({ errors }) => {
         console.log("error creating team average");
         console.log(errors);
       });
-    const p2 = api
-      .createUserAverage({
-        skillId: createdSkill.id,
-        teamId: team.id,
-        group: userContext.group,
-      })
-      .catch(({ errors }) => {
-        console.log("error creating user average");
-        console.log(errors);
-      });
-    await p1;
-    await p2;
 
     if (createdSkill.name && createdSkill.description) {
       setTeamSkills([...teamSkills, createdSkill]);
