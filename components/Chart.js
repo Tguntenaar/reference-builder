@@ -26,7 +26,7 @@ function Chart() {
         strokeWidth: 5,
         backgroundColor: '#fff',
         backgroundGradientFrom: '#fff',
-        backgroundGradientTo: '#fff', // TODO: for visiblity purpose
+        backgroundGradientTo: '#fff', // for visiblity purpose
         decimalPlaces: 1, // optional, defaults to 2dp
         color: (opacity = 0) => `rgb(10, 19, 255)`,
         style: {

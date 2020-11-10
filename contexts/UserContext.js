@@ -20,12 +20,12 @@ const getActiveTeamLink = (userContext) => {
   return teamsLink.items[0];
 };
 
-const isManager = (userContext) => {
+export const isManager = (userContext) => {
   const activeTeamLink = getActiveTeamLink(userContext);
   return activeTeamLink.team.admins.includes(userContext.id);
 };
 
-const isAdmin = (userContext) => {
+export const isAdmin = (userContext) => {
   const activeTeamLink = getActiveTeamLink(userContext);
   return activeTeamLink.team.company.admins.includes(userContext.id);
 };

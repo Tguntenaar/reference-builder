@@ -1,6 +1,3 @@
-/**
- * TODO: animate header
- */
 import * as React from 'react';
 import { Image, View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
@@ -18,7 +15,6 @@ import EvaluateCommentScreen from '../screens/Evaluate/Comment';
 import SettingsScreen from '../screens/Settings/Main';
 import TeamSettingsScreen from '../screens/Settings/Team';
 import SendRequestsScreen from '../screens/Settings/SendRequest';
-import CompanySettingsScreen from '../screens/Settings/Company';
 import ModalScreen from '../screens/ModalScreen';
 import Form from '../screens/Form';
 import TestScreen from '../screens/Test';
@@ -44,9 +40,11 @@ function StackNavigation({ user }) {
     );
   };
 
+  // hidden
   const SettingsScreenHeader = ({ navigation }) => ({
     title: 'Settings',
     headerShown: false,
+    // multiple icons in header
     headerRight: () => (
       <View style={styles.icons}>
         {admin && (
@@ -54,7 +52,7 @@ function StackNavigation({ user }) {
             name="sliders"
             color="#000"
             onPress={() => {
-              navigation.navigate('CompanySettingsScreen');
+              navigation.navigate('TeamSettingsScreen');
             }}
             style={styles.teamIcon}
           />
@@ -187,11 +185,7 @@ function StackNavigation({ user }) {
         component={TeamSettingsScreen}
         options={{ headerShown: false, title: 'Team Settings' }}
       />
-      <Stack.Screen
-        name="CompanySettingsScreen"
-        component={CompanySettingsScreen}
-        options={{ title: 'Company Settings' }}
-      />
+      
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
       <Stack.Screen name="TestScreen" component={TestScreen}  options={{headerShown:false}}/>
       <Stack.Screen

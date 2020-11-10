@@ -115,7 +115,7 @@ function RatingChart({ navigation, route, userContext }) {
             <Text style={styles.date}>October 2019</Text>
             {evaluations.map((evaluation) => {
               const hasSameSkill = (rating) => rating.skill.id === route.params.rating.skill.id;
-              // If this evaluation has no ratings with this skill dont show it. FIXME:
+              // TODO: If this evaluation has no ratings with this skill dont show it.
               console.log(evaluation);
               // if (!evaluation.ratings.items.some(hasSameSkill)) return <></>;
 

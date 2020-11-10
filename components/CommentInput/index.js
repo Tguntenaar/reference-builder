@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, StyleSheet, View, Platform } from 'react-native'; // TODO: KeyboardAvoidingView
+import { TextInput, StyleSheet, View, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { width } from '../../constants/Utils';
 

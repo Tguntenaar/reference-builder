@@ -16,4 +16,12 @@ function isIphoneX() {
   );
 }
 
-export { isIphoneX, width, height };
+/**
+ * In developerMode you are able to delete
+ * -EvaluationRequests
+ * -TeamMembers
+ * -Teams
+ */
+const developerMode = true;
+
+export { isIphoneX, width, height, developerMode };

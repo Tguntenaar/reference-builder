@@ -23,7 +23,7 @@ const NextButton = ({ title, onPress, color, size, textSize, loading }) => {
   };
   textSize = Object.assign(defaultText, textSize);
   if (textSize < 15) {
-    const fontFamily = 'CooperHewitt-SemiBold'; // FIXME: laad nog in
+    const fontFamily = 'CooperHewitt-SemiBold';
   }
 
   return (

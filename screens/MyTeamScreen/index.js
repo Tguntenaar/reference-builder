@@ -68,7 +68,7 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
                           otherUserRatings: teamMemberLink.user,
                           screen: 'My Ratings',
                           params: {
-                            otherUserRatings: teamMemberLink.user, // TODO: averageRatings of receivedEvaluations
+                            otherUserRatings: teamMemberLink.user,
                           },
                         });
                       }

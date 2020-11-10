@@ -6,6 +6,8 @@ import { Feather } from '@expo/vector-icons';
 import { imageEsther } from '../../constants/Images';
 
 import styles from './style';
+import { developerMode } from '../../constants/Utils';
+
 // Components
 import NextButton from '../NextButton';
 
@@ -14,7 +16,7 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
     const due = new Date(new Date(createdAt).getTime() + 1000 * 3600 * 24 * 7); // plus one week
     return `${due.getDate()}-${due.getMonth()}-${due.getFullYear()}`;
   })(request.createdAt);
-  const deleteRequestButton = false; // TODO: global delete button
+  const deleteRequestButton = developerMode;
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>

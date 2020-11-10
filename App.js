@@ -1,13 +1,4 @@
 /* eslint-disable global-require */
-/**
- * TODO:
- * Concepts to implement/investigate
- * - useEffect Hook
- * - team settings screen
- * - user settings screen
- *
- * 18bgijnmukkmfinbtqcr9qbsd6
- */
 
 /** First import gesture handler */
 import 'react-native-gesture-handler';
@@ -40,19 +31,7 @@ Amplify.configure({ ...awsconfig, Analytics: { disabled: true } });
 
 global.Buffer = global.Buffer || require('buffer').Buffer; //
 
-const defaultUser = {
-  // name: 'Thomas Guntenaar',
-  // jobTitle: 'App creator',
-  // receivedRequests: [],
-  // teamsLink: {
-  //   items: [
-  //     { team: { membersLink: { items: [] }, skills: [], company: { teams: { items: [] } } } },
-  //   ],
-  // },
-  // averageRatings: {
-  //   items: [],
-  // },
-}; // TODO:
+const defaultUser = {};
 
 function cacheImages(images) {
   return images.map((image) => {
@@ -125,7 +104,6 @@ function App(props) {
         });
 
         await loadAuth();
-        // TODO: prefetch images
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         // console.log(e);

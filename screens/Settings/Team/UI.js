@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
-import { width } from '../../../constants/Utils';
+import { width, developerMode } from '../../../constants/Utils';
 
 import NextButton from '../../../components/NextButton';
 
@@ -39,6 +39,7 @@ const screen = ({
   admins,
   removeManager
 }) => {
+  const deleteMemberButton = developerMode;
   return (
     <ScrollView
       contentContainerStyle={{
@@ -148,7 +149,7 @@ const screen = ({
             return (
               <View key={manager.id} style={[styles.card, styles.managerCard]}>
                 <Image style={styles.image} source={imageEsther} />
-                {/* TODO: teammember image */}
+                
                 <View style={styles.innerCard}>
                   {
                     // Don't show the icon of the first manager.
@@ -286,14 +287,14 @@ const screen = ({
               teamMembers.map(({ id: teamMemberLinkId, user }) => (
                   <View key={teamMemberLinkId} style={styles.card}>
                     <Image style={styles.image} source={imageEsther} />
-                    {/* TODO: teammember image */}
+                    
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>
                         <Text style={styles.name}>{user?.name}</Text>
                         <Text style={styles.jobTitle}>{user?.jobTitle}</Text>
                       </View>
                       {
-                        userContext.isAdmin?
+                        deleteMemberButton?
                         <TouchableOpacity
                         onPress={() => {
                           deleteMember(user?.id, teamMemberLinkId);

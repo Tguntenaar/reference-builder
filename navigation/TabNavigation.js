@@ -10,11 +10,9 @@ import { width } from "../constants/Utils";
 import { TabContextProvider } from "../contexts/TabContext";
 
 const Tab = createMaterialTopTabNavigator();
-// TODO: getTeam and what if no averages? create average same for getUser
+
 function TopTabNavigator({ route }) {
-  console.log('tabnavigation');
-  console.log('route.params?.team', typeof route.params?.team);
-  console.log('route.params?.personRatings', typeof route.params?.personRatings);
+
   // viewPersonal - Shows the tab navigator as if a manager looks at a employee
   const viewPersonal = route.params?.otherUserRatings !== undefined;
   const indicatorStyle = viewPersonal
@@ -51,7 +49,6 @@ function TopTabNavigator({ route }) {
           indicatorStyle: indicatorStyle,
         }}
       >
-        {/** TODO: Style aanpassen */}
         <Tab.Screen
           name="My Ratings"
           component={RatingTab}

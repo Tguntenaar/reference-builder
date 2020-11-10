@@ -16,10 +16,9 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
 });
-/**
- * TODO: laat alleen evaluatie requests zien van je huidige team?
- */
+
 function EvaluationsScreen({ navigation, userContext }) {
+  // Laat express alle receivedRequests zien
   let {
     receivedRequests: { items },
   } = userContext;
@@ -27,6 +26,7 @@ function EvaluationsScreen({ navigation, userContext }) {
   if (!items) {
     items = [];
   }
+
   const [evaluationRequests, setEvaluationRequests] = useState(items);
   const filterRequest = (id) => {
     api

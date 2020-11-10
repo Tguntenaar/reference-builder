@@ -9,7 +9,6 @@ import EvaluationSlider from '../../../components/EvaluationSlider';
 import Circle from '../../../components/Circle';
 import withUser from '../../../contexts/withUser';
 
-// TODO: Performance van sliders..
 const EvaluateSliders = ({ route, navigation, userContext }) => {
   const { evaluationRequest, manager } = route.params;
   const { user } = evaluationRequest;
@@ -55,7 +54,6 @@ const EvaluateSliders = ({ route, navigation, userContext }) => {
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.top}>
-          {/* A JSX comment  TODO: circle */}
           <Circle color="rgba(239,244,253,0.5)" />
 
           <BackButton style={styles.back} onPress={() => navigation.goBack()} />

@@ -32,7 +32,6 @@ function RatingSkillDetails({ navigation, route }) {
           </View>
         </View>
         <View style={styles.middle}>
-          {/* TODO: maybe in component? */}
           <ScrollView style={styles.scroll}>
             {ratings.map(({ grade, id, skill }) => {
               console.log(id);

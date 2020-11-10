@@ -59,7 +59,7 @@ const updateTeamAverage = gql`
 `;
 
 /**
- * TODO:
+ *
  * Je krijgt een event binnen
  * Als event een update event is dus geen INSERT of REMOVE
  * Haal het gemiddelde op van de user en van zijn team

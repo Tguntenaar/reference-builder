@@ -1,6 +1,4 @@
-# TODO:
-# auth
-# user groups admin
+# authorization moet nog worden gefixt
 
 type Company
   @model(subscriptions: null)
@@ -64,7 +62,7 @@ type Team
   name: String!
   admins: [ID!]
   group: String!
-  active: Boolean # TODO: moet deze wel gebruikt worden?
+  active: Boolean # moet deze wel gebruikt worden?
   companyId: ID!
   company: Company @connection(fields: ["companyId"]) # has one
   membersLink: [TeamMemberLink!]
@@ -74,7 +72,6 @@ type Team
     @connection(keyName: "averageRatingsByTeam", fields: ["id"]) #has many
 }
 
-# TODO: list team member links en check of elke een group heeft
 type TeamMemberLink
   @auth(
     rules: [
@@ -87,8 +84,16 @@ type TeamMemberLink
     ]
   )
   @model(subscriptions: null)
-  @key(name: "teamsByUser", fields: ["userId", "teamId"])
-  @key(name: "usersByTeam", fields: ["teamId", "userId"]) {
+  @key(
+    name: "teamsByUser"
+    fields: ["userId", "teamId"]
+    queryField: "TeamMemberLinkByUser"
+  )
+  @key(
+    name: "usersByTeam"
+    fields: ["teamId", "userId"]
+    queryField: "TeamMemberLinkByTeam"
+  ) {
   id: ID!
   userId: ID!
   teamId: ID!
@@ -117,7 +122,6 @@ type User
   email: String
   jobTitle: String
   avatar: S3Object
-  # TODO: active team id is niet het team id maar de team link id
   activeTeamID: ID!
   activeTeam: TeamMemberLink @connection(fields: ["activeTeamID"]) # has one
   # dashboard

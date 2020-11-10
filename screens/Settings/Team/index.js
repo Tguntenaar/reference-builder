@@ -5,24 +5,12 @@ import * as Contacts from "expo-contacts";
 import withUser from "../../../contexts/withUser";
 import api from "../../../apiwrapper";
 import UI from "./UI";
-import { updateSkill } from "../../../apiwrapper/graphql/mutations";
-/**
- * 
- * @param {} param0 
- * 
- * TODO:
- * MANAGERS TOEVOEGEN EN VERWIJDEREN MOET SOEPELER GAAN
- * meerdere managers moeten elkaar rate niet allemaal een request knop hebben
- * 
- * split managers en employess net als in team screen
- * create different skills inside team (boolean in skill)
- * 
- */
+
 function TeamSettingsScreen({ userContext, route, navigation }) {
   /** het team word meegegeven
    * maar als de usercontext dan refresht
    * refresht de pagina niet
-   * dus met het meegegeven team id moet je het team uit de usercontext halen
+   * dus met het meegegeven team id wordt de team uit de usercontext gehaald
    */
   console.log("TeamSettingsScreen");
   const { team : { id: teamId } } = route.params;
@@ -201,9 +189,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     }
   }, [route.params?.activateMember]);
   
-  // Add a User to your team TODO: validation
+  // Add a User to your team
   const inviteUser = async (name, jobTitle, email) => {
-    // TODO: invite email create user in UserPool
     const {
       data: { createUser: createdUser },
     } = await api
@@ -227,14 +214,6 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       .catch(({ errors }) => {
         console.log(errors);
       });
-
-    // TODO: Add to Group kan beter in de back end gebeuren bij 
-    // console.log('started addToGroup function: ', name, userContext.group);
-    // const result = await api.addToGroup(name, userContext.group).catch((error) => {
-    //   console.log("Can't add to Group");
-    //   console.log(error);
-    // })
-    // console.log('SUCCES', result);
 
     if (!createTeamMemberLink.errors) {
       setTeamMembers([
@@ -312,7 +291,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       screen: 'TeamSettingsScreen',
       post: 'newMember',
       update:'activateMember',
-      list: team.membersLink.items.filter((link) => !link.active), // TODO: inactive teammemberlinks
+      list: team.membersLink.items.filter((link) => !link.active),
       form: [
         {
           text: 'Name',
@@ -333,7 +312,6 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     });
   }
 
-  // TODO: validation
   const createSkill = async (skillName, skillDescription, forManager) => {
     const {
       data: { createSkill: createdSkill },

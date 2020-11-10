@@ -25,7 +25,7 @@ type Team
   membersLink: [TeamMemberLink!]
     @connection(keyName: "usersByTeam", fields: ["id"]) # has many
   skills: [Skill!] @connection(keyName: "skillsByTeam", fields: ["id"]) # has many
-  averageRatings: [Rating] #FIXME:
+  averageRatings: [Rating]
 }
 
 type TeamMemberLink
@@ -59,12 +59,11 @@ type User @model(subscriptions: null) {
   receivedRequests: [EvaluationRequest]
     @connection(keyName: "evaluationRequestsByEvaluator", fields: ["id"]) # has many
   # evaluations
-  # TODO: fixme het is niet echt many to many want het is 2 to many maar mis wel beter
   evaluations: [Evaluation]
     @connection(keyName: "evaluationsByEvaluator", fields: ["id"]) # has many
   receivedEvaluations: [Evaluation]
     @connection(keyName: "evaluationsByUser", fields: ["id"]) # has many
-  averageRatings: [Rating] #FIXME:
+  averageRatings: [Rating]
 }
 
 type S3Object {

@@ -12,7 +12,7 @@ import withUser from "../../contexts/withUser";
 import withTabContext from "../../contexts/TabContext";
 import NextButton from "../../components/NextButton";
 import { width } from "../../constants/Utils";
-import api from '../../apiwrapper';
+import api from "../../apiwrapper";
 
 const styles = StyleSheet.create({
   safe: {
@@ -44,12 +44,12 @@ function getAverages(receivedEvaluations) {
    * MAP EVALUATIONS NAAR ARRAY VAN RATINGS
    * MAP DAARNA REDUCE ALLE RATINGS MET DEZELFDE SKILL ID
    */
-  
+
   // console.log('receivedEvaluations');
   // console.log(receivedEvaluations);
   const allRatings = receivedEvaluations
     .filter((evaluation) => evaluation?.ratings?.items) // Only evaluations that have ratings.
-    .map((evaluation) => evaluation.ratings.items )
+    .map((evaluation) => evaluation.ratings.items)
     .flat();
 
   return allRatings.reduce((final, data) => {
@@ -92,80 +92,104 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   let {
     averageRatings: { items: averageUserRatings },
     receivedEvaluations: { items: receivedEvaluations },
-  } = userContext;
-
-  const template = [
-    {
-      id: "averageRatingId",
-      grade: 8.4,
-      skill: {
-        id: "skillId",
-        name: "Template Fake Skill",
-        description: "lorem ipsum",
+    activeTeam: {
+      team: {
+        skills: { items: activeTeamSkills },
       },
     },
+  } = userContext;
+  const template = [
+    // {
+    //   id: "averageRatingId",
+    //   grade: 8.4,
+    //   skill: {
+    //     id: "skillId",
+    //     name: "Template Fake Skill",
+    //     description: "lorem ipsum",
+    //   },
+    // },
   ];
-  // TODO: Remove dit zodra het werkt
+  // FIXME: Remove dit zodra het werkt
   averageUserRatings =
-  averageUserRatings && averageUserRatings.length
-    ? averageUserRatings
-    : template;
-  // TODO: Remove dit zodra het werkt
+    averageUserRatings && averageUserRatings.length
+      ? averageUserRatings
+      : template;
   receivedEvaluations =
-  receivedEvaluations && receivedEvaluations.length
-    ? receivedEvaluations
-    : [{ ratings: { items: template }}]; // list of evaluations
-  
-  
+    receivedEvaluations && receivedEvaluations.length
+      ? receivedEvaluations
+      : [{ ratings: { items: template } }]; // list of evaluations
+
   const user = route.params?.otherUserRatings;
   const viewOtherUserRatings = user !== undefined;
-  
+
   const [loadingRatings, setloadingRatings] = useState(viewOtherUserRatings);
-  const [averageRatings, setAverageRatings] = useState(getAverages(receivedEvaluations));
-  
-  // Load the personal ratings
+  const [averageRatings, setAverageRatings] = useState(
+    getAverages(receivedEvaluations)
+  );
+  const [skills, setSkills] = useState(activeTeamSkills);
+  console.log(skills);
+
+  const inactiveAndManagerSkills = (skill) => {
+    return skill.active && !skill.forManager;
+  };
+
+  // Load the ratings of some other user
   useEffect(() => {
-    if (tabContext.type === 'personal') {
+    if (tabContext.type === "personal") {
       // effect
-      api.getUser(user.id)
-      .then((result) => {
-        const { data: { getUser: { 
-          averageRatings: { items }, // TODO: use averageRatings or getAverages(receivedEvaluations)
-          receivedEvaluations: { items: receivedEvaluations }
-        }}} = result;
-        // 
-        setAverageRatings(items); // getAverages(receivedEvaluations)
-        setloadingRatings(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
-    return () => {
-      // cleanup
+      api
+        .getUser(user.id)
+        .then((result) => {
+          const {
+            data: {
+              getUser: {
+                averageRatings: { items }, // use averageRatings or getAverages(receivedEvaluations)
+                receivedEvaluations: { items: receivedEvaluations },
+              },
+            },
+          } = result;
+          //
+          setAverageRatings(items); // getAverages(receivedEvaluations)
+          setloadingRatings(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, [tabContext.value]);
 
   // Load the team
   useEffect(() => {
-    if (tabContext.type === 'team') {
+    if (tabContext.type === "team") {
       // effect
       const team = tabContext.value;
-      console.log("teamid = ", team.id)
-      api.getTeam(team.id)
-      .then((result) => {
-        const { data: { getTeam: { 
-          averageRatings: { items }, // TODO: use averageRatings or getAverages(receivedEvaluations)
-          // receivedEvaluations: { items: receivedEvaluations }
-        }}} = result;
-        setAverageRatings(items);
-        setloadingRatings(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      api
+        .getTeam(team.id)
+        .then((result) => {
+          const {
+            data: {
+              getTeam: {
+                skills: { items: skills },
+                /**
+                FIXME: possible to get ratings by skill.id and than update 
+                averageRatings if there is no averageRatings or just show the skills
+              */
+
+                averageRatings: { items }, // use averageRatings or getAverages(receivedEvaluations)
+                // receivedEvaluations: { items: receivedEvaluations }
+              },
+            },
+          } = result;
+          if (!items.length) {
+            setSkills(skills);
+          }
+          setAverageRatings(items);
+          setloadingRatings(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-    
   }, [tabContext.value]);
 
   return (
@@ -225,7 +249,50 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
             );
           })
         ) : (
-          <Text>{/** TODO: show skills */}You dont have been rated yet </Text>
+          <>
+            {skills && skills.filter(inactiveAndManagerSkills).length
+              ? skills.filter(inactiveAndManagerSkills).map((skill) => {
+                  return (
+                    <View
+                      key={skill.id}
+                      style={{
+                        backgroundColor: "rgb(239, 244, 253)",
+                        width: 380,
+                        height: 150,
+                        padding: 20,
+                        marginTop: 10,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: 25,
+                          color: "black",
+                          fontWeight: "900",
+                        }}
+                      >
+                        {skill.name}
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: 20,
+                          color: "black",
+                        }}
+                      >
+                        {skill.description}
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: 20,
+                          color: "black",
+                        }}
+                      >
+                        Has not been rated yet
+                      </Text>
+                    </View>
+                  );
+                })
+              : null}
+          </>
         )}
       </ScrollView>
     </>

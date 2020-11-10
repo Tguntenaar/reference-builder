@@ -13,12 +13,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * TODO:
  * 1. create a user
  * 2. place user in group
  * 3. send a email to this user
  */
-// TODO:
+
 // Admin create user
 // https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html
 // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.html#adminCreateUser-property
@@ -158,7 +157,6 @@ exports.handler = (event, context, callback) => {
     console.log(error);
   }
 
-  // TODO: adminAddUserToGroup
   /**
    {
       "GroupName": "string",
