@@ -6,7 +6,10 @@ import { width } from '../constants/Utils';
 import Colors from '../constants/Colors';
 
 const RatingBox = ({ rating, onSeeDetails }) => {
-  const { grade } = rating;
+  let { grade, timesRated } = rating;
+  if (timesRated) {
+    grade /= timesRated;
+  }
   const skillName = rating.skill.name;
   const skillDescription = rating.skill.description;
 

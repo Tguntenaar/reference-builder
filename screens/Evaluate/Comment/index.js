@@ -9,12 +9,25 @@ import BackButton from "../../../components/BackButton";
 import CommentInput from "../../../components/CommentInput";
 import api from "../../../apiwrapper";
 import withUser from "../../../contexts/withUser";
+import { developerMode } from '../../../constants/Utils'
+
+
+async function updateUserAverageBySkill(user, skillId) {
+  const result = await api.getUserAverage({userId: user.id})
+  .catch((error) => {
+    console.log('couldn\'t get user average');
+    console.log(error);
+  })
+}
+
+
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function EvaluateCommentScreen({ userContext, navigation, route }) {
   const [text, setText] = useState("");
   const [status, setStatus] = useState({ loading: false, errored: false });
   const { username, average, sliders, evaluationRequest } = route.params;
+  
   const handleText = (txt) => {
     setText(txt);
   };
@@ -27,16 +40,36 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
      */
   };
 
+  const swapUserAuthor = (evaluation) => {
+    return {
+      ...evaluation,
+      userId: evaluation.authorId,
+      authorId: evaluation.userId
+    }
+  }
+
   const uploadEvaluation = async () => {
     setStatus({ ...status, loading: true });
 
-    const evaluation = {
+    let evaluation = {
       userId: evaluationRequest.user.id,
       authorId: evaluationRequest.evaluator.id,
       comment: text,
       group: userContext.group,
     };
+    if (developerMode) {
+      evaluation = swapUserAuthor(evaluation);
+    } 
     console.log({ evaluation });
+
+     // Get user Averages
+     const averagesPromise = api.getUserAverage({
+       userId: evaluationRequest.user.id
+      })
+     .catch((error) => {
+       console.log('couldn\'t get user average');
+       console.log(error);
+     })
 
     const {
       data: {
@@ -44,9 +77,9 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       },
       errors,
     } = await api.createEvaluation(evaluation);
+    
     if (errors) {
       console.log("error in evaluate/comment/index.js");
-
       api
         .deleteEvaluation({
           id: evaluationId,
@@ -58,7 +91,14 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           console.log("couldn't delete");
         });
     }
-    // for each skill create rating
+
+    const userAverages = await averagesPromise;
+
+    console.log("userAverages")
+    console.log(userAverages)
+    console.log("userAverages")
+
+    // For each skill create rating
     sliders.forEach((skill) => {
       const newGrade = parseInt(skill.grade, 10);
       const rating = {
@@ -71,12 +111,13 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       api
         .createRating(rating)
         .then(() => {
-          // TODO: in seperate function
           console.log("created rating");
+
           // get the average rating of skill.id
           const oldAverage = evaluationRequest.user.averageRatings.find(
             (averageRating) => averageRating.skillId === skill.id
           );
+          // function to update the grade
           const newAverage = (oldAverage, grade) => {
             return {
               ...oldAverage,
@@ -128,7 +169,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     if (evaluationRequest?.id) {
       await api.deleteEvaluationRequest(evaluationRequest.id);
     }
-    navigation.push("Tabs");
+    // navigation.push("Tabs");
     // setStatus({ ...status, errored: true });
     setStatus({ ...status, loading: false });
   };

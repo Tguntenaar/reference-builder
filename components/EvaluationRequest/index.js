@@ -23,17 +23,20 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
         <Image style={styles.image} source={imageEsther} />
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{request.user.name}</Text>
-        {deleteRequestButton ? (
-          <TouchableOpacity
-            onPress={() => {
-              filterRequest(request.id);
-            }}
-            style={styles.teamIcon}
-          >
-            <Feather name="x-circle" color="red" style={styles.teamIcon} />
-          </TouchableOpacity>
-        ) : null}
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.title}>{request.user.name}</Text>
+          {deleteRequestButton ? (
+            <TouchableOpacity
+              onPress={() => {
+                filterRequest(request.id);
+              }}
+              style={styles.teamIcon}
+            >
+              {/** <Feather name="x-circle" color="red" style={styles.teamIcon} /> */}
+              <Text>Delete request!</Text>
+            </TouchableOpacity>
+          ) : null}
+        </View>
         <Text style={styles.description}>{request.user.jobTitle}</Text>
         <Text style={styles.status}>{request.status}</Text>
         <Text style={styles.due}>Due date: {dueDate}</Text>

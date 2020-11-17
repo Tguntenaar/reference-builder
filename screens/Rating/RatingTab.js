@@ -45,8 +45,6 @@ function getAverages(receivedEvaluations) {
    * MAP DAARNA REDUCE ALLE RATINGS MET DEZELFDE SKILL ID
    */
 
-  // console.log('receivedEvaluations');
-  // console.log(receivedEvaluations);
   const allRatings = receivedEvaluations
     .filter((evaluation) => evaluation?.ratings?.items) // Only evaluations that have ratings.
     .map((evaluation) => evaluation.ratings.items)
@@ -99,16 +97,18 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     },
   } = userContext;
   const template = [
-    // {
-    //   id: "averageRatingId",
-    //   grade: 8.4,
-    //   skill: {
-    //     id: "skillId",
-    //     name: "Template Fake Skill",
-    //     description: "lorem ipsum",
-    //   },
-    // },
+    {
+      id: "averageRatingId",
+      grade: 8.4,
+      skill: {
+        id: "skillId",
+        name: "Template Fake Skill",
+        description: "lorem ipsum",
+      },
+    },
   ];
+
+
   // FIXME: Remove dit zodra het werkt
   averageUserRatings =
     averageUserRatings && averageUserRatings.length
@@ -122,16 +122,68 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   const user = route.params?.otherUserRatings;
   const viewOtherUserRatings = user !== undefined;
 
-  const [loadingRatings, setloadingRatings] = useState(viewOtherUserRatings);
-  const [averageRatings, setAverageRatings] = useState(
-    getAverages(receivedEvaluations)
-  );
-  const [skills, setSkills] = useState(activeTeamSkills);
-  console.log(skills);
-
-  const inactiveAndManagerSkills = (skill) => {
+  // Filter
+  const inactiveAverageFilter = (average) => {
+    // get ActiveSkills
+    const activeSkills = activeTeamSkills
+      .filter((skill) => skill.active)
+      .map((skill) => skill.id);
+    return activeSkills.includes(average.skill.id)
+  }
+  // Filter
+  const inactiveAndManagerFilter = (skill) => {
     return skill.active && !skill.forManager;
   };
+
+  const [loadingRatings, setloadingRatings] = useState(tabContext.type !== "standard");
+  const [averageRatings, setAverageRatings] = useState(
+    // getAverages(receivedEvaluations)
+    averageUserRatings.filter(inactiveAverageFilter)
+  );
+  const [skills, setSkills] = useState(activeTeamSkills);
+
+
+  // Sync user averages and skills
+  useEffect(() => {
+    if (tabContext.type === "standard") {
+      
+      // effect
+      api
+        .getUserAverage({userId: userContext.id})
+        .then((result) => {
+          const {
+            data: {
+              averageRatingsByUser: {
+                items: averageRatingsByUser
+              },
+            },
+          } = result;
+          
+          const skillsWithAverage = averageRatingsByUser.map((rating) => rating.skill.id);
+          const skillsWithoutAverage = activeTeamSkills
+            .filter((skill) => !skillsWithAverage.includes(skill.id) && skill.active);
+          
+          for (const skill of skillsWithoutAverage) {
+            api.createUserAverage({
+              userId: userContext.id,
+              skillId: skill.id,
+              group: userContext.group,
+              timesRated: 0,
+              grade: 0,
+            }).catch((error) => {
+              console.log('Can\'t create user average');
+              console.log(error);
+            });
+          }
+
+          setAverageRatings(averageRatingsByUser.filter(inactiveAverageFilter)); 
+          // setloadingRatings(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [tabContext.value]);
 
   // Load the ratings of some other user
   useEffect(() => {
@@ -148,8 +200,8 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
               },
             },
           } = result;
-          //
-          setAverageRatings(items); // getAverages(receivedEvaluations)
+          
+          setAverageRatings(items.filter(inactiveAverageFilter)); // getAverages(receivedEvaluations)
           setloadingRatings(false);
         })
         .catch((error) => {
@@ -183,7 +235,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           if (!items.length) {
             setSkills(skills);
           }
-          setAverageRatings(items);
+          setAverageRatings(items.filter(inactiveAverageFilter));
           setloadingRatings(false);
         })
         .catch((error) => {
@@ -250,8 +302,8 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           })
         ) : (
           <>
-            {skills && skills.filter(inactiveAndManagerSkills).length
-              ? skills.filter(inactiveAndManagerSkills).map((skill) => {
+            {skills && skills.filter(inactiveAndManagerFilter).length
+              ? skills.filter(inactiveAndManagerFilter).map((skill) => {
                   return (
                     <View
                       key={skill.id}

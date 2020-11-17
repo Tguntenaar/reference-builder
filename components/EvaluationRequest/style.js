@@ -32,6 +32,7 @@ export default StyleSheet.create({
     fontSize: 20,
     padding: 1,
     color: '#2c2c2c',
+    marginRight: 50,
   },
   description: {
     fontFamily: 'SourceSansPro-Regular',

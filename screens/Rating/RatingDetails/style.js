@@ -88,9 +88,8 @@ const styles = StyleSheet.create({
   grade: {
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 30,
-    height: Platform.OS === 'ios' ? 30 : 35,
+    // height: Platform.OS === 'ios' ? 30 : 35,
     padding: 2,
-    width: 30,
     // alignSelf: 'flex-end',
   },
   description: {

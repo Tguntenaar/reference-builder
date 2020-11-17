@@ -20,6 +20,7 @@ function RatingChart({ navigation, route, userContext }) {
 
   const [evaluations, setEvaluations] = useState([
     {
+      id: '1',
       author: {
         name: 'Boris Guntenaar',
         jobTitle: 'Accountant',
@@ -45,9 +46,10 @@ function RatingChart({ navigation, route, userContext }) {
     (async () => {
       // TODO: get all evaluations per skill per user
       console.log('Retrieving all ratings per skill..');
-      const result = await api.getEvaluationsByUser(userContext.id).catch(({ errors }) => {
-        console.log(errors);
-      });
+      const result = await api.getEvaluationsByUser({ userId: userContext.id });
+      // .catch(({ errors }) => {
+      //   console.log(errors);
+      // });
       console.log({ result });
       if (result.errors || !result.data) {
         console.log('Errors happened');
@@ -64,6 +66,7 @@ function RatingChart({ navigation, route, userContext }) {
   }, []);
   // filter evaluations die de juiste skill hebben gerate
   const gradeColor = Colors.gradeToColor(route.params.rating.grade);
+
   return (
     <>
       <SafeAreaView style={styles.safe} />
@@ -115,9 +118,10 @@ function RatingChart({ navigation, route, userContext }) {
             <Text style={styles.date}>October 2019</Text>
             {evaluations.map((evaluation) => {
               const hasSameSkill = (rating) => rating.skill.id === route.params.rating.skill.id;
-              // TODO: If this evaluation has no ratings with this skill dont show it.
-              console.log(evaluation);
-              // if (!evaluation.ratings.items.some(hasSameSkill)) return <></>;
+              // If this evaluation has no ratings with this skill dont show it.
+
+              // Filter the evaluations that don't have the skill we are looking viewing
+              if (!evaluation.ratings.items.some(hasSameSkill)) return <View key={evaluation.id} />;
 
               return (
                 <RatingDetails

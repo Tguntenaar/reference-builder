@@ -18,8 +18,12 @@ const rating = {
 };
 
 const evaluation = {
-  getEvaluationsByUser: (userId) => {
-    return API.graphql(graphqlOperation(queries.evaluationsByUser, { userId }));
+  getEvaluationsByUser: (input) => {
+    return API.graphql(
+      graphqlOperation(queries.evaluationsByUser, {
+        ...input,
+      })
+    );
   },
   createEvaluation: (input) => {
     return API.graphql(graphqlOperation(mutations.createEvaluation, { input }));

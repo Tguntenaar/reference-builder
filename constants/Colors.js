@@ -13,6 +13,9 @@ export default {
   noticeText: '#fff',
   gradeToColor: (gradeString) => {
     const number = parseInt(gradeString, 10);
+    if (number === 0) {
+      return 'rgb(10,185,255)';
+    }
     if (number < 4.5) {
       return '#ff100a';
     }
