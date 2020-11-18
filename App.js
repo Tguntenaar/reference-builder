@@ -17,6 +17,8 @@ import { NavigationContainer } from '@react-navigation/native';
 // AWS
 import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native';
+import { preventAutoHideAsync } from 'expo/build/launch/SplashScreen';
+import AuthTheme from './constants/AuthTheme';
 import { onCreateEvaluationRequest } from './apiwrapper/graphql/subscriptions';
 import { listEvaluations } from './apiwrapper/graphql/queries';
 
@@ -155,5 +157,4 @@ App.defaultTypes = {
 
 // export default App
 // PREBUILT UI
-const greetings = false;
-export default withAuthenticator(App, greetings);
+export default withAuthenticator(App, { includeGreetings: false }, undefined, undefined, AuthTheme);

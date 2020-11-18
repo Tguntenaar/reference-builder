@@ -211,8 +211,9 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         teamId: team.id,
         group: userContext.group,
       })
-      .catch(({ errors }) => {
-        console.log(errors);
+      .catch((error) => {
+        console.log(error);
+        console.log('cant create teammember link')
       });
 
     if (!createTeamMemberLink.errors) {
@@ -225,11 +226,13 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
 
     const promises = team.skills.items.map((skill) => {
       return api.createUserAverage({
-        userId: userContext.id,
+        userId: createdUser.id,
         skillId: skill.id,
+        group: userContext.group,
       });
     });
-    Promise.all(promises).catch(() => {
+    Promise.all(promises).catch((error) => {
+      console.log({error});
       console.log("couldn't create user averages");
     });
   };
@@ -382,10 +385,12 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     });
   };
 
-  const deleteMember = (user_id, teammemberLinkid) => {
+  // TODO: delete averages
+  const deleteMember = (userId, teammemberLinkid) => {
     api.deleteTeamMemberLink({id: teammemberLinkid}).then((response) => {
-      if (user_id) {
-        api.deleteUser({id: user_id}).then((response) => {
+      api.getUserAverage({userId })
+      if (userId) {
+        api.deleteUser({id: userId}).then((response) => {
           console.log('gelukt');
           setTeamMembers(teamMembers.filter((link) => link.id !== teammemberLinkid))
         }).catch((error) => {
@@ -393,6 +398,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         });
       }
     }).catch(console.log);
+    
   }
 
   const deactivateMember = async (teamMemberLinkId) => {

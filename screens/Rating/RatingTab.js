@@ -6,6 +6,7 @@ import {
   Text,
   RefreshControl,
   View,
+  Alert
 } from "react-native";
 import RatingBox from "../../components/RatingBox";
 import withUser from "../../contexts/withUser";
@@ -244,6 +245,33 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     }
   }, [tabContext.value]);
 
+  const deleteAverage = (rating) => {
+    console.log('called')
+    if ((tabContext.type !== "standard" || tabContext.type !== "personal")) {
+      api
+        .deleteUserAverage(rating.id)
+        .then(() => {
+          setAverageRatings(averageRatings.filter((elem) => elem.id !== rating.id))
+          console.log('gelukt');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else if (tabContext.type !== "team") {
+      api.
+        deleteTeamAverage(rating.id)
+        .then(() => {
+          setAverageRatings(averageRatings.filter((elem) => elem.id !== rating.id))
+          console.log('gelukt');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      console.warn('checkout rating tab');
+    }
+  }
+
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -296,6 +324,21 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
                   navigation.navigate("RatingsDetailsScreen", {
                     rating: averageRating,
                   });
+                }}
+                onDeleteAverage={() => {
+                  Alert.alert(
+                    'Deleting average',
+                    'Are you sure you want to?',
+                    [
+                      {
+                        text: 'Cancel',
+                        onPress: () => {},
+                        style: 'cancel',
+                      },
+                      { text: 'OK', onPress: () => deleteAverage(averageRating) },
+                    ],
+                    { cancelable: true }
+                  );
                 }}
               />
             );

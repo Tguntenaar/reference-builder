@@ -2,10 +2,11 @@ import * as React from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, Platform } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
-import { width } from '../constants/Utils';
+import { developerMode, width } from '../constants/Utils';
 import Colors from '../constants/Colors';
+import api from '../apiwrapper';
 
-const RatingBox = ({ rating, onSeeDetails }) => {
+const RatingBox = ({ rating, onSeeDetails, onDeleteAverage }) => {
   let { grade, timesRated } = rating;
   if (timesRated) {
     grade /= timesRated;
@@ -23,7 +24,7 @@ const RatingBox = ({ rating, onSeeDetails }) => {
         </View>
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{skillName}</Text>
+        <Text style={styles.title}>{rating.createdAt}</Text>
         <Text style={styles.description}>{skillDescription}</Text>
         <TouchableOpacity
           onPress={onSeeDetails}
@@ -33,6 +34,15 @@ const RatingBox = ({ rating, onSeeDetails }) => {
           <Text style={styles.seeDetails}>See details</Text>
           <Feather name="chevron-right" color="rgb(10,19,255)" style={styles.seeDetailsIcon} />
         </TouchableOpacity>
+        {developerMode ? (
+          <TouchableOpacity
+            onPress={() => onDeleteAverage(rating.id)}
+            accessibilityLabel="see rating details"
+            style={{ flexDirection: 'row', width: 100 }}
+          >
+            <Text style={styles.removeAverage}>Remove Average</Text>
+          </TouchableOpacity>
+        ) : null}
       </View>
     </View>
   );
@@ -79,6 +89,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#0a13ff',
     padding: 2,
+  },
+  removeAverage: {
+    fontFamily: 'CooperHewitt-Medium',
+    fontSize: 11,
+    width: 100,
+    color: 'red',
+    // padding: 2,
   },
   seeDetailsIcon: {
     fontSize: 12,

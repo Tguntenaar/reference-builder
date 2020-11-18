@@ -8,6 +8,7 @@ import {
   ScrollView,
   TouchableOpacity,
   RefreshControl,
+  Alert,
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
@@ -164,7 +165,7 @@ const screen = ({
 
                   <View style={styles.userInfo}>
                     <Text style={styles.name}>{manager.name}</Text>
-                    <Text style={styles.jobTitle}>{manager.jobTitle}</Text>
+                    <Text style={styles.jobTitle}>{manager.email}</Text>
                     { 
                       userContext.id === manager.id ?
                         <NextButton
@@ -291,7 +292,7 @@ const screen = ({
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>
                         <Text style={styles.name}>{user?.name}</Text>
-                        <Text style={styles.jobTitle}>{user?.jobTitle}</Text>
+                        <Text style={styles.jobTitle}>{user?.email}</Text>
                       </View>
                       {
                         deleteMemberButton?
@@ -306,7 +307,20 @@ const screen = ({
                       }
                       <TouchableOpacity
                         onPress={() => {
-                          deactivateMember(teamMemberLinkId); 
+                          Alert.alert(
+                            'Deactivating teammember',
+                            'Are you sure you want to?',
+                            [
+                              {
+                                text: 'Cancel',
+                                onPress: () => {},
+                                style: 'cancel',
+                              },
+                              { text: 'OK', onPress: () => deactivateMember(teamMemberLinkId) },
+                            ],
+                            { cancelable: true }
+                          );
+                          
                         }}
                         style={styles.teamIcon}
                       >

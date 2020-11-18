@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
   RefreshControl,
+  Alert,
 } from 'react-native';
 // aws
 import { Feather } from '@expo/vector-icons';
@@ -50,7 +51,19 @@ const UI = ({
             color="black"
             style={styles.plusIcon}
             onPress={() => {
-              Auth.signOut();
+              Alert.alert(
+                'Log Out',
+                'Are you sure you want to logout?',
+                [
+                  {
+                    text: 'Cancel',
+                    onPress: () => {},
+                    style: 'cancel',
+                  },
+                  { text: 'OK', onPress: () => Auth.signOut() },
+                ],
+                { cancelable: true }
+              );
             }}
           />
         </View>

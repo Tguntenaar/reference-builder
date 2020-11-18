@@ -22,6 +22,6 @@ function isIphoneX() {
  * -TeamMembers
  * -Teams
  */
-const developerMode = false;
+const developerMode = true;
 
 export { isIphoneX, width, height, developerMode };

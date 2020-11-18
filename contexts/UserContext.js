@@ -44,9 +44,10 @@ const UserContextProvider = (props) => {
         setUser({ ...result.data.getUser });
         setRefreshing(false);
       })
-      .catch((err) => {
-        console.log('ERROR');
-        console.log(err);
+      .catch(({ data: { getUser }, errors }) => {
+        console.log('ERRORS in UserContext.js');
+        console.log(errors.map((error) => error.message));
+        setUser(getUser);
       });
   }, [refreshing]);
   console.log('isAdmin:', isAdmin(user), 'isMangager: ', isManager(user));

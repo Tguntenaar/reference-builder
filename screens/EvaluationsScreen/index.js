@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView, Text, RefreshControl } from 'react-native';
+import { StyleSheet, ScrollView, Text, RefreshControl, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import EvaluationRequest from '../../components/EvaluationRequest';
 import withUser from '../../contexts/withUser';
@@ -54,7 +54,21 @@ function EvaluationsScreen({ navigation, userContext }) {
               key={request.id}
               request={request}
               navigation={navigation}
-              filterRequest={filterRequest}
+              filterRequest={() => {
+                Alert.alert(
+                  'Deleting request',
+                  'Are you sure you want to?',
+                  [
+                    {
+                      text: 'Cancel',
+                      onPress: () => {},
+                      style: 'cancel',
+                    },
+                    { text: 'OK', onPress: () => filterRequest() },
+                  ],
+                  { cancelable: true }
+                );
+              }}
             />
           );
         })
