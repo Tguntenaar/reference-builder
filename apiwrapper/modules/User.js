@@ -1,12 +1,15 @@
 import { API, Auth, graphqlOperation } from 'aws-amplify';
 import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
+import printAction from './Logger';
 
 export default {
   getUser: (id) => {
+    printAction('getUser called');
     return API.graphql(graphqlOperation(queries.getUser, { id }));
   },
   createUser: (input) => {
+    printAction('createUser called');
     return API.graphql(graphqlOperation(mutations.createUser, { input }));
   },
   async addToGroup(username, groupname) {
@@ -54,9 +57,11 @@ export default {
     return API.post(apiName, path, myInit);
   },
   updateUser: (input) => {
+    printAction('updateUser called');
     return API.graphql(graphqlOperation(mutations.updateUser, { input }));
   },
   deleteUser: (input) => {
+    printAction('deleteUser called');
     return API.graphql(graphqlOperation(mutations.deleteUser, { input }));
   },
 };

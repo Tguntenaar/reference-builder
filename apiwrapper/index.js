@@ -5,9 +5,11 @@ import * as queries from './graphql/queries';
 import user from './modules/User';
 import team from './modules/Team';
 import evaluation from './modules/Evaluation';
+import printAction from './modules/Logger';
 
 const company = {
   updateCompany: (input) => {
+    printAction('updateCompany called');
     return API.graphql(
       graphqlOperation(mutations.updateCompany, {
         input,
@@ -18,39 +20,68 @@ const company = {
 
 const userTeamLink = {
   createTeamMemberLink: (input) => {
+    printAction('createTeamMemberLink called');
     return API.graphql(
-      graphqlOperation(mutations.createTeamMemberLink, { input: { ...input, active: true } })
+      graphqlOperation(mutations.createTeamMemberLink, {
+        input: { ...input, active: true },
+      })
     );
   },
   updateTeamMemberLink: (input) => {
+    printAction('updateTeamMemberLink called');
     return API.graphql(graphqlOperation(mutations.updateTeamMemberLink, { input }));
   },
   deleteTeamMemberLink: (input) => {
+    printAction('deleteTeamMemberLink called');
     return API.graphql(graphqlOperation(mutations.deleteTeamMemberLink, { input }));
   },
   fixNullValuesTeamLink: () => {
+    printAction('fixNullValuesTeamLink called');
     API.graphql(graphqlOperation(queries.listTeamMemberLinks))
       .then((response) => {
         const links = response.data.listTeamMemberLinks.items;
-        for (const link of links) {
-          if (link.active === null) {
-            console.log('found null value');
+        links.map((link) => {
+          return new Promise((resolve, rej) => {
+            if (link.active === null) {
+              console.log('found null value');
 
-            API.graphql(
-              graphqlOperation(mutations.updateTeamMemberLink, {
-                id: link.id,
-                active: true,
-              })
-            )
-              .then((response) => {
-                console.log('succesfully updated to active');
-              })
-              .catch((error) => {
-                console.log(`%c CANT update`, 'color:red');
-                console.log(error);
-              });
-          }
-        }
+              API.graphql(
+                graphqlOperation(mutations.updateTeamMemberLink, {
+                  id: link.id,
+                  active: true,
+                })
+              )
+                .then((response) => {
+                  console.log('succesfully updated to active');
+                  resolve(response);
+                })
+                .catch((error) => {
+                  console.log(`%c CANT update`, 'color:red');
+                  console.log(error);
+                  reject(error);
+                });
+            }
+          });
+        });
+        // for (const link of links) {
+        //   if (link.active === null) {
+        //     console.log('found null value');
+
+        //     API.graphql(
+        //       graphqlOperation(mutations.updateTeamMemberLink, {
+        //         id: link.id,
+        //         active: true,
+        //       })
+        //     )
+        //       .then((response) => {
+        //         console.log('succesfully updated to active');
+        //       })
+        //       .catch((error) => {
+        //         console.log(`%c CANT update`, 'color:red');
+        //         console.log(error);
+        //       });
+        //   }
+        // }
       })
       .catch((error) => {
         console.log(error);
@@ -61,7 +92,9 @@ const userTeamLink = {
 const skill = {
   createSkill: (input) => {
     return API.graphql(
-      graphqlOperation(mutations.createSkill, { input: { ...input, active: true } })
+      graphqlOperation(mutations.createSkill, {
+        input: { ...input, active: true },
+      })
     );
   },
   updateSkill: (input) => {
@@ -99,7 +132,7 @@ const average = {
       })
     );
   },
-  getUserAverage: (input) => {
+  averageRatingsByUser: (input) => {
     /** { userId[, skillId] } = input  */
     return API.graphql(
       graphqlOperation(queries.averageRatingsByUser, {
@@ -111,10 +144,10 @@ const average = {
    * Gets called every time create Skill is called
    * @param {skillId, teamId}
    */
-  createTeamAverage: (ids) => {
+  createTeamAverage: (input) => {
     return API.graphql(
       graphqlOperation(mutations.createAverageTeamRating, {
-        input: { ...ids, grade: 0, timesRated: 0 },
+        input: { ...input, grade: 0, timesRated: 0 },
       })
     );
   },
@@ -132,7 +165,7 @@ const average = {
       })
     );
   },
-  getTeamAverage: (input) => {
+  averageRatingsByTeam: (input) => {
     /** { teamId[, skillId] } = input  */
     return API.graphql(
       graphqlOperation(queries.averageRatingsByTeam, {

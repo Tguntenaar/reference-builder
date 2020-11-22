@@ -13,7 +13,7 @@ import { developerMode } from '../../../constants/Utils'
 
 
 async function updateUserAverageBySkill(user, skillId) {
-  const result = await api.getUserAverage({userId: user.id})
+  const result = await api.averageRatingsByUser({userId: user.id})
   .catch((error) => {
     console.log('couldn\'t get user average');
     console.log(error);
@@ -63,7 +63,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     console.log({ evaluation });
 
      // Get user Averages
-     const averagesPromise = api.getUserAverage({
+     const averagesPromise = api.averageRatingsByUser({
        userId: evaluationRequest.user.id
       })
      .catch((error) => {

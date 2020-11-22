@@ -24,7 +24,7 @@ const RatingBox = ({ rating, onSeeDetails, onDeleteAverage }) => {
         </View>
       </View>
       <View style={styles.textBox}>
-        <Text style={styles.title}>{rating.createdAt}</Text>
+        <Text style={styles.title}>{rating.skill.name}</Text>
         <Text style={styles.description}>{skillDescription}</Text>
         <TouchableOpacity
           onPress={onSeeDetails}

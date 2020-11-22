@@ -147,44 +147,48 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   // Sync user averages and skills
   useEffect(() => {
     if (tabContext.type === "standard") {
-      
-      // effect
-      api
-        .getUserAverage({userId: userContext.id})
-        .then((result) => {
-          const {
-            data: {
-              averageRatingsByUser: {
-                items: averageRatingsByUser
+      // Check whether to update average User ratings
+      if (averageUserRatings.length < activeTeamSkills.length) {
+        // effect
+        api
+          .averageRatingsByUser({ userId: userContext.id })
+          .then((result) => {
+            const {
+              data: {
+                averageRatingsByUser: {
+                  items: averageRatingsByUser
+                },
               },
-            },
-          } = result;
-          
-          const skillsWithAverage = averageRatingsByUser.map((rating) => rating.skill.id);
-          const skillsWithoutAverage = activeTeamSkills
-            .filter((skill) => !skillsWithAverage.includes(skill.id) && skill.active);
-          
-          for (const skill of skillsWithoutAverage) {
-            api.createUserAverage({
-              userId: userContext.id,
-              skillId: skill.id,
-              group: userContext.group,
-              timesRated: 0,
-              grade: 0,
-            }).catch((error) => {
-              console.log('Can\'t create user average');
-              console.log(error);
-            });
-          }
-
-          setAverageRatings(averageRatingsByUser.filter(inactiveAverageFilter)); 
-          // setloadingRatings(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+            } = result;
+            
+            const skillsWithAverage = averageRatingsByUser.map((rating) => rating.skill.id);
+            const skillsWithoutAverage = activeTeamSkills
+              .filter((skill) => !skillsWithAverage.includes(skill.id) && skill.active);
+            
+            for (const skill of skillsWithoutAverage) {
+              api.createUserAverage({
+                userId: userContext.id,
+                skillId: skill.id,
+                group: userContext.group,
+                timesRated: 0,
+                grade: 0,
+              }).catch((error) => {
+                console.log('Can\'t create user average');
+                console.log(error);
+              });
+            }
+  
+            setAverageRatings(averageRatingsByUser.filter(inactiveAverageFilter)); 
+            // setloadingRatings(false);
+          })
+          .catch(({errors}) => {
+            console.log('test');
+            console.log(errors.map((error)=>error.message))
+            // console.log(error);
+          });
+      }
     }
-  }, [tabContext.value]);
+  }, []);
 
   // Load the ratings of some other user
   useEffect(() => {
@@ -222,22 +226,46 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           const {
             data: {
               getTeam: {
-                skills: { items: skills },
+                skills: { items: teamSkills },
                 /**
                 FIXME: possible to get ratings by skill.id and than update 
                 averageRatings if there is no averageRatings or just show the skills
               */
 
-                averageRatings: { items }, // use averageRatings or getAverages(receivedEvaluations)
+                averageRatings: { items: averageTeamRatings }, // use averageRatings or getAverages(receivedEvaluations)
                 // receivedEvaluations: { items: receivedEvaluations }
               },
             },
           } = result;
-          if (!items.length) {
-            setSkills(skills);
+          if (!averageTeamRatings.length) {
+            setSkills(teamSkills);
           }
-          setAverageRatings(items.filter(inactiveAverageFilter));
+          setAverageRatings(averageTeamRatings.filter(inactiveAverageFilter));
           setloadingRatings(false);
+          // console.log(averageTeamRatings.length < teamSkills.length);
+          // If averageRatings is not in sync
+          if (averageTeamRatings.length < teamSkills.items) {
+            // effect
+            const skillsWithAverage = averageTeamRatings.map((rating) => rating.skill.id);
+            const skillsWithoutAverage = teamSkills
+              .filter((skill) => !skillsWithAverage.includes(skill.id) && skill.active);
+        
+            for (const skill of skillsWithoutAverage) {
+              api.createTeamAverage({
+                teamId: team.id,
+                skillId: skill.id,
+                group: userContext.group,
+                timesRated: 0,
+                grade: 0,
+              }).catch((error) => {
+                console.log('Can\'t create team average');
+                console.log(error);
+              });
+            }
+
+            setAverageRatings(averageRatingsByUser.filter(inactiveAverageFilter)); 
+            // setloadingRatings(false);
+          }
         })
         .catch((error) => {
           console.log(error);

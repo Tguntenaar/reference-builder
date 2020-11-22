@@ -1,24 +1,29 @@
 import { API, graphqlOperation } from 'aws-amplify';
 import * as mutations from '../graphql/mutations';
 import * as queries from '../graphql/queries';
+import printAction from './Logger';
 
 const evaluationRequest = {
   createEvaluationRequest: (input) => {
+    printAction('createEvaluationRequest called');
     return API.graphql(graphqlOperation(mutations.createEvaluationRequest, { input }));
   },
   deleteEvaluationRequest: (input) => {
+    printAction('deleteEvaluationRequest called');
     return API.graphql(graphqlOperation(mutations.deleteEvaluationRequest, { input }));
   },
 };
 
 const rating = {
   createRating: (input) => {
+    printAction('createRating called');
     return API.graphql(graphqlOperation(mutations.createRating, { input }));
   },
 };
 
 const evaluation = {
   getEvaluationsByUser: (input) => {
+    printAction('getEvaluationsByUser called');
     return API.graphql(
       graphqlOperation(queries.evaluationsByUser, {
         ...input,
@@ -26,16 +31,19 @@ const evaluation = {
     );
   },
   createEvaluation: (input) => {
+    printAction('createEvaluation called');
     return API.graphql(graphqlOperation(mutations.createEvaluation, { input }));
   },
 
   deleteEvaluation: (input) => {
+    printAction('deleteEvaluation called');
     return API.graphql(graphqlOperation(mutations.deleteEvaluation, { input }));
   },
   /** a bug created a lot of evaluations with errors this function deletes them faster
    * then me. one by one
    */
   cleanUpEvaluations: () => {
+    printAction('cleanUpEvaluations called');
     API.graphql(
       graphqlOperation(`
         query ListEvaluations(

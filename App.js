@@ -15,12 +15,11 @@ import { NavigationContainer } from '@react-navigation/native';
 // import useLinking from './navigation/useLinking'; TODO: app.json
 
 // AWS
-import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import { preventAutoHideAsync } from 'expo/build/launch/SplashScreen';
 import AuthTheme from './constants/AuthTheme';
 import { onCreateEvaluationRequest } from './apiwrapper/graphql/subscriptions';
-import { listEvaluations } from './apiwrapper/graphql/queries';
 
 // PREBUILT UI
 // Load/fetch ratings evaluations and team members
@@ -47,6 +46,7 @@ function cacheImages(images) {
 function cacheFonts(fonts) {
   return fonts.map((font) => Font.loadAsync(font));
 }
+
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [user, setUser] = useState(defaultUser);
@@ -56,12 +56,18 @@ function App(props) {
   // const { getInitialState } = useLinking(containerRef);
 
   const loadAuth = async () => {
-    const {
-      attributes: { sub: userID },
-    } = await Auth.currentAuthenticatedUser().catch(console.log);
+    // Auth.signOut();
+    const currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(console.log);
+    const attributes = await Auth.userAttributes(currentAuthenticatedUser);
+    console.log(currentAuthenticatedUser);
+    // const { attributes } = currentAuthenticatedUser;
+    // console.log('attributes');
+    console.log(attributes);
+    // TODO: TODO: TODO:
+    let { sub: userID } = attributes;
     // Auth.signOut();
     // api.cleanUpEvaluations();
-
+    userID = 'b403da70-bea8-4e54-9cff-6a68e9d07f4d';
     const result = await api
       .getUser(userID)
       .then(({ data: { getUser } }) => {
@@ -69,6 +75,8 @@ function App(props) {
       })
       .catch(({ data: { getUser }, errors }) => {
         console.log('ERRORS in App.js');
+        console.log(errors[0]);
+
         // console.log(errors.map((error) => error.message));
         setUser(getUser);
       });

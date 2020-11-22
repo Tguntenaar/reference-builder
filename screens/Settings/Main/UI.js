@@ -144,7 +144,7 @@ const UI = ({
           }
           style={styles.bottom}
         >
-          {teamsLink.items.map((link) => {
+          {teamsLink?.items ? teamsLink.items.map((link) => {
             // console.log({ link });
 
             return (
@@ -186,7 +186,7 @@ const UI = ({
                 </View>
               </View>
             );
-          })}
+          }):null}
         </ScrollView>
       </View>
     </View>

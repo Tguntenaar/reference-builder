@@ -388,7 +388,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   // TODO: delete averages
   const deleteMember = (userId, teammemberLinkid) => {
     api.deleteTeamMemberLink({id: teammemberLinkid}).then((response) => {
-      api.getUserAverage({userId })
+     
       if (userId) {
         api.deleteUser({id: userId}).then((response) => {
           console.log('gelukt');

@@ -49,9 +49,15 @@ const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider({
   apiVersion: '2016-04-18',
 });
 
-async function sendEmail(record) {
+function sendEmail(record, warnAdmin) {
   // Send email
   // https://aws.amazon.com/premiumsupport/knowledge-center/lambda-send-email-ses/
+  const subject = warnAdmin ? 'On create user error' : 'ReferenceBuilder invite';
+  const mailData = (record) =>
+    warnAdmin
+      ? `an error occurred in onCreateUser ${JSON.stringify(warnAdmin)}`
+      : `Hey ${record.name}, you have been invited to the referencebuilder download the app in de appstore and click on this link`;
+
   const sendEmailParams = {
     Destination: {
       ToAddresses: [record.email],
@@ -59,16 +65,17 @@ async function sendEmail(record) {
     Message: {
       Body: {
         Text: {
-          Data: `Hey ${record.name}, you have been invited to the referencebuilder download the app in de appstore and click on this link`,
+          Data: mailData(record),
         },
       },
 
-      Subject: { Data: 'ReferenceBuilder invite' },
+      Subject: { Data: subject },
     },
     Source: 'thomas@guntenaar.org',
   };
 
-  const result = ses.sendEmail(sendEmailParams).promise();
+  // const result =
+  return ses.sendEmail(sendEmailParams).promise();
   /**
    * SECOND Argument
   function (err, data) {
@@ -85,10 +92,10 @@ async function sendEmail(record) {
     }
   }
   */
-  return result;
+  // return result;
 }
 
-async function adminCreateUser(record) {
+function adminCreateUser(record) {
   console.log('record - Admin create user');
   console.log(record);
   const createUserParams = {
@@ -109,9 +116,13 @@ async function adminCreateUser(record) {
     // TemporaryPassword: 'STRING_VALUE', auto generates
     UserAttributes: [
       {
-        Name: 'sub',
+        Name: 'custom:userObjectID',
         Value: record.id,
       },
+      // {
+      //   Name: 'sub',
+      //   Value: record.id,
+      // },
       {
         Name: 'email' /* required */,
         Value: record.email, // record.email,
@@ -142,19 +153,19 @@ async function adminCreateUser(record) {
   });
 }
 
-async function adminAddUserToGroup(record) {
-  const groupName = record.group;
+function adminAddUserToGroup(record) {
   const addToGroupParams = {
-    GroupName: 'jaaf', // 'STRING_VALUE', /* required */
+    GroupName: record.group, // 'STRING_VALUE', /* required */
     UserPoolId: 'us-west-2_NOUaoo6CH', // 'STRING_VALUE', /* required */
-    Username: 'thomasguntenaar@gmail.com', // 'STRING_VALUE' /* required */
+    Username: record.email, // 'STRING_VALUE' /* required */
   };
+  return cognitoidentityserviceprovider.adminAddUserToGroup(addToGroupParams).promise();
 
-  const result = await cognitoidentityserviceprovider
-    .adminAddUserToGroup(addToGroupParams)
-    .promise();
+  // const result = await cognitoidentityserviceprovider
+  //   .adminAddUserToGroup(addToGroupParams)
+  //   .promise();
 
-  return result;
+  // return result;
 }
 
 exports.handler = async (event, context, callback) => {
@@ -166,7 +177,8 @@ exports.handler = async (event, context, callback) => {
     const unmarshalledRecords = insertRecords.map((record) =>
       aws.DynamoDB.Converter.unmarshall(record.dynamodb.NewImage)
     );
-    unmarshalledRecords.forEach(console.log);
+    console.log('unmarshalledRecords');
+    console.log(typeof unmarshalledRecords);
     const createdUserPromises = unmarshalledRecords.map(adminCreateUser);
 
     const resultArray = await Promise.all(createdUserPromises);
@@ -177,7 +189,7 @@ exports.handler = async (event, context, callback) => {
     console.log('resultArray2');
     console.log(resultArray2);
 
-    const gotAMail = unmarshalledRecords.map(sendEmail);
+    const gotAMail = unmarshalledRecords.map((record) => sendEmail(record, false));
     const resultArray3 = await Promise.all(gotAMail);
     console.log('resultArray3');
     console.log(resultArray3);
@@ -203,6 +215,17 @@ exports.handler = async (event, context, callback) => {
     //   console.log(r2);
     // }
   } catch (error) {
+    try {
+      await sendEmail(
+        {
+          email: 'thomas@guntenaar.org',
+        },
+        error
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log(error);
   }
 };

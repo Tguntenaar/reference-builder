@@ -11,13 +11,21 @@ const getActiveTeamLink = (userContext) => {
   if (activeTeamLinkID) {
     return userContext.activeTeam;
   }
-  const newActiveTeamLinkID = teamsLink.items[0].id;
-  api.updateUser({
-    id: userContext.id,
-    activeTeamID: newActiveTeamLinkID,
-  });
-
-  return teamsLink.items[0];
+  if (teamsLink?.items[0]) {
+    const newActiveTeamLinkID = teamsLink.items[0].id;
+    api.updateUser({
+      id: userContext.id,
+      activeTeamID: newActiveTeamLinkID,
+    });
+    return teamsLink.items[0];
+  }
+  return { team: {
+    admins: [],
+    skills: { items: [] },
+    company: {
+      admins: []
+    }
+  }}
 };
 
 export const isManager = (userContext) => {
