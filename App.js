@@ -58,16 +58,11 @@ function App(props) {
   const loadAuth = async () => {
     // Auth.signOut();
     const currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(console.log);
-    const attributes = await Auth.userAttributes(currentAuthenticatedUser);
-    console.log(currentAuthenticatedUser);
-    // const { attributes } = currentAuthenticatedUser;
-    // console.log('attributes');
-    console.log(attributes);
-    // TODO: TODO: TODO:
-    let { sub: userID } = attributes;
+    const { attributes } = currentAuthenticatedUser;
+    const userID = attributes['custom:userObjectID'];
     // Auth.signOut();
     // api.cleanUpEvaluations();
-    userID = 'b403da70-bea8-4e54-9cff-6a68e9d07f4d';
+
     const result = await api
       .getUser(userID)
       .then(({ data: { getUser } }) => {

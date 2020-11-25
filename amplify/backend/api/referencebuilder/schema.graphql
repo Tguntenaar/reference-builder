@@ -43,6 +43,28 @@ type Colors
   gradientEnd: String!
 }
 
+# To report / mail bugs
+type Email
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      # implicit store of owner
+      # { allow: owner }
+      # Dynamic group authorization with a single group
+      { allow: groups, groupsField: "group" }
+      # Allow for API key
+      { allow: public }
+    ]
+  )
+  @key(name: "EmailByUser", fields: ["userId", "createdAt"]) {
+  id: ID!
+  createdAt: AWSDateTime
+  group: String!
+  message: String
+  userId: ID!
+  user: User @connection(fields: ["userId"])
+}
+
 type Team
   @model(subscriptions: null)
   @auth(

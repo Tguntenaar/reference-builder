@@ -49,7 +49,8 @@ const UserContextProvider = (props) => {
       .then((result) => {
         // console.log('Usercontext');
         // console.log(Object.keys(result.data.getUser));
-        setUser({ ...result.data.getUser });
+
+        setUser({ ...result.data.getUser }); //activeTeam: getActiveTeamLink(result.data.getUser)
         setRefreshing(false);
       })
       .catch(({ data: { getUser }, errors }) => {
@@ -58,7 +59,7 @@ const UserContextProvider = (props) => {
         setUser(getUser);
       });
   }, [refreshing]);
-  console.log('isAdmin:', isAdmin(user), 'isMangager: ', isManager(user));
+  console.log('isAdmin:', isAdmin(user), 'isManager: ', isManager(user));
   return (
     <UserContext.Provider
       value={{

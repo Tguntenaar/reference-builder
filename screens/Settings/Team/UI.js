@@ -171,27 +171,39 @@ const screen = ({
                         <NextButton
                           title="Request evaluations"
                           textSize={14}
-                          onPress={() => navigation.navigate('SendRequests', {
-                            members: teamMembers
-                          })}
+                          onPress={() => {
+                            if (teamMembers.length > 0) {
+                              navigation.navigate('SendRequests', {
+                                members: teamMembers
+                              });
+                            } else {
+                              Alert.alert('Add members first');
+                            }
+                          }
+                        }
                         />
                       :
                       <NextButton
                           title="Evaluate"
                           textSize={14}
                           size={45}
-                          onPress={() =>
-                            navigation.navigate('EvaluateSliders', {
-                              evaluationRequest: {
-                                user: manager,
-                                evaluator: {
-                                  id: userContext.id,
-                                  name: userContext.name,
+                          onPress={() => {
+                            if (teamSkills.filter((skill) => skill.forManager && skill.active).length > 0) {
+                              
+                              navigation.navigate('EvaluateSliders', {
+                                evaluationRequest: {
+                                  user: manager,
+                                  evaluator: {
+                                    id: userContext.id,
+                                    name: userContext.name,
+                                  },
                                 },
-                              },
-                              manager: true, // starts evaluation of non managers
-                            })
-                          }
+                                manager: true, // starts evaluation of non managers
+                              });
+                            } else {
+                              Alert.alert('First add manager skills');
+                            }
+                          }}
                         />
                     }
                   </View>
@@ -331,19 +343,22 @@ const screen = ({
                           title="Evaluate"
                           textSize={14}
                           size={45}
-                          onPress={() =>
-                            
-                            navigation.navigate('EvaluateSliders', {
-                              evaluationRequest: {
-                                user,
-                                evaluator: {
-                                  id: userContext.id,
-                                  name: userContext.name,
+                          onPress={() => {
+                            if (teamSkills.filter((skill) => !skill.forManager && skill.active).length > 0) {
+                              navigation.navigate('EvaluateSliders', {
+                                evaluationRequest: {
+                                  user,
+                                  evaluator: {
+                                    id: userContext.id,
+                                    name: userContext.name,
+                                  },
                                 },
-                              },
-                              manager: false, // starts evaluation of non managers
-                            })
-                          }
+                                manager: false, // starts evaluation of non managers
+                              });
+                            } else {
+                              Alert.alert('First add skills');
+                            }
+                          }}
                         />
                       ) : null}
                     </View>

@@ -6,7 +6,8 @@ import {
   Text,
   RefreshControl,
   View,
-  Alert
+  Alert,
+  Button,
 } from "react-native";
 import RatingBox from "../../components/RatingBox";
 import withUser from "../../contexts/withUser";
@@ -109,7 +110,6 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     },
   ];
 
-
   // FIXME: Remove dit zodra het werkt
   averageUserRatings =
     averageUserRatings && averageUserRatings.length
@@ -129,61 +129,67 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     const activeSkills = activeTeamSkills
       .filter((skill) => skill.active)
       .map((skill) => skill.id);
-    return activeSkills.includes(average.skill.id)
-  }
+    return activeSkills.includes(average.skill.id);
+  };
   // Filter
   const inactiveAndManagerFilter = (skill) => {
     return skill.active && !skill.forManager;
   };
 
-  const [loadingRatings, setloadingRatings] = useState(tabContext.type !== "standard");
+  const [loadingRatings, setloadingRatings] = useState(
+    tabContext.type !== "standard"
+  );
   const [averageRatings, setAverageRatings] = useState(
     // getAverages(receivedEvaluations)
     averageUserRatings.filter(inactiveAverageFilter)
   );
   const [skills, setSkills] = useState(activeTeamSkills);
 
-
   // Sync user averages and skills
   useEffect(() => {
     if (tabContext.type === "standard") {
-      // Check whether to update average User ratings
-      if (averageUserRatings.length < activeTeamSkills.length) {
+      // Check whether to update average User ratings TODO:
+      if (false && averageUserRatings.length < activeTeamSkills.length) {
         // effect
         api
           .averageRatingsByUser({ userId: userContext.id })
           .then((result) => {
             const {
               data: {
-                averageRatingsByUser: {
-                  items: averageRatingsByUser
-                },
+                averageRatingsByUser: { items: averageRatingsByUser },
               },
             } = result;
-            
-            const skillsWithAverage = averageRatingsByUser.map((rating) => rating.skill.id);
-            const skillsWithoutAverage = activeTeamSkills
-              .filter((skill) => !skillsWithAverage.includes(skill.id) && skill.active);
-            
+
+            const skillsWithAverage = averageRatingsByUser.map(
+              (rating) => rating.skill.id
+            );
+            const skillsWithoutAverage = activeTeamSkills.filter(
+              (skill) => !skillsWithAverage.includes(skill.id) && skill.active
+            );
+
             for (const skill of skillsWithoutAverage) {
-              api.createUserAverage({
-                userId: userContext.id,
-                skillId: skill.id,
-                group: userContext.group,
-                timesRated: 0,
-                grade: 0,
-              }).catch((error) => {
-                console.log('Can\'t create user average');
-                console.log(error);
-              });
+              api
+                .createUserAverage({
+                  userId: userContext.id,
+                  skillId: skill.id,
+                  group: userContext.group,
+                  timesRated: 0,
+                  grade: 0,
+                })
+                .catch((error) => {
+                  console.log("Can't create user average");
+                  console.log(error);
+                });
             }
-  
-            setAverageRatings(averageRatingsByUser.filter(inactiveAverageFilter)); 
+
+            setAverageRatings(
+              averageRatingsByUser.filter(inactiveAverageFilter)
+            );
             // setloadingRatings(false);
           })
-          .catch(({errors}) => {
-            console.log('test');
-            console.log(errors.map((error)=>error.message))
+          .catch(({ errors }) => {
+            console.log("test");
+            console.log(errors.map((error) => error.message));
             // console.log(error);
           });
       }
@@ -205,7 +211,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
               },
             },
           } = result;
-          
+
           setAverageRatings(items.filter(inactiveAverageFilter)); // getAverages(receivedEvaluations)
           setloadingRatings(false);
         })
@@ -244,26 +250,33 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           setloadingRatings(false);
           // console.log(averageTeamRatings.length < teamSkills.length);
           // If averageRatings is not in sync
-          if (averageTeamRatings.length < teamSkills.items) {
+          if (false && averageTeamRatings.length < teamSkills.items) {
             // effect
-            const skillsWithAverage = averageTeamRatings.map((rating) => rating.skill.id);
-            const skillsWithoutAverage = teamSkills
-              .filter((skill) => !skillsWithAverage.includes(skill.id) && skill.active);
-        
+            const skillsWithAverage = averageTeamRatings.map(
+              (rating) => rating.skill.id
+            );
+            const skillsWithoutAverage = teamSkills.filter(
+              (skill) => !skillsWithAverage.includes(skill.id) && skill.active
+            );
+
             for (const skill of skillsWithoutAverage) {
-              api.createTeamAverage({
-                teamId: team.id,
-                skillId: skill.id,
-                group: userContext.group,
-                timesRated: 0,
-                grade: 0,
-              }).catch((error) => {
-                console.log('Can\'t create team average');
-                console.log(error);
-              });
+              api
+                .createTeamAverage({
+                  teamId: team.id,
+                  skillId: skill.id,
+                  group: userContext.group,
+                  timesRated: 0,
+                  grade: 0,
+                })
+                .catch((error) => {
+                  console.log("Can't create team average");
+                  console.log(error);
+                });
             }
 
-            setAverageRatings(averageRatingsByUser.filter(inactiveAverageFilter)); 
+            setAverageRatings(
+              averageRatingsByUser.filter(inactiveAverageFilter)
+            );
             // setloadingRatings(false);
           }
         })
@@ -274,31 +287,35 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   }, [tabContext.value]);
 
   const deleteAverage = (rating) => {
-    console.log('called')
-    if ((tabContext.type !== "standard" || tabContext.type !== "personal")) {
+    console.log("called");
+    if (tabContext.type !== "standard" || tabContext.type !== "personal") {
       api
         .deleteUserAverage(rating.id)
         .then(() => {
-          setAverageRatings(averageRatings.filter((elem) => elem.id !== rating.id))
-          console.log('gelukt');
+          setAverageRatings(
+            averageRatings.filter((elem) => elem.id !== rating.id)
+          );
+          console.log("gelukt");
         })
         .catch((error) => {
           console.log(error);
         });
     } else if (tabContext.type !== "team") {
-      api.
-        deleteTeamAverage(rating.id)
+      api
+        .deleteTeamAverage(rating.id)
         .then(() => {
-          setAverageRatings(averageRatings.filter((elem) => elem.id !== rating.id))
-          console.log('gelukt');
+          setAverageRatings(
+            averageRatings.filter((elem) => elem.id !== rating.id)
+          );
+          console.log("gelukt");
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-      console.warn('checkout rating tab');
+      console.warn("checkout rating tab");
     }
-  }
+  };
 
   return (
     <>
@@ -355,15 +372,18 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
                 }}
                 onDeleteAverage={() => {
                   Alert.alert(
-                    'Deleting average',
-                    'Are you sure you want to?',
+                    "Deleting average",
+                    "Are you sure you want to?",
                     [
                       {
-                        text: 'Cancel',
+                        text: "Cancel",
                         onPress: () => {},
-                        style: 'cancel',
+                        style: "cancel",
                       },
-                      { text: 'OK', onPress: () => deleteAverage(averageRating) },
+                      {
+                        text: "OK",
+                        onPress: () => deleteAverage(averageRating),
+                      },
                     ],
                     { cancelable: true }
                   );
@@ -373,48 +393,63 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           })
         ) : (
           <>
-            {skills && skills.filter(inactiveAndManagerFilter).length
-              ? skills.filter(inactiveAndManagerFilter).map((skill) => {
-                  return (
-                    <View
-                      key={skill.id}
+            {skills && skills.filter(inactiveAndManagerFilter).length ? (
+              skills.filter(inactiveAndManagerFilter).map((skill) => {
+                return (
+                  <View
+                    key={skill.id}
+                    style={{
+                      backgroundColor: "rgb(239, 244, 253)",
+                      width: 380,
+                      height: 150,
+                      padding: 20,
+                      marginTop: 10,
+                    }}
+                  >
+                    <Text
                       style={{
-                        backgroundColor: "rgb(239, 244, 253)",
-                        width: 380,
-                        height: 150,
-                        padding: 20,
-                        marginTop: 10,
+                        fontSize: 25,
+                        color: "black",
+                        fontWeight: "900",
                       }}
                     >
-                      <Text
-                        style={{
-                          fontSize: 25,
-                          color: "black",
-                          fontWeight: "900",
-                        }}
-                      >
-                        {skill.name}
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: 20,
-                          color: "black",
-                        }}
-                      >
-                        {skill.description}
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: 20,
-                          color: "black",
-                        }}
-                      >
-                        Has not been rated yet
-                      </Text>
-                    </View>
-                  );
-                })
-              : null}
+                      {skill.name}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 20,
+                        color: "black",
+                      }}
+                    >
+                      {skill.description}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 20,
+                        color: "black",
+                      }}
+                    >
+                      Has not been rated yet
+                    </Text>
+                  </View>
+                );
+              })
+            ) : (
+              <View>
+                <Text>
+                  {" "}
+                  This team has no skills yet. Add skills in Team Settings{" "}
+                </Text>
+                <Button
+                  title={"Go to TeamSettings"}
+                  onPress={() =>
+                    navigation.navigate("TeamSettingsScreen", {
+                      team: userContext.activeTeam.team,
+                    })
+                  }
+                />
+              </View>
+            )}
           </>
         )}
       </ScrollView>

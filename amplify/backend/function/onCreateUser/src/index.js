@@ -111,7 +111,7 @@ function adminCreateUser(record) {
       /* more items */
     ],
     ForceAliasCreation: true, // || false,
-    MessageAction: 'SUPPRESS', // RESEND | SUPPRESS, RESEND is only possible if the user still has his temporary password
+    // MessageAction: 'SUPPRESS', // RESEND | SUPPRESS, RESEND is only possible if the user still has his temporary password
     // MessageAction: 'SUPPRESS', // If MessageAction is not set, the default is to send a welcome message via email or phone (SMS).
     // TemporaryPassword: 'STRING_VALUE', auto generates
     UserAttributes: [
@@ -135,11 +135,10 @@ function adminCreateUser(record) {
     ],
     ValidationData: [],
   };
-  // const result = await cognitoidentityserviceprovider.adminCreateUser(createUserParams).promise();
-  // return result;
   return new Promise((res, rej) => {
     cognitoidentityserviceprovider.adminCreateUser(createUserParams, function (err, data) {
       if (err) {
+        console.log('Kan geeen user maken...');
         console.log(err, err.stack);
         rej(err);
         // an error occurred
@@ -178,7 +177,7 @@ exports.handler = async (event, context, callback) => {
       aws.DynamoDB.Converter.unmarshall(record.dynamodb.NewImage)
     );
     console.log('unmarshalledRecords');
-    console.log(typeof unmarshalledRecords);
+    console.log(unmarshalledRecords);
     const createdUserPromises = unmarshalledRecords.map(adminCreateUser);
 
     const resultArray = await Promise.all(createdUserPromises);

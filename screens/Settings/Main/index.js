@@ -15,7 +15,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     id: userId,
     name: username,
     jobTitle,
-    teamsLink,
+    teamsLink: allTeams,
     activeTeam: teamLink,
   } = userContext;
   // console.log(teamsLink);
@@ -28,6 +28,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
   const [selectedTeam, setSelectedTeam] = useState(teamLink.team.name);
+  const [teamsLink, setTeamsLink] = useState(allTeams);
   
   const getAvatarFromStorage = async () => {
     const url = await Storage.get(`${path}/${teamId}/avatar${userId}.jpeg`).catch(() =>
@@ -35,6 +36,23 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     );
     setAvatar({ uri: url, cache: 'force-cache' });
   };
+
+  // TODO: delete all teamMemberLink within Team
+  const deleteTeam = (link) => {
+    api.deleteTeamMemberLink({id : link.id}).then((result) => {
+      api.deleteTeam({id : link.team.id}).then((response) => {
+        console.log('deleted Team');
+        // TODO: werkt niet goed
+        setTeamsLink(teamsLink.filter((tl) => tl.id === link.id));
+      }).catch((error)=> {
+        console.log("deleteTeamMemberLink failed");
+        console.log(error);
+      })
+    }).catch((error)=> {
+      console.log("deleteTeamMemberLink failed");
+      console.log(error);
+    })
+  }
 
   const pickImage = () => {
     const options = {
@@ -112,7 +130,15 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
           teamId: response.data.createTeam.id,
           userId: userContext.id,
           group: userContext.group,
-        });
+        }).then((result) => {
+
+        }).catch((error) => {
+          console.log('createTeam failed');
+          console.log(error);
+        })
+      }).catch((error) => {
+        console.log('createTeamMemberLink failed');
+        console.log(error);
       })
     }
   }, [route.params?.newTeam]);
@@ -130,6 +156,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     navigation,
     isAdmin: userContext.isAdmin,
     isManager: userContext.isManager,
+    deleteTeam
   };
   return <Screen {...properties} />;
 };

@@ -5,6 +5,8 @@ import * as Contacts from "expo-contacts";
 import withUser from "../../../contexts/withUser";
 import api from "../../../apiwrapper";
 import UI from "./UI";
+import { Alert } from "react-native";
+import { developerMode } from "../../../constants/Utils";
 
 function TeamSettingsScreen({ userContext, route, navigation }) {
   /** het team word meegegeven
@@ -144,14 +146,19 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   // Ask for Evaluation Request
   useEffect(() => {
       if (route.params?.select) {
-        for (const { sendRequest, user: { id: userId } } of route.params.select) {
+        for (const { sendRequest, user: { id: evaluatorId } } of route.params.select) {
           if (sendRequest) {
-            const evaluationRequest = {
-              evaluatorId: userContext.id,
-              userId,
+            let evaluationRequest = {
+              evaluatorId,
+              userId: userContext.id,
               group: userContext.group,
               status: "PENDING",
             };
+            if (developerMode) {
+              evaluationRequest = { ...evaluationRequest, 
+                evaluatorId : evaluationRequest.userId, 
+                userId: evaluationRequest.evaluatorId }
+            }
             api.createEvaluationRequest(evaluationRequest).then(() => {
               console.log('succes');
             }).catch((error) => {
@@ -224,14 +231,15 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       ]);
     }
 
-    const promises = team.skills.items.map((skill) => {
+    const createUserAveragePromises = team.skills.items.map((skill) => {
       return api.createUserAverage({
         userId: createdUser.id,
         skillId: skill.id,
         group: userContext.group,
+        grade: 0, timesRated: 0
       });
     });
-    Promise.all(promises).catch((error) => {
+    Promise.all(createUserAveragePromises).catch((error) => {
       console.log({error});
       console.log("couldn't create user averages");
     });
@@ -261,14 +269,18 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   };
   
   const addManager = () => {
-    navigation.navigate('Form', {
-      name: "Choose manager", // Title of page
-      screen: "TeamSettingsScreen", // page to return to
-      post: "newManager", // When submitted
-      update: "newManager", // When try to activate
-      list: teamMembers, // List of candidates 
-      form: [], // Fields of the form { text, key, value }
-    });
+    if (teamMembers.length > 0) {
+      navigation.navigate('Form', {
+        name: "Choose manager", // Title of page
+        screen: "TeamSettingsScreen", // page to return to
+        post: "newManager", // When submitted
+        update: "newManager", // When try to activate
+        list: teamMembers, // List of candidates 
+        form: [], // Fields of the form { text, key, value }
+      });
+    } else {
+      Alert.alert('First add members');
+    }
   }
 
   const removeManager = (adminID) => {
@@ -339,6 +351,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         skillId: createdSkill.id,
         teamId: team.id,
         group: userContext.group,
+        grade: 0, timesRated: 0
       })
       .catch(({ errors }) => {
         console.log("error creating team average");

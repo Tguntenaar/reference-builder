@@ -114,9 +114,10 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           console.log("created rating");
 
           // get the average rating of skill.id
-          const oldAverage = evaluationRequest.user.averageRatings.find(
+          const oldAverage = evaluationRequest?.user?.averageRatings ? 
+          evaluationRequest?.user?.averageRatings.find(
             (averageRating) => averageRating.skillId === skill.id
-          );
+          ) : false;
           // function to update the grade
           const newAverage = (oldAverage, grade) => {
             return {
@@ -149,15 +150,31 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           }
 
           // Update team average
-          const oldTeamAverage = userContext.activeTeam.team.averageRatings.find(
+          const oldTeamAverage = userContext?.activeTeam?.team?.averageRatings ? 
+          userContext.activeTeam.team.averageRatings.find(
             (averageRating) => averageRating.skillId === skill.id
-          );
-          api
-            .updateTeamAverage(newAverage(oldTeamAverage, newGrade))
-            .catch((error) => {
-              console.log("ERROR: updateTeamAverage");
-              console.log({ error });
-            });
+          ) : false;
+          if (oldTeamAverage) {
+            api
+              .updateTeamAverage(newAverage(oldTeamAverage, newGrade))
+              .catch((error) => {
+                console.log("ERROR: updateTeamAverage");
+                console.log({ error });
+              });
+          } else {
+              api
+              .createTeamAverage({
+                teamId: userContext.activeTeam.team.id, // FIXME: activeteam?
+                skillId: skill.id,
+                group: userContext.group,
+                grade: newGrade, 
+                timesRated: 1
+              })
+              .catch((error) => {
+                console.log("Error: createTeamAverage");
+                console.log({ error });
+              })
+          }
         })
         .catch(console.log);
     });

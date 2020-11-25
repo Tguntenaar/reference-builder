@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView, Text, RefreshControl, Alert } from 'react-native';
+import { StyleSheet, ScrollView, Text, RefreshControl, Alert, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import EvaluationRequest from '../../components/EvaluationRequest';
 import withUser from '../../contexts/withUser';
@@ -31,12 +31,13 @@ function EvaluationsScreen({ navigation, userContext }) {
   const filterRequest = (id) => {
     api
       .deleteEvaluationRequest({ id })
-      .then(() => {
+      .then((result) => {
         console.log('deleted', id);
         setEvaluationRequests(evaluationRequests.filter((request) => request.id !== id));
       })
-      .catch(() => {
+      .catch((error) => {
         console.log('failed to delete request');
+        console.log({ error });
       });
   };
   return (
@@ -64,7 +65,7 @@ function EvaluationsScreen({ navigation, userContext }) {
                       onPress: () => {},
                       style: 'cancel',
                     },
-                    { text: 'OK', onPress: () => filterRequest() },
+                    { text: 'OK', onPress: () => filterRequest(request.id) },
                   ],
                   { cancelable: true }
                 );
@@ -73,7 +74,19 @@ function EvaluationsScreen({ navigation, userContext }) {
           );
         })
       ) : (
-        <Text> Wait for the Teammanager to activate a new rating round </Text>
+        <View>
+          <Text> Wait for the Teammanager to activate a new rating round </Text>
+          {userContext.isManager ? (
+            <Button
+              title="Go to TeamSettings"
+              onPress={() => {
+                navigation.navigate('TeamSettingsScreen', {
+                  team: userContext.activeTeam.team,
+                });
+              }}
+            />
+          ) : null}
+        </View>
       )}
     </ScrollView>
   );

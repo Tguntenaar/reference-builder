@@ -17,6 +17,7 @@ import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
 import styles from './style';
+import { developerMode } from '../../../constants/Utils';
 
 const UI = ({
   // submitProfileInfo,
@@ -31,6 +32,7 @@ const UI = ({
   navigation,
   isAdmin,
   isManager,
+  deleteTeam,
 }) => {
   // console.log(teamsLink.length);
   return (
@@ -182,7 +184,15 @@ const UI = ({
                       });
                     }}
                   />
-                  <TouchableOpacity style={styles.removeTouch} onPress={() => null} />
+                  {
+                    developerMode ?
+                    <TouchableOpacity style={styles.removeTouch} onPress={() => {
+                      deleteTeam(link)
+                    }}>
+                    <Text>Delete team</Text>
+                    </TouchableOpacity> : null
+                  }
+
                 </View>
               </View>
             );
