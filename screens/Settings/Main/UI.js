@@ -43,19 +43,14 @@ const UI = ({
           <View style={styles.back}>
             <BackButton onPress={() => navigation.goBack()} />
           </View>
-          <Text style={styles.pageTitle}>Settings</Text>
-          <Image style={styles.image} source={profilePicture || imageEsther} />
-          <TouchableOpacity onPress={pickImage}>
-            <Text style={styles.edit}>Edit</Text>
-          </TouchableOpacity>
           <Feather
             name="log-out"
             color="black"
-            style={styles.plusIcon}
+            style={styles.signOut}
             onPress={() => {
               Alert.alert(
-                'Log Out',
-                'Are you sure you want to logout?',
+                'Sign out',
+                'Are you sure you want to sign out?',
                 [
                   {
                     text: 'Cancel',
@@ -68,6 +63,12 @@ const UI = ({
               );
             }}
           />
+          <Text style={styles.pageTitle}>Settings</Text>
+
+          <Image style={styles.image} source={profilePicture || imageEsther} />
+          <TouchableOpacity onPress={pickImage}>
+            <Text style={styles.edit}>Edit</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.middle}>
           <View style={styles.names}>
@@ -146,11 +147,15 @@ const UI = ({
           }
           style={styles.bottom}
         >
-          {teamsLink?.items ? teamsLink.items.map((link) => {
-            // console.log({ link });
-
+          {teamsLink.map((link) => {
             return (
-              <View style={styles.card} key={link.id}>
+              <View
+                style={[
+                  styles.card,
+                  { borderWidth: link.isActive ? 1 : 0, borderColor: 'lightblue' },
+                ]}
+                key={link.id}
+              >
                 <View style={styles.imageContainer}>
                   <Image style={styles.teamImage} source={imageEsther} />
                   {/** (photo && { uri: photo.uri, cache: 'force-cache' }) */}
@@ -184,19 +189,20 @@ const UI = ({
                       });
                     }}
                   />
-                  {
-                    developerMode ?
-                    <TouchableOpacity style={styles.removeTouch} onPress={() => {
-                      deleteTeam(link)
-                    }}>
-                    <Text>Delete team</Text>
-                    </TouchableOpacity> : null
-                  }
-
+                  {developerMode ? (
+                    <TouchableOpacity
+                      style={styles.removeTouch}
+                      onPress={() => {
+                        deleteTeam(link);
+                      }}
+                    >
+                      <Text>Delete team</Text>
+                    </TouchableOpacity>
+                  ) : null}
                 </View>
               </View>
             );
-          }):null}
+          })}
         </ScrollView>
       </View>
     </View>
@@ -211,9 +217,7 @@ UI.propTypes = {
   setForm: PropTypes.func.isRequired,
   selectedTeam: PropTypes.string.isRequired,
   setSelectedTeam: PropTypes.func.isRequired,
-  teamsLink: PropTypes.shape({
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  }).isRequired,
+  teamsLink: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default UI;

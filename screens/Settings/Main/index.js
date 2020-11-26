@@ -18,18 +18,15 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     teamsLink: allTeams,
     activeTeam: teamLink,
   } = userContext;
-  // console.log(teamsLink);
-  // const team = activeTeam;
-    // teamsLink.items
-    // .filter(({ team }) => team.id === activeTeam)
-    // .map((link)=>link.team)[0];
-  // console.log(teamLink.team)
+
   const teamId = teamLink.team.id;
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
   const [selectedTeam, setSelectedTeam] = useState(teamLink.team.name);
-  const [teamsLink, setTeamsLink] = useState(allTeams);
-  
+  const [teamsLink, setTeamsLink] = useState(allTeams.items.map((link) => {
+    return {...link, isActive: link.id === teamLink.id }
+  }));
+
   const getAvatarFromStorage = async () => {
     const url = await Storage.get(`${path}/${teamId}/avatar${userId}.jpeg`).catch(() =>
       console.log(`ERROR: Can't get() image`)
@@ -37,13 +34,27 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     setAvatar({ uri: url, cache: 'force-cache' });
   };
 
+  const setActiveTeam = (teamLinkID) => {
+    api.updateUser({
+      id: userContext.id,
+      activeTeamID: teamLinkID,
+    }).then((response) => {
+      console.log('Updated active team succesfully');
+      setTeamsLink(allTeams.items.map((link) => {
+        return { ...link, isActive: link.id === teamLinkID }
+      }))
+    }).catch((error) => {
+      console.log('updateUser failed');
+      console.log()
+    });
+  }
+
   // TODO: delete all teamMemberLink within Team
   const deleteTeam = (link) => {
     api.deleteTeamMemberLink({id : link.id}).then((result) => {
       api.deleteTeam({id : link.team.id}).then((response) => {
         console.log('deleted Team');
-        // TODO: werkt niet goed
-        setTeamsLink(teamsLink.filter((tl) => tl.id === link.id));
+        setTeamsLink(teamsLink.filter((tl) => tl.id !== link.id));
       }).catch((error)=> {
         console.log("deleteTeamMemberLink failed");
         console.log(error);
@@ -75,6 +86,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
         console.log(err);
       });
   };
+  
   const uploadToStorage = async (pathToImageFile) => {
     try {
       const response = await fetch(pathToImageFile);
@@ -130,8 +142,8 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
           teamId: response.data.createTeam.id,
           userId: userContext.id,
           group: userContext.group,
-        }).then((result) => {
-
+        }).then(({ data: { createTeamMemberLink }}) => {
+          setTeamsLink([...teamsLink, createTeamMemberLink]);
         }).catch((error) => {
           console.log('createTeam failed');
           console.log(error);

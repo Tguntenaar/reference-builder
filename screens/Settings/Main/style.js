@@ -95,6 +95,12 @@ export default StyleSheet.create({
   plusIcon: {
     fontSize: 14,
   },
+  signOut: {
+    fontSize: 18,
+    position: 'absolute',
+    top: 20,
+    right: 10,
+  },
   teamIcon: {
     fontSize: 22,
     position: 'absolute',
