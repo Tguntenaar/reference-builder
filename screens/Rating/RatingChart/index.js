@@ -13,6 +13,33 @@ import api from '../../../apiwrapper';
 import withUser from '../../../contexts/withUser';
 import Colors from '../../../constants/Colors';
 
+const curday = function (sp) {
+  const today = new Date();
+  let dd = today.getDate();
+  const monthIndex = today.getMonth(); // As January is 0.
+  let mm = monthIndex + 1;
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  const yyyy = today.getFullYear();
+
+  if (dd < 10) dd = `0${dd}`;
+  if (mm < 9) mm = `0${mm}`;
+  // return mm + sp + dd + sp + yyyy;
+  return `${monthNames[monthIndex]} ${yyyy}`;
+};
+
 function RatingChart({ navigation, route, userContext }) {
   const {
     rating: { skill },
@@ -41,6 +68,8 @@ function RatingChart({ navigation, route, userContext }) {
     },
   ]);
 
+  const [chartData, setchartData] = useState(false);
+
   useEffect(() => {
     // const getEvaluations =
     (async () => {
@@ -50,7 +79,7 @@ function RatingChart({ navigation, route, userContext }) {
       // .catch(({ errors }) => {
       //   console.log(errors);
       // });
-      console.log({ result });
+      // console.log({ result });
       if (result.errors || !result.data) {
         console.log('Errors happened');
       } else if (result.data.evaluationsByUser.items.length) {
@@ -63,7 +92,7 @@ function RatingChart({ navigation, route, userContext }) {
     // return () => {
     //   // no cleanup
     // };
-  }, []);
+  }, [chartData]);
   // filter evaluations die de juiste skill hebben gerate
   const gradeColor = Colors.gradeToColor(route.params.rating.grade);
 
@@ -110,12 +139,18 @@ function RatingChart({ navigation, route, userContext }) {
         </View>
         <View style={styles.middle}>
           <View style={styles.chart}>
-            <Chart />
+            {chartData ? (
+              <Chart />
+            ) : (
+              <View style={styles.replacement}>
+                <Text style={styles.replacementText}> Not enough data yet. </Text>
+              </View>
+            )}
           </View>
         </View>
         <View style={styles.bottom}>
           <ScrollView contentContainerStyle={styles.scroll}>
-            <Text style={styles.date}>October 2019</Text>
+            <Text style={styles.date}>{curday('/')}</Text>
             {evaluations.map((evaluation) => {
               const hasSameSkill = (rating) => rating.skill.id === route.params.rating.skill.id;
               // If this evaluation has no ratings with this skill dont show it.

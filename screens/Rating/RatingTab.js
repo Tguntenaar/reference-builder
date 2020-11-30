@@ -100,10 +100,12 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   } = userContext;
   const template = [
     {
-      id: "averageRatingId",
+      id: "template",
+      active: true,
       grade: 8.4,
       skill: {
-        id: "skillId",
+        id: "template",
+        active: true,
         name: "Template Fake Skill",
         description: "lorem ipsum",
       },
@@ -129,7 +131,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
     const activeSkills = activeTeamSkills
       .filter((skill) => skill.active)
       .map((skill) => skill.id);
-    return activeSkills.includes(average.skill.id);
+    return activeSkills.includes(average.skill.id) || average.skill.id === 'template';
   };
   // Filter
   const inactiveAndManagerFilter = (skill) => {

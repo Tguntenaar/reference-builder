@@ -28,6 +28,8 @@ function EvaluationsScreen({ navigation, userContext }) {
   }
 
   const [evaluationRequests, setEvaluationRequests] = useState(items);
+
+  // Remove a request
   const filterRequest = (id) => {
     api
       .deleteEvaluationRequest({ id })

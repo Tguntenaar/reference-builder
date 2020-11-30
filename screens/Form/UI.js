@@ -103,6 +103,8 @@ UI.propTypes = {
       post: PropTypes.string,
       screen: PropTypes.string.isRequired,
       name: PropTypes.string,
+      list: PropTypes.arrayOf(PropTypes.object),
+      update: PropTypes.string,
     }).isRequired,
   }),
   navigation: PropTypes.object.isRequired,

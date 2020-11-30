@@ -39,6 +39,20 @@ const styles = StyleSheet.create({
   chart: {
     alignSelf: 'center',
   },
+  replacement: {
+    alignSelf: 'center',
+    width: width - 40,
+    backgroundColor: 'rgb(10,185,255)',
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+  },
+  replacementText: {
+    color: 'white',
+    fontFamily: 'CooperHewitt-Heavy',
+    fontSize: 20,
+  },
   date: {
     alignSelf: 'flex-start',
     justifyContent: 'space-between',

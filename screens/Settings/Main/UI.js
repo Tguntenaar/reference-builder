@@ -83,6 +83,8 @@ const UI = ({
                   name: 'Change name',
                   screen: 'SettingsScreen',
                   post: 'post',
+                  update: 'post',
+                  list: [],
                   form: [
                     {
                       text: 'Name',

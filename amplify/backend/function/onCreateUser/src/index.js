@@ -176,6 +176,10 @@ exports.handler = async (event, context, callback) => {
     const unmarshalledRecords = insertRecords.map((record) =>
       aws.DynamoDB.Converter.unmarshall(record.dynamodb.NewImage)
     );
+
+    if (!unmarshalledRecords.length) {
+      return;
+    }
     console.log('unmarshalledRecords');
     console.log(unmarshalledRecords);
     const createdUserPromises = unmarshalledRecords.map(adminCreateUser);

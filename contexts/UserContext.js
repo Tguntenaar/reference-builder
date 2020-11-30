@@ -40,25 +40,29 @@ export const isAdmin = (userContext) => {
 
 const UserContextProvider = (props) => {
   const [refreshing, setRefreshing] = React.useState(false);
-  const [user, setUser] = useState({ ...props.user });
+  const [user, setUserContext] = useState({ ...props.user });
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    // console.log(user);
+    console.log("user");
     api
       .getUser(user.id)
       .then((result) => {
         // console.log('Usercontext');
         // console.log(Object.keys(result.data.getUser));
-
-        setUser({ ...result.data.getUser }); //activeTeam: getActiveTeamLink(result.data.getUser)
+        let {
+          receivedRequests: { items },
+        } = result.data.getUser;
+        console.log(items.length);
+        setUserContext({ ...result.data.getUser }); // activeTeam: getActiveTeamLink(result.data.getUser)
         setRefreshing(false);
       })
       .catch(({ data: { getUser }, errors }) => {
         console.log('ERRORS in UserContext.js');
         console.log(errors.map((error) => error.message));
-        setUser(getUser);
+        setUserContext(getUser);
       });
   }, [refreshing]);
+
   console.log('isAdmin:', isAdmin(user), 'isManager: ', isManager(user));
   return (
     <UserContext.Provider
@@ -66,6 +70,7 @@ const UserContextProvider = (props) => {
         ...user,
         refreshing,
         onRefresh,
+        setUserContext,
         isAdmin: isAdmin(user),
         isManager: isManager(user),
       }}
