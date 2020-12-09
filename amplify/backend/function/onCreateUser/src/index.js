@@ -43,6 +43,7 @@ aws.config.update({
   accessKeyId: 'AKIA3I3KBEQ443REAAN7',
   secretAccessKey: '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',
 });
+
 const ses = new aws.SES({ region: 'us-west-2' });
 
 const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider({
@@ -119,10 +120,10 @@ function adminCreateUser(record) {
         Name: 'custom:userObjectID',
         Value: record.id,
       },
-      // {
-      //   Name: 'sub',
-      //   Value: record.id,
-      // },
+      {
+        Name: 'custom:group',
+        Value: record.group,
+      },
       {
         Name: 'email' /* required */,
         Value: record.email, // record.email,
@@ -139,9 +140,27 @@ function adminCreateUser(record) {
     cognitoidentityserviceprovider.adminCreateUser(createUserParams, function (err, data) {
       if (err) {
         console.log('Kan geeen user maken...');
-        console.log(err, err.stack);
-        rej(err);
-        // an error occurred
+        // console.log(err, err.stack);
+        console.log('err.code');
+        console.log(err.code);
+        if (err.code === 'UsernameExistsException') {
+          const newParams = { ...createUserParams, MessageAction: 'RESEND' };
+          // TODO: RESEND
+          console.log('NEW PARAMS', newParams);
+          cognitoidentityserviceprovider.adminCreateUser(newParams, function (err, data) {
+            if (err) {
+              console.log('Resend error...');
+              console.log(err);
+              rej(err);
+              // an error occurred
+            } else {
+              console.log('Resend success');
+              res(data);
+            } // successful response
+          });
+        } else {
+          rej(err);
+        }
       } else {
         console.log('admin create user callback');
         console.log(data);

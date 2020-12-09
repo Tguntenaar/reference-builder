@@ -38,7 +38,8 @@ const screen = ({
   addManager,
   addMember,
   admins,
-  removeManager
+  removeManager,
+  newMemberLoading,
 }) => {
   const deleteMemberButton = developerMode;
   return (
@@ -276,9 +277,7 @@ const screen = ({
             }
           </View>
           <View style={styles.row}>
-            <Text style={styles.headerTitles}>
-              Members ({teamMembers.length})
-            </Text>
+            <Text style={styles.headerTitles}>{ newMemberLoading ? "Loading.." : `Members (${teamMembers.length})` }</Text>
             <TouchableOpacity
               onPress={() => {
                 addMember();
@@ -376,6 +375,7 @@ const screen = ({
 };
 
 screen.propTypes = {
+  newMemberLoading: PropTypes.bool,
   teamMembers: PropTypes.arrayOf(PropTypes.object).isRequired,
   teamSkills: PropTypes.arrayOf(PropTypes.object).isRequired, 
   teamName: PropTypes.string.isRequired,

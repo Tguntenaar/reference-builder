@@ -49,10 +49,10 @@ const UserContextProvider = (props) => {
       .then((result) => {
         // console.log('Usercontext');
         // console.log(Object.keys(result.data.getUser));
-        let {
-          receivedRequests: { items },
-        } = result.data.getUser;
-        console.log(items.length);
+        // let {
+        //   receivedRequests: { items },
+        // } = result.data.getUser;
+        // console.log(items.length);
         setUserContext({ ...result.data.getUser }); // activeTeam: getActiveTeamLink(result.data.getUser)
         setRefreshing(false);
       })
@@ -60,6 +60,8 @@ const UserContextProvider = (props) => {
         console.log('ERRORS in UserContext.js');
         console.log(errors.map((error) => error.message));
         setUserContext(getUser);
+        setRefreshing(false);
+
       });
   }, [refreshing]);
 

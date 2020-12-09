@@ -25,6 +25,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
 
   const team = teamLink.team;
 
+  const [newMemberLoading, setNewMemberLoading] = useState(false);
+
   const [teamMembers, setTeamMembers] = useState(
     team.membersLink.items.filter(
       (link) => link.active && !team.admins.includes(link?.user?.id)
@@ -120,6 +122,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     // console.log("run effect");
     if (route.params?.newMember) {
       console.log("Creating new user");
+      setNewMemberLoading(true);
       // Post updated, do something with `route.params.post`
       // For example, send the post to the server
       const { name, jobTitle, email } = route.params.newMember;
@@ -127,7 +130,9 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         console.warn("no name | jobTitle | email for new member");
         return;
       }
-      inviteUser(name, jobTitle, email).catch((error) => {
+      inviteUser(name, jobTitle, email)
+      .then(() => setNewMemberLoading(false))
+      .catch((error) => {
         console.log("Can't create a user ");
       });
     }
@@ -443,6 +448,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
       .deleteTeamMemberLink({ id: teammemberLinkid })
       .then((response) => {
         if (userId) {
+          // FIXME: before deleting user delete evaluatingrequests en evaluations
+          // delete user averages
           api
             .deleteUser({ id: userId })
             .then((response) => {
@@ -451,8 +458,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
                 teamMembers.filter((link) => link.id !== teammemberLinkid)
               );
             })
-            .catch((error) => {
-              console.log(error);
+            .catch(({data, errors}) => {
+              console.log(errors);
             });
         }
       })
@@ -499,6 +506,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   };
 
   const properties = {
+    newMemberLoading,
     teamManagers,
     teamMembers,
     teamSkills,

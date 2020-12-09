@@ -62,6 +62,7 @@ function App(props) {
     const userID = attributes['custom:userObjectID'];
     // Auth.signOut();
     // api.cleanUpEvaluations();
+    // api.deleteUserAvagereWithOutUser();
 
     const result = await api
       .getUser(userID)

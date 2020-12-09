@@ -7,6 +7,131 @@ import team from './modules/Team';
 import evaluation from './modules/Evaluation';
 import printAction from './modules/Logger';
 
+const manageFunctions = {
+  deleteUserAvagereWithOutUser: () => {
+    console.log('deleteUserAvagereWithOutUser');
+    API.graphql(
+      graphqlOperation(`
+    query ListAverageUserRatings(
+      $filter: ModelaverageUserRatingFilterInput
+      $limit: Int
+      $nextToken: String
+    ) {
+      listAverageUserRatings(
+        filter: $filter
+        limit: $limit
+        nextToken: $nextToken
+      ) {
+        items {
+          id
+        }
+      }
+    }`)
+    )
+      .then(
+        ({
+          data: {
+            listAverageUserRatings: { items },
+          },
+        }) => {
+          const ids = items.map((object) => object.id);
+
+          API.graphql(graphqlOperation(queries.listAverageUserRatings))
+            .then(({ data: { listAverageUserRatings } }) => {
+              console.log('no errors found');
+              return true;
+            })
+            .catch(({ data, errors }) => {
+              const nonErroredObjectsIds = data.listAverageUserRatings.items
+                .filter((object) => object !== null)
+                .map((object) => object.id);
+              console.log('Total number of Objects', items.length);
+              console.log('Objects without errors: ', nonErroredObjectsIds.length);
+              const objectsIdsWithErrors = ids.filter((id) => !nonErroredObjectsIds.includes(id));
+              console.log('Objects with errors: ', objectsIdsWithErrors.length);
+              const promises = objectsIdsWithErrors.map((id) =>
+                API.graphql(
+                  graphqlOperation(mutations.deleteAverageUserRating, {
+                    input: { id },
+                  })
+                )
+              );
+              Promise.all(promises)
+                .then(() => {
+                  console.log('deleted all objects with errors');
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            });
+        }
+      )
+      .catch(() => {
+        console.log('custom query errored');
+      });
+  },
+  deleteUserAvagereWithOutUser: (listQuery, deleteMutation) => {
+    console.log('deleteUserAvagereWithOutUser');
+    // TODO: test deze functie.. + test of het missen van die filters uitmaakt.
+    // $filter: ModelaverageUserRatingFilterInput
+    // filter: $filter
+    API.graphql(
+      graphqlOperation(`
+    query ${listQuery}(
+      $limit: Int
+      $nextToken: String
+    ) {
+      ${listQuery}(
+        limit: $limit
+        nextToken: $nextToken
+      ) {
+        items {
+          id
+        }
+      }
+    }`)
+    )
+      .then(({ data }) => {
+        const { items } = data[listQuery];
+        const ids = items.map((object) => object.id);
+
+        API.graphql(graphqlOperation(listQuery))
+          .then(({ data }) => {
+            // TODO: nextToken;
+            console.log('no errors found');
+            return true;
+          })
+          .catch(({ data, errors }) => {
+            const { items: errorItems } = data[listQuery];
+            const nonErroredObjectsIds = errorItems
+              .filter((object) => object !== null)
+              .map((object) => object.id);
+            console.log('Total number of Objects', items.length);
+            console.log('Objects without errors: ', nonErroredObjectsIds.length);
+            const objectsIdsWithErrors = ids.filter((id) => !nonErroredObjectsIds.includes(id));
+            console.log('Objects with errors: ', objectsIdsWithErrors.length);
+            const promises = objectsIdsWithErrors.map((id) =>
+              API.graphql(
+                graphqlOperation(deleteMutation, {
+                  input: { id },
+                })
+              )
+            );
+            Promise.all(promises)
+              .then(() => {
+                console.log('deleted all objects with errors');
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          });
+      })
+      .catch(() => {
+        console.log('custom query errored');
+      });
+  },
+};
+
 const company = {
   updateCompany: (input) => {
     printAction('updateCompany called');
@@ -41,7 +166,7 @@ const userTeamLink = {
       .then((response) => {
         const links = response.data.listTeamMemberLinks.items;
         links.map((link) => {
-          return new Promise((resolve, rej) => {
+          return new Promise((resolve, reject) => {
             if (link.active === null) {
               console.log('found null value');
 
@@ -183,4 +308,5 @@ export default {
   ...company,
   ...skill,
   ...evaluation,
+  ...manageFunctions,
 };

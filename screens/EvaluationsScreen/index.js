@@ -26,7 +26,7 @@ function EvaluationsScreen({ navigation, userContext }) {
   if (!items) {
     items = [];
   }
-
+  // FIXME: when usercontext updates this screen doesn't update
   const [evaluationRequests, setEvaluationRequests] = useState(items);
 
   // Remove a request
