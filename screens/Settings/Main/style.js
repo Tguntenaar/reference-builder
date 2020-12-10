@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { width, height, isIphoneX } from '../../../constants/Utils';
+import { width, height } from '../../../constants/Utils';
 
 const imageSize = 110;
 const imageSizeTeam = 110;
@@ -7,6 +7,7 @@ const imageSizeTeam = 110;
 export default StyleSheet.create({
   safe: {
     flexGrow: 1,
+    backgroundColor: '#fff',
   },
   container: {
     flex: 1,
@@ -16,7 +17,6 @@ export default StyleSheet.create({
   },
   top: {
     height: 0.3 * height,
-    marginTop: isIphoneX() ? 30 : 0,
     // backgroundColor: 'red',
     width,
     // flexDirection: 'row',

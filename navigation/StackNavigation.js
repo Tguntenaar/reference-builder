@@ -127,13 +127,16 @@ function StackNavigation({ user }) {
                   <Image source={imageEsther} style={styles.image}/>
                 </TouchableOpacity>)
       },
-      headerRight: () => (
-        <HeaderRightContent
-          onPress={() => {
-            navigation.navigate('SettingsScreen')
-          }}
-        />
-      ),
+      headerRight: () => {
+          const { index, routes } = navigation.dangerouslyGetState();
+          console.log(routes[index].name)
+          return navigation ?  <HeaderRightContent
+            onPress={() => {
+              navigation.navigate('SettingsScreen')
+            }}
+          />: null
+        
+      },
     });
   }
 

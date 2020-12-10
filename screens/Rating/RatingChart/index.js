@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Text, View, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
-// import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 import BackButton from '../../../components/BackButton';
 import Circle from '../../../components/Circle';
@@ -100,7 +99,6 @@ function RatingChart({ navigation, route, userContext }) {
     <>
       <SafeAreaView style={styles.safe} />
       <SafeAreaView style={styles.safe2}>
-        {/* <View style={styles.container}> */}
         <View style={styles.top}>
           <LinearGradient colors={['rgb(10,185,255)', 'rgb(10,19,255)']} style={styles.header}>
             <Circle />
@@ -173,7 +171,6 @@ function RatingChart({ navigation, route, userContext }) {
             })}
           </ScrollView>
         </View>
-        {/* </View> */}
       </SafeAreaView>
     </>
   );

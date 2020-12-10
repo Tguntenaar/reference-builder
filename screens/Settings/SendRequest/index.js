@@ -8,8 +8,6 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-// import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-// import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
@@ -57,7 +55,9 @@ function sendEvaluationRequests({ navigation, route }) {
                     key={link.id}
                     style={[
                       styles.imageContainer,
-                      { backgroundColor: link.sendRequest ? 'rgb(0,255,49)' : 'transparent' },
+                      {
+                        backgroundColor: link.sendRequest ? 'rgb(0,255,49)' : 'transparent',
+                      },
                     ]}
                     onPress={() => {
                       const temp = select.slice();

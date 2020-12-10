@@ -52,7 +52,7 @@ function EvaluationsScreen({ navigation, userContext }) {
     >
       {evaluationRequests.length ? (
         evaluationRequests.map((request) => {
-          return (
+          return request ? (
             <EvaluationRequest
               key={request.id}
               request={request}
@@ -73,7 +73,7 @@ function EvaluationsScreen({ navigation, userContext }) {
                 );
               }}
             />
-          );
+          ) : null;
         })
       ) : (
         <View>

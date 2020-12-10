@@ -9,6 +9,7 @@ import {
   ScrollView,
   RefreshControl,
   Alert,
+  SafeAreaView,
 } from 'react-native';
 // aws
 import { Feather } from '@expo/vector-icons';
@@ -36,7 +37,7 @@ const UI = ({
 }) => {
   // console.log(teamsLink.length);
   return (
-    <View style={styles.safe}>
+    <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.top}>
@@ -207,7 +208,7 @@ const UI = ({
           })}
         </ScrollView>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

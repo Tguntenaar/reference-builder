@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import { isIphoneX, height, width } from '../../../constants/Utils';
+import { height, width } from '../../../constants/Utils';
 
 const circleSize = 70;
 const mediumRingSize = circleSize + 12;
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   bigRing: {
+    // position: 'absolute',
     backgroundColor: '#fff',
     height: bigRingSize,
     width: bigRingSize,
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
     borderRadius: circleSize / 2,
     alignItems: 'center',
     justifyContent: 'center',
+    zIndex: 4,
   },
   grade: {
     color: 'white',

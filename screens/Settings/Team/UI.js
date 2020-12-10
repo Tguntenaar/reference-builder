@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   RefreshControl,
   Alert,
+  SafeAreaView
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
@@ -43,6 +44,7 @@ const screen = ({
 }) => {
   const deleteMemberButton = developerMode;
   return (
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
     <ScrollView
       contentContainerStyle={{
         flexGrow: 1,
@@ -173,13 +175,13 @@ const screen = ({
                           title="Request evaluations"
                           textSize={14}
                           onPress={() => {
-                            if (teamMembers.length > 0) {
+                            // if (teamMembers.length > 0) {
                               navigation.navigate('SendRequests', {
                                 members: teamMembers
                               });
-                            } else {
-                              Alert.alert('Add members first');
-                            }
+                            // } else {
+                            //   Alert.alert('Add members first');
+                            // }
                           }
                         }
                         />
@@ -371,6 +373,7 @@ const screen = ({
         </View>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 };
 

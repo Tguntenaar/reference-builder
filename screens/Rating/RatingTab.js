@@ -368,6 +368,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
                 rating={averageRating}
                 gradeColor="rgb(10,185,255)"
                 onSeeDetails={() => {
+                  // TODO: fix circle 
                   navigation.navigate("RatingsDetailsScreen", {
                     rating: averageRating,
                   });

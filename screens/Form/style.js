@@ -1,13 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { height, width, isIphoneX } from '../../constants/Utils';
+import { height, width } from '../../constants/Utils';
 
 const style = StyleSheet.create({
+  safe: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
   container: {
     alignItems: 'center',
     justifyContent: 'flex-start',
     flex: 1,
     backgroundColor: 'white',
-    paddingTop: isIphoneX() ? 30 : 0,
   },
   top: {
     height: 0.15 * height,

@@ -70,8 +70,8 @@ const manageFunctions = {
         console.log('custom query errored');
       });
   },
-  deleteUserAvagereWithOutUser: (listQuery, deleteMutation) => {
-    console.log('deleteUserAvagereWithOutUser');
+  deleteObjectsWithErrors: (listQuery, deleteMutation) => {
+    console.log('deleting');
     // TODO: test deze functie.. + test of het missen van die filters uitmaakt.
     // $filter: ModelaverageUserRatingFilterInput
     // filter: $filter

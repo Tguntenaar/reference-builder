@@ -1,12 +1,11 @@
 import { Platform, StyleSheet } from 'react-native';
-import { isIphoneX, height, width } from '../../../constants/Utils';
+import { height, width } from '../../../constants/Utils';
 
 const imageHeights = 80;
 const styles = StyleSheet.create({
   safeTop: {
     backgroundColor: 'rgb(10,185,255)',
     flex: 0,
-    paddingTop: isIphoneX() ? 0 : 30,
   },
   safe: {
     flex: 0,

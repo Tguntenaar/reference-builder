@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { width, height, isIphoneX } from '../../../constants/Utils';
+import { width, height } from '../../../constants/Utils';
 
 const imageSize = 88;
 
@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   top: {
-    height: 0.2 * height,
-    marginTop: isIphoneX() ? 30 : 0,
+    height: 0.15 * height,
     width,
     alignItems: 'center',
     justifyContent: 'center',
