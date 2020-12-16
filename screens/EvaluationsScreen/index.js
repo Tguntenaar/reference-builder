@@ -39,7 +39,7 @@ function EvaluationsScreen({ navigation, userContext }) {
       })
       .catch((error) => {
         console.log('failed to delete request');
-        console.log({ error });
+        console.log(error);
       });
   };
   return (

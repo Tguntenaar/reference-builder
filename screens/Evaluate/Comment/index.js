@@ -93,11 +93,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     }
 
     const userAverages = await averagesPromise;
-
-    console.log("userAverages")
-    console.log(userAverages)
-    console.log("userAverages")
-
+  
     // For each skill create rating
     sliders.forEach((skill) => {
       const newGrade = parseInt(skill.grade, 10);
@@ -114,14 +110,18 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           console.log("created rating");
 
           // get the average rating of skill.id
-          const oldAverage = evaluationRequest?.user?.averageRatings ? 
-          evaluationRequest?.user?.averageRatings.find(
+          const oldAverage = evaluationRequest?.user?.averageRatings?.items ? 
+          evaluationRequest?.user?.averageRatings.items.find(
             (averageRating) => averageRating.skillId === skill.id
           ) : false;
           // function to update the grade
           const newAverage = (oldAverage, grade) => {
+            const obj = oldAverage?.teamId ? { teamId: oldAverage.teamId } : {userId: olderAverage.userId};
             return {
-              ...oldAverage,
+              ...obj,
+              group: oldAverage.group,
+              id: oldAverage.id,
+              skillId: oldAverage.skillId,
               grade: oldAverage.grade + grade,
               timesRated: oldAverage.timesRated + 1,
             };
@@ -138,6 +138,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
             // Create
             api
               .createUserAverage({
+                group: userContext.group,
                 userId: evaluationRequest.user.id,
                 skillId: skill.id,
                 grade: newGrade,
@@ -150,8 +151,8 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           }
 
           // Update team average
-          const oldTeamAverage = userContext?.activeTeam?.team?.averageRatings ? 
-          userContext.activeTeam.team.averageRatings.find(
+          const oldTeamAverage = userContext?.activeTeam?.team?.averageRatings?.items ? 
+          userContext.activeTeam.team.averageRatings.items.find(
             (averageRating) => averageRating.skillId === skill.id
           ) : false;
           if (oldTeamAverage) {
@@ -188,6 +189,8 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     }
     // navigation.push("Tabs");
     // setStatus({ ...status, errored: true });
+    // TODO: move dit naar verschillende eindes
+    navigation.push("Tabs");
     setStatus({ ...status, loading: false });
   };
 

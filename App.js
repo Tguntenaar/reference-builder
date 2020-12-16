@@ -50,13 +50,12 @@ function cacheFonts(fonts) {
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [user, setUser] = useState(defaultUser);
-  // Load initial Navigation state TODO: sign up link
+  // Load initial Navigation state: sign up link
   // const [initialNavigationState, setInitialNavigationState] = useState();
   // const containerRef = useRef();
   // const { getInitialState } = useLinking(containerRef);
 
   const loadAuth = async () => {
-    // Auth.signOut();
     const currentAuthenticatedUser = await Auth.currentAuthenticatedUser().catch(console.log);
     const { attributes } = currentAuthenticatedUser;
     const userID = attributes['custom:userObjectID'];
@@ -76,15 +75,6 @@ function App(props) {
         // console.log(errors.map((error) => error.message));
         setUser(getUser);
       });
-
-    // const {
-    //   data: { getUser: userData },
-    //   errors,
-    // } = result;
-
-    // console.log(errors.map((error) => error.message));
-
-    // setUser(userData);
   };
 
   // Data fetching, setting up a subscription are both examples of side effects

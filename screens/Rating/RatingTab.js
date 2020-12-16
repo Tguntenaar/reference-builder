@@ -368,7 +368,6 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
                 rating={averageRating}
                 gradeColor="rgb(10,185,255)"
                 onSeeDetails={() => {
-                  // TODO: fix circle 
                   navigation.navigate("RatingsDetailsScreen", {
                     rating: averageRating,
                   });
@@ -440,7 +439,6 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
             ) : (
               <View>
                 <Text>
-                  {" "}
                   This team has no skills yet. Add skills in Team Settings{" "}
                 </Text>
                 <Button

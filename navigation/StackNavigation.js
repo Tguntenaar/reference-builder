@@ -129,8 +129,7 @@ function StackNavigation({ user }) {
       },
       headerRight: () => {
           const { index, routes } = navigation.dangerouslyGetState();
-          console.log(routes[index].name)
-          return navigation ?  <HeaderRightContent
+          return routes[index].name !== 'RatingsDetailsScreen' ?  <HeaderRightContent
             onPress={() => {
               navigation.navigate('SettingsScreen')
             }}

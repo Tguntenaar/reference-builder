@@ -47,12 +47,6 @@ const UserContextProvider = (props) => {
     api
       .getUser(user.id)
       .then((result) => {
-        // console.log('Usercontext');
-        // console.log(Object.keys(result.data.getUser));
-        // let {
-        //   receivedRequests: { items },
-        // } = result.data.getUser;
-        // console.log(items.length);
         setUserContext({ ...result.data.getUser }); // activeTeam: getActiveTeamLink(result.data.getUser)
         setRefreshing(false);
       })

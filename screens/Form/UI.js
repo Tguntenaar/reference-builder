@@ -30,8 +30,13 @@ const UI = ({ form, setForm, activateType, navigation, route }) => {
                     clearTextOnFocus={false}
                     onChangeText={(text) => {
                       // eslint-disable-next-line prefer-const
+                      let newText = text;
                       let tempForm = form.slice();
-                      tempForm[index] = { ...tempForm[index], value: text };
+                      // Always lowercase email adress
+                      if (tempForm[index].key === 'email') {
+                        newText = text.toLowerCase();
+                      }
+                      tempForm[index] = { ...tempForm[index], value: newText };
                       setForm(tempForm);
                     }}
                     style={styles.input}
