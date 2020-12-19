@@ -47,7 +47,7 @@ const UserContextProvider = (props) => {
     api
       .getUser(user.id)
       .then((result) => {
-        setUserContext({ ...result.data.getUser }); // activeTeam: getActiveTeamLink(result.data.getUser)
+        setUserContext(result.data.getUser); // activeTeam: getActiveTeamLink(result.data.getUser)
         setRefreshing(false);
       })
       .catch(({ data: { getUser }, errors }) => {

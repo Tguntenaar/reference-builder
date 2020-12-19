@@ -18,9 +18,11 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   const {
     team: { id: teamId },
   } = route.params;
+
   const {
     teamsLink: { items: links },
   } = userContext;
+  
   const teamLink = links.find((link) => link.team.id === teamId);
 
   const team = teamLink.team;

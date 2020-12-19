@@ -19,14 +19,12 @@ const styles = StyleSheet.create({
 
 function EvaluationsScreen({ navigation, userContext }) {
   // Laat express alle receivedRequests zien
-  let {
-    receivedRequests: { items },
+  const {
+    receivedRequests: { items = [] },
   } = userContext;
 
-  if (!items) {
-    items = [];
-  }
   // FIXME: when usercontext updates this screen doesn't update
+  // only on mount
   const [evaluationRequests, setEvaluationRequests] = useState(items);
 
   // Remove a request
@@ -42,6 +40,7 @@ function EvaluationsScreen({ navigation, userContext }) {
         console.log(error);
       });
   };
+
   return (
     <ScrollView
       style={styles.container}
