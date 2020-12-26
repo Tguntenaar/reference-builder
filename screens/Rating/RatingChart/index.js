@@ -7,6 +7,7 @@ import BackButton from '../../../components/BackButton';
 import Circle from '../../../components/Circle';
 import RatingDetails from '../../../components/RatingDetails';
 import Chart from '../../../components/Chart';
+import Modal from '../../../components/Modal';
 import styles from './style';
 import api from '../../../apiwrapper';
 import withUser from '../../../contexts/withUser';
@@ -66,7 +67,7 @@ function RatingChart({ navigation, route, userContext }) {
       },
     },
   ]);
-
+  const [modalVisible, setModalVisible] = useState(false);
   const [chartData, setchartData] = useState(false);
 
   useEffect(() => {
@@ -171,6 +172,7 @@ function RatingChart({ navigation, route, userContext }) {
             })}
           </ScrollView>
         </View>
+        <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       </SafeAreaView>
     </>
   );

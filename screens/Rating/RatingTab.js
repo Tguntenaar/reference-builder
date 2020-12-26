@@ -13,6 +13,8 @@ import RatingBox from "../../components/RatingBox";
 import withUser from "../../contexts/withUser";
 import withTabContext from "../../contexts/TabContext";
 import NextButton from "../../components/NextButton";
+import WarningBox from "../../components/WarningBox";
+import Modal from "../../components/Modal";
 import { width } from "../../constants/Utils";
 import api from "../../apiwrapper";
 
@@ -137,6 +139,8 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   const inactiveAndManagerFilter = (skill) => {
     return skill.active && !skill.forManager;
   };
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   const [loadingRatings, setloadingRatings] = useState(
     tabContext.type !== "standard"
@@ -454,6 +458,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
           </>
         )}
       </ScrollView>
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </>
   );
 }

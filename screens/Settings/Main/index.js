@@ -20,6 +20,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
   } = userContext;
 
   const teamId = teamLink.team.id;
+  const [modalVisible, setModalVisible] = useState(false);
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
   const [selectedTeam, setSelectedTeam] = useState(teamLink.team.name);
@@ -191,6 +192,8 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     isAdmin: userContext.isAdmin,
     isManager: userContext.isManager,
     deleteTeam,
+    modalVisible,
+    setModalVisible
   };
   return <Screen {...properties} />;
 };

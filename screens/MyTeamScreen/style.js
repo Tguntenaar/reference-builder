@@ -10,6 +10,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 50,
+    paddingBottom: 50,
   },
   text: {
     fontSize: 20,

@@ -15,6 +15,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { Auth } from 'aws-amplify';
 import NextButton from '../../../components/NextButton';
+import Modal from '../../../components/Modal';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
 import styles from './style';
@@ -34,8 +35,9 @@ const UI = ({
   isAdmin,
   isManager,
   deleteTeam,
+  modalVisible,
+  setModalVisible,
 }) => {
-  // console.log(teamsLink.length);
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -208,6 +210,7 @@ const UI = ({
           })}
         </ScrollView>
       </View>
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </SafeAreaView>
   );
 };

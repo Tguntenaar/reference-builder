@@ -35,7 +35,7 @@ export default StyleSheet.create({
     color: 'rgb(10,29,255)',
   },
   topLeft: {
-    width: 0.2 * width,
+    width: 0.25 * width,
     marginTop: 40,
     // height: 0.3 * height,
   },
@@ -66,7 +66,8 @@ export default StyleSheet.create({
   },
   middle: {
     // paddingTop: 50,
-    height: 0.15 * height,
+    height: 0.18 * height,
+    // flex: 0.5,
     // backgroundColor: 'blue',
     width: width - 40,
   },
@@ -90,6 +91,7 @@ export default StyleSheet.create({
   },
   bottom: {
     height: 0.5 * height,
+    // flex: 4,
     // backgroundColor: 'yellow',
   },
   plusIcon: {

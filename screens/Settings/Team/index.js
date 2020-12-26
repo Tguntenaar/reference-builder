@@ -22,11 +22,13 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   const {
     teamsLink: { items: links },
   } = userContext;
-  
+
   const teamLink = links.find((link) => link.team.id === teamId);
 
   const team = teamLink.team;
 
+  const [modalVisible, setModalVisible] = useState(false);
+  
   const [newMemberLoading, setNewMemberLoading] = useState(false);
 
   const [teamMembers, setTeamMembers] = useState(
@@ -527,6 +529,8 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     addMember,
     admins: team.admins,
     removeManager,
+    modalVisible, 
+    setModalVisible
   };
   return <UI {...properties} />;
 }

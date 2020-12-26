@@ -7,6 +7,7 @@ import styles from "./style";
 import NextButton from "../../../components/NextButton";
 import BackButton from "../../../components/BackButton";
 import CommentInput from "../../../components/CommentInput";
+import Modal from "../../../components/Modal";
 import api from "../../../apiwrapper";
 import withUser from "../../../contexts/withUser";
 import { developerMode } from '../../../constants/Utils'
@@ -21,10 +22,32 @@ async function updateUserAverageBySkill(user, skillId) {
 }
 
 
+const swapUserAuthor = (evaluation) => {
+  return {
+    ...evaluation,
+    userId: evaluation.authorId,
+    authorId: evaluation.userId
+  }
+}
+
+// function to update the grade
+const newAverage = (oldAverage, grade) => {
+  const obj = oldAverage?.teamId ? { teamId: oldAverage.teamId } : {userId: olderAverage.userId};
+  return {
+    ...obj,
+    group: oldAverage.group,
+    id: oldAverage.id,
+    skillId: oldAverage.skillId,
+    grade: oldAverage.grade + grade,
+    timesRated: oldAverage.timesRated + 1,
+  };
+};
+
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function EvaluateCommentScreen({ userContext, navigation, route }) {
   const [text, setText] = useState("");
+  const [modalVisible, setModalVisible] = useState(true)
   const [status, setStatus] = useState({ loading: false, errored: false });
   const { username, average, sliders, evaluationRequest } = route.params;
   
@@ -39,14 +62,6 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
      *  When creating a skill -> create team averages
      */
   };
-
-  const swapUserAuthor = (evaluation) => {
-    return {
-      ...evaluation,
-      userId: evaluation.authorId,
-      authorId: evaluation.userId
-    }
-  }
 
   const uploadEvaluation = async () => {
     setStatus({ ...status, loading: true });
@@ -70,7 +85,8 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
        console.log('couldn\'t get user average');
        console.log(error);
      })
-
+    
+    // Create evaluation
     const {
       data: {
         createEvaluation: { id: evaluationId },
@@ -78,6 +94,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       errors,
     } = await api.createEvaluation(evaluation);
     
+    // Delete if errors occured
     if (errors) {
       console.log("error in evaluate/comment/index.js");
       api
@@ -97,13 +114,16 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     // For each skill create rating
     sliders.forEach((skill) => {
       const newGrade = parseInt(skill.grade, 10);
+
       const rating = {
         evaluationId,
         skillId: skill.id,
         grade: newGrade,
         group: userContext.group,
       };
+
       console.log({ rating });
+
       api
         .createRating(rating)
         .then(() => {
@@ -114,18 +134,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           evaluationRequest?.user?.averageRatings.items.find(
             (averageRating) => averageRating.skillId === skill.id
           ) : false;
-          // function to update the grade
-          const newAverage = (oldAverage, grade) => {
-            const obj = oldAverage?.teamId ? { teamId: oldAverage.teamId } : {userId: olderAverage.userId};
-            return {
-              ...obj,
-              group: oldAverage.group,
-              id: oldAverage.id,
-              skillId: oldAverage.skillId,
-              grade: oldAverage.grade + grade,
-              timesRated: oldAverage.timesRated + 1,
-            };
-          };
+
           if (oldAverage) {
             // Update
             api
@@ -135,7 +144,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
                 console.log({ error });
               });
           } else {
-            // Create
+            // Create user averages
             api
               .createUserAverage({
                 group: userContext.group,
@@ -155,6 +164,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           userContext.activeTeam.team.averageRatings.items.find(
             (averageRating) => averageRating.skillId === skill.id
           ) : false;
+
           if (oldTeamAverage) {
             api
               .updateTeamAverage(newAverage(oldTeamAverage, newGrade))
@@ -248,6 +258,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           </View>
         </View>
       </View>
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </>
   );
   // <SafeAreaView style={styles.safe}/>

@@ -16,6 +16,7 @@ import { Feather } from '@expo/vector-icons';
 import { width, developerMode } from '../../../constants/Utils';
 
 import NextButton from '../../../components/NextButton';
+import Modal from '../../../components/Modal';
 
 import { imageEsther } from '../../../constants/Images';
 
@@ -41,6 +42,8 @@ const screen = ({
   admins,
   removeManager,
   newMemberLoading,
+  modalVisible,
+  setModalVisible
 }) => {
   const deleteMemberButton = developerMode;
   return (
@@ -373,6 +376,8 @@ const screen = ({
         </View>
       </View>
     </ScrollView>
+    <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+
     </SafeAreaView>
   );
 };

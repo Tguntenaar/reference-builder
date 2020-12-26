@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, Text, RefreshControl } from 'react-native';
 import TeamMember from '../../components/TeamMemberBox';
+import Modal from '../../components/Modal';
 import withUser from '../../contexts/withUser';
 import withTabContext from '../../contexts/TabContext';
 
@@ -23,6 +24,8 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
     membersLink: { items: membersLink },
   } = team;
   membersLink = membersLink.filter((link) => link.active);
+
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
       <ScrollView
@@ -97,6 +100,7 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
           <Text>Your not in a team yet</Text>
         )}
       </ScrollView>
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </>
   );
 }

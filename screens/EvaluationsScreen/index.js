@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, ScrollView, Text, RefreshControl, Alert, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
+import { errorIconColor } from 'aws-amplify-react-native/dist/AmplifyTheme';
 import EvaluationRequest from '../../components/EvaluationRequest';
 import withUser from '../../contexts/withUser';
+import { userContext } from '../../contexts/UserContext';
 import api from '../../apiwrapper';
+import Modal from '../../components/Modal';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,15 +21,15 @@ const styles = StyleSheet.create({
 });
 
 function EvaluationsScreen({ navigation, userContext }) {
+  // const context = useContext(userContext);
   // Laat express alle receivedRequests zien
   const {
     receivedRequests: { items = [] },
   } = userContext;
-
   // FIXME: when usercontext updates this screen doesn't update
   // only on mount
   const [evaluationRequests, setEvaluationRequests] = useState(items);
-
+  const [modalVisible, setModalVisible] = useState(false);
   // Remove a request
   const filterRequest = (id) => {
     api
@@ -89,6 +92,7 @@ function EvaluationsScreen({ navigation, userContext }) {
           ) : null}
         </View>
       )}
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </ScrollView>
   );
 }
