@@ -25,7 +25,7 @@ function TopTabNavigator({ route }) {
         width: 30,
         marginLeft: 35,
       };
-  
+  const teamView = true;
   return (
     <TabContextProvider otherUserRatings={route.params?.otherUserRatings} team={route.params?.team} >
       <Tab.Navigator
@@ -41,7 +41,7 @@ function TopTabNavigator({ route }) {
             fontSize: 12,
           },
           style: {
-            backgroundColor: "#0009EE",
+            backgroundColor: teamView ? "#6511C7": "#0009EE",
             borderBottomRightRadius: 40,
             borderBottomLeftRadius: 40,
             paddingBottom: 5,

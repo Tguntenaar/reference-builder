@@ -8,6 +8,6 @@ const { width, height } = Dimensions.get('window');
  * -TeamMembers
  * -Teams
  */
-const developerMode = true;
+const developerMode = false;
 
 export { width, height, developerMode };

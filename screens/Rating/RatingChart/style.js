@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     marginLeft: 21,
-    paddingTop: 10,
+    marginTop: 40,
   },
   middleNavigationInner: {
     marginLeft: 20,
@@ -133,8 +133,11 @@ const styles = StyleSheet.create({
   },
   settingsIcon: {
     fontSize: 25,
-    marginTop: 10,
-    marginRight: 15,
+    // marginTop: 10,
+    // marginRight: 15,
+    position: 'absolute',
+    top: 10,
+    right: 15,
   },
 });
 

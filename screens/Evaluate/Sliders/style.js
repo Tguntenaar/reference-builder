@@ -9,6 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   top: {
+    paddingTop: 30,
     flex: 0.2,
     // backgroundColor: 'grey',
   },

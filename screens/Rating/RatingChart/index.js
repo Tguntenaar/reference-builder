@@ -44,7 +44,7 @@ function RatingChart({ navigation, route, userContext }) {
   const {
     rating: { skill },
   } = route.params;
-
+  const [loading, setLoading] = useState(false);
   const [evaluations, setEvaluations] = useState([
     {
       id: '1',
@@ -75,6 +75,7 @@ function RatingChart({ navigation, route, userContext }) {
     (async () => {
       // TODO: get all evaluations per skill per user
       console.log('Retrieving all ratings per skill..');
+      setLoading(true);
       const result = await api.getEvaluationsByUser({ userId: userContext.id });
       // .catch(({ errors }) => {
       //   console.log(errors);
@@ -87,6 +88,7 @@ function RatingChart({ navigation, route, userContext }) {
       } else {
         console.log('no evaluations found');
       }
+      setLoading(false);
     })();
     // getEvaluations();
     // return () => {
@@ -150,26 +152,31 @@ function RatingChart({ navigation, route, userContext }) {
         <View style={styles.bottom}>
           <ScrollView contentContainerStyle={styles.scroll}>
             <Text style={styles.date}>{curday('/')}</Text>
-            {evaluations.map((evaluation) => {
-              const hasSameSkill = (rating) => rating.skill.id === route.params.rating.skill.id;
-              // If this evaluation has no ratings with this skill dont show it.
+            {loading ? (
+              <Text> Loading.. </Text>
+            ) : (
+              evaluations.map((evaluation) => {
+                const hasSameSkill = (rating) => rating.skill.id === route.params.rating.skill.id;
+                // If this evaluation has no ratings with this skill dont show it.
 
-              // Filter the evaluations that don't have the skill we are looking viewing
-              if (!evaluation.ratings.items.some(hasSameSkill)) return <View key={evaluation.id} />;
+                // Filter the evaluations that don't have the skill we are looking viewing
+                if (!evaluation.ratings.items.some(hasSameSkill))
+                  return <View key={evaluation.id} />;
 
-              return (
-                <RatingDetails
-                  key={evaluation.id}
-                  evaluation={evaluation}
-                  skill={skill}
-                  onViewDetails={() =>
-                    navigation.navigate('DetailedRatingScreen', {
-                      evaluation,
-                    })
-                  }
-                />
-              );
-            })}
+                return (
+                  <RatingDetails
+                    key={evaluation.id}
+                    evaluation={evaluation}
+                    skill={skill}
+                    onViewDetails={() =>
+                      navigation.navigate('DetailedRatingScreen', {
+                        evaluation,
+                      })
+                    }
+                  />
+                );
+              })
+            )}
           </ScrollView>
         </View>
         <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />

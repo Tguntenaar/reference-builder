@@ -68,8 +68,8 @@ const UI = ({
           />
           <Text style={styles.pageTitle}>Settings</Text>
 
-          <Image style={styles.image} source={profilePicture || imageEsther} />
-          <TouchableOpacity onPress={pickImage}>
+          <TouchableOpacity onPress={pickImage} style={{ alignItems: 'center' }}>
+            <Image style={styles.image} source={profilePicture || imageEsther} />
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>
         </View>
@@ -102,6 +102,7 @@ const UI = ({
                   ],
                 });
               }}
+              style={{ height: 30, width: 60, alignItems: 'flex-end' }}
             >
               <Text style={styles.edit}>Edit</Text>
             </TouchableOpacity>
