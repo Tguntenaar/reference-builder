@@ -158,7 +158,7 @@ const UI = ({
               <View
                 style={[
                   styles.card,
-                  { borderWidth: link.isActive ? 1 : 0, borderColor: 'lightblue' },
+                  // { borderWidth: link.isActive ? 1 : 0, borderColor: 'lightblue' },
                 ]}
                 key={link.id}
               >

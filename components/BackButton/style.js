@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   button: {
     // marginTop: 10,
     // marginLeft: 15,
+    zIndex: 2,
     position: 'absolute',
     top: 10,
     left: 15,

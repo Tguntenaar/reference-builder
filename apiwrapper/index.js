@@ -237,6 +237,8 @@ const average = {
    * @param {skillId, userId}
    */
   createUserAverage: (ids) => {
+    printAction('createUserAverage called');
+
     return API.graphql(
       graphqlOperation(mutations.createAverageUserRating, {
         input: { ...ids },
@@ -244,6 +246,8 @@ const average = {
     );
   },
   deleteUserAverage: (id) => {
+    printAction('deleteUserAverage called');
+
     return API.graphql(
       graphqlOperation(mutations.deleteAverageUserRating, {
         input: { id },
@@ -251,6 +255,8 @@ const average = {
     );
   },
   updateUserAverage: (input) => {
+    printAction('updateUserAverage called');
+
     return API.graphql(
       graphqlOperation(mutations.updateAverageUserRating, {
         input,
@@ -259,6 +265,8 @@ const average = {
   },
   averageRatingsByUser: (input) => {
     /** { userId[, skillId] } = input  */
+    printAction('averageRatingsByUser called');
+
     return API.graphql(
       graphqlOperation(queries.averageRatingsByUser, {
         ...input, // unfold input
@@ -284,6 +292,7 @@ const average = {
     );
   },
   updateTeamAverage: (input) => {
+    printAction('updateTeamAverage called');
     return API.graphql(
       graphqlOperation(mutations.updateAverageTeamRating, {
         input,

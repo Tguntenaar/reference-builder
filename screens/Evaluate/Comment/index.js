@@ -32,9 +32,10 @@ const swapUserAuthor = (evaluation) => {
 
 // function to update the grade
 const newAverage = (oldAverage, grade) => {
-  const obj = oldAverage?.teamId ? { teamId: oldAverage.teamId } : {userId: olderAverage.userId};
+  // const obj = oldAverage?.teamId ? { teamId: oldAverage.teamId } : {userId: oldAverage.userId};
+  // console.log({obj});
   return {
-    ...obj,
+    // ...obj,
     group: oldAverage.group,
     id: oldAverage.id,
     skillId: oldAverage.skillId,
@@ -47,7 +48,7 @@ const newAverage = (oldAverage, grade) => {
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function EvaluateCommentScreen({ userContext, navigation, route }) {
   const [text, setText] = useState("");
-  const [modalVisible, setModalVisible] = useState(true)
+  const [modalVisible, setModalVisible] = useState(false);
   const [status, setStatus] = useState({ loading: false, errored: false });
   const { username, average, sliders, evaluationRequest } = route.params;
   
@@ -134,6 +135,8 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           evaluationRequest?.user?.averageRatings.items.find(
             (averageRating) => averageRating.skillId === skill.id
           ) : false;
+          console.log('oldAverage')
+          console.log(oldAverage)
 
           if (oldAverage) {
             // Update
@@ -145,6 +148,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
               });
           } else {
             // Create user averages
+            
             api
               .createUserAverage({
                 group: userContext.group,
@@ -158,12 +162,14 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
                 console.log({ error });
               });
           }
-
+          console.log("TESTING**********************")
           // Update team average
           const oldTeamAverage = userContext?.activeTeam?.team?.averageRatings?.items ? 
           userContext.activeTeam.team.averageRatings.items.find(
             (averageRating) => averageRating.skillId === skill.id
           ) : false;
+          console.log('oldTeamAverage');
+          console.log(oldTeamAverage);
 
           if (oldTeamAverage) {
             api
@@ -187,7 +193,10 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
               })
           }
         })
-        .catch(console.log);
+        .catch((error) => {
+          console.log('DEBUGGING')
+          console.log(error);
+        });
     });
     // TODO:
     // await all createRatings
@@ -195,12 +204,14 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     // else get all created evaluations via getRating en delete ze 1 voor 1
     // await api.deleteEvaluationRequest(evaluationRequest.id);
     if (evaluationRequest?.id) {
-      await api.deleteEvaluationRequest(evaluationRequest.id);
+      await api.deleteEvaluationRequest({id:evaluationRequest.id}).catch((error) => {
+        console.log('deleteEvaluationRequest ERRORED');
+      }) ;
     }
     // navigation.push("Tabs");
     // setStatus({ ...status, errored: true });
     // TODO: move dit naar verschillende eindes
-    navigation.push("Tabs");
+    navigation.navigate("Tabs");
     setStatus({ ...status, loading: false });
   };
 

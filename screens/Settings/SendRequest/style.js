@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     flex: 0.2,
     // flexDirection: 'row',
     width,
+    // height: 10,
   },
   middle: {
     flex: 0.6,
@@ -96,6 +97,8 @@ const styles = StyleSheet.create({
   },
   header: {
     alignSelf: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
   },
 });
 

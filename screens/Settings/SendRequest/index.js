@@ -11,6 +11,7 @@ import {
 
 import { LinearGradient } from 'expo-linear-gradient';
 import PropTypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
 import styles from './style';
 
 import NextButton from '../../../components/NextButton';
@@ -18,7 +19,8 @@ import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
-function sendEvaluationRequests({ navigation, route }) {
+function sendEvaluationRequests({ route }) {
+  const navigation = useNavigation();
   const [select, setSelect] = useState(
     route.params.members.map((link) => {
       return { ...link, sendRequest: true };
@@ -39,6 +41,7 @@ function sendEvaluationRequests({ navigation, route }) {
         <View style={styles.container}>
           <View style={styles.top}>
             <BackButton
+              style={{ zIndex: 4 }}
               color={{ backgroundColor: '#fff', iconColor: 'rgb(44,44,44)' }}
               onPress={() => navigation.goBack()}
             />

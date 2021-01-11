@@ -6,10 +6,21 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  picker: {
+    width: width - 50,
+    // backgroundColor: 'blue',
+    marginTop: 20,
+    // height: 100,
+  },
+  pickerItem: {
+    fontFamily: 'CooperHewitt-Medium',
+    height: 66,
+  },
   scroll: {
+    // backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 50,
+    // marginTop: 50,
     paddingBottom: 50,
   },
   text: {

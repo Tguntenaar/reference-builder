@@ -98,7 +98,7 @@ function StackNavigation({ user }) {
   const TabNavigationHeader = ({ navigation, route }) => {
   let objURL = "https://reference-builer-avatars-dev111859-dev.s3-us-west-2.amazonaws.com/public/avatars/0/avatarb403da70-bea8-4e54-9cff-6a68e9d07f4d.jpeg";
   let key = "public/avatars/0/avatarb403da70-bea8-4e54-9cff-6a68e9d07f4d.jpeg";
-  const teamView = true;
+  const teamView = route.params?.team !== undefined;
   // let test = "public/avatars/0/avatarb403da70-bea8-4e54-9cff-6a68e9d07f4d.jpeg?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJ%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIAjHPuICsxPj5l7q1DAw8Gh7dJfrdcFRVbzcz%2FBFDH1HAiB7aSvZJ6uvYaX04X7Obn6Gw5bPq3JvDGaf29BRxohtECrEAgh4EAAaDDc3NDkyNzA5ODkzNyIMQPJTH3AqKsM2FSA4KqECYMeWX0EWyei3BrLc8jRQAQtADVO54Y%2Bgh3xR2lqT%2FKKrX2adFkwwnnyEom25o1EbmS2BiL4EEGK3f4NyPQbowjOgMw4GEQMdf22RIXRUkaD456ZXaA%2BRLFNiqGmLMZvix5D80AZsGE%2FAOJ0LK2E1rDGdrKwn%2BfSe1lQq%2Fgko%2Fm2noFyQrvsHzjUFPJwiP6b4XbzpL9dTAn09yfXoOt6jVsUiZOxOYsIZ6imJvAAwRNVJAun3IwoXhJBjEhd3gC5nIH%2FM%2BP2yEfjWqvLsFCHhNp%2BnT0ah0sJ5E6RMjZcTjGpshKJKveNf9ufvlB7tWWG%2BTVzlwgHUv00bbJUT1JnaKFhnZ71sYLrF4N2O7R8JTyC20Ad%2FmNyg13D2jZn2n0uExDCgwc%2F5BTqxAoBQNyy93domNLMJaSGPh10hmFf4GQsEbeq8vzERlct6XG4pUSYHDH0cdpkcczmE8FUbTEpuarBxrljCdvBmLI8dN0OL2mPm2l9xYJtj%2Fy1tMMadEFLGqqT6TrfP8V8cTViunaQ2ptLJ3Svzqxzq8rkx9hmUS3X093xiAg05fPIKntHG4bVvSSR5hQ2oNfxuAyczYERp8vOCJUew3K7utS%2Fx8OgwcXEOx4jDRNjtu0Rr7Dsz7YUHP5BJPXmyNcppVDJyM02uOcVHBtj%2BNFre%2BrRpDmkzqgcI0Mgrdl8vUl92Db0sgh88KuwOGsW6bfFqweS%2BlKxzSyJW29oSHYuC2%2Bd3ttmShE6EpeRYmX2SLsdvCvjM%2BE7dJ1N5LmQAwCLGH3LDnGOOK4KuBPorIxoFhz3G&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200812T143909Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIA3I3KBEQ4YZ5YKX6X%2F20200812%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=86bd8d844dbfef21281dadafe458cc9276d2be99de52ed353eaed276a4528398";
   return ({
       headerTitle: () => {    
@@ -109,6 +109,7 @@ function StackNavigation({ user }) {
         ) :
         route.params?.otherUserRatings !== undefined  ? 
         (<View style={styles.container}>
+          <Text style={styles.jobTitle}>{route.params?.otherUserRatings.jobTitle}</Text>
           <Text style={styles.name}>{route.params?.otherUserRatings.name}</Text>
         </View>) 
           :

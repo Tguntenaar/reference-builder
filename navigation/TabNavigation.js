@@ -15,6 +15,8 @@ function TopTabNavigator({ route }) {
 
   // viewPersonal - Shows the tab navigator as if a manager looks at a employee
   const viewPersonal = route.params?.otherUserRatings !== undefined;
+  const teamView = route.params?.team !== undefined;
+
   const indicatorStyle = viewPersonal
     ? {
         backgroundColor: "#fff",
@@ -25,7 +27,6 @@ function TopTabNavigator({ route }) {
         width: 30,
         marginLeft: 35,
       };
-  const teamView = true;
   return (
     <TabContextProvider otherUserRatings={route.params?.otherUserRatings} team={route.params?.team} >
       <Tab.Navigator
