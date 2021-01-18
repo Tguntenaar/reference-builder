@@ -49,7 +49,7 @@ function cacheFonts(fonts) {
 
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  const [user, setUser] = useState(defaultUser);
+  const [user, setUser] = useState(defaultUser); // FIXME: useReducer + dont keep state user twice...
   // Load initial Navigation state: sign up link
   // const [initialNavigationState, setInitialNavigationState] = useState();
   // const containerRef = useRef();
@@ -66,7 +66,7 @@ function App(props) {
     const result = await api
       .getUser(userID)
       .then(({ data: { getUser } }) => {
-        setUser(getUser);
+        setUser({ ...getUser, name: `${getUser.name} 1` });
       })
       .catch(({ data: { getUser }, errors }) => {
         console.log('ERRORS in App.js');
@@ -112,19 +112,6 @@ function App(props) {
     loadResourcesAndDataAsync();
 
     // Load only once
-  }, []);
-
-  useEffect(() => {
-    // subscribe
-
-    // const subscription = API.graphql(graphqlOperation(onCreateEvaluationRequest)).subscribe({
-    //   error: (err) => console.log('Error subscribing', err),
-    //   next: (data) => console.log('Subscription data', data.value),
-    // });
-    return () => {
-      // unsubscribe
-      // subscription.unsubscribe();
-    };
   }, []);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {

@@ -10,6 +10,7 @@ import {
   RefreshControl,
   Alert,
   SafeAreaView,
+  Switch,
 } from 'react-native';
 // aws
 import { Feather } from '@expo/vector-icons';
@@ -19,7 +20,6 @@ import Modal from '../../../components/Modal';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
 import styles from './style';
-import { developerMode } from '../../../constants/Utils';
 
 const UI = ({
   // submitProfileInfo,
@@ -37,6 +37,7 @@ const UI = ({
   deleteTeam,
   modalVisible,
   setModalVisible,
+  developerMode,
 }) => {
   return (
     <SafeAreaView style={styles.safe}>
@@ -106,6 +107,28 @@ const UI = ({
             >
               <Text style={styles.edit}>Edit</Text>
             </TouchableOpacity>
+          </View>
+          <View style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'center' }}>
+            <View>
+              <Text>DeveloperMode</Text>
+              <Switch
+                trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
+                thumbColor={developerMode ? '#f4f3f4' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={() => userContext.dispatch({ type: 'toggleDevMode' })}
+                value={developerMode}
+              />
+            </View>
+            <View style={{ marginLeft: 20 }}>
+              <Text>isManager</Text>
+              <Switch
+                trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
+                thumbColor={isManager ? '#f4f3f4' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
+                onValueChange={() => userContext.dispatch({ type: 'toggleIsManager' })}
+                value={isManager}
+              />
+            </View>
           </View>
           <View
             style={{

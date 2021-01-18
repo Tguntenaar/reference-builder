@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb', 'prettier', 'prettier/react'],
+  extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:react-hooks/recommended'],
   rules: {
     'react/jsx-filename-extension': [
       1,

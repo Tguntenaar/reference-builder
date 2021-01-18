@@ -19,6 +19,14 @@ const styles = StyleSheet.create({
     width,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  edit: {
+    marginTop: 10,
+    padding: 2,
+    color: 'blue',
+    fontSize: 14,
+    fontFamily: 'CooperHewitt-Medium',
   },
   back: {
     position: 'absolute',
@@ -74,6 +82,8 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
     marginTop: 0,
+    width: width - 140,
+    textAlign: 'center',
   },
   plusIcon: {
     fontSize: 14,

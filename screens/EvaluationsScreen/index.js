@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { errorIconColor } from 'aws-amplify-react-native/dist/AmplifyTheme';
 import EvaluationRequest from '../../components/EvaluationRequest';
 import withUser from '../../contexts/withUser';
-import { userContext } from '../../contexts/UserContext';
+import { UserContext } from '../../contexts/UserContext';
 import api from '../../apiwrapper';
 import Modal from '../../components/Modal';
 
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 function EvaluationsScreen({ navigation, userContext }) {
-  // const context = useContext(userContext);
+  // const userContext = useContext(UserContext);
   // Laat express alle receivedRequests zien
   const {
     receivedRequests: { items = [] },

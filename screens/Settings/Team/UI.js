@@ -60,7 +60,7 @@ const screen = ({
     >
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
-        <View style={styles.top}>
+      <View style={styles.top}>
           <View style={styles.back}>
             <BackButton onPress={() => navigation.goBack()} />
           </View>
@@ -72,6 +72,7 @@ const screen = ({
             value={teamName}
             placeholder="Team name"
           />
+          {/*<Text style={styles.edit}>Edit</Text>*/}
         </View>
         <View style={styles.middle}>
           {/** MANAGER SKILLS */}

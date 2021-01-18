@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, RefreshControl, Picker } from 'react-native';
+import { ScrollView, Text, RefreshControl, Picker, View } from 'react-native';
 import TeamMember from '../../components/TeamMemberBox';
 import Modal from '../../components/Modal';
 import withUser from '../../contexts/withUser';
@@ -29,7 +29,25 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
   membersLink = membersLink.filter((link) => link.active);
 
   return (
-    <>
+    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      {teamMemberLinks.length ? (
+        <Picker
+          selectedValue={activeTeamLink}
+          style={styles.picker}
+          itemStyle={styles.pickerItem}
+          onValueChange={(itemValue, itemIndex) => {
+            userContext.dispatch({
+              type: 'setActiveTeam',
+              activeTeamLink: teamMemberLinks[itemIndex],
+            });
+            setSelectedTeam(itemIndex);
+          }}
+        >
+          {teamMemberLinks.map((link, index) => {
+            return <Picker.Item label={link.team.name} value={link} key={link.id} />;
+          })}
+        </Picker>
+      ) : null}
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.scroll}
@@ -37,18 +55,6 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
           <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
         }
       >
-        {teamMemberLinks.length ? (
-          <Picker
-            selectedValue={activeTeamLink}
-            style={styles.picker}
-            itemStyle={styles.pickerItem}
-            onValueChange={(itemValue, itemIndex) => setSelectedTeam(itemIndex)}
-          >
-            {teamMemberLinks.map((link, index) => {
-              return <Picker.Item label={link.team.name} value={link} key={link.id} />;
-            })}
-          </Picker>
-        ) : null}
         {
           // TODO: teamMembersLInks??? of membersLink
           teamMemberLinks.length ? (
@@ -118,7 +124,7 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
         }
       </ScrollView>
       <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
-    </>
+    </View>
   );
 }
 

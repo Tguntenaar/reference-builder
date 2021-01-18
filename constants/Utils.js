@@ -9,5 +9,6 @@ const { width, height } = Dimensions.get('window');
  * -Teams
  */
 const developerMode = true;
+const debugMode = true;
 
-export { width, height, developerMode };
+export { width, height, developerMode, debugMode };

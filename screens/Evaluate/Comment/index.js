@@ -10,25 +10,24 @@ import CommentInput from "../../../components/CommentInput";
 import Modal from "../../../components/Modal";
 import api from "../../../apiwrapper";
 import withUser from "../../../contexts/withUser";
-import { developerMode } from '../../../constants/Utils'
-
+import { developerMode } from "../../../constants/Utils";
 
 async function updateUserAverageBySkill(user, skillId) {
-  const result = await api.averageRatingsByUser({userId: user.id})
-  .catch((error) => {
-    console.log('couldn\'t get user average');
-    console.log(error);
-  })
+  const result = await api
+    .averageRatingsByUser({ userId: user.id })
+    .catch((error) => {
+      console.log("couldn't get user average");
+      console.log(error);
+    });
 }
-
 
 const swapUserAuthor = (evaluation) => {
   return {
     ...evaluation,
     userId: evaluation.authorId,
-    authorId: evaluation.userId
-  }
-}
+    authorId: evaluation.userId,
+  };
+};
 
 // function to update the grade
 const newAverage = (oldAverage, grade) => {
@@ -44,14 +43,101 @@ const newAverage = (oldAverage, grade) => {
   };
 };
 
+// For each skill create rating
+const createRatings = (evaluationId, userContext, skills) => {
+  skills.forEach((skill) => {
+    const newGrade = parseInt(skill.grade, 10);
 
-// https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
+    const rating = {
+      evaluationId,
+      skillId: skill.id,
+      grade: newGrade,
+      group: userContext.group,
+    };
+
+    api
+      .createRating(rating)
+      .then(() => {
+        // Update user average
+        tryUpdateUserAverages(evaluationRequest, skill);
+        // Update team average
+        tryUpdatingTeamAverages(userContext, skill);
+      })
+      .catch((error) => {
+        console.log("Error creating Rating");
+        console.log(error);
+      });
+  });
+};
+
+// Create or update user average
+const tryUpdateUserAverages = (evaluationRequest, skill) => {
+  // get the average rating of skill.id
+  const userAverages = evaluationRequest?.user?.averageRatings?.items;
+  const oldAverage = userAverages.find(
+    (averageRating) => averageRating.skillId === skill.id
+  );
+
+  if (oldAverage) {
+    api.updateUserAverage(newAverage(oldAverage, newGrade)).catch((error) => {
+      console.log("ERROR: updateUserAverage");
+      console.log({ error });
+    });
+  } else {
+    // Create new average object
+    const userAverage = {
+      group: userContext.group,
+      userId: evaluationRequest.user.id,
+      skillId: skill.id,
+      grade: newGrade,
+      timesRated: 1,
+    };
+
+    api.createUserAverage(userAverage).catch((error) => {
+      console.log("ERROR: createUserAverage");
+      console.log({ error });
+    });
+  }
+};
+
+// Create or update team average
+const tryUpdatingTeamAverages = (userContext, skill) => {
+  // FIXME: activeteam?
+  const teamAverage = userContext?.activeTeam?.team?.averageRatings?.items;
+  const oldTeamAverage = teamAverage.find(
+    (averageRating) => averageRating.skillId === skill.id
+  );
+
+  if (oldTeamAverage) {
+    api
+      .updateTeamAverage(newAverage(oldTeamAverage, newGrade))
+      .catch((error) => {
+        console.log("ERROR: updateTeamAverage");
+        console.log(error);
+      });
+  } else {
+    api
+      .createTeamAverage({
+        teamId: userContext.activeTeam.team.id, // FIXME: activeteam?
+        skillId: skill.id,
+        group: userContext.group,
+        grade: newGrade,
+        timesRated: 1,
+      })
+      .catch((error) => {
+        console.log("Error: createTeamAverage");
+        console.log({ error });
+      });
+  }
+};
+
 function EvaluateCommentScreen({ userContext, navigation, route }) {
   const [text, setText] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [status, setStatus] = useState({ loading: false, errored: false });
+
   const { username, average, sliders, evaluationRequest } = route.params;
-  
+
   const handleText = (txt) => {
     setText(txt);
   };
@@ -64,7 +150,12 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
      */
   };
 
-  const uploadEvaluation = async () => {
+  const uploadEvaluation = async (
+    evaluationRequest,
+    text,
+    userContext,
+    sliders
+  ) => {
     setStatus({ ...status, loading: true });
 
     let evaluation = {
@@ -73,20 +164,22 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       comment: text,
       group: userContext.group,
     };
+
     if (developerMode) {
       evaluation = swapUserAuthor(evaluation);
-    } 
+    }
     console.log({ evaluation });
 
-     // Get user Averages
-     const averagesPromise = api.averageRatingsByUser({
-       userId: evaluationRequest.user.id
+    // Get user Averages
+    const averagesPromise = api
+      .averageRatingsByUser({
+        userId: evaluationRequest.user.id,
       })
-     .catch((error) => {
-       console.log('couldn\'t get user average');
-       console.log(error);
-     })
-    
+      .catch((error) => {
+        console.log("couldn't get user average");
+        console.log(error);
+      });
+
     // Create evaluation
     const {
       data: {
@@ -94,7 +187,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       },
       errors,
     } = await api.createEvaluation(evaluation);
-    
+
     // Delete if errors occured
     if (errors) {
       console.log("error in evaluate/comment/index.js");
@@ -109,110 +202,24 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           console.log("couldn't delete");
         });
     }
+    createRatings(evaluationId, userContext, sliders);
+    await averagesPromise;
 
-    const userAverages = await averagesPromise;
-  
-    // For each skill create rating
-    sliders.forEach((skill) => {
-      const newGrade = parseInt(skill.grade, 10);
-
-      const rating = {
-        evaluationId,
-        skillId: skill.id,
-        grade: newGrade,
-        group: userContext.group,
-      };
-
-      console.log({ rating });
-
-      api
-        .createRating(rating)
-        .then(() => {
-          console.log("created rating");
-
-          // get the average rating of skill.id
-          const oldAverage = evaluationRequest?.user?.averageRatings?.items ? 
-          evaluationRequest?.user?.averageRatings.items.find(
-            (averageRating) => averageRating.skillId === skill.id
-          ) : false;
-          console.log('oldAverage')
-          console.log(oldAverage)
-
-          if (oldAverage) {
-            // Update
-            api
-              .updateUserAverage(newAverage(oldAverage, newGrade))
-              .catch((error) => {
-                console.log("ERROR: updateUserAverage");
-                console.log({ error });
-              });
-          } else {
-            // Create user averages
-            
-            api
-              .createUserAverage({
-                group: userContext.group,
-                userId: evaluationRequest.user.id,
-                skillId: skill.id,
-                grade: newGrade,
-                timesRated: 1,
-              })
-              .catch((error) => {
-                console.log("ERROR: createUserAverage");
-                console.log({ error });
-              });
-          }
-          console.log("TESTING**********************")
-          // Update team average
-          const oldTeamAverage = userContext?.activeTeam?.team?.averageRatings?.items ? 
-          userContext.activeTeam.team.averageRatings.items.find(
-            (averageRating) => averageRating.skillId === skill.id
-          ) : false;
-          console.log('oldTeamAverage');
-          console.log(oldTeamAverage);
-
-          if (oldTeamAverage) {
-            api
-              .updateTeamAverage(newAverage(oldTeamAverage, newGrade))
-              .catch((error) => {
-                console.log("ERROR: updateTeamAverage");
-                console.log({ error });
-              });
-          } else {
-              api
-              .createTeamAverage({
-                teamId: userContext.activeTeam.team.id, // FIXME: activeteam?
-                skillId: skill.id,
-                group: userContext.group,
-                grade: newGrade, 
-                timesRated: 1
-              })
-              .catch((error) => {
-                console.log("Error: createTeamAverage");
-                console.log({ error });
-              })
-          }
-        })
-        .catch((error) => {
-          console.log('DEBUGGING')
-          console.log(error);
-        });
-    });
-    // TODO:
     // await all createRatings
     // if no error and !manager deleteEvaluationRequest
     // else get all created evaluations via getRating en delete ze 1 voor 1
     // await api.deleteEvaluationRequest(evaluationRequest.id);
     if (evaluationRequest?.id) {
-      await api.deleteEvaluationRequest({id:evaluationRequest.id}).catch((error) => {
-        console.log('deleteEvaluationRequest ERRORED');
-      }) ;
+      await api
+        .deleteEvaluationRequest({ id: evaluationRequest.id })
+        .catch((error) => {
+          console.log("deleteEvaluationRequest");
+        });
     }
     // navigation.push("Tabs");
     // setStatus({ ...status, errored: true });
-    // TODO: move dit naar verschillende eindes
-    navigation.navigate("Tabs");
     setStatus({ ...status, loading: false });
+    navigation.navigate("Tabs");
   };
 
   return (
@@ -263,7 +270,10 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
             <NextButton
               title="Next"
               color={{ backgroundColor: "#fff", textColor: "rgb(44,44,44)" }}
-              onPress={uploadEvaluation}
+              onPress={() => {
+                // uploadEvaluation();
+                setModalVisible(true);
+              }}
               loading={status.loading}
             />
           </View>

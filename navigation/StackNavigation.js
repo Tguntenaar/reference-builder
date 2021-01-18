@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { Image, View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
@@ -24,7 +24,7 @@ import { imageEsther } from '../constants/Images';
 
 import { S3Image } from 'aws-amplify-react-native';
 import BackButton from '../components/BackButton';
-
+import { UserContext } from '../contexts/UserContext';
 // Navigation
 const Stack = createStackNavigator();
 const imageSize = 100;
@@ -32,7 +32,7 @@ const imageSize = 100;
 function StackNavigation({ user }) {
   // user = user || { name: 'Esther Rookhuijzen', jobTitle: 'Designer' };
   const admin = true;
-
+  const userContext = useContext(UserContext) 
   const HeaderRightContent = ({ onPress }) => {
     return (
       <>
@@ -114,8 +114,8 @@ function StackNavigation({ user }) {
         </View>) 
           :
         (<View style={styles.container}>
-          <Text style={styles.jobTitle}>{user.jobTitle}</Text>
-          <Text style={styles.name}>{user.name}</Text>
+          <Text style={styles.jobTitle}>{userContext.jobTitle}</Text>
+          <Text style={styles.name}>{userContext.name}</Text>
         </View>)
       },
       headerStyle: {
@@ -153,7 +153,13 @@ function StackNavigation({ user }) {
           const { index, routes } = navigation.dangerouslyGetState();
           return routes[index].name !== 'RatingsDetailsScreen' ?  <HeaderRightContent
             onPress={() => {
-              navigation.navigate('SettingsScreen')
+              if (teamView) {
+                navigation.navigate('TeamSettingsScreen', {
+                  team: route.params.team,
+                })
+              } else {
+                navigation.navigate('SettingsScreen')
+              }
             }}
           />: null
         

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import * as ImagePicker from "expo-image-picker";
 
 // AWS
 import { Storage } from "aws-amplify";
+
+import { userContext } from '../../../contexts/UserContext';
 
 import Screen from "./UI";
 import api from "../../../apiwrapper";
@@ -10,13 +12,19 @@ import withUser from "../../../contexts/withUser";
 
 const path = "avatars";
 
+
 const SettingsScreen = ({ userContext, navigation, route }) => {
+
+  // TODO: useContext
+  // const value = useContext(userContext);
   const {
     id: userId,
     name: username,
     jobTitle,
     teamsLink: allTeams,
     activeTeam: teamLink,
+    isManager,
+    developerMode
   } = userContext;
 
   const teamId = teamLink.team.id;
@@ -29,6 +37,8 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
       return { ...link, isActive: link.id === teamLink.id };
     })
   );
+
+  const toggleSwitch = () => setIsEnabled(state => !state);
 
   const getAvatarFromStorage = async () => {
     const url = await Storage.get(
@@ -134,6 +144,7 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
       console.log(route.params.post);
       api.updateUser({ id: userId, name, jobTitle });
       setForm({ username: name, jobTitle });
+      userContext.dispatch({type: 'changeName', name, jobTitle });
     }
   }, [route.params?.post]);
 
@@ -163,7 +174,8 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
             })
             .then(({ data: { createTeamMemberLink: createdLink } }) => {
               // Add createdLink to userContext
-              userContext.setUserContext({...userContext, teamsLink: { items: [...userContext.teamsLink.items, createdLink] }})
+              // TODO: dispatch here
+              // userContext.setUserContext({...userContext, teamsLink: { items: [...userContext.teamsLink.items, createdLink] }})
               setTeamsLink([...teamsLink, createdLink]);
             })
             .catch((error) => {
@@ -190,10 +202,11 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
     teamsLink,
     navigation,
     isAdmin: userContext.isAdmin,
-    isManager: userContext.isManager,
     deleteTeam,
     modalVisible,
-    setModalVisible
+    setModalVisible,
+    developerMode,
+    isManager
   };
   return <Screen {...properties} />;
 };

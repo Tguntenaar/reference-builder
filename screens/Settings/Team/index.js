@@ -195,8 +195,12 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
           }
           api
             .createEvaluationRequest(evaluationRequest)
-            .then(() => {
-              console.log("succes");
+            .then((response) => {
+              if (developerMode) {
+                console.log('adding to user context...', response.data.createEvaluationRequest);
+                userContext.dispatch({type: 'addRequest', request: response.data.createEvaluationRequest});
+              }
+              console.log("created request.");
             })
             .catch((error) => {
               console.log("Errored with", evaluationRequest);
@@ -420,6 +424,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     if (updatedTeam.errors) {
       console.log("ERRORS!!!");
     } else {
+      userContext.dispatch({type: 'changeTeamName', teamId: team.id, name: teamName })
       console.log("succes");
     }
   };

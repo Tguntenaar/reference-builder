@@ -1,7 +1,7 @@
-import { developerMode } from '../../constants/Utils';
+import { debugMode } from '../../constants/Utils';
 
 export default (string) => {
-  if (developerMode) {
+  if (debugMode) {
     console.log(string);
   }
 };
