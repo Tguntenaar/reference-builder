@@ -4,13 +4,13 @@ import NextButton from '../NextButton';
 
 import styles from './style';
 
-const PopUpModal = ({ modalVisible, setModalVisible, text, title }) => {
-  const header = title || 'Invitation sent!';
+const PopUpModal = ({ navigation, modalVisible, setModalVisible }) => {
+  const header = modalVisible?.title || 'Invitation sent!';
   const subText =
-    text ||
+    modalVisible?.text ||
     'Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor.';
   return (
-    <Modal animationType="slide" transparent visible={modalVisible} onRequestClose={() => {}}>
+    <Modal animationType="slide" transparent visible={modalVisible !== false} onRequestClose={() => {}}>
       <View style={styles.modalContainer}>
         <View style={styles.modal}>
           <Image style={styles.image} source={require('../../assets/images/group2.png')} />
@@ -21,7 +21,8 @@ const PopUpModal = ({ modalVisible, setModalVisible, text, title }) => {
             title="Ok"
             onPress={() => {
               if (typeof setModalVisible === 'function') {
-                setModalVisible(!modalVisible);
+                setModalVisible(false);
+                navigation.pop();
               }
             }}
           />

@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
   },
 });
 
-function EvaluationsScreen({ navigation, userContext }) {
-  // const userContext = useContext(UserContext);
+function EvaluationsScreen({ navigation }) {
+  const userContext = useContext(UserContext);
   // Laat express alle receivedRequests zien
   const {
     receivedRequests: { items = [] },

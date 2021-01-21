@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flex: 0,
   },
   safe: {
-    flex: 0,
+    flex: 1,
     backgroundColor: 'rgb(10,19,255)',
   },
   topContainer: {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     height: height / 2,
   },
   container: {
-    // flex: 1,
+    flex: 1,
     // width:width,
     justifyContent: 'space-between',
   },
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   bottom: {
-    flex: 0.2,
+    flex: 0.3,
     alignItems: 'center',
     justifyContent: 'center',
   },

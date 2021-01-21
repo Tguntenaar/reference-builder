@@ -66,7 +66,7 @@ function App(props) {
     const result = await api
       .getUser(userID)
       .then(({ data: { getUser } }) => {
-        setUser({ ...getUser, name: `${getUser.name} 1` });
+        setUser(getUser);
       })
       .catch(({ data: { getUser }, errors }) => {
         console.log('ERRORS in App.js');
@@ -117,6 +117,7 @@ function App(props) {
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return null;
   }
+
   return (
     <UserContextProvider user={user}>
       <SafeAreaProvider>

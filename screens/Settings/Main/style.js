@@ -9,6 +9,11 @@ export default StyleSheet.create({
     flexGrow: 1,
     backgroundColor: '#fff',
   },
+  basic: {
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -66,7 +71,7 @@ export default StyleSheet.create({
   },
   middle: {
     // paddingTop: 50,
-    height: 0.18 * height,
+    height: 0.17 * height,
     // flex: 0.5,
     // backgroundColor: 'blue',
     width: width - 40,

@@ -20,7 +20,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   bottom: {
-    flex: 0.15,
+    flex: 0.1,
     // backgroundColor:'grey',
     alignItems: 'center',
     justifyContent: 'center',

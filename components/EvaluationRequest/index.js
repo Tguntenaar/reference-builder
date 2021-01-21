@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 // Constants
@@ -6,7 +6,7 @@ import { Feather } from '@expo/vector-icons';
 import { imageEsther } from '../../constants/Images';
 
 import styles from './style';
-import { developerMode } from '../../constants/Utils';
+import { UserContext } from '../../contexts/UserContext';
 
 // Components
 import NextButton from '../NextButton';
@@ -16,7 +16,8 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
     const due = new Date(new Date(createdAt).getTime() + 1000 * 3600 * 24 * 7); // plus one week
     return `${due.getDate()}-${due.getMonth()}-${due.getFullYear()}`;
   })(request.createdAt);
-  const deleteRequestButton = developerMode;
+
+  const { developerMode } = useContext(UserContext);
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
@@ -25,15 +26,16 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
       <View style={styles.textBox}>
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.title}>{request.user.name}</Text>
-          {deleteRequestButton ? (
+          {developerMode ? (
             <TouchableOpacity
               onPress={() => {
                 filterRequest(request.id);
               }}
-              style={styles.teamIcon}
+              style={styles.deleteOpacity}
             >
               {/** <Feather name="x-circle" color="red" style={styles.teamIcon} /> */}
-              <Text>Delete request!</Text>
+
+              <Feather name="x" color="rgb(255,19,10)" style={styles.deleteRequest} />
             </TouchableOpacity>
           ) : null}
         </View>

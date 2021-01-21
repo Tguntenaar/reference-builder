@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
-import { width, developerMode } from '../../../constants/Utils';
+import { width } from '../../../constants/Utils';
 
 import NextButton from '../../../components/NextButton';
 import Modal from '../../../components/Modal';
@@ -45,7 +45,6 @@ const screen = ({
   modalVisible,
   setModalVisible
 }) => {
-  const deleteMemberButton = developerMode;
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
     <ScrollView
@@ -312,7 +311,7 @@ const screen = ({
                         <Text style={styles.jobTitle}>{user?.email}</Text>
                       </View>
                       {
-                        deleteMemberButton?
+                        userContext.developerMode ?
                         <TouchableOpacity
                         onPress={() => {
                           deleteMember(user?.id, teamMemberLinkId);

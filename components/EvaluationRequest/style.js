@@ -47,4 +47,8 @@ export default StyleSheet.create({
     fontFamily: 'SourceSansPro-Regular',
     color: 'rgb(255,16,10)',
   },
+  deleteOpacity: {
+    alignSelf: 'flex-end',
+  },
+  deleteRequest: {},
 });

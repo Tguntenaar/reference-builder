@@ -16,29 +16,20 @@ import {
 import { Feather } from '@expo/vector-icons';
 import { Auth } from 'aws-amplify';
 import NextButton from '../../../components/NextButton';
-import Modal from '../../../components/Modal';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
 import styles from './style';
 
 const UI = ({
-  // submitProfileInfo,
   userContext,
   pickImage,
   profilePicture,
   form,
-  setForm,
-  selectedTeam,
-  setSelectedTeam,
   teamsLink,
   navigation,
-  isAdmin,
-  isManager,
   deleteTeam,
-  modalVisible,
-  setModalVisible,
-  developerMode,
 }) => {
+  const { isAdmin, developerMode, isManager } = userContext;
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle="dark-content" />
@@ -108,28 +99,32 @@ const UI = ({
               <Text style={styles.edit}>Edit</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ flexDirection: 'row', alignContent: 'center', justifyContent: 'center' }}>
-            <View>
-              <Text>DeveloperMode</Text>
-              <Switch
-                trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
-                thumbColor={developerMode ? '#f4f3f4' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={() => userContext.dispatch({ type: 'toggleDevMode' })}
-                value={developerMode}
-              />
+          {userContext.id === 'b403da70-bea8-4e54-9cff-6a68e9d07f4d' ? (
+            <View style={styles.basic}>
+              <View style={styles.basic}>
+                <Text>DeveloperMode</Text>
+                <Switch
+                  style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
+                  trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
+                  thumbColor={developerMode ? '#f4f3f4' : '#f4f3f4'}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={() => userContext.dispatch({ type: 'toggleDevMode' })}
+                  value={developerMode}
+                />
+              </View>
+              <View style={[styles.basic, { marginLeft: 20 }]}>
+                <Text>isManager</Text>
+                <Switch
+                  style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
+                  trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
+                  thumbColor={isManager ? '#f4f3f4' : '#f4f3f4'}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={() => userContext.dispatch({ type: 'toggleIsManager' })}
+                  value={isManager}
+                />
+              </View>
             </View>
-            <View style={{ marginLeft: 20 }}>
-              <Text>isManager</Text>
-              <Switch
-                trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
-                thumbColor={isManager ? '#f4f3f4' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={() => userContext.dispatch({ type: 'toggleIsManager' })}
-                value={isManager}
-              />
-            </View>
-          </View>
+          ) : null}
           <View
             style={{
               flexDirection: 'row',
@@ -234,7 +229,6 @@ const UI = ({
           })}
         </ScrollView>
       </View>
-      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </SafeAreaView>
   );
 };
@@ -244,9 +238,6 @@ UI.propTypes = {
   pickImage: PropTypes.func.isRequired,
   profilePicture: PropTypes.any,
   form: PropTypes.shape({ username: PropTypes.string, jobTitle: PropTypes.string }).isRequired,
-  setForm: PropTypes.func.isRequired,
-  selectedTeam: PropTypes.string.isRequired,
-  setSelectedTeam: PropTypes.func.isRequired,
   teamsLink: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

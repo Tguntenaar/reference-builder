@@ -1,12 +1,13 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, Platform } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
-import { developerMode, width } from '../constants/Utils';
+import { width } from '../constants/Utils';
+import { UserContext } from '../contexts/UserContext';
 import Colors from '../constants/Colors';
-import api from '../apiwrapper';
 
 const RatingBox = ({ rating, onSeeDetails, onDeleteAverage }) => {
+  const { developerMode } = useContext(UserContext);
   let { grade, timesRated } = rating;
   if (timesRated) {
     grade /= timesRated;

@@ -10,7 +10,6 @@ import CommentInput from "../../../components/CommentInput";
 import Modal from "../../../components/Modal";
 import api from "../../../apiwrapper";
 import withUser from "../../../contexts/withUser";
-import { developerMode } from "../../../constants/Utils";
 
 async function updateUserAverageBySkill(user, skillId) {
   const result = await api
@@ -21,11 +20,11 @@ async function updateUserAverageBySkill(user, skillId) {
     });
 }
 
-const swapUserAuthor = (evaluation) => {
+const swapUserAuthor = (obj) => {
   return {
-    ...evaluation,
-    userId: evaluation.authorId,
-    authorId: evaluation.userId,
+    ...obj,
+    userId: obj.authorId,
+    authorId: obj.userId,
   };
 };
 
@@ -132,6 +131,8 @@ const tryUpdatingTeamAverages = (userContext, skill) => {
 };
 
 function EvaluateCommentScreen({ userContext, navigation, route }) {
+
+
   const [text, setText] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [status, setStatus] = useState({ loading: false, errored: false });
@@ -165,7 +166,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       group: userContext.group,
     };
 
-    if (developerMode) {
+    if (userContext.developerMode) {
       evaluation = swapUserAuthor(evaluation);
     }
     console.log({ evaluation });
@@ -222,6 +223,7 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     navigation.navigate("Tabs");
   };
 
+
   return (
     <>
       <SafeAreaView style={styles.safeTop} />
@@ -263,16 +265,23 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
           </ScrollView>
           <View style={styles.bottom}>
             <Text style={styles.error}>
-              {" "}
-              {status.errored ? "Something went wrong.." : ""}{" "}
+              {status.errored ? "Something went wrong.." : ""}
             </Text>
 
             <NextButton
               title="Next"
               color={{ backgroundColor: "#fff", textColor: "rgb(44,44,44)" }}
               onPress={() => {
-                // uploadEvaluation();
-                setModalVisible(true);
+                uploadEvaluation();
+
+                // TODO: FIX dit overal
+                // navigation.navigate("ModalScreen", {
+                //   initialState: {
+                //     title: 'Testing',
+                //     text: 'Het werkt!',
+                //   }
+                // });
+                // setModalVisible({title: "Testing", text: "We will fix this!"});
               }}
               loading={status.loading}
             />

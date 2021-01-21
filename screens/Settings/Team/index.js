@@ -6,7 +6,6 @@ import withUser from "../../../contexts/withUser";
 import api from "../../../apiwrapper";
 import UI from "./UI";
 import { Alert } from "react-native";
-import { developerMode } from "../../../constants/Utils";
 
 function TeamSettingsScreen({ userContext, route, navigation }) {
   /** het team word meegegeven
@@ -186,7 +185,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
             group: userContext.group,
             status: "PENDING",
           };
-          if (developerMode) {
+          if (userContext.developerMode) {
             evaluationRequest = {
               ...evaluationRequest,
               evaluatorId: evaluationRequest.userId,
@@ -196,7 +195,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
           api
             .createEvaluationRequest(evaluationRequest)
             .then((response) => {
-              if (developerMode) {
+              if (userContext.developerMode) {
                 console.log('adding to user context...', response.data.createEvaluationRequest);
                 userContext.dispatch({type: 'addRequest', request: response.data.createEvaluationRequest});
               }

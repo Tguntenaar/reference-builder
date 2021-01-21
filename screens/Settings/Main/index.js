@@ -4,7 +4,7 @@ import * as ImagePicker from "expo-image-picker";
 // AWS
 import { Storage } from "aws-amplify";
 
-import { userContext } from '../../../contexts/UserContext';
+import { UserContext } from '../../../contexts/UserContext';
 
 import Screen from "./UI";
 import api from "../../../apiwrapper";
@@ -13,22 +13,19 @@ import withUser from "../../../contexts/withUser";
 const path = "avatars";
 
 
-const SettingsScreen = ({ userContext, navigation, route }) => {
+const SettingsScreen = ({ navigation, route }) => {
 
   // TODO: useContext
-  // const value = useContext(userContext);
+  const userContext = useContext(UserContext);
   const {
     id: userId,
     name: username,
     jobTitle,
     teamsLink: allTeams,
     activeTeam: teamLink,
-    isManager,
-    developerMode
   } = userContext;
 
   const teamId = teamLink.team.id;
-  const [modalVisible, setModalVisible] = useState(false);
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
   const [selectedTeam, setSelectedTeam] = useState(teamLink.team.name);
@@ -191,22 +188,13 @@ const SettingsScreen = ({ userContext, navigation, route }) => {
   }, [route.params?.newTeam]);
 
   const properties = {
-    // submitProfileInfo,
     userContext,
     pickImage,
     profilePicture,
     form,
-    setForm,
-    selectedTeam,
-    setSelectedTeam,
     teamsLink,
     navigation,
-    isAdmin: userContext.isAdmin,
     deleteTeam,
-    modalVisible,
-    setModalVisible,
-    developerMode,
-    isManager
   };
   return <Screen {...properties} />;
 };
