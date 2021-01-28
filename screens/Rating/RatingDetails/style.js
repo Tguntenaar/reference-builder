@@ -1,8 +1,7 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { width } from '../../../constants/Utils';
 
-const ImageSize = 80;
-const ImagePosition = -40;
+const ImageSize = 100;
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
@@ -10,48 +9,38 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
   },
   top: {
     flex: 0.4,
-    // backgroundColor: 'red',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
-    alignSelf: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'white',
   },
   image: {
     height: ImageSize,
     width: ImageSize,
     borderRadius: ImageSize / 2,
-    top: ImagePosition,
   },
   name: {
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 20,
-    height: Platform.OS === 'ios' ? 20 : 25,
-
     padding: 1,
-    top: ImagePosition + 10,
+    marginTop: 5,
   },
   jobTitle: {
     fontFamily: 'CooperHewitt-BookItalic',
     color: 'rgba(44,44,44,0.75)',
     fontSize: 14,
-    height: Platform.OS === 'ios' ? 14 : 19,
-
-    padding: 1,
-    top: ImagePosition + 10,
   },
   skill: {
     fontFamily: 'CooperHewitt-Heavy',
     color: 'rgb(10,19,255)',
     fontSize: 24,
-    height: Platform.OS === 'ios' ? 24 : 29,
-
     padding: 2,
+    marginTop: 5,
   },
   skillDescription: {
     color: 'rgb(118,118,118)',
@@ -63,7 +52,6 @@ const styles = StyleSheet.create({
   },
   middle: {
     flex: 0.5,
-    // backgroundColor: 'grey',
     alignItems: 'center',
   },
   box: {
@@ -81,16 +69,12 @@ const styles = StyleSheet.create({
   skillPart: {
     fontFamily: 'CooperHewitt-Medium',
     fontSize: 20,
-    height: Platform.OS === 'ios' ? 20 : 25,
-
     padding: 2,
   },
   grade: {
     fontFamily: 'CooperHewitt-Heavy',
     fontSize: 30,
-    // height: Platform.OS === 'ios' ? 30 : 35,
     padding: 2,
-    // alignSelf: 'flex-end',
   },
   description: {
     fontFamily: 'SourceSansPro-It',

@@ -135,6 +135,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
       .map((skill) => skill.id);
     return activeSkills.includes(average.skill.id) || average.skill.id === 'template';
   };
+
   // Filter
   const inactiveAndManagerFilter = (skill) => {
     return skill.active && !skill.forManager;
@@ -372,7 +373,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
                 rating={averageRating}
                 gradeColor="rgb(10,185,255)"
                 onSeeDetails={() => {
-                  navigation.navigate("RatingsDetailsScreen", {
+                  navigation.navigate("RatingChartScreen", {
                     rating: averageRating,
                   });
                 }}

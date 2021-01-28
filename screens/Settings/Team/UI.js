@@ -19,6 +19,8 @@ import NextButton from '../../../components/NextButton';
 import Modal from '../../../components/Modal';
 
 import { imageEsther } from '../../../constants/Images';
+import { Image as CacheImage } from "react-native-expo-image-cache";
+
 
 import styles from './style';
 import BackButton from '../../../components/BackButton';
@@ -45,6 +47,9 @@ const screen = ({
   modalVisible,
   setModalVisible
 }) => {
+  const preview = { uri: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" };
+  const uri = "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
+ 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
     <ScrollView
@@ -71,7 +76,10 @@ const screen = ({
             value={teamName}
             placeholder="Team name"
           />
-          {/*<Text style={styles.edit}>Edit</Text>*/}
+          {/*<Text style={styles.edit}>Edit</Text> TODO: */}
+          <TouchableOpacity onPress={()=>null} style={styles.teamImage}>
+            <CacheImage style={[styles.teamImage, styles.image]} {...{preview, uri}} />
+          </TouchableOpacity>
         </View>
         <View style={styles.middle}>
           {/** MANAGER SKILLS */}

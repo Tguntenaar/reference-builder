@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Text, View, ScrollView, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
@@ -7,40 +7,15 @@ import BackButton from '../../../components/BackButton';
 import Circle from '../../../components/Circle';
 import RatingDetails from '../../../components/RatingDetails';
 import Chart from '../../../components/Chart';
-import Modal from '../../../components/Modal';
 import styles from './style';
 import api from '../../../apiwrapper';
 import withUser from '../../../contexts/withUser';
+import { getMonthYear } from '../../../constants/Utils';
 import Colors from '../../../constants/Colors';
+import { UserContext } from '../../../contexts/UserContext';
 
-const curday = function (sp) {
-  const today = new Date();
-  let dd = today.getDate();
-  const monthIndex = today.getMonth(); // As January is 0.
-  let mm = monthIndex + 1;
-  const monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  const yyyy = today.getFullYear();
-
-  if (dd < 10) dd = `0${dd}`;
-  if (mm < 9) mm = `0${mm}`;
-  // return mm + sp + dd + sp + yyyy;
-  return `${monthNames[monthIndex]} ${yyyy}`;
-};
-
-function RatingChart({ navigation, route, userContext }) {
+function RatingChart({ navigation, route }) {
+  const { developerMode } = useContext(UserContext);
   const {
     rating: { skill },
   } = route.params;
@@ -67,36 +42,78 @@ function RatingChart({ navigation, route, userContext }) {
       },
     },
   ]);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [chartData, setchartData] = useState(false);
+  const [chartData, setChartData] = useState(false);
 
   useEffect(() => {
-    // const getEvaluations =
     (async () => {
       // TODO: get all evaluations per skill per user
       console.log('Retrieving all ratings per skill..');
       setLoading(true);
-      const result = await api.getEvaluationsByUser({ userId: userContext.id });
-      // .catch(({ errors }) => {
-      //   console.log(errors);
-      // });
-      // console.log({ result });
-      if (result.errors || !result.data) {
-        console.log('Errors happened');
-      } else if (result.data.evaluationsByUser.items.length) {
-        setEvaluations(result.data.evaluationsByUser.items);
-      } else {
-        console.log('no evaluations found');
-      }
-      setLoading(false);
+      // const result = await api.getEvaluationsByUser({ userId: userContext.id });
+      // // .catch(({ errors }) => {
+      // //   console.log(errors);
+      // // });
+      // if (result.errors || !result.data) {
+      //   console.log('Errors happened');
+      // } else if (result.data.evaluationsByUser.items.length) {
+      //   setEvaluations(result.data.evaluationsByUser.items);
+      // } else {
+      //   console.log('no evaluations found');
+      // }
+      // setLoading(false);
     })();
-    // getEvaluations();
-    // return () => {
-    //   // no cleanup
-    // };
-  }, [chartData]);
+  }, []);
+
+  useEffect(() => {
+    if (developerMode) {
+      const data = [
+        Math.random() * 10,
+        Math.random() * 10,
+        Math.random() * 10,
+        Math.random() * 10,
+        Math.random() * 10,
+        Math.random() * 10,
+      ];
+
+      const now = new Date();
+      const dateFormat = (month, day, year) => `${month}.${day}.${year}`;
+      const labels = [
+        dateFormat(1, 10, 2017),
+        '',
+        '',
+        '',
+        '',
+        dateFormat(now.getMonth() + 1, now.getDay(), now.getFullYear()),
+      ];
+
+      setChartData({ data, labels });
+    }
+  }, []);
   // filter evaluations die de juiste skill hebben gerate
   const gradeColor = Colors.gradeToColor(route.params.rating.grade);
+
+  const fakeEvaluation = {
+    id: '101',
+    createdAt: '',
+    user: {
+      name: 'Thomas Guntenaar',
+    },
+    author: {
+      name: 'Thomas Guntenaar',
+      jobTitle: 'dev',
+    },
+    ratings: {
+      items: [
+        {
+          id: '101',
+          skill: { id: '101', name: 'Skill', description: 'Description' },
+          grade: 8,
+        },
+      ],
+    },
+    comment: 'This is my comment on you',
+    group: 'jaaf',
+  };
 
   return (
     <>
@@ -141,7 +158,7 @@ function RatingChart({ navigation, route, userContext }) {
         <View style={styles.middle}>
           <View style={styles.chart}>
             {chartData ? (
-              <Chart />
+              <Chart chartData={chartData} />
             ) : (
               <View style={styles.replacement}>
                 <Text style={styles.replacementText}> Not enough data yet. </Text>
@@ -151,9 +168,23 @@ function RatingChart({ navigation, route, userContext }) {
         </View>
         <View style={styles.bottom}>
           <ScrollView contentContainerStyle={styles.scroll}>
-            <Text style={styles.date}>{curday('/')}</Text>
+            <Text style={styles.date}>{getMonthYear()}</Text>
             {loading ? (
-              <Text> Loading.. </Text>
+              <>
+                <Text> Loading.. </Text>
+                {developerMode ? (
+                  <RatingDetails
+                    key={101}
+                    evaluation={fakeEvaluation}
+                    skill={skill}
+                    onViewDetails={() =>
+                      navigation.navigate('DetailedRatingScreen', {
+                        evaluation: fakeEvaluation,
+                      })
+                    }
+                  />
+                ) : null}
+              </>
             ) : (
               evaluations.map((evaluation) => {
                 const hasSameSkill = (rating) => rating.skill.id === route.params.rating.skill.id;
@@ -179,7 +210,6 @@ function RatingChart({ navigation, route, userContext }) {
             )}
           </ScrollView>
         </View>
-        <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       </SafeAreaView>
     </>
   );

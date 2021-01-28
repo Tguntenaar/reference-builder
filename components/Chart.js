@@ -2,21 +2,24 @@ import React from 'react';
 import { Dimensions } from 'react-native';
 import LineChart from './LineChart';
 
-function Chart() {
+function Chart({ chartData: { data, labels } }) {
+  const randomData = [
+    Math.random() * 10,
+    Math.random() * 10,
+    Math.random() * 10,
+    Math.random() * 10,
+    Math.random() * 10,
+    Math.random() * 10,
+  ];
+
+  const label = ['1.10.2017', '', '', '', '', '1.10.2018'];
   return (
     <LineChart
       data={{
-        labels: ['1.10.2017', '', '', '', '', '1.10.2018'],
+        labels,
         datasets: [
           {
-            data: [
-              Math.random() * 10,
-              Math.random() * 10,
-              Math.random() * 10,
-              Math.random() * 10,
-              Math.random() * 10,
-              Math.random() * 10,
-            ],
+            data,
           },
         ],
       }}

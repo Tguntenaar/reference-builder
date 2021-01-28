@@ -15,9 +15,11 @@ import {
 // aws
 import { Feather } from '@expo/vector-icons';
 import { Auth } from 'aws-amplify';
+import { Image as CacheImage } from 'react-native-expo-image-cache';
 import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
 import { imageEsther } from '../../../constants/Images';
+
 import styles from './style';
 
 const UI = ({
@@ -29,6 +31,13 @@ const UI = ({
   navigation,
   deleteTeam,
 }) => {
+  const preview = {
+    uri:
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+  };
+  const uri =
+    'https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641';
+
   const { isAdmin, developerMode, isManager } = userContext;
   return (
     <SafeAreaView style={styles.safe}>
@@ -61,7 +70,11 @@ const UI = ({
           <Text style={styles.pageTitle}>Settings</Text>
 
           <TouchableOpacity onPress={pickImage} style={{ alignItems: 'center' }}>
-            <Image style={styles.image} source={profilePicture || imageEsther} />
+            {/**
+               * 
+               <Image style={styles.image} source={profilePicture || imageEsther} />
+               */}
+            <CacheImage style={styles.image} {...{ preview, uri }} />
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>
         </View>
@@ -172,6 +185,13 @@ const UI = ({
           style={styles.bottom}
         >
           {teamsLink.map((link) => {
+            const preview = {
+              uri:
+                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+            };
+            const uri =
+              'https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641';
+
             return (
               <View
                 style={[
@@ -181,8 +201,11 @@ const UI = ({
                 key={link.id}
               >
                 <View style={styles.imageContainer}>
+                  <CacheImage style={styles.teamImage} {...{ preview, uri }} />
+                  {/** 
                   <Image style={styles.teamImage} source={imageEsther} />
-                  {/** (photo && { uri: photo.uri, cache: 'force-cache' }) */}
+                  (photo && { uri: photo.uri, cache: 'force-cache' }) 
+                */}
                 </View>
                 <View style={styles.innerCard}>
                   {isAdmin || isManager ? (

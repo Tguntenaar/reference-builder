@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Alert,
   TouchableOpacity,
-  Modal,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
@@ -16,7 +15,7 @@ import { Auth } from "aws-amplify";
 import TabNavigation from "./TabNavigation";
 
 // Screens
-import RatingsDetailsScreen from "../screens/Rating/RatingChart";
+import RatingChartScreen from "../screens/Rating/RatingChart";
 import DetailedRatingScreen from "../screens/Rating/RatingDetails";
 import EvaluateSliders from "../screens/Evaluate/Sliders";
 import EvaluateCommentScreen from "../screens/Evaluate/Comment";
@@ -31,6 +30,7 @@ import TestScreen from "../screens/Test";
 import { imageEsther } from "../constants/Images";
 
 import { S3Image } from "aws-amplify-react-native";
+import { Image as CacheImage } from "react-native-expo-image-cache";
 import BackButton from "../components/BackButton";
 import { UserContext } from "../contexts/UserContext";
 // Navigation
@@ -40,7 +40,6 @@ const imageSize = 100;
 function StackNavigation({ user }) {
   // user = user || { name: 'Esther Rookhuijzen', jobTitle: 'Designer' };
   const admin = true;
-  const [modalVisible, setModalVisible] = useState(false);
   const userContext = useContext(UserContext);
   const HeaderRightContent = ({ onPress }) => {
     return (
@@ -150,7 +149,7 @@ function StackNavigation({ user }) {
       headerTitleStyle: {
         fontWeight: "bold",
       },
-      // /**<S3Image imgKey={key} />*/
+      
       headerLeft: () => {
         const canGoBack = navigation.canGoBack();
         const scaleWithBackButton = 0.85;
@@ -162,6 +161,8 @@ function StackNavigation({ user }) {
               marginLeft: 40,
             }
           : {};
+          const preview = { uri: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" };
+          const uri = "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
         return (
           <>
             {navigation.canGoBack() ? (
@@ -178,17 +179,23 @@ function StackNavigation({ user }) {
                   : console.log("cant go back")
               }
             >
-              <Image
-                source={imageEsther}
-                style={[styles.image, smallerImageStyle]}
-              />
+            { /**<S3Image imgKey={key} />*/}
+             {/**
+              Image
+                 source={imageEsther}
+                 style={[styles.image, smallerImageStyle]}
+               />
+              */ 
+            }
+            {/*<CacheImage style={[styles.image, smallerImageStyle]} {...{preview, uri}} />*/}
+            <CacheImage style={[styles.image, smallerImageStyle]} {...{preview, uri}} />
             </TouchableOpacity>
           </>
         );
       },
       headerRight: () => {
         const { index, routes } = navigation.dangerouslyGetState();
-        return routes[index].name !== "RatingsDetailsScreen" ? (
+        return routes[index].name !== "RatingChartScreen" ? (
           <HeaderRightContent
             onPress={() => {
               if (teamView) {
@@ -213,8 +220,8 @@ function StackNavigation({ user }) {
         options={TabNavigationHeader}
       />
       <Stack.Screen
-        name="RatingsDetailsScreen"
-        component={RatingsDetailsScreen}
+        name="RatingChartScreen"
+        component={RatingChartScreen}
         options={{
           headerShown: false,
         }}

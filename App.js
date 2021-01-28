@@ -9,7 +9,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
-import { Asset } from 'expo-asset';
 
 import { NavigationContainer } from '@react-navigation/native';
 // import useLinking from './navigation/useLinking'; TODO: app.json
@@ -34,19 +33,6 @@ global.Buffer = global.Buffer || require('buffer').Buffer; //
 
 const defaultUser = {};
 
-function cacheImages(images) {
-  return images.map((image) => {
-    if (typeof image === 'string') {
-      return Image.prefetch(image);
-    }
-    return Asset.fromModule(image).downloadAsync();
-  });
-}
-
-function cacheFonts(fonts) {
-  return fonts.map((font) => Font.loadAsync(font));
-}
-
 function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [user, setUser] = useState(defaultUser); // FIXME: useReducer + dont keep state user twice...
@@ -62,11 +48,12 @@ function App(props) {
     // Auth.signOut();
     // api.cleanUpEvaluations();
     // api.deleteUserAvagereWithOutUser();
-
+    // TODO: get profile image like this
+    // const path = await CacheManager.get(uri).getPath();
     const result = await api
       .getUser(userID)
       .then(({ data: { getUser } }) => {
-        setUser(getUser);
+        setUser({ ...getUser });
       })
       .catch(({ data: { getUser }, errors }) => {
         console.log('ERRORS in App.js');

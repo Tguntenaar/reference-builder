@@ -1,7 +1,5 @@
 import React from 'react';
 import { Text, View, StatusBar, Image, SafeAreaView, ScrollView } from 'react-native';
-// import { SafeAreaView } from 'react-native-safe-area-context';
-// import { ScrollView } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 
 /** Components */
@@ -50,7 +48,9 @@ function RatingSkillDetails({ navigation, route }) {
           </ScrollView>
         </View>
         <View style={styles.bottom}>
-          <NextButton title="Next" onPress={() => navigation.navigate('Tabs')} />
+          {
+            //  <NextButton title="Next" onPress={() => navigation.navigate('Tabs')} />
+          }
         </View>
       </View>
     </SafeAreaView>

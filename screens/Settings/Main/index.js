@@ -28,7 +28,6 @@ const SettingsScreen = ({ navigation, route }) => {
   const teamId = teamLink.team.id;
   const [profilePicture, setAvatar] = useState();
   const [form, setForm] = useState({ username, jobTitle });
-  const [selectedTeam, setSelectedTeam] = useState(teamLink.team.name);
   const [teamsLink, setTeamsLink] = useState(
     allTeams.items.map((link) => {
       return { ...link, isActive: link.id === teamLink.id };
@@ -40,7 +39,9 @@ const SettingsScreen = ({ navigation, route }) => {
   const getAvatarFromStorage = async () => {
     const url = await Storage.get(
       `${path}/${teamId}/avatar${userId}.jpeg`
-    ).catch(() => console.log(`ERROR: Can't get() image`));
+    )
+    // .then((result => console.log(result)))
+    .catch(() => console.log(`ERROR: Can't get() image`));
     setAvatar({ uri: url, cache: "force-cache" });
   };
 

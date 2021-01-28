@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
   },
+  teamImage: {
+    position: 'absolute',
+    right: 10,
+    top: 10,
+  },
   edit: {
     marginTop: 10,
     padding: 2,

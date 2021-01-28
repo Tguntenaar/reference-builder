@@ -109,5 +109,26 @@
       ]
     }
   },
-  "storage": {}
+  "storage": {
+    "profileImages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "toptabtestc335db9c",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "AdminsGroupRole"
+          ]
+        }
+      ]
+    }
+  }
 }
