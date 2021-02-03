@@ -44,7 +44,7 @@ const reducer = (state, action) => {
   let newState;
   switch(action.type) {
     case 'newAPIRequest':
-      return action.user;
+      return {...action.user, developerMode, isManager: isManager(action.user)};
     case 'changeName':
       newState = {...state, name: action.name, jobTitle: action.jobTitle};
       console.log('newState:', newState.name, newState.jobTitle);
@@ -57,9 +57,20 @@ const reducer = (state, action) => {
       return newState;
 
       case 'changeTeamName':
-        // TODO:
-        // const newTeam = {...oldTeam, name: action.name};
-        newState = {...state, teamMemberLinks: { items:  [...state.teamMemberLinks.items ]} }
+        const teamIndex = state.teamsLink.items.findIndex((link) => link.team.id !== action.teamId);
+
+        if (teamIndex > 0) {
+          const newArray = [...state?.teamsLink?.items];
+          newArray[teamIndex] = {...newArray[teamIndex], name: action.name}
+          newState = {...state,
+            teamsLink: {
+              items: newArray
+            }
+          }
+        } else {
+          newState = state;
+        }
+
         return newState;
 
       case 'toggleDevMode':
@@ -71,9 +82,9 @@ const reducer = (state, action) => {
   };
 };
 
-const callback = (user, setRefreshing, dispatch) => {
+const refreshCallback = (user, setRefreshing, dispatch) => {
   setRefreshing(true);
-  console.log("user");
+  console.log("Refreshing..");
   api
     .getUser(user.id)
     .then((result) => {
@@ -92,7 +103,7 @@ const UserContextProvider = (props) => {
   const [refreshing, setRefreshing] = React.useState(false);
   const { Provider } = UserContext;
   const [user, dispatch] = useReducer(reducer, { ...props.user, developerMode, isManager: isManager(props.user) });
-  const onRefresh = React.useCallback(() => callback(user, setRefreshing, dispatch), [refreshing]);
+  const onRefresh = React.useCallback(() => refreshCallback(user, setRefreshing, dispatch), [refreshing]);
   console.log(user.name, user.jobTitle);
   console.log('isAdmin:', isAdmin(user), 'isManager: ', isManager(user));
   return (

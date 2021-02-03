@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   View,
   Image,
@@ -11,16 +11,16 @@ import {
   Alert,
   SafeAreaView,
   Switch,
-} from 'react-native';
+} from "react-native";
 // aws
-import { Feather } from '@expo/vector-icons';
-import { Auth } from 'aws-amplify';
-import { Image as CacheImage } from 'react-native-expo-image-cache';
-import NextButton from '../../../components/NextButton';
-import BackButton from '../../../components/BackButton';
-import { imageEsther } from '../../../constants/Images';
+import { Feather } from "@expo/vector-icons";
+import { Auth } from "aws-amplify";
+import { Image as CacheImage } from "react-native-expo-image-cache";
+import NextButton from "../../../components/NextButton";
+import BackButton from "../../../components/BackButton";
+import { blankImage } from "../../../constants/Images";
 
-import styles from './style';
+import styles from "./style";
 
 const UI = ({
   userContext,
@@ -31,13 +31,6 @@ const UI = ({
   navigation,
   deleteTeam,
 }) => {
-  const preview = {
-    uri:
-      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
-  };
-  const uri =
-    'https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641';
-
   const { isAdmin, developerMode, isManager } = userContext;
   return (
     <SafeAreaView style={styles.safe}>
@@ -53,75 +46,92 @@ const UI = ({
             style={styles.signOut}
             onPress={() => {
               Alert.alert(
-                'Sign out',
-                'Are you sure you want to sign out?',
+                "Sign out",
+                "Are you sure you want to sign out?",
                 [
                   {
-                    text: 'Cancel',
+                    text: "Cancel",
                     onPress: () => {},
-                    style: 'cancel',
+                    style: "cancel",
                   },
-                  { text: 'OK', onPress: () => Auth.signOut() },
+                  { text: "OK", onPress: () => Auth.signOut() },
                 ],
                 { cancelable: true }
               );
             }}
           />
           <Text style={styles.pageTitle}>Settings</Text>
-
-          <TouchableOpacity onPress={pickImage} style={{ alignItems: 'center' }}>
-            {/**
-               * 
-               <Image style={styles.image} source={profilePicture || imageEsther} />
-               */}
-            <CacheImage style={styles.image} {...{ preview, uri }} />
+          <TouchableOpacity
+            onPress={pickImage}
+            style={{ alignItems: "center" }}
+          >
+            {profilePicture?.test ? (
+              <Image
+                style={[styles.image]}
+                source={blankImage}
+              />
+            ) : (
+              <CacheImage
+                style={styles.image}
+                {...{
+                  preview: { uri: profilePicture?.base64 },
+                  uri: profilePicture?.uri,
+                }}
+              />
+            )}
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.middle}>
           <View style={styles.names}>
             <View>
-              <Text style={[styles.input, styles.inputName]}>{form.username}</Text>
-              <Text style={[styles.input, styles.inputJobTitle]}>{form.jobTitle}</Text>
+              <Text style={[styles.input, styles.inputName]}>
+                {form.username}
+              </Text>
+              <Text style={[styles.input, styles.inputJobTitle]}>
+                {form.jobTitle}
+              </Text>
             </View>
             <TouchableOpacity
               onPress={() => {
                 // inputElement.current.focus();
-                navigation.navigate('Form', {
-                  name: 'Change name',
-                  screen: 'SettingsScreen',
-                  post: 'post',
-                  update: 'post',
+                navigation.navigate("Form", {
+                  name: "Change name",
+                  screen: "SettingsScreen",
+                  post: "post",
+                  update: "post",
                   list: [],
                   form: [
                     {
-                      text: 'Name',
-                      key: 'name',
+                      text: "Name",
+                      key: "name",
                       value: form.username,
                     },
                     {
-                      text: 'Job Title',
-                      key: 'jobTitle',
+                      text: "Job Title",
+                      key: "jobTitle",
                       value: form.jobTitle,
                     },
                   ],
                 });
               }}
-              style={{ height: 30, width: 60, alignItems: 'flex-end' }}
+              style={{ height: 30, width: 60, alignItems: "flex-end" }}
             >
               <Text style={styles.edit}>Edit</Text>
             </TouchableOpacity>
           </View>
-          {userContext.id === 'b403da70-bea8-4e54-9cff-6a68e9d07f4d' ? (
+          {userContext.id === "b403da70-bea8-4e54-9cff-6a68e9d07f4d" ? (
             <View style={styles.basic}>
               <View style={styles.basic}>
                 <Text>DeveloperMode</Text>
                 <Switch
                   style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
-                  trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
-                  thumbColor={developerMode ? '#f4f3f4' : '#f4f3f4'}
+                  trackColor={{ false: "#767577", true: "rgb(48,209,88)" }}
+                  thumbColor={developerMode ? "#f4f3f4" : "#f4f3f4"}
                   ios_backgroundColor="#3e3e3e"
-                  onValueChange={() => userContext.dispatch({ type: 'toggleDevMode' })}
+                  onValueChange={() =>
+                    userContext.dispatch({ type: "toggleDevMode" })
+                  }
                   value={developerMode}
                 />
               </View>
@@ -129,10 +139,12 @@ const UI = ({
                 <Text>isManager</Text>
                 <Switch
                   style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
-                  trackColor={{ false: '#767577', true: 'rgb(48,209,88)' }}
-                  thumbColor={isManager ? '#f4f3f4' : '#f4f3f4'}
+                  trackColor={{ false: "#767577", true: "rgb(48,209,88)" }}
+                  thumbColor={isManager ? "#f4f3f4" : "#f4f3f4"}
                   ios_backgroundColor="#3e3e3e"
-                  onValueChange={() => userContext.dispatch({ type: 'toggleIsManager' })}
+                  onValueChange={() =>
+                    userContext.dispatch({ type: "toggleIsManager" })
+                  }
                   value={isManager}
                 />
               </View>
@@ -140,35 +152,39 @@ const UI = ({
           ) : null}
           <View
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
+              flexDirection: "row",
+              justifyContent: "space-between",
             }}
           >
             <Text style={styles.teams}>Teams</Text>
             {isAdmin ? (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('Form', {
-                    name: 'Create team',
-                    screen: 'SettingsScreen',
-                    post: 'newTeam',
+                  navigation.navigate("Form", {
+                    name: "Create team",
+                    screen: "SettingsScreen",
+                    post: "newTeam",
                     list: [],
                     form: [
                       {
-                        text: 'Name',
-                        key: 'name',
-                        value: '',
+                        text: "Name",
+                        key: "name",
+                        value: "",
                       },
                     ],
                   });
                 }}
                 style={{
-                  flexDirection: 'row',
+                  flexDirection: "row",
                 }}
               >
-                <Text style={{ color: 'blue' }}>Create Team </Text>
+                <Text style={{ color: "blue" }}>Create Team </Text>
 
-                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+                <Feather
+                  name="plus-circle"
+                  color="blue"
+                  style={styles.plusIcon}
+                />
               </TouchableOpacity>
             ) : null}
           </View>
@@ -177,20 +193,23 @@ const UI = ({
           contentContainerStyle={{
             flexGrow: 1,
             // justifyContent: 'space-between',
-            backgroundColor: '#fff',
+            backgroundColor: "#fff",
           }}
           refreshControl={
-            <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
+            <RefreshControl
+              refreshing={userContext.refreshing}
+              onRefresh={userContext.onRefresh}
+            />
           }
           style={styles.bottom}
         >
           {teamsLink.map((link) => {
             const preview = {
               uri:
-                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+                "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
             };
             const uri =
-              'https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641';
+              "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
 
             return (
               <View
@@ -203,7 +222,7 @@ const UI = ({
                 <View style={styles.imageContainer}>
                   <CacheImage style={styles.teamImage} {...{ preview, uri }} />
                   {/** 
-                  <Image style={styles.teamImage} source={imageEsther} />
+                  <Image style={styles.teamImage} source={blankImage} />
                   (photo && { uri: photo.uri, cache: 'force-cache' }) 
                 */}
                 </View>
@@ -214,7 +233,7 @@ const UI = ({
                       color="gray"
                       style={styles.teamIcon}
                       onPress={() => {
-                        navigation.navigate('TeamSettingsScreen', {
+                        navigation.navigate("TeamSettingsScreen", {
                           team: link.team,
                         });
                       }}
@@ -227,9 +246,9 @@ const UI = ({
                     textSize={14}
                     size={40}
                     onPress={() => {
-                      navigation.push('Tabs', {
+                      navigation.push("Tabs", {
                         team: link.team, // route.params in Tabnavigation.js
-                        screen: 'My Ratings',
+                        screen: "My Ratings",
                         params: {
                           team: link.team, // route.params in MyTeamScreen.js
                         },
@@ -260,7 +279,10 @@ UI.propTypes = {
   // submitProfileInfo: PropTypes.func.isRequired,
   pickImage: PropTypes.func.isRequired,
   profilePicture: PropTypes.any,
-  form: PropTypes.shape({ username: PropTypes.string, jobTitle: PropTypes.string }).isRequired,
+  form: PropTypes.shape({
+    username: PropTypes.string,
+    jobTitle: PropTypes.string,
+  }).isRequired,
   teamsLink: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

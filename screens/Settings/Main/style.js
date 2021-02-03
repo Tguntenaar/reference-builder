@@ -60,7 +60,7 @@ export default StyleSheet.create({
     width: imageSize,
     height: imageSize,
     borderRadius: imageSize / 2,
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'rgba(255,255,255,1)',
   },
   edit: {
     marginTop: 10,

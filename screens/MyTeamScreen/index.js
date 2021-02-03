@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { ScrollView, Text, RefreshControl, Picker, View } from 'react-native';
-import TeamMember from '../../components/TeamMemberBox';
-import Modal from '../../components/Modal';
-import withUser from '../../contexts/withUser';
-import withTabContext from '../../contexts/TabContext';
+import React, { useState } from "react";
+import { ScrollView, Text, RefreshControl, Picker, View } from "react-native";
+import TeamMember from "../../components/TeamMemberBox";
+import Modal from "../../components/Modal";
+import withUser from "../../contexts/withUser";
+import withTabContext from "../../contexts/TabContext";
 
-import styles from './style';
+import styles from "./style";
 
 function MyTeamScreen({ navigation, userContext, tabContext, route }) {
   const {
@@ -18,7 +18,7 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
   const activeTeamLink = teamMemberLinks[activeTeamLinkIndex];
 
   let team;
-  if (tabContext.type === 'team') {
+  if (tabContext.type === "team") {
     team = tabContext.value; // TODO: check of dit nog in takt is
   } else {
     team = activeTeamLink.team;
@@ -29,30 +29,38 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
   membersLink = membersLink.filter((link) => link.active);
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
-      {teamMemberLinks.length ? (
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+      {teamMemberLinks.length && tabContext.type !== "team" ? (
         <Picker
           selectedValue={activeTeamLink}
           style={styles.picker}
           itemStyle={styles.pickerItem}
           onValueChange={(itemValue, itemIndex) => {
             userContext.dispatch({
-              type: 'setActiveTeam',
+              type: "setActiveTeam",
               activeTeamLink: teamMemberLinks[itemIndex],
             });
             setSelectedTeam(itemIndex);
           }}
         >
           {teamMemberLinks.map((link, index) => {
-            return <Picker.Item label={link.team.name} value={link} key={link.id} />;
+            return (
+              <Picker.Item label={link.team.name} value={link} key={link.id} />
+            );
           })}
         </Picker>
       ) : null}
       <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.scroll}
+        style={[styles.container]}
+        contentContainerStyle={[
+          { marginTop: tabContext.type === "team" ? 50 : 0 },
+          styles.scroll,
+        ]}
         refreshControl={
-          <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
+          <RefreshControl
+            refreshing={userContext.refreshing}
+            onRefresh={userContext.onRefresh}
+          />
         }
       >
         {
@@ -64,7 +72,10 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
               {membersLink.map((teamMemberLink) => {
                 const { admins } = team;
 
-                if (teamMemberLink.user !== null && admins.includes(teamMemberLink.user.id)) {
+                if (
+                  teamMemberLink.user !== null &&
+                  admins.includes(teamMemberLink.user.id)
+                ) {
                   return (
                     <TeamMember
                       teamMember={teamMemberLink.user}
@@ -77,21 +88,23 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
                 }
                 return null;
               })}
-              <Text style={[styles.text]}>Members ({membersLink.length - team.admins.length})</Text>
+              <Text style={[styles.text]}>
+                Members ({membersLink.length - team.admins.length})
+              </Text>
               {membersLink.length ? (
                 membersLink.map((teamMemberLink) => {
                   const { admins } = team;
                   const onPress =
                     userContext.isAdmin || userContext.isManager
                       ? () => {
-                          console.log('navigate to Tabs');
+                          console.log("navigate to Tabs");
                           console.log(
-                            'receivedEvaluations:',
+                            "receivedEvaluations:",
                             teamMemberLink.user.receivedEvaluations
                           );
-                          navigation.push('Tabs', {
+                          navigation.push("Tabs", {
                             otherUserRatings: teamMemberLink.user,
-                            screen: 'My Ratings',
+                            screen: "My Ratings",
                             params: {
                               otherUserRatings: teamMemberLink.user,
                             },
@@ -113,8 +126,9 @@ function MyTeamScreen({ navigation, userContext, tabContext, route }) {
                 })
               ) : (
                 <Text style={{ paddingLeft: 20, paddingRight: 20 }}>
-                  No team members in team {team.name} yet. Go to the team settings screen to invite
-                  your team members or activate another team to view those teammembers
+                  No team members in team {team.name} yet. Go to the team
+                  settings screen to invite your team members or activate
+                  another team to view those teammembers
                 </Text>
               )}
             </>

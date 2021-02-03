@@ -3,7 +3,7 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 // Constants
 import { Feather } from '@expo/vector-icons';
-import { imageEsther } from '../../constants/Images';
+import { blankImage } from '../../constants/Images';
 
 import styles from './style';
 import { UserContext } from '../../contexts/UserContext';
@@ -21,7 +21,7 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
   return (
     <View style={styles.Box}>
       <View style={styles.circleBox}>
-        <Image style={styles.image} source={imageEsther} />
+        <Image style={styles.image} source={blankImage} />
       </View>
       <View style={styles.textBox}>
         <View style={{ flexDirection: 'row' }}>

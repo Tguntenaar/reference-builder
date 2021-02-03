@@ -1,22 +1,60 @@
 import React, { useEffect, useState, useContext } from "react";
 import * as ImagePicker from "expo-image-picker";
+import * as ImageManipulator from 'expo-image-manipulator';
 
 // AWS
 import { Storage } from "aws-amplify";
 
 import { UserContext } from '../../../contexts/UserContext';
+import { CacheManager } from "react-native-expo-image-cache";
+
 
 import Screen from "./UI";
 import api from "../../../apiwrapper";
 import withUser from "../../../contexts/withUser";
 
+const _resizeImage = async (image) => {
+  const manipResult = await ImageManipulator.manipulateAsync(
+    image.localUri || image.uri,
+    [ { resize: { width: 100 } }],
+    { compress: 1, format: ImageManipulator.SaveFormat.PNG }
+  );
+  // setImage(manipResult);
+  return manipResult;
+};
+
 const path = "avatars";
+
+const uploadAvatarToS3 = async (teamId, userId, { uri }) => {
+  const response = await fetch(uri);
+  const blob = await response.blob();
+  return Storage.put(`${path}/${teamId}/avatar${userId}.png`, blob, {
+    contentType: "image/jpeg",
+  }).then(response => {
+    console.log('uploaded to storage');
+    return response;
+  });
+};
+
+/**
+ * gets an avatar from storage
+ */
+const downloadAvatarFromS3 = async (teamId, userId) => {
+  return Storage.get(
+    `${path}/${teamId}/avatar${userId}.png`
+  )
+  .catch(() => console.log(`Error: Can't get() image`))
+};
+
+
+// if db img -> local? anders remote uri
+
+// else if show default + image picker
 
 
 const SettingsScreen = ({ navigation, route }) => {
-
-  // TODO: useContext
   const userContext = useContext(UserContext);
+
   const {
     id: userId,
     name: username,
@@ -26,7 +64,12 @@ const SettingsScreen = ({ navigation, route }) => {
   } = userContext;
 
   const teamId = teamLink.team.id;
-  const [profilePicture, setAvatar] = useState();
+  const [profilePicture, setAvatar] = useState({
+    test: true,
+    uri: 'https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641',
+    base64: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+  });
+
   const [form, setForm] = useState({ username, jobTitle });
   const [teamsLink, setTeamsLink] = useState(
     allTeams.items.map((link) => {
@@ -37,12 +80,9 @@ const SettingsScreen = ({ navigation, route }) => {
   const toggleSwitch = () => setIsEnabled(state => !state);
 
   const getAvatarFromStorage = async () => {
-    const url = await Storage.get(
-      `${path}/${teamId}/avatar${userId}.jpeg`
-    )
-    // .then((result => console.log(result)))
+    downloadAvatarFromS3(teamId, userId)
+    .then((result => setAvatar({ uri: result, cache: "force-cache" })))
     .catch(() => console.log(`ERROR: Can't get() image`));
-    setAvatar({ uri: url, cache: "force-cache" });
   };
 
   // TODO: add button to set active team and use this function
@@ -91,19 +131,32 @@ const SettingsScreen = ({ navigation, route }) => {
 
   const pickImage = () => {
     const options = {
-      noData: true,
+      base64: true,
+      // noData: true,
+      allowsEditing: true,
+      aspect:[1,1],
+
     };
 
     ImagePicker.launchImageLibraryAsync(options)
       .then((response) => {
-        console.log({ response });
+        console.log(Object.keys(response));
+        console.log({...response, base64: 'test'})
         if (response.cancelled) {
           return;
         }
 
         if (response.uri) {
+          // _resizeImage(response).then(() => {
+
+          // }).catch((error) => {
+          //   console.log('Resizing image failed');
+          //   console.log(error);
+          // });
+          console.log('setting avatar');
+          CacheManager.clearCache();
           setAvatar(response);
-          uploadToStorage(response.uri);
+          // uploadAvatarToS3(teamId, userId, response);
         }
       })
       .catch((err) => {
@@ -111,20 +164,7 @@ const SettingsScreen = ({ navigation, route }) => {
       });
   };
 
-  const uploadToStorage = async (pathToImageFile) => {
-    try {
-      const response = await fetch(pathToImageFile);
-
-      const blob = await response.blob();
-
-      Storage.put(`${path}/${teamId}/avatar${userId}.jpeg`, blob, {
-        contentType: "image/jpeg",
-      });
-      console.log("uploaded to storage");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  
 
   useEffect(() => {
     // getAvatarFromStorage();

@@ -27,7 +27,7 @@ import Form from "../screens/Form";
 import TestScreen from "../screens/Test";
 
 // Constants
-import { imageEsther } from "../constants/Images";
+import { blankImage } from "../constants/Images";
 
 import { S3Image } from "aws-amplify-react-native";
 import { Image as CacheImage } from "react-native-expo-image-cache";
@@ -182,7 +182,7 @@ function StackNavigation({ user }) {
             { /**<S3Image imgKey={key} />*/}
              {/**
               Image
-                 source={imageEsther}
+                 source={blankImage}
                  style={[styles.image, smallerImageStyle]}
                />
               */ 

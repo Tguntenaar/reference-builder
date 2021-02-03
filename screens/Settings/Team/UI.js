@@ -18,7 +18,7 @@ import { width } from '../../../constants/Utils';
 import NextButton from '../../../components/NextButton';
 import Modal from '../../../components/Modal';
 
-import { imageEsther } from '../../../constants/Images';
+import { blankImage } from '../../../constants/Images';
 import { Image as CacheImage } from "react-native-expo-image-cache";
 
 
@@ -163,7 +163,7 @@ const screen = ({
           {teamManagers.map(({ user: manager }) => {
             return (
               <View key={manager.id} style={[styles.card, styles.managerCard]}>
-                <Image style={styles.image} source={imageEsther} />
+                <Image style={styles.image} source={blankImage} />
                 
                 <View style={styles.innerCard}>
                   {
@@ -311,7 +311,7 @@ const screen = ({
             {teamMembers.length ? (
               teamMembers.map(({ id: teamMemberLinkId, user }) => (
                   <View key={teamMemberLinkId} style={styles.card}>
-                    <Image style={styles.image} source={imageEsther} />
+                    <Image style={styles.image} source={blankImage} />
                     
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>

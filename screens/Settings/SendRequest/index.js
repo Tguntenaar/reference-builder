@@ -16,7 +16,7 @@ import styles from './style';
 
 import NextButton from '../../../components/NextButton';
 import BackButton from '../../../components/BackButton';
-import { imageEsther } from '../../../constants/Images';
+import { blankImage } from '../../../constants/Images';
 
 // https://stackoverflow.com/questions/47725607/react-native-safeareaview-background-color-how-to-assign-two-different-backgro
 function sendEvaluationRequests({ route }) {
@@ -77,7 +77,7 @@ function sendEvaluationRequests({ route }) {
                       setSelect(temp);
                     }}
                   >
-                    <Image style={styles.image} source={imageEsther} />
+                    <Image style={styles.image} source={blankImage} />
                   </TouchableOpacity>
                 </View>
               );

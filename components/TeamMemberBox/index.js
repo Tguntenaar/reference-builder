@@ -6,7 +6,7 @@ import { Image as CacheImage } from 'react-native-expo-image-cache';
 import NextButton from '../NextButton';
 
 // Constants
-import { imageEsther } from '../../constants/Images';
+import { blankImage } from '../../constants/Images';
 import styles from './style';
 
 const TeamMember = ({ teamMember, color, onPress }) => {
@@ -20,7 +20,7 @@ const TeamMember = ({ teamMember, color, onPress }) => {
   return (
     <View style={[styles.Box, { backgroundColor: color }]}>
       <View style={styles.circleBox}>
-        {/* <Image style={styles.image} source={imageEsther} /> */}
+        {/* <Image style={styles.image} source={blankImage} /> */}
         <CacheImage style={styles.image} {...{ preview, uri }} />
       </View>
       <View style={styles.textBox2}>

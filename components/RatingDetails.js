@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Platform } from 'react
 // import { LinearGradient } from 'expo-linear-gradient';
 
 // Constants
-import { imageEsther } from '../constants/Images';
+import { blankImage } from '../constants/Images';
 import Colors from '../constants/Colors';
 
 const RatingDetails = ({ onViewDetails, evaluation }) => {
@@ -12,7 +12,7 @@ const RatingDetails = ({ onViewDetails, evaluation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.left}>
-        <Image style={styles.image} source={imageEsther} />
+        <Image style={styles.image} source={blankImage} />
       </View>
       <View style={styles.right}>
         <View style={styles.header}>

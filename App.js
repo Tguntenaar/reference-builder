@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { SplashScreen } from 'expo';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,7 +16,6 @@ import { NavigationContainer } from '@react-navigation/native';
 // AWS
 import Amplify, { Auth } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native';
-import { preventAutoHideAsync } from 'expo/build/launch/SplashScreen';
 import AuthTheme from './constants/AuthTheme';
 import { onCreateEvaluationRequest } from './apiwrapper/graphql/subscriptions';
 
@@ -69,7 +68,7 @@ function App(props) {
     // Function to load resources
     async function loadResourcesAndDataAsync() {
       try {
-        SplashScreen.preventAutoHide();
+        SplashScreen.preventAutoHideAsync();
 
         // Load our initial navigation state
         // setInitialNavigationState(await getInitialState());
@@ -92,7 +91,7 @@ function App(props) {
         // console.log(e);
       } finally {
         setLoadingComplete(true);
-        SplashScreen.hide();
+        SplashScreen.hideAsync();
       }
     }
 

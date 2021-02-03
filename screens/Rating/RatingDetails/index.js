@@ -8,7 +8,7 @@ import BackButton from '../../../components/BackButton';
 import Circle from '../../../components/Circle';
 
 // Constants
-import { imageEsther } from '../../../constants/Images';
+import { blankImage } from '../../../constants/Images';
 import styles from './style';
 
 function RatingSkillDetails({ navigation, route }) {
@@ -22,7 +22,7 @@ function RatingSkillDetails({ navigation, route }) {
           <Circle color="rgba(239,244,253,0.5)" />
           <BackButton onPress={() => navigation.goBack()} />
           <View style={styles.header}>
-            <Image style={styles.image} source={imageEsther} />
+            <Image style={styles.image} source={blankImage} />
             <Text style={styles.name}>{evaluation.author.name}</Text>
             <Text style={styles.jobTitle}>{evaluation.author.jobTitle}</Text>
             <Text style={styles.skill}>Comment:</Text>
