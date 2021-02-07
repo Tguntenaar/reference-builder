@@ -7,15 +7,20 @@ import { blankImage } from '../../constants/Images';
 
 import styles from './style';
 import { UserContext } from '../../contexts/UserContext';
+import { showMessage } from '../../constants/Utils';
+import { useNavigation } from '@react-navigation/native';
+
 
 // Components
 import NextButton from '../NextButton';
 
-const EvaluationRequest = ({ request, navigation, filterRequest }) => {
+const EvaluationRequest = ({ request, filterRequest }) => {
   const dueDate = ((createdAt) => {
     const due = new Date(new Date(createdAt).getTime() + 1000 * 3600 * 24 * 7); // plus one week
     return `${due.getDate()}-${due.getMonth()}-${due.getFullYear()}`;
   })(request.createdAt);
+
+  const navigation = useNavigation();
 
   const { developerMode } = useContext(UserContext);
   return (
@@ -47,6 +52,7 @@ const EvaluationRequest = ({ request, navigation, filterRequest }) => {
           textSize={15}
           title="Evaluate"
           onPress={() =>
+            
             navigation.navigate('EvaluateSliders', {
               evaluationRequest: request,
               manager: true, // Starts evaluation of manager

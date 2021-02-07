@@ -1,11 +1,11 @@
 {
-    "AppSyncApiName": "referencebuilder",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": "false",
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authtoptabtestc335db9c",
-            "Outputs.UserPoolId"
-        ]
-    }
+  "AppSyncApiName": "referencebuilder",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": "false",
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authtoptabtestc335db9c",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

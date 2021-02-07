@@ -127,12 +127,18 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
   const user = route.params?.otherUserRatings;
   const viewOtherUserRatings = user !== undefined;
 
+  // get ActiveSkills
+  const activeSkills = activeTeamSkills
+  .filter((skill) => skill.active)
+  .map((skill) => skill.id);
+
   // Filter
   const inactiveAverageFilter = (average) => {
     // get ActiveSkills
-    const activeSkills = activeTeamSkills
-      .filter((skill) => skill.active)
-      .map((skill) => skill.id);
+    // const activeSkills = activeTeamSkills
+    //   .filter((skill) => skill.active)
+    //   .map((skill) => skill.id);
+    
     return activeSkills.includes(average.skill.id) || average.skill.id === 'template';
   };
 

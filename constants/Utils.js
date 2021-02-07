@@ -1,6 +1,8 @@
 import { Dimensions } from 'react-native';
 
+
 const { width, height } = Dimensions.get('window');
+
 
 const getMonthYear = () => {
   const today = new Date();
@@ -31,4 +33,13 @@ const getMonthYear = () => {
 const developerMode = true;
 const debugMode = true;
 
-export { width, height, developerMode, debugMode, getMonthYear };
+const showMessage = (navigation, title, message) => {
+  navigation.navigate("ModalScreen", {
+    initialState: {
+      title,
+      text: message,
+    }
+  });
+}
+
+export { width, height, developerMode, debugMode, getMonthYear, showMessage };

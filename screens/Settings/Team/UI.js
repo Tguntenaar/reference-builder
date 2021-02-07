@@ -29,6 +29,7 @@ const screen = ({
   teamManagers,
   teamMembers,
   teamSkills,
+  teamId,
   teamName,
   setTeamName,
   updateHeader,
@@ -37,11 +38,9 @@ const screen = ({
   deactivateMember,
   navigation,
   navigateToSkillForm,
-  sendTeamEvaluations,
   userContext,
   addManager,
   addMember,
-  admins,
   removeManager,
   newMemberLoading,
   modalVisible,
@@ -71,7 +70,9 @@ const screen = ({
           <TextInput
             style={[styles.input, styles.pageTitle]}
             clearTextOnFocus={false}
-            onChangeText={(text) => setTeamName(text)}
+            onChangeText={(text) => {
+              setTeamName(text)
+            }}
             onEndEditing={() => updateHeader()}
             value={teamName}
             placeholder="Team name"
@@ -393,7 +394,7 @@ const screen = ({
 screen.propTypes = {
   newMemberLoading: PropTypes.bool,
   teamMembers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  teamSkills: PropTypes.arrayOf(PropTypes.object).isRequired, 
+  teamSkills: PropTypes.arrayOf(PropTypes.object).isRequired,
   teamName: PropTypes.string.isRequired,
   setTeamName: PropTypes.func.isRequired,
   updateHeader: PropTypes.func.isRequired,
@@ -401,8 +402,6 @@ screen.propTypes = {
   deleteMember: PropTypes.func.isRequired,
   addManager: PropTypes.func.isRequired,
   addMember: PropTypes.func.isRequired,
-  sendTeamEvaluations: PropTypes.func.isRequired,
-  admins: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 screen.defaultProps = {};

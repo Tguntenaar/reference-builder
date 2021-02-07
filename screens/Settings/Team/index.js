@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
 import * as Contacts from "expo-contacts";
 import withUser from "../../../contexts/withUser";
+import { UserContext } from "../../../contexts/UserContext";
 import api from "../../../apiwrapper";
 import UI from "./UI";
 import { Alert } from "react-native";
 
-function TeamSettingsScreen({ userContext, route, navigation }) {
+function TeamSettingsScreen({ route, navigation }) {
   /** het team word meegegeven
    * maar als de usercontext dan refresht
    * refresht de pagina niet
    * dus met het meegegeven team id wordt de team uit de usercontext gehaald
    */
+  const userContext = useContext(UserContext);
   console.log("TeamSettingsScreen");
   const {
     team: { id: teamId },
@@ -27,7 +29,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   const team = teamLink.team;
 
   const [modalVisible, setModalVisible] = useState(false);
-  
+
   const [newMemberLoading, setNewMemberLoading] = useState(false);
 
   const [teamMembers, setTeamMembers] = useState(
@@ -43,7 +45,15 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
   );
 
   const [teamSkills, setTeamSkills] = useState(team.skills.items);
-  const [teamName, setTeamName] = useState(team.name);
+
+
+  const teamName = team.name;
+  const setTeamName = (text) => {
+    // move back to index inside setTeamName
+    // TODO: FIXME:
+    userContext.dispatch({ type: "setTeamName", teamId: teamId, name: text });
+  };
+  // const [teamName, setTeamName] = useState(team.name);
 
   // Get Contact List
   useEffect(() => {
@@ -134,10 +144,10 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
         return;
       }
       inviteUser(name, jobTitle, email)
-      .then(() => setNewMemberLoading(false))
-      .catch((error) => {
-        console.log("Can't create a user ");
-      });
+        .then(() => setNewMemberLoading(false))
+        .catch((error) => {
+          console.log("Can't create a user ");
+        });
     }
   }, [route.params?.newMember]);
 
@@ -183,6 +193,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
             evaluatorId,
             userId: userContext.id,
             group: userContext.group,
+            teamId: teamId,
             status: "PENDING",
           };
           if (userContext.developerMode) {
@@ -196,10 +207,11 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
             .createEvaluationRequest(evaluationRequest)
             .then((response) => {
               if (userContext.developerMode) {
-                console.log('adding to user context...', response.data.createEvaluationRequest);
-                userContext.dispatch({type: 'addRequest', request: response.data.createEvaluationRequest});
+                userContext.dispatch({
+                  type: "addRequest",
+                  request: response.data.createEvaluationRequest,
+                });
               }
-              console.log("created request.");
             })
             .catch((error) => {
               console.log("Errored with", evaluationRequest);
@@ -423,7 +435,11 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     if (updatedTeam.errors) {
       console.log("ERRORS!!!");
     } else {
-      userContext.dispatch({type: 'changeTeamName', teamId: team.id, name: teamName })
+      userContext.dispatch({
+        type: "setTeamName",
+        teamId: team.id,
+        name: teamName,
+      });
       console.log("succes");
     }
   };
@@ -466,7 +482,7 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
                 teamMembers.filter((link) => link.id !== teammemberLinkid)
               );
             })
-            .catch(({data, errors}) => {
+            .catch(({ data, errors }) => {
               console.log(errors);
             });
         }
@@ -487,37 +503,12 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     console.log("deactivated");
   };
 
-  const sendTeamEvaluations = async () => {
-    var user, evaluator, teamWithoutUser;
-    for (user of teamMembers) {
-      teamWithoutUser = team.membersLink.items.filter(
-        (member) => member.id != user.id
-      );
-      for (evaluator of teamWithoutUser) {
-        api
-          .createEvaluationRequest({
-            userId: user.id,
-            evaluatorId: evaluator.id,
-            status: "PENDING",
-            group: userContext.group,
-          })
-          .catch(({ errors }) => {
-            console.log("Failed:");
-            console.log({
-              userId: userContext.id,
-              evaluatorId,
-            });
-            console.log(errors);
-          });
-      }
-    }
-  };
-
   const properties = {
     newMemberLoading,
     teamManagers,
     teamMembers,
     teamSkills,
+    teamId,
     teamName,
     setTeamName,
     updateHeader,
@@ -527,14 +518,12 @@ function TeamSettingsScreen({ userContext, route, navigation }) {
     createSkill,
     navigation,
     navigateToSkillForm,
-    sendTeamEvaluations,
     userContext,
     addManager,
     addMember,
-    admins: team.admins,
     removeManager,
-    modalVisible, 
-    setModalVisible
+    modalVisible,
+    setModalVisible,
   };
   return <UI {...properties} />;
 }

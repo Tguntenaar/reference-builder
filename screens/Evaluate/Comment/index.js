@@ -17,6 +17,12 @@ async function updateUserAverageBySkill(user, skillId) {
     .catch((error) => {
       console.log("couldn't get user average");
       console.log(error);
+      navigation.navigate("ModalScreen", {
+        initialState: {
+          title: 'Error occured',
+          text: 'We will fix this as soon as possible! Please try again later',
+        }
+      })
     });
 }
 
@@ -42,7 +48,27 @@ const newAverage = (oldAverage, grade) => {
   };
 };
 
-// For each skill create rating
+
+function EvaluateCommentScreen({ userContext, navigation, route }) {
+  const [text, setText] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [status, setStatus] = useState({ loading: false, errored: false });
+
+  const { username, average, sliders, evaluationRequest } = route.params;
+
+  const handleText = (txt) => {
+    setText(txt);
+  };
+
+  const syncRatingAverages = async () => {
+    /** For every skill in a team create teamAverage. Starting at 0 */
+    /** When creating a user -> create user averages
+     *  When creating a rating -> update user averages & update team averages
+     *  When creating a skill -> create team averages
+     */
+  };
+
+  // For each skill create rating
 const createRatings = (evaluationId, userContext, skills) => {
   skills.forEach((skill) => {
     const newGrade = parseInt(skill.grade, 10);
@@ -58,19 +84,25 @@ const createRatings = (evaluationId, userContext, skills) => {
       .createRating(rating)
       .then(() => {
         // Update user average
-        tryUpdateUserAverages(evaluationRequest, skill);
+        tryUpdateUserAverages(evaluationRequest, skill, newGrade);
         // Update team average
-        tryUpdatingTeamAverages(userContext, skill);
+        tryUpdatingTeamAverages(userContext, evaluationRequest.teamId, skill, newGrade);
       })
       .catch((error) => {
         console.log("Error creating Rating");
         console.log(error);
+        navigation.navigate("ModalScreen", {
+          initialState: {
+            title: 'Error occured',
+            text: 'We will fix this as soon as possible! Please try again later',
+          }
+        })
       });
   });
 };
 
 // Create or update user average
-const tryUpdateUserAverages = (evaluationRequest, skill) => {
+const tryUpdateUserAverages = (evaluationRequest, skill, newGrade) => {
   // get the average rating of skill.id
   const userAverages = evaluationRequest?.user?.averageRatings?.items;
   const oldAverage = userAverages.find(
@@ -95,14 +127,21 @@ const tryUpdateUserAverages = (evaluationRequest, skill) => {
     api.createUserAverage(userAverage).catch((error) => {
       console.log("ERROR: createUserAverage");
       console.log({ error });
+      navigation.navigate("ModalScreen", {
+        initialState: {
+          title: 'Error occured',
+          text: 'We will fix this as soon as possible! Please try again later',
+        }
+      })
     });
   }
 };
 
 // Create or update team average
-const tryUpdatingTeamAverages = (userContext, skill) => {
-  // FIXME: activeteam?
-  const teamAverage = userContext?.activeTeam?.team?.averageRatings?.items;
+const tryUpdatingTeamAverages = (userContext, teamId, skill, newGrade) => {
+  // const teamAverage = userContext?.activeTeam?.team?.averageRatings?.items;
+  const teamLink = userContext?.teamsLink?.items?.find((link) => link?.team?.id == teamId);
+  const teamAverage = teamLink?.team?.averageRatings?.items;
   const oldTeamAverage = teamAverage.find(
     (averageRating) => averageRating.skillId === skill.id
   );
@@ -117,7 +156,7 @@ const tryUpdatingTeamAverages = (userContext, skill) => {
   } else {
     api
       .createTeamAverage({
-        teamId: userContext.activeTeam.team.id, // FIXME: activeteam?
+        teamId: teamId, //userContext.activeTeam.team.id, // FIXME: activeteam?
         skillId: skill.id,
         group: userContext.group,
         grade: newGrade,
@@ -126,30 +165,16 @@ const tryUpdatingTeamAverages = (userContext, skill) => {
       .catch((error) => {
         console.log("Error: createTeamAverage");
         console.log({ error });
+        navigation.navigate("ModalScreen", {
+          initialState: {
+            title: 'hey',
+            text: 'message',
+          }
+        })
       });
   }
 };
 
-function EvaluateCommentScreen({ userContext, navigation, route }) {
-
-
-  const [text, setText] = useState("");
-  const [modalVisible, setModalVisible] = useState(false);
-  const [status, setStatus] = useState({ loading: false, errored: false });
-
-  const { username, average, sliders, evaluationRequest } = route.params;
-
-  const handleText = (txt) => {
-    setText(txt);
-  };
-
-  const syncRatingAverages = async () => {
-    /** For every skill in a team create teamAverage. Starting at 0 */
-    /** When creating a user -> create user averages
-     *  When creating a rating -> update user averages & update team averages
-     *  When creating a skill -> create team averages
-     */
-  };
 
   const uploadEvaluation = async (
     evaluationRequest,
@@ -179,6 +204,12 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
       .catch((error) => {
         console.log("couldn't get user average");
         console.log(error);
+        navigation.navigate("ModalScreen", {
+          initialState: {
+            title: 'Error occured',
+            text: 'We will fix this as soon as possible! Please try again later',
+          }
+        })
       });
 
     // Create evaluation
@@ -198,9 +229,21 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
         })
         .then(() => {
           console.log("deleted");
+          navigation.navigate("ModalScreen", {
+            initialState: {
+              title: 'Error occured',
+              text: 'We will fix this as soon as possible! Please try again later',
+            }
+          })
         })
         .catch(() => {
           console.log("couldn't delete");
+          navigation.navigate("ModalScreen", {
+            initialState: {
+              title: 'Error occured',
+              text: 'We will fix this as soon as possible! Please try again later',
+            }
+          })
         });
     }
     createRatings(evaluationId, userContext, sliders);
@@ -211,10 +254,20 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     // else get all created evaluations via getRating en delete ze 1 voor 1
     // await api.deleteEvaluationRequest(evaluationRequest.id);
     if (evaluationRequest?.id) {
+      // userContext.dispatch({type: 'removeRequest', requestId: evaluationRequest.id});
       await api
         .deleteEvaluationRequest({ id: evaluationRequest.id })
+        .then(() => {
+          userContext.dispatch({type: 'removeRequest', requestId: evaluationRequest.id});
+        })
         .catch((error) => {
-          console.log("deleteEvaluationRequest");
+          console.log(error);
+          navigation.navigate("ModalScreen", {
+            initialState: {
+              title: 'Error occured',
+              text: 'We will fix this as soon as possible! Please try again later',
+            }
+          })
         });
     }
     // navigation.push("Tabs");
@@ -222,7 +275,6 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
     setStatus({ ...status, loading: false });
     navigation.navigate("Tabs");
   };
-
 
   return (
     <>
@@ -272,7 +324,8 @@ function EvaluateCommentScreen({ userContext, navigation, route }) {
               title="Next"
               color={{ backgroundColor: "#fff", textColor: "rgb(44,44,44)" }}
               onPress={() => {
-                uploadEvaluation();
+                //
+                uploadEvaluation(evaluationRequest, text, userContext, sliders);
 
                 // TODO: FIX dit overal
                 // navigation.navigate("ModalScreen", {

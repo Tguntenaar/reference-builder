@@ -197,6 +197,8 @@ type Evaluation
   # evaluator
   authorId: ID!
   author: User! @connection(fields: ["authorId"]) # belongs to
+  # team
+
   # content
   ratings: [Rating!] @connection(keyName: "ratingsByEvaluation", fields: ["id"]) # has many
   comment: String
@@ -331,6 +333,8 @@ type EvaluationRequest
   evaluator: User! @connection(fields: ["evaluatorId"]) # belongs to
   userId: ID!
   user: User! @connection(fields: ["userId"]) # belongs to
+  # User and Evaluator can be in multiple teams together so there is a need for teamId
+  teamId: ID!
   status: EvaluationStatus!
   group: String!
 }
