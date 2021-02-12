@@ -21,7 +21,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   top: {
-    height: 0.3 * height,
+    height: 0.5 * height,// FIXME: 0.3
     // backgroundColor: 'red',
     width,
     // flexDirection: 'row',
@@ -60,7 +60,7 @@ export default StyleSheet.create({
     width: imageSize,
     height: imageSize,
     borderRadius: imageSize / 2,
-    backgroundColor: 'rgba(255,255,255,1)',
+    backgroundColor: 'rgb(255,1,1)',
   },
   edit: {
     marginTop: 10,

@@ -15,9 +15,15 @@ import {
 // aws
 import { Feather } from "@expo/vector-icons";
 import { Auth } from "aws-amplify";
+// Images
 import { Image as CacheImage } from "react-native-expo-image-cache";
+import { S3Image } from "aws-amplify-react-native";
+import { buildS3Key } from "../../../constants/Utils";
+
+// Components
 import NextButton from "../../../components/NextButton";
 import BackButton from "../../../components/BackButton";
+// asset
 import { blankImage } from "../../../constants/Images";
 
 import styles from "./style";
@@ -27,6 +33,7 @@ const UI = ({
   pickImage,
   profilePicture,
   form,
+  teamLink,
   teamsLink,
   navigation,
   deleteTeam,
@@ -65,12 +72,25 @@ const UI = ({
             onPress={pickImage}
             style={{ alignItems: "center" }}
           >
-            {profilePicture?.test ? (
-              <Image
-                style={[styles.image]}
-                source={blankImage}
-              />
+            {profilePicture ? <Text>true</Text> : <Text>false</Text>}
+
+            
+            {profilePicture ? (
+              <S3Image imgKey={buildS3Key(teamLink.team.id, userContext.id)} />
             ) : (
+              <Image style={styles.image} source={blankImage} />
+            )}
+
+
+
+            {profilePicture ? (
+              <Image style={styles.image} source={profilePicture} />
+            ) : (
+              <Image style={styles.image} source={blankImage} />
+            )}
+
+
+            {profilePicture ? (
               <CacheImage
                 style={styles.image}
                 {...{
@@ -78,6 +98,8 @@ const UI = ({
                   uri: profilePicture?.uri,
                 }}
               />
+            ) : (
+              <Image style={[styles.image]} source={blankImage} />
             )}
             <Text style={styles.edit}>Edit</Text>
           </TouchableOpacity>
@@ -220,9 +242,9 @@ const UI = ({
                 key={link.id}
               >
                 <View style={styles.imageContainer}>
-                  <CacheImage style={styles.teamImage} {...{ preview, uri }} />
-                  {/** 
                   <Image style={styles.teamImage} source={blankImage} />
+                  {/** 
+                  <CacheImage style={styles.teamImage} {...{ preview, uri }} />
                   (photo && { uri: photo.uri, cache: 'force-cache' }) 
                 */}
                 </View>

@@ -1,27 +1,29 @@
-import * as React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
-import { Feather } from '@expo/vector-icons';
-import { Image as CacheImage } from 'react-native-expo-image-cache';
-import NextButton from '../NextButton';
+import * as React from "react";
+import { Text, View, Image, TouchableOpacity } from "react-native";
+import PropTypes from "prop-types";
+import { Feather } from "@expo/vector-icons";
+import { Image as CacheImage } from "react-native-expo-image-cache";
+import NextButton from "../NextButton";
 
 // Constants
-import { blankImage } from '../../constants/Images';
-import styles from './style';
+import { blankImage } from "../../constants/Images";
+import styles from "./style";
 
 const TeamMember = ({ teamMember, color, onPress }) => {
   const preview = {
     uri:
-      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
   };
   const uri =
-    'https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641';
+    "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
 
   return (
     <View style={[styles.Box, { backgroundColor: color }]}>
       <View style={styles.circleBox}>
-        {/* <Image style={styles.image} source={blankImage} /> */}
-        <CacheImage style={styles.image} {...{ preview, uri }} />
+        {/* 
+          <CacheImage style={styles.image} {...{ preview, uri }} />
+        */}
+        <Image style={styles.image} source={blankImage} />
       </View>
       <View style={styles.textBox2}>
         <View style={styles.textBox}>
@@ -53,7 +55,7 @@ TeamMember.propTypes = {
 };
 
 TeamMember.defaultProps = {
-  color: 'rgb(239,244,253)',
+  color: "rgb(239,244,253)",
 };
 
 export default TeamMember;

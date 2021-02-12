@@ -60,7 +60,7 @@ function getAverages(receivedEvaluations) {
     });
 
     if (!isAlready) {
-      final.push(data);
+      final.push({...data, timesRated: 1});
       return final;
     }
 
@@ -69,6 +69,7 @@ function getAverages(receivedEvaluations) {
     const newRating = {
       ...isAlready,
       grade: newGrade,
+      timesRated: final[index].timesRated + 1
     };
     return {
       ...final,
@@ -450,7 +451,7 @@ function RatingTab({ navigation, route, userContext, tabContext }) {
             ) : (
               <View>
                 <Text>
-                  This team has no skills yet. Add skills in Team Settings{" "}
+                  This team has no skills yet. Add skills in Team Settings
                 </Text>
                 <Button
                   title={"Go to TeamSettings"}

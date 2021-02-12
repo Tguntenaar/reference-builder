@@ -9,9 +9,10 @@ import Colors from '../constants/Colors';
 const RatingBox = ({ rating, onSeeDetails, onDeleteAverage }) => {
   const { developerMode } = useContext(UserContext);
   let { grade, timesRated } = rating;
-  if (timesRated) {
-    grade /= timesRated;
-  }
+ 
+  grade /= timesRated | 1;
+  grade /= 10;
+
   const skillName = rating.skill.name;
   const skillDescription = rating.skill.description;
 

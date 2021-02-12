@@ -8,9 +8,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/test-icon.png",
+    "icon": "./assets/rb-icon-square.png",
     "splash": {
-      "image": "./assets/test-splash.png",
+      "image": "./assets/rb-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

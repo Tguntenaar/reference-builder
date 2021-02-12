@@ -42,4 +42,10 @@ const showMessage = (navigation, title, message) => {
   });
 }
 
-export { width, height, developerMode, debugMode, getMonthYear, showMessage };
+const buildS3Key = (teamId, userId) => {
+  return `avatars/avatar${userId}.png`
+
+  // return `avatars/${teamId}/avatar${userId}.png`
+}
+
+export { width, height, developerMode, debugMode, getMonthYear, showMessage, buildS3Key };

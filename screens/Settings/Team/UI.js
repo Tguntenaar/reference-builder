@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   View,
   Image,
@@ -9,21 +9,20 @@ import {
   TouchableOpacity,
   RefreshControl,
   Alert,
-  SafeAreaView
-} from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
-import { Feather } from '@expo/vector-icons';
-import { width } from '../../../constants/Utils';
+  SafeAreaView,
+} from "react-native";
+import { TextInput } from "react-native-gesture-handler";
+import { Feather } from "@expo/vector-icons";
+import { width } from "../../../constants/Utils";
 
-import NextButton from '../../../components/NextButton';
-import Modal from '../../../components/Modal';
+import NextButton from "../../../components/NextButton";
+import Modal from "../../../components/Modal";
 
-import { blankImage } from '../../../constants/Images';
+import { blankImage } from "../../../constants/Images";
 import { Image as CacheImage } from "react-native-expo-image-cache";
 
-
-import styles from './style';
-import BackButton from '../../../components/BackButton';
+import styles from "./style";
+import BackButton from "../../../components/BackButton";
 
 const screen = ({
   teamManagers,
@@ -44,168 +43,212 @@ const screen = ({
   removeManager,
   newMemberLoading,
   modalVisible,
-  setModalVisible
+  setModalVisible,
 }) => {
-  const preview = { uri: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" };
-  const uri = "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
- 
+  const preview = {
+    uri:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+  };
+  const uri =
+    "https://firebasestorage.googleapis.com/v0/b/react-native-e.appspot.com/o/b47b03a1e22e3f1fd884b5252de1e64a06a14126.png?alt=media&token=d636c423-3d94-440f-90c1-57c4de921641";
+
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-    <ScrollView
-      contentContainerStyle={{
-        flexGrow: 1,
-        justifyContent: 'space-between',
-        backgroundColor: '#fff',
-      }}
-      refreshControl={
-        <RefreshControl refreshing={userContext.refreshing} onRefresh={userContext.onRefresh} />
-      }
-    >
-      <StatusBar barStyle="dark-content" />
-      <View style={styles.container}>
-      <View style={styles.top}>
-          <View style={styles.back}>
-            <BackButton onPress={() => navigation.goBack()} />
-          </View>
-          <TextInput
-            style={[styles.input, styles.pageTitle]}
-            clearTextOnFocus={false}
-            onChangeText={(text) => {
-              setTeamName(text)
-            }}
-            onEndEditing={() => updateHeader()}
-            value={teamName}
-            placeholder="Team name"
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "space-between",
+          backgroundColor: "#fff",
+        }}
+        refreshControl={
+          <RefreshControl
+            refreshing={userContext.refreshing}
+            onRefresh={userContext.onRefresh}
           />
-          {/*<Text style={styles.edit}>Edit</Text> TODO: */}
-          <TouchableOpacity onPress={()=>null} style={styles.teamImage}>
-            <CacheImage style={[styles.teamImage, styles.image]} {...{preview, uri}} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.middle}>
-          {/** MANAGER SKILLS */}
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <View>
-              <Text style={styles.subHeader}>Assesment criteria manager</Text>
-              <Text style={styles.headerTitles}>Skills</Text>
+        }
+      >
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.container}>
+          <View style={styles.top}>
+            <View style={styles.back}>
+              <BackButton onPress={() => navigation.goBack()} />
             </View>
-            <TouchableOpacity
-              onPress={() => {
-                navigateToSkillForm(true);
+            <TextInput
+              style={[styles.input, styles.pageTitle]}
+              clearTextOnFocus={false}
+              onChangeText={(text) => {
+                setTeamName(text);
               }}
-            >
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Add Skills </Text>
-                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
-              </View>
+              onEndEditing={() => updateHeader()}
+              value={teamName}
+              placeholder="Team name"
+            />
+            {/*<Text style={styles.edit}>Edit</Text> TODO: */}
+            <TouchableOpacity onPress={() => null} style={styles.teamImage}>
+            <Image
+               source={blankImage}
+               style={styles.image}
+             />
+              {/**
+              <CacheImage style={[styles.teamImage, styles.image]} {...{preview, uri}} />
+               */}
             </TouchableOpacity>
           </View>
-          <View style={styles.skillsContainer}>
-            {
-              /** MANAGER SKILLS */
-              
-              teamSkills.filter((skill) => skill.forManager && skill.active).length ? (
-                teamSkills
-                  .filter((skill) => skill.forManager && skill.active)
-                  .map((skill) => (
-                    <View
-                      key={skill.id}
-                      style={{
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                      }}
-                    >
-                      <View style={styles.skill}>
-                        <View style={styles.innerSkill}>
-                          <Text style={styles.skillName}>{skill.name}</Text>
-                          {userContext.isAdmin ? (
-                            <Feather
-                              name="x"
-                              color="black"
-                              style={styles.xIcon}
-                              onPress={() => deactivateSkill(skill.id)}
-                            />
-                          ) : null}
+          <View style={styles.middle}>
+            {/** MANAGER SKILLS */}
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <View>
+                <Text style={styles.subHeader}>Assesment criteria manager</Text>
+                <Text style={styles.headerTitles}>Skills</Text>
+              </View>
+              <TouchableOpacity
+                onPress={() => {
+                  navigateToSkillForm(true);
+                }}
+              >
+                <View style={{ flexDirection: "row" }}>
+                  <Text style={{ color: "blue" }}> Add Skills </Text>
+                  <Feather
+                    name="plus-circle"
+                    color="blue"
+                    style={styles.plusIcon}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.skillsContainer}>
+              {
+                /** MANAGER SKILLS */
+
+                teamSkills.filter((skill) => skill.forManager && skill.active)
+                  .length ? (
+                  teamSkills
+                    .filter((skill) => skill.forManager && skill.active)
+                    .map((skill) => (
+                      <View
+                        key={skill.id}
+                        style={{
+                          paddingTop: 10,
+                          paddingBottom: 10,
+                        }}
+                      >
+                        <View style={styles.skill}>
+                          <View style={styles.innerSkill}>
+                            <Text style={styles.skillName}>{skill.name}</Text>
+                            {userContext.isAdmin ? (
+                              <Feather
+                                name="x"
+                                color="black"
+                                style={styles.xIcon}
+                                onPress={() => deactivateSkill(skill.id)}
+                              />
+                            ) : null}
+                          </View>
                         </View>
                       </View>
-                    </View>
-                  ))
-              ) : (
-                <View
-                  style={{
-                    paddingTop: 10,
-                    paddingBottom: 10,
-                  }}
-                >
-                  <TouchableOpacity onPress={() => navigateToSkillForm(true)} style={styles.skill}>
-                    <View style={styles.innerSkill}>
-                      <Text style={styles.skillName}>Add Skills</Text>
-                      <Feather name="plus-circle" color="black" style={styles.plusIcon} />
-                    </View>
-                  </TouchableOpacity>
+                    ))
+                ) : (
+                  <View
+                    style={{
+                      paddingTop: 10,
+                      paddingBottom: 10,
+                    }}
+                  >
+                    <TouchableOpacity
+                      onPress={() => navigateToSkillForm(true)}
+                      style={styles.skill}
+                    >
+                      <View style={styles.innerSkill}>
+                        <Text style={styles.skillName}>Add Skills</Text>
+                        <Feather
+                          name="plus-circle"
+                          color="black"
+                          style={styles.plusIcon}
+                        />
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                )
+              }
+            </View>
+
+            <View style={styles.row}>
+              <Text style={styles.headerTitles}>
+                Managers ({teamManagers.length})
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  addManager();
+                }}
+              >
+                <View style={{ flexDirection: "row" }}>
+                  <Text style={{ color: "blue" }}> Add Manager </Text>
+                  <Feather
+                    name="plus-circle"
+                    color="blue"
+                    style={styles.plusIcon}
+                  />
                 </View>
-              )
-            }
-          </View>
+              </TouchableOpacity>
+            </View>
+            {teamManagers.map(({ user: manager }) => {
+              return (
+                <View
+                  key={manager.id}
+                  style={[styles.card, styles.managerCard]}
+                >
+                  <Image style={styles.image} source={blankImage} />
 
-          <View style={styles.row}>
-            <Text style={styles.headerTitles}>Managers ({teamManagers.length})</Text>
-            <TouchableOpacity
-              onPress={() => {
-                addManager();
-              }}
-            >
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Add Manager </Text>
-                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
-              </View>
-            </TouchableOpacity>
-          </View>
-          {teamManagers.map(({ user: manager }) => {
-            return (
-              <View key={manager.id} style={[styles.card, styles.managerCard]}>
-                <Image style={styles.image} source={blankImage} />
-                
-                <View style={styles.innerCard}>
-                  {
-                    // Don't show the icon of the first manager.
-                    userContext.isAdmin && userContext.id !== manager.id ? (
-                      <TouchableOpacity onPress={() => {
-                        removeManager(manager.id);
-                      }} style={styles.teamIcon} >
-                        <Feather name="x-circle" color="red" style={styles.teamIcon} />
-                      </TouchableOpacity>
-                    ) : null
-                  }
+                  <View style={styles.innerCard}>
+                    {
+                      // Don't show the icon of the first manager.
+                      userContext.isAdmin && userContext.id !== manager.id ? (
+                        <TouchableOpacity
+                          onPress={() => {
+                            removeManager(manager.id);
+                          }}
+                          style={styles.teamIcon}
+                        >
+                          <Feather
+                            name="x-circle"
+                            color="red"
+                            style={styles.teamIcon}
+                          />
+                        </TouchableOpacity>
+                      ) : null
+                    }
 
-                  <View style={styles.userInfo}>
-                    <Text style={styles.name}>{manager.name}</Text>
-                    <Text style={styles.jobTitle}>{manager.email}</Text>
-                    { 
-                      userContext.id === manager.id ?
+                    <View style={styles.userInfo}>
+                      <Text style={styles.name}>{manager.name}</Text>
+                      <Text style={styles.jobTitle}>{manager.email}</Text>
+                      {userContext.id === manager.id ? (
                         <NextButton
                           title="Request evaluations"
                           textSize={14}
                           onPress={() => {
                             // if (teamMembers.length > 0) {
-                              navigation.navigate('SendRequests', {
-                                members: teamMembers
-                              });
+                            navigation.navigate("SendRequests", {
+                              members: teamMembers,
+                            });
                             // } else {
                             //   Alert.alert('Add members first');
                             // }
-                          }
-                        }
+                          }}
                         />
-                      :
-                      <NextButton
+                      ) : (
+                        <NextButton
                           title="Evaluate"
                           textSize={14}
                           size={45}
                           onPress={() => {
-                            if (teamSkills.filter((skill) => skill.forManager && skill.active).length > 0) {
-                              
-                              navigation.navigate('EvaluateSliders', {
+                            if (
+                              teamSkills.filter(
+                                (skill) => skill.forManager && skill.active
+                              ).length > 0
+                            ) {
+                              navigation.navigate("EvaluateSliders", {
                                 evaluationRequest: {
                                   user: manager,
                                   evaluator: {
@@ -216,140 +259,176 @@ const screen = ({
                                 manager: true, // starts evaluation of non managers
                               });
                             } else {
-                              Alert.alert('First add manager skills');
+                              Alert.alert("First add manager skills");
                             }
                           }}
                         />
-                    }
+                      )}
+                    </View>
                   </View>
                 </View>
-              </View>
-            );
-          })}
+              );
+            })}
 
-          {/** TEAM SKILLS */}
-          <View style={{ marginTop: 30, flexDirection: 'row', justifyContent: 'space-between' }}>
-            <View>
-              <Text style={styles.subHeader}>Assesment criteria team</Text>
-              <Text style={styles.headerTitles}>Skills</Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => {
-                navigateToSkillForm(false);
+            {/** TEAM SKILLS */}
+            <View
+              style={{
+                marginTop: 30,
+                flexDirection: "row",
+                justifyContent: "space-between",
               }}
             >
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Add Skills </Text>
-                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
+              <View>
+                <Text style={styles.subHeader}>Assesment criteria team</Text>
+                <Text style={styles.headerTitles}>Skills</Text>
               </View>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.skillsContainer}>
-            {
-              /** Non manager skills */
-              teamSkills.filter((skill) => !skill.forManager && skill.active).length ? (
-                teamSkills
-                  .filter((skill) => !skill.forManager && skill.active)
-                  .map((skill) => (
-                    <View
-                      key={skill.id}
-                      style={{
-                        paddingTop: 10,
-                        paddingBottom: 10,
-                      }}
-                    >
-                      <View style={styles.skill}>
-                        <View style={styles.innerSkill}>
-                          <Text style={styles.skillName}>{skill.name}</Text>
-                          {userContext.isAdmin ? (
-                            <Feather
-                              name="x"
-                              color="black"
-                              style={styles.xIcon}
-                              onPress={() => deactivateSkill(skill.id)}
-                            />
-                          ) : null}
+              <TouchableOpacity
+                onPress={() => {
+                  navigateToSkillForm(false);
+                }}
+              >
+                <View style={{ flexDirection: "row" }}>
+                  <Text style={{ color: "blue" }}> Add Skills </Text>
+                  <Feather
+                    name="plus-circle"
+                    color="blue"
+                    style={styles.plusIcon}
+                  />
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.skillsContainer}>
+              {
+                /** Non manager skills */
+                teamSkills.filter((skill) => !skill.forManager && skill.active)
+                  .length ? (
+                  teamSkills
+                    .filter((skill) => !skill.forManager && skill.active)
+                    .map((skill) => (
+                      <View
+                        key={skill.id}
+                        style={{
+                          paddingTop: 10,
+                          paddingBottom: 10,
+                        }}
+                      >
+                        <View style={styles.skill}>
+                          <View style={styles.innerSkill}>
+                            <Text style={styles.skillName}>{skill.name}</Text>
+                            {userContext.isAdmin ? (
+                              <Feather
+                                name="x"
+                                color="black"
+                                style={styles.xIcon}
+                                onPress={() => deactivateSkill(skill.id)}
+                              />
+                            ) : null}
+                          </View>
                         </View>
                       </View>
-                    </View>
-                  ))
-              ) : (
-                <View
-                  style={{
-                    paddingTop: 10,
-                    paddingBottom: 10,
-                  }}
-                >
-                  <TouchableOpacity onPress={() => navigateToSkillForm(false)} style={styles.skill}>
-                    <View style={styles.innerSkill}>
-                      <Text style={styles.skillName}>Add Skills</Text>
-                      <Feather name="plus-circle" color="black" style={styles.plusIcon} />
-                    </View>
-                  </TouchableOpacity>
+                    ))
+                ) : (
+                  <View
+                    style={{
+                      paddingTop: 10,
+                      paddingBottom: 10,
+                    }}
+                  >
+                    <TouchableOpacity
+                      onPress={() => navigateToSkillForm(false)}
+                      style={styles.skill}
+                    >
+                      <View style={styles.innerSkill}>
+                        <Text style={styles.skillName}>Add Skills</Text>
+                        <Feather
+                          name="plus-circle"
+                          color="black"
+                          style={styles.plusIcon}
+                        />
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                )
+              }
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.headerTitles}>
+                {newMemberLoading
+                  ? "Loading.."
+                  : `Members (${teamMembers.length})`}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  addMember();
+                }}
+              >
+                <View style={{ flexDirection: "row" }}>
+                  <Text style={{ color: "blue" }}> Add Members </Text>
+                  <Feather
+                    name="plus-circle"
+                    color="blue"
+                    style={styles.plusIcon}
+                  />
                 </View>
-              )
-            }
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.headerTitles}>{ newMemberLoading ? "Loading.." : `Members (${teamMembers.length})` }</Text>
-            <TouchableOpacity
-              onPress={() => {
-                addMember();
+              </TouchableOpacity>
+            </View>
+            <View
+              style={{
+                marginLeft: 0,
+                width,
               }}
             >
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ color: 'blue' }}> Add Members </Text>
-                <Feather name="plus-circle" color="blue" style={styles.plusIcon} />
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              marginLeft: 0,
-              width,
-            }}
-          >
-            {teamMembers.length ? (
-              teamMembers.map(({ id: teamMemberLinkId, user }) => (
+              {teamMembers.length ? (
+                teamMembers.map(({ id: teamMemberLinkId, user }) => (
                   <View key={teamMemberLinkId} style={styles.card}>
                     <Image style={styles.image} source={blankImage} />
-                    
+
                     <View style={styles.innerCard}>
                       <View style={styles.userInfo}>
                         <Text style={styles.name}>{user?.name}</Text>
                         <Text style={styles.jobTitle}>{user?.email}</Text>
                       </View>
-                      {
-                        userContext.developerMode ?
+                      {userContext.developerMode ? (
                         <TouchableOpacity
-                        onPress={() => {
-                          deleteMember(user?.id, teamMemberLinkId);
-                        }}
-                        style={styles.trashIcon}
-                      >
-                        <Feather name="trash-2" color="red" style={styles.trashIcon} />
-                      </TouchableOpacity>:null
-                      }
+                          onPress={() => {
+                            deleteMember(user?.id, teamMemberLinkId);
+                          }}
+                          style={styles.trashIcon}
+                        >
+                          <Feather
+                            name="trash-2"
+                            color="red"
+                            style={styles.trashIcon}
+                          />
+                        </TouchableOpacity>
+                      ) : null}
                       <TouchableOpacity
                         onPress={() => {
                           Alert.alert(
-                            'Deactivating teammember',
-                            'Are you sure you want to?',
+                            "Deactivating teammember",
+                            "Are you sure you want to?",
                             [
                               {
-                                text: 'Cancel',
+                                text: "Cancel",
                                 onPress: () => {},
-                                style: 'cancel',
+                                style: "cancel",
                               },
-                              { text: 'OK', onPress: () => deactivateMember(teamMemberLinkId) },
+                              {
+                                text: "OK",
+                                onPress: () =>
+                                  deactivateMember(teamMemberLinkId),
+                              },
                             ],
                             { cancelable: true }
                           );
-                          
                         }}
                         style={styles.teamIcon}
                       >
-                        <Feather name="x-circle" color="red" style={styles.teamIcon} />
+                        <Feather
+                          name="x-circle"
+                          color="red"
+                          style={styles.teamIcon}
+                        />
                       </TouchableOpacity>
                       {userContext.isManager ? (
                         <NextButton
@@ -357,8 +436,12 @@ const screen = ({
                           textSize={14}
                           size={45}
                           onPress={() => {
-                            if (teamSkills.filter((skill) => !skill.forManager && skill.active).length > 0) {
-                              navigation.navigate('EvaluateSliders', {
+                            if (
+                              teamSkills.filter(
+                                (skill) => !skill.forManager && skill.active
+                              ).length > 0
+                            ) {
+                              navigation.navigate("EvaluateSliders", {
                                 evaluationRequest: {
                                   user,
                                   evaluator: {
@@ -369,7 +452,7 @@ const screen = ({
                                 manager: false, // starts evaluation of non managers
                               });
                             } else {
-                              Alert.alert('First add skills');
+                              Alert.alert("First add skills");
                             }
                           }}
                         />
@@ -377,16 +460,15 @@ const screen = ({
                     </View>
                   </View>
                 ))
-            ) : (
-              <Text>Start adding Team Members</Text>
-            )}
-            <View style={{ height: 50 }} />
+              ) : (
+                <Text>Start adding Team Members</Text>
+              )}
+              <View style={{ height: 50 }} />
+            </View>
           </View>
         </View>
-      </View>
-    </ScrollView>
-    <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
-
+      </ScrollView>
+      <Modal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </SafeAreaView>
   );
 };
